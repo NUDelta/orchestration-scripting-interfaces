@@ -2,12 +2,15 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Blockly from 'blockly';
 import Image from 'next/image'
-import {MainBody} from '../components/main.jsx';
-import {BlocklyWorkSpace} from '../components/blocklyworkspace.jsx'
+import {MainBody} from '../components/main';
 import dynamic from "next/dynamic";
 import { useState } from "react";
+import { Toolbox } from '../components/blocklytools';
 
-const BlocklySpace = dynamic(() => import("../components/BlocklyWorkSpace"), {
+
+
+// var workspace = Blockly.inject("blocklyDiv", {toolbox: Toolbox});
+const BlocklySpace = dynamic(() => import("../components/blocklyworkspace"), {
   ssr: false,
 });
 
@@ -18,7 +21,7 @@ const Home: NextPage = () => {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BlocklySpace />
+      <BlocklySpace/>
       <MainBody />
     </div>
   )
