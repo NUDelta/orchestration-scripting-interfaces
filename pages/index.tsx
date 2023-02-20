@@ -1,27 +1,17 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Blockly from 'blockly';
-import Image from 'next/image'
-import {MainBody} from '../components/main';
-import dynamic from "next/dynamic";
-import { useState } from "react";
-import { Toolbox } from '../components/blocklytools';
-
-
-
-// var workspace = Blockly.inject("blocklyDiv", {toolbox: Toolbox});
-const BlocklySpace = dynamic(() => import("../components/blocklyworkspace"), {
-  ssr: false,
-});
+import { MainBody } from '../components/main';
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex min-h-screen flex-col p-2">
       <Head>
-        <title>Create Next App</title>
+        <title>Orchestration Scripting Interface</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BlocklySpace/>
+      <div>
+      <h1 className="text-xl font-bold text-left">Create an Orchestration Script Below</h1>
+      </div>
       <MainBody />
     </div>
   )

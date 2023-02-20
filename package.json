@@ -10,6 +10,7 @@
     "blockly": "^9.2.1",
     "next": "latest",
     "react": "18.2.0",
+    "react-blockly": "^7.0.1",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
