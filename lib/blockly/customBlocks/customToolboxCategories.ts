@@ -5,6 +5,7 @@ import { objectsToolboxCategories } from './objectBlocks';
 import { resourcesToolboxCategories } from './resourceBlocks';
 import { timeToolboxCategories } from './timeBlocks';
 import { customToolboxCategories } from './customBlocks';
+import { venuesToolboxCategories } from './venuesBlocks';
 
 export const toolboxCategories = {
   kind: 'categoryToolbox',
@@ -46,5 +47,6 @@ export const toolboxCategories = {
     resourcesToolboxCategories,
     timeToolboxCategories,
     customToolboxCategories,
+    venuesToolboxCategories
   ],
 };

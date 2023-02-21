@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { BlocklyWorkspace } from 'react-blockly';
-
 import { toolboxCategories } from '../lib/blockly/customBlocks/customToolboxCategories';
 
 export default function BlockEditor() {
