@@ -1,6 +1,6 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import { MainBody } from '../components/MainBody';
+import type { NextPage } from "next";
+import Head from "next/head";
+import { MainBody } from "../components/MainBody";
 
 const Home: NextPage = () => {
   return (
@@ -10,11 +10,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-      <h1 className="text-xl font-bold text-left">Create an Orchestration Script Below</h1>
+        <h1 className="text-xl font-bold text-left">Create an Orchestration Script Below</h1>
       </div>
       <MainBody />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
