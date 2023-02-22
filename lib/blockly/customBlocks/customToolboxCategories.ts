@@ -47,6 +47,6 @@ export const toolboxCategories = {
     resourcesToolboxCategories,
     timeToolboxCategories,
     customToolboxCategories,
-    venuesToolboxCategories
+    venuesToolboxCategories,
   ],
 };

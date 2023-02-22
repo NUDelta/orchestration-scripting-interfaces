@@ -16,11 +16,10 @@ module.exports = {
       '5xl': '3.052rem',
     },
     extend: {
-        gridTemplateColumns:
-        {
-          '25/75': '25% 75%',
-        }
-      }
+      gridTemplateColumns: {
+        '25/75': '25% 75%',
+      },
+    },
   },
   plugins: [],
-}
+};
