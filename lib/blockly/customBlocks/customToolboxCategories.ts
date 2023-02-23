@@ -6,7 +6,7 @@ import { resourcesToolboxCategories } from './resourceBlocks';
 import { timeToolboxCategories } from './timeBlocks';
 import { customToolboxCategories } from './customBlocks';
 import { venuesToolboxCategories } from './venuesBlocks';
-import { OvercommittedToolboxCategories } from './overcomittedblocks'
+import { OvercommittedToolboxCategories } from './overcomittedblocks';
 
 export const toolboxCategories = {
   kind: 'categoryToolbox',
@@ -23,6 +23,10 @@ export const toolboxCategories = {
         {
           kind: 'block',
           type: 'logic_compare',
+        },
+        {
+          kind: 'block',
+          type: 'and',
         },
       ],
     },
