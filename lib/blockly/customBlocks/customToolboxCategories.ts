@@ -6,6 +6,7 @@ import { resourcesToolboxCategories } from './resourceBlocks';
 import { timeToolboxCategories } from './timeBlocks';
 import { customToolboxCategories } from './customBlocks';
 import { venuesToolboxCategories } from './venuesBlocks';
+import { OvercommittedToolboxCategories } from './overcomittedblocks'
 
 export const toolboxCategories = {
   kind: 'categoryToolbox',
@@ -48,5 +49,6 @@ export const toolboxCategories = {
     timeToolboxCategories,
     customToolboxCategories,
     venuesToolboxCategories,
+    OvercommittedToolboxCategories,
   ],
 };

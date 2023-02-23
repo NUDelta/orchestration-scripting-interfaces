@@ -7,7 +7,7 @@ export default function BlockEditor() {
   const [javascriptCode, setJavascriptCode] = useState('');
 
   const initialXml =
-    '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="text" x="70" y="30"><field name="TEXT"></field></block></xml>';
+    '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="ApplicableSet" x="40" y="30"><field name="TEXT"></field></block></xml>';
 
   function workspaceDidChange(workspace) {
     console.log(workspace);
