@@ -33,10 +33,16 @@ Blockly.Blocks['ApplicableSet'] = {
   },
 };
 
+javascriptGenerator['ApplicableSet'] = function (block) {
+  // TODO: SigMeeting should actually be the value from the selected dropdown
+  return "Applicable set";
+};
+
 // create a venue object block
 Blockly.Blocks['AllProjects'] = {
   init: function () {
-    this.appendDummyInput().appendField(
+    this.appendDummyInput().appendField('PROJ')
+    .appendField(
       new Blockly.FieldDropdown([
         ['All Projects', 'AllProject'],
         [
@@ -53,7 +59,7 @@ Blockly.Blocks['AllProjects'] = {
           'Orchestrating Planning and Reflection',
         ],
       ]),
-      'NAME'
+      'PROJNAME'
     );
     this.setInputsInline(true);
     this.setOutput(true, null);
@@ -62,6 +68,12 @@ Blockly.Blocks['AllProjects'] = {
     this.setHelpUrl('');
   },
 };
+javascriptGenerator['AllProjects'] = function (block) {
+  // TODO: return the project/projects from the selected dropdown
+  var operator = block.getFieldValue('PROJNAME')
+  return operator;
+};
+
 
 //currentlyIs
 Blockly.Blocks['currentlyIs'] = {
@@ -93,10 +105,10 @@ export const OvercommittedToolboxCategories = {
       kind: 'block',
       type: 'AllProjects',
     },
-    {
-      kind: 'block',
-      type: 'ApplicableSet',
-    },
+    // {
+    //   kind: 'block',
+    //   type: 'ApplicableSet',
+    // },
     {
       kind: 'block',
       type: 'currentlyIs',

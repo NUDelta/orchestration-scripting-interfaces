@@ -92,6 +92,6 @@ export const toolboxCategories = {
     timeToolboxCategories,
     // customToolboxCategories,
     venuesToolboxCategories,
-    // OvercommittedToolboxCategories,
+    OvercommittedToolboxCategories,
   ],
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BlocklyWorkspace } from 'react-blockly';
 import { toolboxCategories } from '../lib/blockly/customBlocks/customToolboxCategories';
+import {javascriptGenerator} from 'blockly/javascript';
 
 export default function BlockEditor() {
   const [xml, setXml] = useState('');
@@ -11,8 +12,9 @@ export default function BlockEditor() {
 
   function workspaceDidChange(workspace) {
     console.log(workspace);
-    // const code = Blockly.JavaScript.workspaceToCode(workspace);
-    // setJavascriptCode(code);
+    javascriptGenerator.addReservedWords('code');
+    var code = javascriptGenerator.workspaceToCode(workspace);
+    console.log(code);
   }
 
   return (

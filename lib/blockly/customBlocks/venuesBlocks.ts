@@ -23,10 +23,10 @@ Blockly.Blocks['venue'] = {
 };
 
 // create the code output from the venue object block
-// javascriptGenerator['venue'] = function (block) {
-//   // TODO: SigMeeting should actually be the value from the selected dropdown
-//   return "this.venues.find(this.where('kind', 'SigMeeting'))";
-// };
+javascriptGenerator['venue'] = function (block) {
+  // TODO: SigMeeting should actually be the value from the selected dropdown
+  return "this.venues.find(this.where('kind', 'SigMeeting'))";
+};
 
 export const venuesToolboxCategories = {
   kind: 'category',
