@@ -69,7 +69,7 @@ Blockly.Blocks['currentlyIs'] = {
     this.appendDummyInput().appendField('Currently is');
     this.appendValueInput('currentlyIs');
     this.setInputsInline(true);
-    this.setOutput(true, Boolean);
+    this.setOutput(true, null);
     this.setColour(110);
     this.setTooltip('check if the current time is in the specified time block');
     this.setHelpUrl('');

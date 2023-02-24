@@ -24,6 +24,7 @@ Blockly.Blocks['send'] = {
     this.appendValueInput('time').appendField(
       '         time block - when to send message'
     );
+    this.setPreviousStatement(true);
     this.setOutput(false);
     this.setColour(20);
     this.setTooltip('');
