@@ -431,6 +431,149 @@ javascriptGenerator['time_period'] = function (block) {
   return '...';
 };
 
+Blockly.Blocks['midweek'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Middle of Week');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#cc9900');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['Weekdays'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('Weekdays')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['Monday', 'Monday'],
+          ['Tuesday', 'Tuesday'],
+          ['Wednesday', 'Wednesday'],
+          ['Thursday', 'Thursday'],
+          ['Friday', 'Friday'],
+        ]),
+        'NAME'
+      );
+    this.setOutput(true, null);
+    this.setColour('#cc9900');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['at'] = {
+  init: function () {
+    this.appendValueInput('At')
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField('At');
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour('#cc9900');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['before'] = {
+  init: function () {
+    this.appendValueInput('Before')
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField('Before');
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour('#cc9900');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['after'] = {
+  init: function () {
+    this.appendValueInput('After')
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField('After');
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour('#cc9900');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['amount_time_modifier'] = {
+  init: function () {
+    this.appendValueInput('amount_time_modifier')
+      .setCheck(null)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['0', '0'],
+          ['1', '1'],
+          ['2', '2'],
+          ['3', '3'],
+          ['4', '4'],
+          ['5', '5'],
+          ['6', '6'],
+        ]),
+        'days'
+      )
+      .appendField('days')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['0', '0'],
+          ['1', '1'],
+          ['2', '2'],
+          ['3', '3'],
+          ['6', '6'],
+          ['12', '12'],
+        ]),
+        'hours'
+      )
+      .appendField('hours')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['0', '0'],
+          ['5', '5'],
+          ['15', '15'],
+          ['30', '30'],
+          ['45', '45'],
+        ]),
+        'minutes'
+      )
+      .appendField('minutes')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['At', 'At'],
+          ['Before', 'Before'],
+          ['After', 'After'],
+        ]),
+        'relation'
+      );
+    this.setOutput(true, null);
+    this.setColour('#cc9900');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+//currentlyIs
+Blockly.Blocks['currentlyIs'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Currently is');
+    this.appendValueInput('currentlyIs');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(110);
+    this.setTooltip('check if the current time is in the specified time block');
+    this.setHelpUrl('');
+  },
+};
+
 export const timeToolboxCategories = {
   kind: 'category',
   name: 'Time',
@@ -438,10 +581,14 @@ export const timeToolboxCategories = {
   contents: [
     { kind: 'block', type: 'time' },
     { kind: 'block', type: 'modifier' },
+    { kind: 'block', type: 'midweek' },
+    { kind: 'block', type: 'currentlyIs' },
+    { kind: 'block', type: 'Weekdays' },
     { kind: 'block', type: 'after' },
     { kind: 'block', type: 'before' },
     { kind: 'block', type: 'during' },
     { kind: 'block', type: 'at' },
+    { kind: 'block', type: 'amount_time_modifier' },
     { kind: 'block', type: 'first_sig' },
     { kind: 'block', type: 'second_sig' },
     { kind: 'block', type: 'sprint' },

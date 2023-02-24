@@ -76,47 +76,6 @@ Blockly.Blocks['currentlyIs'] = {
   },
 };
 
-//endOfSprint -- this is equivalent to saying sprint.endDay, sprint.startDay
-Blockly.Blocks['sprintTime'] = {
-  init: function () {
-    this.appendDummyInput().appendField(
-      new Blockly.FieldDropdown([
-        ['Start of Sprint', 'startOfSprint'],
-        ['End of Sprint', 'endOfSprint'],
-        ['Middle of Sprint', 'midSprint'], //unsure about the wording of this one
-      ]),
-      'NAME'
-    );
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(110);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-//Sprint log -- this is to enable the user to pull data from the sprint log (e.g. total points spent, total points available)
-// This is equivalent to saying tools.planningTool.totalPoints.spent, tools.planningTool.totalPoints.available
-Blockly.Blocks['sprintLog'] = {
-  init: function () {
-    this.appendDummyInput()
-      .appendField('Check sprint log for')
-      .appendField(
-        new Blockly.FieldDropdown([
-          ['Total Points Available in the sprint', 'pointsAvailable'],
-          ['Total Points spent in the sprint', 'pointsSpent'],
-          ['Total Points spent on Design in the sprint', 'pointsSpentDesign'], //put this one for now to see what it's like to have more options
-        ]),
-        'NAME'
-      );
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(110);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
 //multiply [Backlog for now]
 
 // // create the code output from the venue object block

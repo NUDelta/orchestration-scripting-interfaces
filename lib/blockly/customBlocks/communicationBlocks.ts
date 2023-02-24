@@ -115,6 +115,80 @@ Blockly.Blocks['email'] = {
 //   return '...';
 // };
 
+Blockly.Blocks['slacked_someone'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Have you slacked ');
+    this.appendDummyInput().appendField(
+      new Blockly.FieldTextInput('type name'),
+      'NAME'
+    );
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#68A65C');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['slacked_deliverables'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Have you slacked deliverables to ');
+    this.appendDummyInput().appendField(
+      new Blockly.FieldTextInput('type channel OR thread name'),
+      'NAME'
+    );
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#68A65C');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['high_deliverables'] = {
+  init: function () {
+    this.appendDummyInput().appendField(
+      'No deliverables attached in slack thread'
+    );
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks['student response to slack bot'] = {
+  init: function () {
+    this.appendDummyInput().appendField('student response to slack bot');
+    this.appendValueInput('message')
+      .setCheck('String')
+      .appendField('(input: slack bot name)');
+    this.appendDummyInput('(output: string)').appendField('(output: string)');
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.Blocks[
+  'detection triggered - mentor wants response triggered (true or false)'
+] = {
+  init: function () {
+    this.appendDummyInput().appendField(
+      'detection triggered - mentor wants response triggered (true or false'
+    );
+    this.appendDummyInput('(output: boolean)').appendField('(output: boolean)');
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
 export const communicationToolboxCategories = {
   kind: 'category',
   name: 'Communication',
@@ -123,6 +197,14 @@ export const communicationToolboxCategories = {
     {
       kind: 'block',
       type: 'send',
+    },
+    {
+      kind: 'block',
+      type: 'slacked_someone',
+    },
+    {
+      kind: 'block',
+      type: 'slacked_deliverables',
     },
     {
       kind: 'block',
@@ -143,6 +225,18 @@ export const communicationToolboxCategories = {
     {
       kind: 'block',
       type: 'slack_medium',
+    },
+    {
+      kind: 'block',
+      type: 'high_deliverables',
+    },
+    {
+      kind: 'block',
+      type: 'student response to slack bot',
+    },
+    {
+      kind: 'block',
+      type: 'detection triggered - mentor wants response triggered (true or false)',
     },
   ],
 };

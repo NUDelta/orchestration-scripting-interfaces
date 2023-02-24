@@ -1,12 +1,12 @@
 import { communicationToolboxCategories } from './communicationBlocks';
-import { functionsToolboxCategories } from './functionBlocks';
-import { highLevelToolboxCategories } from './highLevelBlocks';
-import { objectsToolboxCategories } from './objectBlocks';
-import { resourcesToolboxCategories } from './resourceBlocks';
 import { timeToolboxCategories } from './timeBlocks';
-import { customToolboxCategories } from './customBlocks';
 import { venuesToolboxCategories } from './venuesBlocks';
 import { OvercommittedToolboxCategories } from './overcomittedblocks';
+import { sprintToolboxCategories } from './sprintBlocks';
+import { githubToolboxCategories } from './githubBlocks';
+import { otherToolsToolboxCategories } from './otherToolsBlocks';
+import { mathToolboxCategories } from './mathBlocks';
+import { canvasesToolboxCategories } from './canvasesBlocks';
 
 export const toolboxCategories = {
   kind: 'categoryToolbox',
@@ -24,35 +24,51 @@ export const toolboxCategories = {
           kind: 'block',
           type: 'logic_compare',
         },
+      ],
+    },
+    mathToolboxCategories,
+    {
+      // need to find a better way  to have input text blocks
+      kind: 'category',
+      name: 'Text',
+      colour: '#68DEC2',
+      contents: [
         {
           kind: 'block',
-          type: 'and',
+          type: 'text',
         },
       ],
     },
     {
       kind: 'category',
-      name: 'Math',
-      colour: '#5CA65C',
-      contents: [
-        {
-          kind: 'block',
-          type: 'math_round',
-        },
-        {
-          kind: 'block',
-          type: 'math_number',
-        },
-      ],
+      name: '',
+      colour: 'white',
+      contents: [],
     },
-    functionsToolboxCategories,
+    // functionsToolboxCategories,
     communicationToolboxCategories,
-    highLevelToolboxCategories,
-    objectsToolboxCategories,
-    resourcesToolboxCategories,
+    {
+      kind: 'category',
+      name: '',
+      colour: 'white',
+      contents: [],
+    },
+    sprintToolboxCategories,
+    canvasesToolboxCategories,
+    githubToolboxCategories,
+    otherToolsToolboxCategories,
+    {
+      kind: 'category',
+      name: '',
+      colour: 'white',
+      contents: [],
+    },
+    // highLevelToolboxCategories, // has github / slack blocks
+    // objectsToolboxCategories, // has github / slack blocks
+    // resourcesToolboxCategories,
     timeToolboxCategories,
-    customToolboxCategories,
+    // customToolboxCategories,
     venuesToolboxCategories,
-    OvercommittedToolboxCategories,
+    // OvercommittedToolboxCategories,
   ],
 };

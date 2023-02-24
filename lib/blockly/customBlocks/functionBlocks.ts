@@ -296,20 +296,20 @@ javascriptGenerator['distinct'] = function (block) {
   return '...';
 };
 
-Blockly.Blocks['filled'] = {
-  init: function () {
-    this.appendDummyInput().appendField('filled');
-    this.appendValueInput('NAME')
-      .setCheck(null)
-      .appendField('(input: resource)');
-    this.appendDummyInput('output: boolean').appendField('(output: boolean)');
-    this.setInputsInline(false);
-    this.setOutput(true, null);
-    this.setColour(120);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
+// Blockly.Blocks['filled'] = {
+//   init: function () {
+//     this.appendDummyInput().appendField('Is this filled?');
+//     this.appendValueInput('NAME')
+//       .setCheck(null)
+//       .appendField('(input: resource)');
+//     this.appendDummyInput('output: boolean').appendField('(output: boolean)');
+//     this.setInputsInline(false);
+//     this.setOutput(true, null);
+//     this.setColour(120);
+//     this.setTooltip('');
+//     this.setHelpUrl('');
+//   },
+// };
 
 javascriptGenerator['filled'] = function (block) {
   return '...';
@@ -359,10 +359,10 @@ export const functionsToolboxCategories = {
       kind: 'block',
       type: 'distinct',
     },
-    {
-      kind: 'block',
-      type: 'filled',
-    },
+    // {
+    //   kind: 'block',
+    //   type: 'filled',
+    // },
     {
       kind: 'block',
       type: 'was_read',
