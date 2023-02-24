@@ -1,6 +1,27 @@
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
+// create a fixed block
+Blockly.Blocks['ApplicableSet'] = {
+  init: function () {
+    //description
+    this.appendDummyInput().appendField('I want this script to apply to:');
+    //indents
+    this.appendValueInput('allprojects');
+    //fixed
+    this.setMovable(false);
+    //indent and description on same line?
+    this.setInputsInline(false);
+    //is the block an input to another block
+    this.setOutput(false, null);
+    this.setColour(110);
+    this.setTooltip('Specify the applicable set for this script');
+    this.setHelpUrl('');
+
+    //TODO: disable delete for this block
+  },
+};
+
 Blockly.Blocks['concept_variable'] = {
   init: function () {
     this.appendDummyInput().appendField('Concept Variable');
@@ -243,6 +264,36 @@ Blockly.Blocks['soap_notes'] = {
   },
 };
 
+// create a venue object block
+Blockly.Blocks['AllProjects'] = {
+  init: function () {
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ['All Projects', 'AllProject'],
+        [
+          'Orchestration Scripting Environments',
+          'Orchestration Scripting Environments',
+        ],
+        ['Knowledge Map', 'Knowledge Map'],
+        ['Collective Narrative', 'Collective Narrative'],
+        ['Q&A Buddy', 'Q&A Buddy'],
+        ['Path', 'Path'],
+        ['CE for Relationship Development', 'CE for Relationship Development'],
+        [
+          'Orchestrating Planning and Reflection',
+          'Orchestrating Planning and Reflection',
+        ],
+      ]),
+      'NAME'
+    );
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(110);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
 export const otherToolsToolboxCategories = {
   kind: 'category',
   name: 'Other Tools',
@@ -287,6 +338,10 @@ export const otherToolsToolboxCategories = {
     {
       kind: 'block',
       type: 'soap_notes',
+    },
+    {
+      kind: 'block',
+      type: 'AllProjects',
     },
   ],
 };

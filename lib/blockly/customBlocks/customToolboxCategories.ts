@@ -7,6 +7,25 @@ import { githubToolboxCategories } from './githubBlocks';
 import { otherToolsToolboxCategories } from './otherToolsBlocks';
 import { mathToolboxCategories } from './mathBlocks';
 import { canvasesToolboxCategories } from './canvasesBlocks';
+import Blockly from 'blockly';
+
+Blockly.Blocks['and'] = {
+  init: function () {
+    this.appendValueInput('left');
+    this.appendDummyInput().appendField('AND');
+    this.appendValueInput('right');
+    //.appendField("(output: boolean)");
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(210);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+// javascriptGenerator['and'] = function (block) {
+//   return '';
+// };
 
 export const toolboxCategories = {
   kind: 'categoryToolbox',
@@ -23,6 +42,10 @@ export const toolboxCategories = {
         {
           kind: 'block',
           type: 'logic_compare',
+        },
+        {
+          kind: 'block',
+          type: 'and',
         },
       ],
     },
