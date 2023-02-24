@@ -26,37 +26,37 @@ Blockly.Blocks['sprint_log3'] = {
       .appendField('Sprint Log')
       .appendField(
         new Blockly.FieldDropdown([
-          ['working on tech', 'working on tech'],
-          ['working on user testing', 'working on user testing'],
-          ['working on argumentation', 'working on argumentation'],
+          // ['working on tech', 'working on tech'],
+          // ['working on user testing', 'working on user testing'],
+          // ['working on argumentation', 'working on argumentation'],
           ['0 points planned', '0 points planned'],
-          ['1/4 points planned', '1/4 points planned'],
+          // ['1/4 points planned', '1/4 points planned'],
           ['1/2 points planned', '1/2 points planned'],
-          ['3/4 points planned', '3/4 points planned'],
+          // ['3/4 points planned', '3/4 points planned'],
           ['all points planned', 'all points planned'],
           ['total points planned', 'total points planned'],
           ['points planned design', 'points planned design'],
           ['points planned tech', 'points planned tech'],
           ['points planned research', 'points planned research'],
-          ['1/4 through points spent', '1/4 through points spent'],
-          ['halfway through points spent', 'halfway through points spent'],
-          ['3/4 through points spent', '3/4 through points spent'],
+          // ['1/4 through points spent', '1/4 through points spent'],
+          // ['halfway through points spent', 'halfway through points spent'],
+          // ['3/4 through points spent', '3/4 through points spent'],
           ['total points spent', 'total points spent'],
           ['hours spent on tech', 'hours spent on tech'],
           ['hours spent on design', 'hours spent on design'],
           ['hours spent on research', 'hours spent on research'],
           ['hours spent on argumentation', 'hours spent on argumentation'],
-          ['over points on a story', 'over points on a story'],
-          ['at least one task is complete', 'at least one task is complete'],
-          [
-            'at least one story is incomplete',
-            'at least one story is incomplete',
-          ],
-          ['at least one story is complete', 'at least one story is complete'],
-          ['all stories completed', 'all stories completed'],
-          ['has not finished any tasks', 'has not finished any tasks'],
-          ['number of tasks', 'number of tasks'],
-          ['number of stories', 'number of stories'],
+          // ['over points on a story', 'over points on a story'],
+          // ['at least one task is complete', 'at least one task is complete'],
+          // [
+          //   'at least one story is incomplete',
+          //   'at least one story is incomplete',
+          // // ],
+          // ['at least one story is complete', 'at least one story is complete'],
+          // ['all stories completed', 'all stories completed'],
+          // ['has not finished any tasks', 'has not finished any tasks'],
+          // ['number of tasks', 'number of tasks'],
+          // ['number of stories', 'number of stories'],
         ]),
         'NAME'
       );
@@ -68,99 +68,19 @@ Blockly.Blocks['sprint_log3'] = {
   },
 };
 
-Blockly.Blocks['high_by_beginning_of_sprint'] = {
+Blockly.Blocks['Weekdays'] = {
   init: function () {
-    this.appendDummyInput().appendField('Beginning of Sprint');
-    this.setOutput(true, null);
-    this.setColour('#cc9900');
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['high_by_end_of_sprint'] = {
-  init: function () {
-    this.appendDummyInput().appendField('End of Sprint');
-    this.setOutput(true, null);
-    this.setColour('#cc9900');
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['high_halfway_through_sprint'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Middle of Sprint');
-    this.setOutput(true, null);
-    this.setColour('#cc9900');
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['sunday'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Sunday');
-    this.setOutput(true, null);
-    this.setColour('#cc9900');
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['monday'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Monday');
-    this.setOutput(true, null);
-    this.setColour('#cc9900');
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['tuesday'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Tuesday');
-    this.setOutput(true, null);
-    this.setColour('#cc9900');
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['wednesday'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Wednesday');
-    this.setOutput(true, null);
-    this.setColour('#cc9900');
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['thursday'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Thursday');
-    this.setOutput(true, null);
-    this.setColour('#cc9900');
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['friday'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Friday');
-    this.setOutput(true, null);
-    this.setColour('#cc9900');
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.Blocks['saturday'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Saturday');
+    this.appendDummyInput().appendField('Weekdays')
+    .appendField(
+      new Blockly.FieldDropdown([
+        ['Monday', 'Monday'],
+        ['Tuesday', 'Tuesday'],
+        ['Wednesday', 'Wednesday'],
+        ['Thursday', 'Thursday'],
+        ['Friday', 'Friday'],
+      ]),
+      'NAME'
+    );
     this.setOutput(true, null);
     this.setColour('#cc9900');
     this.setTooltip('');
@@ -218,16 +138,17 @@ Blockly.Blocks['high_canvas_update2'] = {
   },
 };
 
-Blockly.Blocks['high_learn_nothing'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Student does not learn anything new');
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(290);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
+//TOO SUBJECTIVE
+// Blockly.Blocks['high_learn_nothing'] = {
+//   init: function () {
+//     this.appendDummyInput().appendField('Student does not learn anything new');
+//     this.setInputsInline(true);
+//     this.setOutput(true, null);
+//     this.setColour(290);
+//     this.setTooltip('');
+//     this.setHelpUrl('');
+//   },
+// };
 
 Blockly.Blocks['high_new_argument'] = {
   init: function () {
@@ -649,51 +570,39 @@ export const highLevelToolboxCategories = {
   contents: [
     {
       kind: 'block',
+      type: 'github_subcategory',
+    },
+    {
+      kind: 'block',
       type: 'github3',
+    },
+    {
+      kind: 'block',
+      type: 'sprint_log_subcategory',
     },
     {
       kind: 'block',
       type: 'sprint_log3',
     },
+    // {
+    //   kind: 'block',
+    //   type: 'high_by_beginning_of_sprint',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'high_by_end_of_sprint',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'high_halfway_through_sprint',
+    // },
     {
       kind: 'block',
-      type: 'high_by_beginning_of_sprint',
+      type: 'time_subcategory',
     },
     {
       kind: 'block',
-      type: 'high_by_end_of_sprint',
-    },
-    {
-      kind: 'block',
-      type: 'high_halfway_through_sprint',
-    },
-    {
-      kind: 'block',
-      type: 'sunday',
-    },
-    {
-      kind: 'block',
-      type: 'monday',
-    },
-    {
-      kind: 'block',
-      type: 'tuesday',
-    },
-    {
-      kind: 'block',
-      type: 'wednesday',
-    },
-    {
-      kind: 'block',
-      type: 'thursday',
-    },
-    {
-      kind: 'block',
-      type: 'friday',
-    },
-    {
-      kind: 'block',
-      type: 'saturday',
+      type: 'Weekdays',
     },
     {
       kind: 'block',
@@ -710,10 +619,6 @@ export const highLevelToolboxCategories = {
     {
       kind: 'block',
       type: 'high_canvas_update2',
-    },
-    {
-      kind: 'block',
-      type: 'high_learn_nothing',
     },
     {
       kind: 'block',
@@ -769,19 +674,7 @@ export const highLevelToolboxCategories = {
     },
     {
       kind: 'block',
-      type: 'time_subcategory',
-    },
-    {
-      kind: 'block',
       type: 'time_modifier_subcategory',
-    },
-    {
-      kind: 'block',
-      type: 'github_subcategory',
-    },
-    {
-      kind: 'block',
-      type: 'sprint_log_subcategory',
     },
     {
       kind: 'block',
