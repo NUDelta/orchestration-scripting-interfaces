@@ -47,7 +47,7 @@ Blockly.Blocks['execute_all'] = {
   },
 };
 
-javascriptGenerator['execute_all'] = function (block) {
+javascriptGenerator['execute_all'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -198,7 +198,7 @@ Blockly.Blocks['then'] = {
   },
 };
 
-javascriptGenerator['if'] = function (block) {
+javascriptGenerator['if'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -213,7 +213,7 @@ Blockly.Blocks['not'] = {
   },
 };
 
-javascriptGenerator['not'] = function (block) {
+javascriptGenerator['not'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -231,7 +231,7 @@ Blockly.Blocks['new_boundary_function'] = {
   },
 };
 
-javascriptGenerator['new_boundary_function'] = function (block) {
+javascriptGenerator['new_boundary_function'] = function (block: Blockly.Block) {
   var text_name = block.getFieldValue('Name');
   var statements_content = javascriptGenerator.statementToCode(
     block,
@@ -254,7 +254,7 @@ Blockly.Blocks['return'] = {
   },
 };
 
-javascriptGenerator['return'] = function (block) {
+javascriptGenerator['return'] = function (block: Blockly.Block) {
   var value_name = javascriptGenerator.valueToCode(
     block,
     'NAME',
@@ -276,7 +276,7 @@ Blockly.Blocks['set'] = {
   },
 };
 
-javascriptGenerator['set'] = function (block) {
+javascriptGenerator['set'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -292,7 +292,7 @@ Blockly.Blocks['concept_variable'] = {
   },
 };
 
-javascriptGenerator['concept_variable'] = function (block) {
+javascriptGenerator['concept_variable'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -310,7 +310,7 @@ Blockly.Blocks['and'] = {
   },
 };
 
-javascriptGenerator['and'] = function (block) {
+javascriptGenerator['and'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -328,7 +328,7 @@ Blockly.Blocks['or'] = {
   },
 };
 
-javascriptGenerator['or'] = function (block) {
+javascriptGenerator['or'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -345,7 +345,7 @@ Blockly.Blocks['addition'] = {
   },
 };
 
-javascriptGenerator['addition'] = function (block) {
+javascriptGenerator['addition'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -363,7 +363,7 @@ Blockly.Blocks['subtraction'] = {
   },
 };
 
-javascriptGenerator['subtraction'] = function (block) {
+javascriptGenerator['subtraction'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -380,7 +380,7 @@ Blockly.Blocks['greater_than'] = {
   },
 };
 
-javascriptGenerator['greater_than'] = function (block) {
+javascriptGenerator['greater_than'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -397,7 +397,7 @@ Blockly.Blocks['less_than'] = {
   },
 };
 
-javascriptGenerator['less_than'] = function (block) {
+javascriptGenerator['less_than'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -412,7 +412,7 @@ Blockly.Blocks['abs'] = {
   },
 };
 
-javascriptGenerator['abs'] = function (block) {
+javascriptGenerator['abs'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -427,7 +427,7 @@ Blockly.Blocks['negative'] = {
   },
 };
 
-javascriptGenerator['negative'] = function (block) {
+javascriptGenerator['negative'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -466,7 +466,7 @@ Blockly.Blocks['individual'] = {
   },
 };
 
-javascriptGenerator['individual'] = function (block) {
+javascriptGenerator['individual'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -490,7 +490,7 @@ Blockly.Blocks['project_group'] = {
   },
 };
 
-javascriptGenerator['project_group'] = function (block) {
+javascriptGenerator['project_group'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -516,7 +516,7 @@ Blockly.Blocks['situation'] = {
   },
 };
 
-javascriptGenerator['situation'] = function (block) {
+javascriptGenerator['situation'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -541,7 +541,7 @@ Blockly.Blocks['situation_instance'] = {
   },
 };
 
-javascriptGenerator['situation_instance'] = function (block) {
+javascriptGenerator['situation_instance'] = function (block: Blockly.Block) {
   return null;
 };
 

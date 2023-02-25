@@ -32,7 +32,7 @@ Blockly.Blocks['send'] = {
   },
 };
 
-javascriptGenerator['send'] = function (block) {
+javascriptGenerator['send'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -49,7 +49,7 @@ Blockly.Blocks['person'] = {
   },
 };
 
-javascriptGenerator['person'] = function (block) {
+javascriptGenerator['person'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -66,7 +66,7 @@ Blockly.Blocks['email_address'] = {
   },
 };
 
-javascriptGenerator['email_address'] = function (block) {
+javascriptGenerator['email_address'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -83,7 +83,7 @@ Blockly.Blocks['slack_channel'] = {
   },
 };
 
-javascriptGenerator['slack_channel'] = function (block) {
+javascriptGenerator['slack_channel'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -97,7 +97,7 @@ Blockly.Blocks['slack_medium'] = {
   },
 };
 
-javascriptGenerator['slack_medium'] = function (block) {
+javascriptGenerator['slack_medium'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -111,7 +111,7 @@ Blockly.Blocks['email'] = {
   },
 };
 
-javascriptGenerator['email'] = function (block) {
+javascriptGenerator['email'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -130,6 +130,10 @@ Blockly.Blocks['slacked_someone'] = {
   },
 };
 
+javascriptGenerator['slacked_someone'] = function (block: Blockly.Block) {
+  return null;
+};
+
 Blockly.Blocks['slacked_deliverables'] = {
   init: function () {
     this.appendDummyInput().appendField('Have you slacked deliverables to ');
@@ -145,6 +149,10 @@ Blockly.Blocks['slacked_deliverables'] = {
   },
 };
 
+javascriptGenerator['slacked_deliverables'] = function (block: Blockly.Block) {
+  return null;
+};
+
 Blockly.Blocks['high_deliverables'] = {
   init: function () {
     this.appendDummyInput().appendField(
@@ -156,6 +164,10 @@ Blockly.Blocks['high_deliverables'] = {
     this.setTooltip('');
     this.setHelpUrl('');
   },
+};
+
+javascriptGenerator['high_deliverables'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['student response to slack bot'] = {
@@ -173,6 +185,12 @@ Blockly.Blocks['student response to slack bot'] = {
   },
 };
 
+javascriptGenerator['student response to slack bot'] = function (
+  block: Blockly.Block
+) {
+  return null;
+};
+
 Blockly.Blocks[
   'detection triggered - mentor wants response triggered (true or false)'
 ] = {
@@ -187,6 +205,12 @@ Blockly.Blocks[
     this.setTooltip('');
     this.setHelpUrl('');
   },
+};
+
+javascriptGenerator[
+  'detection triggered - mentor wants response triggered (true or false)'
+] = function (block: Blockly.Block) {
+  return null;
 };
 
 export const communicationToolboxCategories = {

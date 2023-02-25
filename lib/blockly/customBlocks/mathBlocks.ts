@@ -15,8 +15,8 @@ Blockly.Blocks['or'] = {
   },
 };
 
-javascriptGenerator['or'] = function (block) {
-  return '';
+javascriptGenerator['or'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['addition'] = {
@@ -32,8 +32,8 @@ Blockly.Blocks['addition'] = {
   },
 };
 
-javascriptGenerator['addition'] = function (block) {
-  return '';
+javascriptGenerator['addition'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['subtraction'] = {
@@ -50,8 +50,8 @@ Blockly.Blocks['subtraction'] = {
   },
 };
 
-javascriptGenerator['subtraction'] = function (block) {
-  return '';
+javascriptGenerator['subtraction'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['greater_than'] = {
@@ -67,8 +67,8 @@ Blockly.Blocks['greater_than'] = {
   },
 };
 
-javascriptGenerator['greater_than'] = function (block) {
-  return '';
+javascriptGenerator['greater_than'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['less_than'] = {
@@ -84,8 +84,8 @@ Blockly.Blocks['less_than'] = {
   },
 };
 
-javascriptGenerator['less_than'] = function (block) {
-  return '';
+javascriptGenerator['less_than'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['abs'] = {
@@ -99,8 +99,8 @@ Blockly.Blocks['abs'] = {
   },
 };
 
-javascriptGenerator['abs'] = function (block) {
-  return '...';
+javascriptGenerator['abs'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['negative'] = {
@@ -114,8 +114,8 @@ Blockly.Blocks['negative'] = {
   },
 };
 
-javascriptGenerator['negative'] = function (block) {
-  return '...';
+javascriptGenerator['negative'] = function (block: Blockly.Block) {
+  return null;
 };
 
 export const mathToolboxCategories = {

@@ -77,7 +77,7 @@ Blockly.Blocks['time'] = {
   },
 };
 
-javascriptGenerator['time'] = function (block) {
+javascriptGenerator['time'] = function (block: Blockly.Block) {
   return 'time_in_python';
 };
 
@@ -137,8 +137,8 @@ Blockly.Blocks['modifier'] = {
   },
 };
 
-javascriptGenerator['modifier'] = function (block) {
-  return '...';
+javascriptGenerator['modifier'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['after'] = {
@@ -151,8 +151,8 @@ Blockly.Blocks['after'] = {
   },
 };
 
-javascriptGenerator['after'] = function (block) {
-  return '...';
+javascriptGenerator['after'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['before'] = {
@@ -165,8 +165,8 @@ Blockly.Blocks['before'] = {
   },
 };
 
-javascriptGenerator['before'] = function (block) {
-  return '...';
+javascriptGenerator['before'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['during'] = {
@@ -179,8 +179,8 @@ Blockly.Blocks['during'] = {
   },
 };
 
-javascriptGenerator['during'] = function (block) {
-  return '...';
+javascriptGenerator['during'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['at'] = {
@@ -193,8 +193,8 @@ Blockly.Blocks['at'] = {
   },
 };
 
-javascriptGenerator['at'] = function (block) {
-  return '...';
+javascriptGenerator['at'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['first_sig'] = {
@@ -207,8 +207,8 @@ Blockly.Blocks['first_sig'] = {
   },
 };
 
-javascriptGenerator['first_sig'] = function (block) {
-  return '...';
+javascriptGenerator['first_sig'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['second_sig'] = {
@@ -221,8 +221,8 @@ Blockly.Blocks['second_sig'] = {
   },
 };
 
-javascriptGenerator['second_sig'] = function (block) {
-  return '...';
+javascriptGenerator['second_sig'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['sprint'] = {
@@ -244,8 +244,8 @@ Blockly.Blocks['sprint'] = {
   },
 };
 
-javascriptGenerator['sprint'] = function (block) {
-  return '...';
+javascriptGenerator['sprint'] = function (block: Blockly.Block) {
+  return null;
 };
 
 /*Blockly.Blocks['days_of_the_week'] = {
@@ -259,8 +259,8 @@ javascriptGenerator['sprint'] = function (block) {
   }
 };
 
-javascriptGenerator['days_of_the_week'] = function (block) {
-    return "...";
+javascriptGenerator['days_of_the_week'] = function (block: Blockly.Block) {
+    return null;
 };
 */
 Blockly.Blocks['mysore'] = {
@@ -273,8 +273,8 @@ Blockly.Blocks['mysore'] = {
   },
 };
 
-javascriptGenerator['mysore'] = function (block) {
-  return '...';
+javascriptGenerator['mysore'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['first_office_hour'] = {
@@ -287,8 +287,8 @@ Blockly.Blocks['first_office_hour'] = {
   },
 };
 
-javascriptGenerator['first_office_hour'] = function (block) {
-  return '...';
+javascriptGenerator['first_office_hour'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['second_office_hour'] = {
@@ -301,8 +301,8 @@ Blockly.Blocks['second_office_hour'] = {
   },
 };
 
-javascriptGenerator['second_office_hour'] = function (block) {
-  return '...';
+javascriptGenerator['second_office_hour'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['first_studio'] = {
@@ -315,8 +315,8 @@ Blockly.Blocks['first_studio'] = {
   },
 };
 
-javascriptGenerator['first_studio'] = function (block) {
-  return '...';
+javascriptGenerator['first_studio'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['second_studio'] = {
@@ -329,8 +329,8 @@ Blockly.Blocks['second_studio'] = {
   },
 };
 
-javascriptGenerator['second_studio'] = function (block) {
-  return '...';
+javascriptGenerator['second_studio'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['week'] = {
@@ -346,8 +346,8 @@ Blockly.Blocks['week'] = {
   },
 };
 
-javascriptGenerator['week'] = function (block) {
-  return '...';
+javascriptGenerator['week'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['time_elapsed'] = {
@@ -407,8 +407,8 @@ Blockly.Blocks['time_elapsed'] = {
   },
 };
 
-javascriptGenerator['time_elapsed'] = function (block) {
-  return '...';
+javascriptGenerator['time_elapsed'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['time_period'] = {
@@ -427,8 +427,8 @@ Blockly.Blocks['time_period'] = {
   },
 };
 
-javascriptGenerator['time_period'] = function (block) {
-  return '...';
+javascriptGenerator['time_period'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['midweek'] = {

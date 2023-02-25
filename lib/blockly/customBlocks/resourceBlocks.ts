@@ -478,52 +478,54 @@ Blockly.Blocks['soap_notes'] = {
   },
 };
 
-javascriptGenerator['soap_notes'] = function (block) {
-  return '...';
+javascriptGenerator['soap_notes'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['ipm'] = function (block) {
-  return '...';
+javascriptGenerator['ipm'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['sprintlog'] = function (block) {
-  return '...';
+javascriptGenerator['sprintlog'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['rrc'] = function (block) {
-  return '...';
+javascriptGenerator['rrc'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['prc'] = function (block) {
-  return '...';
+javascriptGenerator['prc'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['stash'] = function (block) {
-  return '...';
+javascriptGenerator['stash'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['pr_studio'] = function (block) {
-  return '...';
+javascriptGenerator['pr_studio'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['lip_signup'] = function (block) {
-  return '...';
+javascriptGenerator['lip_signup'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['dtr_meeting_log'] = function (block) {
-  return '...';
+javascriptGenerator['dtr_meeting_log'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['urg_guide'] = function (block) {
-  return '...';
+javascriptGenerator['urg_guide'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['previous_soap_notes'] = function (block) {
-  return '...';
+javascriptGenerator['previous_soap_notes'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['google calendar'] = function (block) {
-  return '...';
+javascriptGenerator['google calendar'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['student'] = function (block) {
-  return '...';
+javascriptGenerator['student'] = function (block: Blockly.Block) {
+  return null;
 };
-javascriptGenerator['student response to slack bot'] = function (block) {
-  return '...';
+javascriptGenerator['student response to slack bot'] = function (
+  block: Blockly.Block
+) {
+  return null;
 };
 javascriptGenerator[
   'detection triggered - mentor wants response triggered (true or false)'
-] = function (block) {
-  return '...';
+] = function (block: Blockly.Block) {
+  return null;
 };
 
 export const resourcesToolboxCategories = {

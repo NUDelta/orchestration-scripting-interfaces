@@ -24,7 +24,7 @@ Blockly.Blocks['and'] = {
   },
 };
 
-javascriptGenerator['and'] = function (block) {
+javascriptGenerator['and'] = function (block: Blockly.Block) {
   return null;
 };
 

@@ -79,10 +79,10 @@ export const MainBody = () => {
   return (
     <main className="h-screen w-screen relative">
       {/* Scaffolding prompts */}
-      <div className="grid grid-cols-25/75 w-full h-screen">
+      <div className="grid grid-cols-25/75">
         <div>
           {scaffoldingSteps.map(({ step, prompt, example }, index) => (
-            <div key={'scaffolding-step-' + index} className="p-5 border-4">
+            <div key={'scaffolding-step-' + index} className="p-5">
               <b className="font-sans text-xl leading-3">{step}</b>
               <div className="space-y-3">
                 <p className="font-sans text-base leading-4 whitespace-normal">

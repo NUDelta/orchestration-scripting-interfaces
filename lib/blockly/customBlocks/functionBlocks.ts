@@ -15,8 +15,8 @@ Blockly.Blocks['every'] = {
   },
 };
 
-javascriptGenerator['every'] = function (block) {
-  return '...';
+javascriptGenerator['every'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['contains'] = {
@@ -39,8 +39,8 @@ Blockly.Blocks['contains'] = {
   },
 };
 
-javascriptGenerator['contains'] = function (block) {
-  return '...';
+javascriptGenerator['contains'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['was_updated'] = {
@@ -60,8 +60,8 @@ Blockly.Blocks['was_updated'] = {
   },
 };
 
-javascriptGenerator['was_updated'] = function (block) {
-  return '...';
+javascriptGenerator['was_updated'] = function (block: Blockly.Block) {
+  return null;
 };
 
 /*
@@ -88,8 +88,8 @@ Blockly.Blocks['wasupdatedv1'] = {
 };
 
 
-javascriptGenerator['wasupdatedv1'] = function (block) {
-    return "...";
+javascriptGenerator['wasupdatedv1'] = function (block: Blockly.Block) {
+    return null;
 };
 */
 
@@ -107,8 +107,8 @@ Blockly.Blocks['At'] = {
   },
 };
 
-javascriptGenerator['At'] = function (block) {
-  return '...';
+javascriptGenerator['At'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['tf_slack_message'] = {
@@ -134,8 +134,8 @@ Blockly.Blocks['tf_slack_message'] = {
   },
 };
 
-javascriptGenerator['tf_slack_message'] = function (block) {
-  return '...';
+javascriptGenerator['tf_slack_message'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['slack_message'] = {
@@ -249,8 +249,8 @@ Blockly.Blocks['slack_message'] = {
   },
 };
 
-javascriptGenerator['slack_message'] = function (block) {
-  return '...';
+javascriptGenerator['slack_message'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['timestamp'] = {
@@ -274,8 +274,8 @@ Blockly.Blocks['timestamp'] = {
     this.setHelpUrl('');
   },
 };
-javascriptGenerator['timestamp'] = function (block) {
-  return '...';
+javascriptGenerator['timestamp'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['distinct'] = {
@@ -292,8 +292,8 @@ Blockly.Blocks['distinct'] = {
   },
 };
 
-javascriptGenerator['distinct'] = function (block) {
-  return '...';
+javascriptGenerator['distinct'] = function (block: Blockly.Block) {
+  return null;
 };
 
 // Blockly.Blocks['filled'] = {
@@ -311,8 +311,8 @@ javascriptGenerator['distinct'] = function (block) {
 //   },
 // };
 
-javascriptGenerator['filled'] = function (block) {
-  return '...';
+javascriptGenerator['filled'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['was_read'] = {
@@ -330,8 +330,8 @@ Blockly.Blocks['was_read'] = {
   },
 };
 
-javascriptGenerator['was_read'] = function (block) {
-  return '...';
+javascriptGenerator['was_read'] = function (block: Blockly.Block) {
+  return null;
 };
 
 export const functionsToolboxCategories = {

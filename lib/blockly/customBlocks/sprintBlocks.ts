@@ -49,6 +49,10 @@ Blockly.Blocks['sprint_log3'] = {
   },
 };
 
+javascriptGenerator['sprint_log3'] = function (block: Blockly.Block) {
+  return null;
+};
+
 /*Blockly.Blocks['before_first_sig_of_sprint'] = {
   init: function() {
     this.appendDummyInput()
@@ -77,6 +81,10 @@ Blockly.Blocks['before_next_sig'] = {
   },
 };
 
+javascriptGenerator['before_next_sig'] = function (block: Blockly.Block) {
+  return null;
+};
+
 /*Blockly.Blocks['before_first_studio_of_sprint'] = {
   init: function() {
     this.appendDummyInput()
@@ -98,6 +106,10 @@ Blockly.Blocks['before_next_studio'] = {
     this.setTooltip('');
     this.setHelpUrl('');
   },
+};
+
+javascriptGenerator['before_next_studio'] = function (block: Blockly.Block) {
+  return null;
 };
 
 /*Blockly.Blocks['before_first_oh_of_sprint'] = {
@@ -123,6 +135,10 @@ Blockly.Blocks['before_next_oh'] = {
   },
 };
 
+javascriptGenerator['before_next_oh'] = function (block: Blockly.Block) {
+  return null;
+};
+
 //endOfSprint -- this is equivalent to saying sprint.endDay, sprint.startDay
 Blockly.Blocks['sprintTime'] = {
   init: function () {
@@ -140,6 +156,10 @@ Blockly.Blocks['sprintTime'] = {
     this.setTooltip('');
     this.setHelpUrl('');
   },
+};
+
+javascriptGenerator['sprintTime'] = function (block: Blockly.Block) {
+  return null;
 };
 
 //Sprint log -- this is to enable the user to pull data from the sprint log (e.g. total points spent, total points available)
@@ -166,11 +186,10 @@ Blockly.Blocks['sprintLog'] = {
 };
 
 //TODO: change name
-javascriptGenerator['sprintLog'] = function (block) {
-  // TODO: 
+javascriptGenerator['sprintLog'] = function (block: Blockly.Block) {
+  // TODO:
   return null;
 };
-
 
 // Commented for now
 // Blockly.Blocks['sprintlog2'] = {
@@ -229,6 +248,12 @@ Blockly.Blocks['high_sprint_log_contains'] = {
   },
 };
 
+javascriptGenerator['high_sprint_log_contains'] = function (
+  block: Blockly.Block
+) {
+  return null;
+};
+
 Blockly.Blocks['high_sprint_updated'] = {
   init: function () {
     this.appendDummyInput().appendField('Sprint Log not updated');
@@ -240,6 +265,10 @@ Blockly.Blocks['high_sprint_updated'] = {
   },
 };
 
+javascriptGenerator['high_sprint_updated'] = function (block: Blockly.Block) {
+  return null;
+};
+
 Blockly.Blocks['high_sprint_updated2'] = {
   init: function () {
     this.appendDummyInput().appendField('Sprint Log updated');
@@ -249,6 +278,11 @@ Blockly.Blocks['high_sprint_updated2'] = {
     this.setTooltip('');
     this.setHelpUrl('');
   },
+};
+
+//TODO: change name
+javascriptGenerator['high_sprint_updated2'] = function (block: Blockly.Block) {
+  return null;
 };
 
 ///////////////////////////

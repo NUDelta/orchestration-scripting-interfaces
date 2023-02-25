@@ -16,6 +16,10 @@ Blockly.Blocks['end_of_quarter_goal'] = {
   },
 };
 
+javascriptGenerator['end_of_quarter_goal'] = function (block: Blockly.Block) {
+  return null;
+};
+
 Blockly.Blocks['high_canvas_update'] = {
   init: function () {
     this.appendDummyInput().appendField('Canvas not updated');
@@ -27,6 +31,10 @@ Blockly.Blocks['high_canvas_update'] = {
   },
 };
 
+javascriptGenerator['high_canvas_update'] = function (block: Blockly.Block) {
+  return null;
+};
+
 Blockly.Blocks['high_canvas_update2'] = {
   init: function () {
     this.appendDummyInput().appendField('Canvas updated');
@@ -36,6 +44,10 @@ Blockly.Blocks['high_canvas_update2'] = {
     this.setTooltip('');
     this.setHelpUrl('');
   },
+};
+
+javascriptGenerator['high_canvas_update2'] = function (block: Blockly.Block) {
+  return null;
 };
 
 //TOO SUBJECTIVE
@@ -74,6 +86,10 @@ Blockly.Blocks['high_new_argument'] = {
   },
 };
 
+javascriptGenerator['high_new_argument'] = function (block: Blockly.Block) {
+  return null;
+};
+
 Blockly.Blocks['high_new_argument_rrc'] = {
   init: function () {
     this.appendDummyInput().appendField('RRC: Has new');
@@ -102,6 +118,10 @@ Blockly.Blocks['high_new_argument_rrc'] = {
     this.setTooltip('');
     this.setHelpUrl('');
   },
+};
+
+javascriptGenerator['high_new_argument_rrc'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['rrc'] = {
@@ -166,6 +186,10 @@ Blockly.Blocks['rrc'] = {
     this.setTooltip('');
     this.setHelpUrl('');
   },
+};
+
+javascriptGenerator['rrc'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['prc'] = {
@@ -242,6 +266,10 @@ Blockly.Blocks['prc'] = {
     this.setTooltip('');
     this.setHelpUrl('');
   },
+};
+
+javascriptGenerator['prc'] = function (block: Blockly.Block) {
+  return null;
 };
 
 export const canvasesToolboxCategories = {

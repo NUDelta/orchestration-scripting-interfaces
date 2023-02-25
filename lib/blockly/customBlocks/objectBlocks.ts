@@ -20,8 +20,8 @@ Blockly.Blocks['github'] = {
   },
 };
 
-javascriptGenerator['github'] = function (block) {
-  return '...';
+javascriptGenerator['github'] = function (block: Blockly.Block) {
+  return null;
 };
 
 Blockly.Blocks['slack'] = {
@@ -72,8 +72,8 @@ Blockly.Blocks['high_mysore_signup'] = {
   },
 };
 
-javascriptGenerator['slack'] = function (block) {
-  return '...';
+javascriptGenerator['slack'] = function (block: Blockly.Block) {
+  return null;
 };
 
 export const objectsToolboxCategories = {

@@ -13,8 +13,8 @@ Blockly.Blocks['concept_variable'] = {
   },
 };
 
-// javascriptGenerator['concept_variable'] = function (block) {
-//   return '';
+// javascriptGenerator['concept_variable'] = function (block: Blockly.Block) {
+//   return null;
 // };
 Blockly.Blocks['ipm'] = {
   init: function () {
