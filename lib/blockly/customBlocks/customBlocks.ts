@@ -48,7 +48,7 @@ Blockly.Blocks['execute_all'] = {
 };
 
 javascriptGenerator['execute_all'] = function (block) {
-  return '...';
+  return null;
 };
 
 Blockly.Blocks['then'] = {
@@ -199,7 +199,7 @@ Blockly.Blocks['then'] = {
 };
 
 javascriptGenerator['if'] = function (block) {
-  return '...';
+  return null;
 };
 
 Blockly.Blocks['not'] = {
@@ -214,7 +214,7 @@ Blockly.Blocks['not'] = {
 };
 
 javascriptGenerator['not'] = function (block) {
-  return '...';
+  return null;
 };
 
 Blockly.Blocks['new_boundary_function'] = {
@@ -277,7 +277,7 @@ Blockly.Blocks['set'] = {
 };
 
 javascriptGenerator['set'] = function (block) {
-  return '';
+  return null;
 };
 
 Blockly.Blocks['concept_variable'] = {
@@ -293,7 +293,7 @@ Blockly.Blocks['concept_variable'] = {
 };
 
 javascriptGenerator['concept_variable'] = function (block) {
-  return '';
+  return null;
 };
 
 Blockly.Blocks['and'] = {
@@ -311,7 +311,7 @@ Blockly.Blocks['and'] = {
 };
 
 javascriptGenerator['and'] = function (block) {
-  return '';
+  return null;
 };
 
 Blockly.Blocks['or'] = {
@@ -329,7 +329,7 @@ Blockly.Blocks['or'] = {
 };
 
 javascriptGenerator['or'] = function (block) {
-  return '';
+  return null;
 };
 
 Blockly.Blocks['addition'] = {
@@ -346,7 +346,7 @@ Blockly.Blocks['addition'] = {
 };
 
 javascriptGenerator['addition'] = function (block) {
-  return '';
+  return null;
 };
 
 Blockly.Blocks['subtraction'] = {
@@ -364,7 +364,7 @@ Blockly.Blocks['subtraction'] = {
 };
 
 javascriptGenerator['subtraction'] = function (block) {
-  return '';
+  return null;
 };
 
 Blockly.Blocks['greater_than'] = {
@@ -381,7 +381,7 @@ Blockly.Blocks['greater_than'] = {
 };
 
 javascriptGenerator['greater_than'] = function (block) {
-  return '';
+  return null;
 };
 
 Blockly.Blocks['less_than'] = {
@@ -398,7 +398,7 @@ Blockly.Blocks['less_than'] = {
 };
 
 javascriptGenerator['less_than'] = function (block) {
-  return '';
+  return null;
 };
 
 Blockly.Blocks['abs'] = {
@@ -413,7 +413,7 @@ Blockly.Blocks['abs'] = {
 };
 
 javascriptGenerator['abs'] = function (block) {
-  return '...';
+  return null;
 };
 
 Blockly.Blocks['negative'] = {
@@ -428,7 +428,7 @@ Blockly.Blocks['negative'] = {
 };
 
 javascriptGenerator['negative'] = function (block) {
-  return '...';
+  return null;
 };
 
 Blockly.Blocks['individual'] = {
@@ -467,7 +467,7 @@ Blockly.Blocks['individual'] = {
 };
 
 javascriptGenerator['individual'] = function (block) {
-  return '';
+  return null;
 };
 
 Blockly.Blocks['project_group'] = {
@@ -491,7 +491,7 @@ Blockly.Blocks['project_group'] = {
 };
 
 javascriptGenerator['project_group'] = function (block) {
-  return '';
+  return null;
 };
 
 Blockly.Blocks['situation'] = {
@@ -517,7 +517,7 @@ Blockly.Blocks['situation'] = {
 };
 
 javascriptGenerator['situation'] = function (block) {
-  return '';
+  return null;
 };
 
 Blockly.Blocks['situation_instance'] = {
@@ -542,7 +542,7 @@ Blockly.Blocks['situation_instance'] = {
 };
 
 javascriptGenerator['situation_instance'] = function (block) {
-  return '';
+  return null;
 };
 
 export const customToolboxCategories = {

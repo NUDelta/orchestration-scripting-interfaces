@@ -8,6 +8,7 @@ import { otherToolsToolboxCategories } from './otherToolsBlocks';
 import { mathToolboxCategories } from './mathBlocks';
 import { canvasesToolboxCategories } from './canvasesBlocks';
 import Blockly from 'blockly';
+import { javascriptGenerator } from 'blockly/javascript';
 
 Blockly.Blocks['and'] = {
   init: function () {
@@ -23,9 +24,9 @@ Blockly.Blocks['and'] = {
   },
 };
 
-// javascriptGenerator['and'] = function (block) {
-//   return '';
-// };
+javascriptGenerator['and'] = function (block) {
+  return null;
+};
 
 export const toolboxCategories = {
   kind: 'categoryToolbox',

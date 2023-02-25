@@ -32,9 +32,9 @@ Blockly.Blocks['send'] = {
   },
 };
 
-// javascriptGenerator['send'] = function (block) {
-//   return '...';
-// };
+javascriptGenerator['send'] = function (block) {
+  return null;
+};
 
 Blockly.Blocks['person'] = {
   init: function () {
@@ -49,9 +49,9 @@ Blockly.Blocks['person'] = {
   },
 };
 
-// javascriptGenerator['person'] = function (block) {
-//   return '...';
-// };
+javascriptGenerator['person'] = function (block) {
+  return null;
+};
 
 Blockly.Blocks['email_address'] = {
   init: function () {
@@ -66,9 +66,9 @@ Blockly.Blocks['email_address'] = {
   },
 };
 
-// javascriptGenerator['email_address'] = function (block) {
-//   return '...';
-// };
+javascriptGenerator['email_address'] = function (block) {
+  return null;
+};
 
 Blockly.Blocks['slack_channel'] = {
   init: function () {
@@ -83,9 +83,9 @@ Blockly.Blocks['slack_channel'] = {
   },
 };
 
-// javascriptGenerator['slack_channel'] = function (block) {
-//   return '...';
-// };
+javascriptGenerator['slack_channel'] = function (block) {
+  return null;
+};
 
 Blockly.Blocks['slack_medium'] = {
   init: function () {
@@ -97,9 +97,9 @@ Blockly.Blocks['slack_medium'] = {
   },
 };
 
-// javascriptGenerator['slack_medium'] = function (block) {
-//   return '...';
-// };
+javascriptGenerator['slack_medium'] = function (block) {
+  return null;
+};
 
 Blockly.Blocks['email'] = {
   init: function () {
@@ -111,9 +111,9 @@ Blockly.Blocks['email'] = {
   },
 };
 
-// javascriptGenerator['email'] = function (block) {
-//   return '...';
-// };
+javascriptGenerator['email'] = function (block) {
+  return null;
+};
 
 Blockly.Blocks['slacked_someone'] = {
   init: function () {
