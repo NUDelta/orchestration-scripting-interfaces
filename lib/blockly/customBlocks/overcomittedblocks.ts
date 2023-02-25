@@ -18,7 +18,7 @@ Blockly.Blocks['ApplicableSet'] = {
     //description
     this.appendDummyInput().appendField('I want this script to apply to:');
     //indents
-    this.appendValueInput('allprojects');
+    this.appendValueInput('projects');
     //fixed
     this.setMovable(false);
     //indent and description on same line?
@@ -34,8 +34,12 @@ Blockly.Blocks['ApplicableSet'] = {
 };
 
 javascriptGenerator['ApplicableSet'] = function (block) {
-  // TODO: SigMeeting should actually be the value from the selected dropdown
-  return "Applicable set";
+  // TODO: 
+  var value = javascriptGenerator.valueToCode(block, 'projects', javascriptGenerator.ORDER_ATOMIC);
+  
+  // Generate the code to perform the calculation using the value
+  var code = "function () { return " + value + ";};\n";
+  return code;
 };
 
 // create a venue object block
@@ -44,7 +48,7 @@ Blockly.Blocks['AllProjects'] = {
     this.appendDummyInput().appendField('PROJ')
     .appendField(
       new Blockly.FieldDropdown([
-        ['All Projects', 'AllProject'],
+        ['All Projects', 'projects'],
         [
           'Orchestration Scripting Environments',
           'Orchestration Scripting Environments',
@@ -71,7 +75,7 @@ Blockly.Blocks['AllProjects'] = {
 javascriptGenerator['AllProjects'] = function (block) {
   // TODO: return the project/projects from the selected dropdown
   var operator = block.getFieldValue('PROJNAME')
-  return operator;
+  return [operator, javascriptGenerator.ORDER_ATOMIC]
 };
 
 
