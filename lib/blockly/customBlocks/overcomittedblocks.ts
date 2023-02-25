@@ -88,6 +88,12 @@ Blockly.Blocks['currentlyIs'] = {
   },
 };
 
+javascriptGenerator['currentlyIs'] = function (block) {
+  // TODO: 
+  return null;
+};
+
+
 //multiply [Backlog for now]
 
 // // create the code output from the venue object block

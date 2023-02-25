@@ -144,6 +144,7 @@ Blockly.Blocks['sprintTime'] = {
 
 //Sprint log -- this is to enable the user to pull data from the sprint log (e.g. total points spent, total points available)
 // This is equivalent to saying tools.planningTool.totalPoints.spent, tools.planningTool.totalPoints.available
+//TODO: change name
 Blockly.Blocks['sprintLog'] = {
   init: function () {
     this.appendDummyInput()
@@ -163,6 +164,13 @@ Blockly.Blocks['sprintLog'] = {
     this.setHelpUrl('');
   },
 };
+
+//TODO: change name
+javascriptGenerator['sprintLog'] = function (block) {
+  // TODO: 
+  return null;
+};
+
 
 // Commented for now
 // Blockly.Blocks['sprintlog2'] = {
