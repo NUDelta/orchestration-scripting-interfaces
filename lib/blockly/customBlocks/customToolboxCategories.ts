@@ -25,8 +25,50 @@ Blockly.Blocks['and'] = {
 };
 
 javascriptGenerator['and'] = function (block: Blockly.Block) {
-  return null;
+  var left = javascriptGenerator.valueToCode(
+    block,
+    'left',
+    javascriptGenerator.ORDER_FUNCTION_CALL
+  );
+  var right = javascriptGenerator.valueToCode(
+    block,
+    'right',
+    javascriptGenerator.ORDER_RELATIONAL
+  );
+  console.log("LEFT" + left);
+  
+  return [left + ' && ' + right, javascriptGenerator.ORDER_ATOMIC];
 };
+
+Blockly.Blocks['myif'] = {
+  init: function () {
+    this.appendValueInput('if').appendField('if')
+    this.appendStatementInput('do').appendField('do');
+    this.setInputsInline(false);
+    this.setOutput(false, null);
+    this.setColour(210);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['myif'] = function (block: Blockly.Block) {
+  var ifinput = javascriptGenerator.valueToCode(
+    block,
+    'if',
+    javascriptGenerator.ORDER_ATOMIC
+  );
+  var doinput = javascriptGenerator.valueToCode(
+    block,
+    'do',
+    javascriptGenerator.ORDER_ATOMIC
+  );
+  
+  var code = 'function () { \nreturn ' + ifinput + '};\n\nfunction(){};'
+  return code;
+  
+};
+
 
 export const toolboxCategories = {
   kind: 'categoryToolbox',
@@ -39,6 +81,10 @@ export const toolboxCategories = {
         {
           kind: 'block',
           type: 'controls_if',
+        },
+        {
+          kind: 'block',
+          type: 'myif',
         },
         {
           kind: 'block',

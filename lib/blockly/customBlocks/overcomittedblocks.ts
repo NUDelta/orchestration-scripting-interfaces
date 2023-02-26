@@ -1,17 +1,6 @@
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
-// Applicable Set
-// “I want this script to apply to:” AllProjects
-// Renders with the interface / user can’t remove it
-
-// Detector:
-// if
-// currentlyIs(endOfSprint(what is process))
-// And
-// Current (?) Sprint log → different dropdown options
-// totalPointsSpent >= 1.1 * pointsAvailable
-
 // create a fixed block
 Blockly.Blocks['ApplicableSet'] = {
   init: function () {
@@ -34,7 +23,6 @@ Blockly.Blocks['ApplicableSet'] = {
 };
 
 javascriptGenerator['ApplicableSet'] = function (block: Blockly.Block) {
-  // TODO:
   var value = javascriptGenerator.valueToCode(
     block,
     'projects',
@@ -101,16 +89,212 @@ Blockly.Blocks['currentlyIs'] = {
 
 javascriptGenerator['currentlyIs'] = function (block: Blockly.Block) {
   // TODO:
-  return null;
+  var value = javascriptGenerator.valueToCode(
+    block,
+    'currentlyIs',
+    javascriptGenerator.ORDER_NONE
+  );
+
+  // Generate the code to perform the calculation using the value
+  var code = 'currentlyIs(' + value + ')'
+  return [code, javascriptGenerator.ORDER_LOGICAL_AND];
 };
 
 //multiply [Backlog for now]
 
-// // create the code output from the venue object block
-// javascriptGenerator['venue'] = function (block: Blockly.Block) {
-//   // TODO: SigMeeting should actually be the value from the selected dropdown
-//   return "this.venues.find(this.where('kind', 'SigMeeting'))";
-// };
+//Sprint log -- this is to enable the user to pull data from the sprint log (e.g. total points spent, total points available)
+// This is equivalent to saying tools.planningTool.totalPoints.spent, tools.planningTool.totalPoints.available
+//TODO: change name
+Blockly.Blocks['sprintLog'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('Check sprint log for Total Points')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['Available', 'available'],
+          ['spent', 'spent'],
+          // //TODO: change the value of this field
+          // ['Total Points spent on Design in the sprint', 'pointsSpentDesign'], //put this one for now to see what it's like to have more options
+        ]),
+        'Dropdown'
+      )
+      .appendField('in the sprint');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(110);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+//TODO: change name
+javascriptGenerator['sprintLog'] = function (block: Blockly.Block) {
+  var selection = block.getFieldValue('Dropdown');
+
+  // Generate the code to perform the calculation using the value
+  var code = "project.tools.planningLog.totalPoints." + selection;
+  return [code, javascriptGenerator.ORDER_RELATIONAL];
+};
+
+//endOfSprint -- this is equivalent to saying sprint.endDay, sprint.startDay
+Blockly.Blocks['sprintTime'] = {
+  init: function () {
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ['Start of Sprint', 'startDay'],
+        ['End of Sprint', 'endDay'],
+        // //TODO: OS sprintlog process DONT HAVE a mid sprint attribute
+        // ['Middle of Sprint', 'midSprint'], //unsure about the wording of this one
+      ]),
+      'DROPDOWN'
+    );
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(110);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['sprintTime'] = function (block: Blockly.Block) {
+  var selection = block.getFieldValue('DROPDOWN');
+
+  // Generate the code to perform the calculation using the value
+  var code = "process.sprint." + selection;
+  return [code, javascriptGenerator.ORDER_NONE];
+};
+
+Blockly.Blocks['send'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Send Slack Message');
+    this.appendValueInput('message1')
+      .setCheck('String')
+      .appendField('         Your Message here:');
+    /*
+      this.appendValueInput("message2")
+          .setCheck("String")
+          .appendField("(input: underlying strategy)");
+      this.appendValueInput("recipient")
+          .setCheck("recipient")
+          .appendField("(input: recipient)");
+    */
+    // this.appendValueInput('medium')
+    //   .setCheck('medium')
+    //   .appendField('         medium - slack or email');
+    this.appendValueInput('recipient')
+      .setCheck('String')
+      .appendField("         Recipient:");
+    this.appendValueInput('time').appendField(
+      '         Send at time:'
+    );
+    this.setPreviousStatement(true);
+    this.setOutput(false);
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['send'] = function (block: Blockly.Block) {
+  return null;
+};
+
+// TODO: placeholder for project.mentor
+Blockly.Blocks['Project.mentor'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('project.mentor')
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(110);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+javascriptGenerator['Project.mentor'] = function (block: Blockly.Block) {
+  // TODO: return the project/projects from the selected dropdown
+  return null;
+};
+
+Blockly.Blocks['time'] = {
+  init: function () {
+    this.appendDummyInput().appendField('time');
+
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['0', '0'],
+          ['1', '1'],
+          ['2', '2'],
+          ['3', '3'],
+          ['4', '4'],
+          ['5', '5'],
+          ['6', '6'],
+        ]),
+        'days'
+      )
+      .appendField('days')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['0', '0'],
+          ['1', '1'],
+          ['2', '2'],
+          ['3', '3'],
+          ['6', '6'],
+          ['12', '12'],
+        ]),
+        'hours'
+      )
+      .appendField('hours')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['0', '0'],
+          ['5', '5'],
+          ['15', '15'],
+          ['30', '30'],
+          ['45', '45'],
+        ]),
+        'minutes'
+      )
+      .appendField('minutes')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['At', 'At'],
+          ['Before', 'Before'],
+          ['After', 'After'],
+        ]),
+        'relation'
+      );
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ['Beginning of Sprint', 'Beginning of Sprint'],
+        ['Middle of Sprint', 'Middle of Sprint'],
+        ['Middle of Week', 'Middle of Week'],
+        ['End of Sprint', 'End of Sprint'],
+        ['SIG', 'SIG'],
+        ['Office Hour', 'Office Hour'],
+        ['Studio', 'Studio'],
+        ['Sunday', 'Sunday'],
+        ['Monday', 'Monday'],
+        ['Tuesday', 'Tuesday'],
+        ['Wednesday', 'Wednesday'],
+        ['Thursday', 'Thursday'],
+        ['Friday', 'Friday'],
+        ['Saturday', 'Saturday'],
+      ]),
+      'event'
+    );
+    this.setOutput(true, null);
+    this.setColour(330);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['time'] = function (block: Blockly.Block) {
+  return 'time_in_python';
+};
 
 export const OvercommittedToolboxCategories = {
   kind: 'category',
@@ -136,6 +320,17 @@ export const OvercommittedToolboxCategories = {
     {
       kind: 'block',
       type: 'sprintLog',
+    },
+    {
+      kind: 'block',
+      type: 'Project.mentor',
+    },
+    {
+      kind: 'block',
+      type: 'send',
+    },
+    { kind: 'block', 
+      type: 'time' 
     },
   ],
 };

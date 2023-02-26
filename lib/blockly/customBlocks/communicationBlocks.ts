@@ -1,40 +1,40 @@
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
-Blockly.Blocks['send'] = {
-  init: function () {
-    this.appendDummyInput().appendField('send');
-    this.appendValueInput('message1')
-      .setCheck('String')
-      .appendField('         text - suggested actions');
-    /*
-      this.appendValueInput("message2")
-          .setCheck("String")
-          .appendField("(input: underlying strategy)");
-      this.appendValueInput("recipient")
-          .setCheck("recipient")
-          .appendField("(input: recipient)");
-    */
-    this.appendValueInput('medium')
-      .setCheck('medium')
-      .appendField('         medium - slack or email');
-    this.appendValueInput('recipient')
-      .setCheck('String')
-      .appendField("         text - recipient's name");
-    this.appendValueInput('time').appendField(
-      '         time block - when to send message'
-    );
-    this.setPreviousStatement(true);
-    this.setOutput(false);
-    this.setColour(20);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
+// Blockly.Blocks['send'] = {
+//   init: function () {
+//     this.appendDummyInput().appendField('Send Slack Message');
+//     this.appendValueInput('message1')
+//       .setCheck('String')
+//       .appendField('         Your Message here:');
+//     /*
+//       this.appendValueInput("message2")
+//           .setCheck("String")
+//           .appendField("(input: underlying strategy)");
+//       this.appendValueInput("recipient")
+//           .setCheck("recipient")
+//           .appendField("(input: recipient)");
+//     */
+//     // this.appendValueInput('medium')
+//     //   .setCheck('medium')
+//     //   .appendField('         medium - slack or email');
+//     this.appendValueInput('recipient')
+//       .setCheck('String')
+//       .appendField("         Recipient:");
+//     this.appendValueInput('time').appendField(
+//       '         Send at time:'
+//     );
+//     this.setPreviousStatement(true);
+//     this.setOutput(false);
+//     this.setColour(20);
+//     this.setTooltip('');
+//     this.setHelpUrl('');
+//   },
+// };
 
-javascriptGenerator['send'] = function (block: Blockly.Block) {
-  return null;
-};
+// javascriptGenerator['send'] = function (block: Blockly.Block) {
+//   return null;
+// };
 
 Blockly.Blocks['person'] = {
   init: function () {
