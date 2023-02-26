@@ -108,11 +108,11 @@ javascriptGenerator['currentlyIs'] = function (block: Blockly.Block) {
 Blockly.Blocks['sprintLog'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField('Check sprint log for Total Points')
+      .appendField('Sprint log: Total Points')
       .appendField(
         new Blockly.FieldDropdown([
-          ['Available', 'available'],
-          ['spent', 'spent'],
+          ['Available', 'Available'],
+          ['spent', 'Committed.total'],
           // //TODO: change the value of this field
           // ['Total Points spent on Design in the sprint', 'pointsSpentDesign'], //put this one for now to see what it's like to have more options
         ]),
@@ -132,7 +132,7 @@ javascriptGenerator['sprintLog'] = function (block: Blockly.Block) {
   var selection = block.getFieldValue('Dropdown');
 
   // Generate the code to perform the calculation using the value
-  var code = "project.tools.planningLog.totalPoints." + selection;
+  var code = "project.tools.planningLog.totalPoints.points" + selection;
   return [code, javascriptGenerator.ORDER_RELATIONAL];
 };
 
@@ -196,23 +196,6 @@ Blockly.Blocks['send'] = {
 };
 
 javascriptGenerator['send'] = function (block: Blockly.Block) {
-  return null;
-};
-
-// TODO: placeholder for project.mentor
-Blockly.Blocks['Project.mentor'] = {
-  init: function () {
-    this.appendDummyInput()
-      .appendField('project.mentor')
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(110);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-javascriptGenerator['Project.mentor'] = function (block: Blockly.Block) {
-  // TODO: return the project/projects from the selected dropdown
   return null;
 };
 
@@ -323,7 +306,7 @@ export const OvercommittedToolboxCategories = {
     },
     {
       kind: 'block',
-      type: 'Project.mentor',
+      type: 'project_people'
     },
     {
       kind: 'block',

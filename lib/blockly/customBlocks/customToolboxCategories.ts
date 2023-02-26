@@ -7,6 +7,8 @@ import { githubToolboxCategories } from './githubBlocks';
 import { otherToolsToolboxCategories } from './otherToolsBlocks';
 import { mathToolboxCategories } from './mathBlocks';
 import { canvasesToolboxCategories } from './canvasesBlocks';
+import { ProjectToolboxCategories } from './projectBlocks';
+import { VariablesToolboxCategories } from './variableBlocks';
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
@@ -78,10 +80,10 @@ export const toolboxCategories = {
       name: 'Logic',
       colour: '#5C81A6',
       contents: [
-        {
-          kind: 'block',
-          type: 'controls_if',
-        },
+        // {
+        //   kind: 'block',
+        //   type: 'controls_if',
+        // },
         {
           kind: 'block',
           type: 'myif',
@@ -93,6 +95,10 @@ export const toolboxCategories = {
         {
           kind: 'block',
           type: 'and',
+        },
+        {
+          kind: 'block',
+          type: 'text_print',
         },
       ],
     },
@@ -107,8 +113,13 @@ export const toolboxCategories = {
           kind: 'block',
           type: 'text',
         },
+        {
+          kind: 'block',
+          type: 'text_join',
+        },
       ],
     },
+    VariablesToolboxCategories,
     {
       kind: 'category',
       name: '',
@@ -116,6 +127,7 @@ export const toolboxCategories = {
       contents: [],
     },
     // functionsToolboxCategories,
+    ProjectToolboxCategories,
     communicationToolboxCategories,
     {
       kind: 'category',
