@@ -1,27 +1,26 @@
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
-// Block for variable getter.
-Blockly.Blocks['variables_get'] = {
-    init: function() {
-      this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable("VAR_NAME"), "FIELD_NAME");
-      this.setOutput(true, null);
+Blockly.Blocks['myblock'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Display var:")
+
+        .appendField(new Blockly.FieldVariable("item"), "MYVAR");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip('');
     }
   };
-  
-  // Block for variable setter.
-  Blockly.Blocks['variables_set'] = {
-    init: function() {
-      this.appendValueInput("NAME")
-          .setCheck(null)
-          .appendField("set")
-          .appendField(new Blockly.FieldVariable("VAR_NAME"), "FIELD_NAME")
-          .appendField("to");
-      this.setOutput(true, null);
-      this.setNextStatement(true);
-    }
-  };
+
+javascriptGenerator['myblock'] = function(block: Blockly.Block) {
+  var myvar = javascriptGenerator.variableDB_.getName(block.getFieldValue('MYVAR'), Blockly.Names.NameType.VARIABLE);
+  console.log(myvar);
+  var code = 'console.log(' + myvar + ');\n';  //Build code here
+  return code;
+};
+
 
 export const VariablesToolboxCategories = {
     kind: 'category',
@@ -36,6 +35,10 @@ export const VariablesToolboxCategories = {
         kind: 'block',
         type: 'variables_get'
       },
+      {
+        kind: 'block',
+        type: 'myblock',
+      }
     ],
   };
   
