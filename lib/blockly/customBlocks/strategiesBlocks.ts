@@ -29,8 +29,8 @@ javascriptGenerator['strategies'] = function (block: Blockly.Block) {
       javascriptGenerator.ORDER_NONE
     ) || '""';
   var strategies = [strategy0, strategy1];
-  var code = 'let strategies = [' + strategies.join(',') + '];\n';
-  return code;
+  var code = '[' + strategies.join(',') + ']';
+  return [code, javascriptGenerator.ORDER_NONE];
 };
 
 // ATTEMPT & TODO: trying to allow for more than 2 strategies

@@ -61,13 +61,12 @@ javascriptGenerator['myif'] = function (block: Blockly.Block) {
     'if',
     javascriptGenerator.ORDER_ATOMIC
   );
-  var doinput = javascriptGenerator.valueToCode(
+  var doinput = javascriptGenerator.statementToCode(
     block,
     'do',
-    javascriptGenerator.ORDER_ATOMIC
   );
 
-  var code = 'function () { \nreturn ' + ifinput + '};\n\nfunction(){};';
+  var code = 'function () { \nreturn ' + ifinput + '};\n\nfunction(){\nreturn ' + doinput + '};';
   return code;
 };
 

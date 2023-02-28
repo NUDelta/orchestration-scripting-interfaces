@@ -168,7 +168,7 @@ Blockly.Blocks['send'] = {
   init: function () {
     this.appendDummyInput().appendField('Send Slack Message');
     this.appendValueInput('message1')
-      .setCheck('String')
+      // .setCheck('String')
       .appendField('         Your Message here:');
     /*
       this.appendValueInput("message2")
@@ -182,7 +182,7 @@ Blockly.Blocks['send'] = {
     //   .setCheck('medium')
     //   .appendField('         medium - slack or email');
     this.appendValueInput('recipient')
-      .setCheck('String')
+      // .setCheck('String')
       .appendField("         Recipient:");
     this.appendValueInput('time').appendField(
       '         Send at time:'
@@ -196,7 +196,23 @@ Blockly.Blocks['send'] = {
 };
 
 javascriptGenerator['send'] = function (block: Blockly.Block) {
-  return null;
+  var message = javascriptGenerator.valueToCode(
+    block,
+    'message1',
+    javascriptGenerator.ORDER_NONE
+  );
+  var recipient = javascriptGenerator.valueToCode(
+    block,
+    'recipient',
+    javascriptGenerator.ORDER_NONE
+  );
+  var time = javascriptGenerator.valueToCode(
+    block,
+    'time',
+    javascriptGenerator.ORDER_NONE
+  );
+  var code = 'messagePeople({\nmessage: ' + message + ',\n' + 'people: [' + recipient + '],\n' + 'opportunity: ' + time + '});';
+  return code;
 };
 
 Blockly.Blocks['time'] = {

@@ -8,9 +8,8 @@ Blockly.Blocks['project_people'] = {
         .appendField('Project')
         .appendField(
           new Blockly.FieldDropdown([
-            ['mentor', 'mentor'],
+            ['sigHead','sigHead.name'],
             ['students','students'],
-            ['sigHead','sigHead'],
             ['facultyMentor', 'facultyMentor'],
           ]),
           'PROJPPL'
