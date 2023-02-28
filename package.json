@@ -7,13 +7,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/types": "^7.21.2",
     "blockly": "^9.2.1",
     "next": "latest",
     "react": "18.2.0",
     "react-blockly": "^7.0.1",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "uglify-js": "^3.17.4"
   },
   "devDependencies": {
+    "@types/babel__core": "^7.20.0",
     "@types/node": "18.13.0",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
