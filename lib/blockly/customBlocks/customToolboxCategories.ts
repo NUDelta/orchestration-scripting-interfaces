@@ -11,6 +11,7 @@ import { ProjectToolboxCategories } from './projectBlocks';
 import { VariablesToolboxCategories } from './variableBlocks';
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
+import { strategiesToolboxCategories } from './strategiesBlocks';
 
 Blockly.Blocks['and'] = {
   init: function () {
@@ -37,14 +38,14 @@ javascriptGenerator['and'] = function (block: Blockly.Block) {
     'right',
     javascriptGenerator.ORDER_RELATIONAL
   );
-  console.log("LEFT" + left);
-  
+  console.log('LEFT' + left);
+
   return [left + ' && ' + right, javascriptGenerator.ORDER_ATOMIC];
 };
 
 Blockly.Blocks['myif'] = {
   init: function () {
-    this.appendValueInput('if').appendField('if')
+    this.appendValueInput('if').appendField('if');
     this.appendStatementInput('do').appendField('do');
     this.setInputsInline(false);
     this.setOutput(false, null);
@@ -65,12 +66,10 @@ javascriptGenerator['myif'] = function (block: Blockly.Block) {
     'do',
     javascriptGenerator.ORDER_ATOMIC
   );
-  
-  var code = 'function () { \nreturn ' + ifinput + '};\n\nfunction(){};'
-  return code;
-  
-};
 
+  var code = 'function () { \nreturn ' + ifinput + '};\n\nfunction(){};';
+  return code;
+};
 
 export const toolboxCategories = {
   kind: 'categoryToolbox',
@@ -129,6 +128,7 @@ export const toolboxCategories = {
     // functionsToolboxCategories,
     ProjectToolboxCategories,
     communicationToolboxCategories,
+    strategiesToolboxCategories,
     {
       kind: 'category',
       name: '',
