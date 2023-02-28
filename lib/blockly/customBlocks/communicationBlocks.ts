@@ -1,40 +1,33 @@
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
-// Blockly.Blocks['send'] = {
-//   init: function () {
-//     this.appendDummyInput().appendField('Send Slack Message');
-//     this.appendValueInput('message1')
-//       .setCheck('String')
-//       .appendField('         Your Message here:');
-//     /*
-//       this.appendValueInput("message2")
-//           .setCheck("String")
-//           .appendField("(input: underlying strategy)");
-//       this.appendValueInput("recipient")
-//           .setCheck("recipient")
-//           .appendField("(input: recipient)");
-//     */
-//     // this.appendValueInput('medium')
-//     //   .setCheck('medium')
-//     //   .appendField('         medium - slack or email');
-//     this.appendValueInput('recipient')
-//       .setCheck('String')
-//       .appendField("         Recipient:");
-//     this.appendValueInput('time').appendField(
-//       '         Send at time:'
-//     );
-//     this.setPreviousStatement(true);
-//     this.setOutput(false);
-//     this.setColour(20);
-//     this.setTooltip('');
-//     this.setHelpUrl('');
-//   },
-// };
+// Custom Text Block
+Blockly.Blocks['my_text_join'] = {
+  init: function () {
+    this.appendValueInput('text1').setCheck('String').appendField('join');
+    this.appendValueInput('text2').setCheck('String').appendField('with');
+    this.setOutput(true, 'String');
+    this.setColour(160);
+    this.setTooltip('Join two texts with a space in between');
+  },
+};
 
-// javascriptGenerator['send'] = function (block: Blockly.Block) {
-//   return null;
-// };
+javascriptGenerator['my_text_join'] = function (block: Blockly.Block) {
+  var text1 =
+    javascriptGenerator.valueToCode(
+      block,
+      'text1',
+      javascriptGenerator.ORDER_NONE
+    ) || "''";
+  var text2 =
+    javascriptGenerator.valueToCode(
+      block,
+      'text2',
+      javascriptGenerator.ORDER_NONE
+    ) || "''";
+  var code = JSON.stringify(text1) + JSON.stringify(text2);
+  return [code, javascriptGenerator.ORDER_NONE];
+};
 
 Blockly.Blocks['person'] = {
   init: function () {
@@ -232,6 +225,10 @@ export const communicationToolboxCategories = {
     },
     {
       kind: 'block',
+      type: 'my_text_join',
+    },
+    {
+      kind: 'block',
       type: 'person',
     },
     {
@@ -264,3 +261,38 @@ export const communicationToolboxCategories = {
     },
   ],
 };
+
+// Blockly.Blocks['send'] = {
+//   init: function () {
+//     this.appendDummyInput().appendField('Send Slack Message');
+//     this.appendValueInput('message1')
+//       .setCheck('String')
+//       .appendField('         Your Message here:');
+//     /*
+//       this.appendValueInput("message2")
+//           .setCheck("String")
+//           .appendField("(input: underlying strategy)");
+//       this.appendValueInput("recipient")
+//           .setCheck("recipient")
+//           .appendField("(input: recipient)");
+//     */
+//     // this.appendValueInput('medium')
+//     //   .setCheck('medium')
+//     //   .appendField('         medium - slack or email');
+//     this.appendValueInput('recipient')
+//       .setCheck('String')
+//       .appendField("         Recipient:");
+//     this.appendValueInput('time').appendField(
+//       '         Send at time:'
+//     );
+//     this.setPreviousStatement(true);
+//     this.setOutput(false);
+//     this.setColour(20);
+//     this.setTooltip('');
+//     this.setHelpUrl('');
+//   },
+// };
+
+// javascriptGenerator['send'] = function (block: Blockly.Block) {
+//   return null;
+// };
