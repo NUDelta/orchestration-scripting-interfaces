@@ -29,39 +29,6 @@ javascriptGenerator['venue'] = function (block: Blockly.Block) {
   return [code, javascriptGenerator.ORDER_ATOMIC];
 };
 
-Blockly.Blocks['Morningofvenue'] = {
-  init: function () {
-    this.appendDummyInput()
-      .appendField(
-        new Blockly.FieldDropdown([
-          ['Morning of', 'morningOf'],
-          ['Noon of', 'noonOf'],
-          ['Afternoon of', 'afternoonOf'],
-          ['Evening of', 'eveningOf'],
-        ]),
-        'dropdown'
-      )
-    this.appendValueInput('venue');
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(110);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-// create the code output from the venue object block
-javascriptGenerator['Morningofvenue'] = function (block: Blockly.Block) {
-  var time = block.getFieldValue('dropdown');
-  var venue = javascriptGenerator.valueToCode(
-    block,
-    'venue',
-    javascriptGenerator.ORDER_NONE
-  );
-  var code = '(function () {\n' + time + 'Venue(' + venue +')})';
-  return [code, javascriptGenerator.ORDER_ATOMIC];
-};
-
 export const venuesToolboxCategories = {
   kind: 'category',
   name: 'Venues',
