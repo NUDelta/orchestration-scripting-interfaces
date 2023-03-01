@@ -2,6 +2,46 @@ import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
 // create a venue object block
+Blockly.Blocks['AllProjects'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('PROJ')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['All Projects', 'projects'],
+          [
+            'Orchestration Scripting Environments',
+            'Orchestration Scripting Environments',
+          ],
+          ['Knowledge Map', 'Knowledge Map'],
+          ['Collective Narrative', 'Collective Narrative'],
+          ['Q&A Buddy', 'Q&A Buddy'],
+          ['Path', 'Path'],
+          [
+            'CE for Relationship Development',
+            'CE for Relationship Development',
+          ],
+          [
+            'Orchestrating Planning and Reflection',
+            'Orchestrating Planning and Reflection',
+          ],
+        ]),
+        'PROJNAME'
+      );
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(110);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+javascriptGenerator['AllProjects'] = function (block: Blockly.Block) {
+  // TODO: return the project/projects from the selected dropdown
+  var operator = block.getFieldValue('PROJNAME');
+  return [operator, javascriptGenerator.ORDER_ATOMIC];
+};
+
+// create a venue object block
 Blockly.Blocks['project_people'] = {
     init: function () {
       this.appendDummyInput()
@@ -29,7 +69,7 @@ Blockly.Blocks['project_people'] = {
   };
 
   // create a venue object block
-Blockly.Blocks['project_utility'] = {
+Blockly.Blocks['project_attributes'] = {
     init: function () {
       this.appendDummyInput()
         .appendField('Project')
@@ -46,7 +86,7 @@ Blockly.Blocks['project_utility'] = {
       this.setHelpUrl('');
     },
   };
-  javascriptGenerator['project_utility'] = function (block: Blockly.Block) {
+  javascriptGenerator['project_attributes'] = function (block: Blockly.Block) {
     // TODO: return the project/projects from the selected dropdown
     var operator = block.getFieldValue('PROJUTILITY');
     var code = "project." + operator;
@@ -71,6 +111,90 @@ Blockly.Blocks['projectlistofstudents'] = {
     return [code, javascriptGenerator.ORDER_FUNCTION_CALL];
   };
   
+  Blockly.Blocks['SIG_subcategory'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("-----------------SIG----------------");
+      this.setColour("#000000");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  // create a venue object block
+Blockly.Blocks['AllSIGs'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('SIG')
+    this.appendDummyInput()
+      .appendField("NOT")
+      .appendField(new Blockly.FieldCheckbox(true), 'NOT');
+    this.appendDummyInput()
+      .appendField("CE")
+      .appendField(new Blockly.FieldCheckbox(true), 'CE');
+    this.appendDummyInput()
+      .appendField("RALE")
+      .appendField(new Blockly.FieldCheckbox(true), 'RALE');
+    this.appendDummyInput()
+      .appendField("CAMP")
+      .appendField(new Blockly.FieldCheckbox(true), 'CAMP');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(110);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+javascriptGenerator['AllSIGs'] = function (block: Blockly.Block) {
+  var NOT = block.getFieldValue('NOT');
+  var CE = block.getFieldValue('CE');
+  var RALE = block.getFieldValue('RALE');
+  var CAMP = block.getFieldValue('CAMP');
+  var code = 'socialStructures.filter(where("name",\n[';
+  if (NOT == "TRUE"){
+      code += '"Networked Orchestration Technologies",\n';
+  }
+  if (CE == "TRUE"){
+      code += '"Collective Experiences",\n';
+  }
+  if (RALE == "TRUE"){
+      code += '"Readily Available Learning Experiences",\n';
+  }
+  if (CAMP == "TRUE"){
+      code += '"Contextually-Aware Metacognitive Practice"';
+  }
+  code += '])'
+  return [code, javascriptGenerator.ORDER_ATOMIC];
+};
+
+    // create a venue object block
+Blockly.Blocks['sig_attributes'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('SIG')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['name', 'name'],
+          ['abbreviation', 'abbreviation'],
+          ['slackChannel', 'slackChannel'],
+          ['sigHead', 'sigHead'],
+        ]),
+        'sig_attributes'
+      );
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(110);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+javascriptGenerator['sig_attributes'] = function (block: Blockly.Block) {
+  // TODO: return the project/projects from the selected dropdown
+  var operator = block.getFieldValue('sig_attributes');
+  var code = "socialStructure." + operator;
+  return [code, javascriptGenerator.ORDER_ATOMIC];
+};
+
   export const ProjectToolboxCategories = {
     kind: 'category',
     name: 'Project related',
@@ -86,11 +210,23 @@ Blockly.Blocks['projectlistofstudents'] = {
       },
       {
         kind: 'block',
-        type: 'project_utility'
+        type: 'project_attributes'
       },
       {
         kind: 'block',
         type: 'projectlistofstudents'
+      },
+      {
+        kind: 'block',
+        type: 'SIG_subcategory',
+      },
+      {
+        kind: 'block',
+        type: 'AllSIGs',
+      },
+      {
+        kind: 'block',
+        type: 'sig_attributes',
       },
     ],
   };

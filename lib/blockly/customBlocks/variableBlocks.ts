@@ -21,6 +21,24 @@ javascriptGenerator['myblock'] = function(block: Blockly.Block) {
   return code;
 };
 
+Blockly.Blocks['Boolean'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Boolean:")
+        .appendField(
+          new Blockly.FieldDropdown([['true', 'true'],['false', 'false']]),'Dropdown');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(110);
+    this.setTooltip('');
+    }
+  };
+
+javascriptGenerator['Boolean'] = function(block: Blockly.Block) {
+  var code = block.getFieldValue('Dropdown');
+  return [code, javascriptGenerator.ORDER_ATOMIC];
+};
+
 
 export const VariablesToolboxCategories = {
     kind: 'category',
@@ -38,7 +56,11 @@ export const VariablesToolboxCategories = {
       {
         kind: 'block',
         type: 'myblock',
-      }
+      },
+      {
+        kind: 'block',
+        type: 'Boolean',
+      },
     ],
   };
   

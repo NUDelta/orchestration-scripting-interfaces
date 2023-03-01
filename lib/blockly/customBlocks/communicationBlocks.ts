@@ -1,6 +1,110 @@
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
+Blockly.Blocks['slackppl'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Send Slack Msg to Ppl');
+    this.appendValueInput('message1')
+      // .setCheck('String')
+      .appendField('         Your Message here:');
+    /*
+      this.appendValueInput("message2")
+          .setCheck("String")
+          .appendField("(input: underlying strategy)");
+      this.appendValueInput("recipient")
+          .setCheck("recipient")
+          .appendField("(input: recipient)");
+    */
+    // this.appendValueInput('medium')
+    //   .setCheck('medium')
+    //   .appendField('         medium - slack or email');
+    this.appendValueInput('recipient')
+      // .setCheck('String')
+      .appendField("         Recipient:");
+    this.appendValueInput('time').appendField(
+      '         Send at time:'
+    );
+    this.setPreviousStatement(true);
+    this.setNextStatement(false);
+    this.setOutput(false);
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['slackppl'] = function (block: Blockly.Block) {
+  var message = javascriptGenerator.valueToCode(
+    block,
+    'message1',
+    javascriptGenerator.ORDER_NONE
+  );
+  var recipient = javascriptGenerator.valueToCode(
+    block,
+    'recipient',
+    javascriptGenerator.ORDER_NONE
+  );
+  var time = javascriptGenerator.valueToCode(
+    block,
+    'time',
+    javascriptGenerator.ORDER_NONE
+  );
+  var code = 'messagePeople({\nmessage: ' + message + ',\n' + 'people: [' + recipient + '],\n' + 'opportunity: ' + time + '});\n';
+  return code;
+};
+
+Blockly.Blocks['slackchannel'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Send Slack Msg to Channel');
+    this.appendValueInput('message1')
+      // .setCheck('String')
+      .appendField('         Your Message here:');
+    /*
+      this.appendValueInput("message2")
+          .setCheck("String")
+          .appendField("(input: underlying strategy)");
+      this.appendValueInput("recipient")
+          .setCheck("recipient")
+          .appendField("(input: recipient)");
+    */
+    // this.appendValueInput('medium')
+    //   .setCheck('medium')
+    //   .appendField('         medium - slack or email');
+    this.appendValueInput('channel')
+      // .setCheck('String')
+      .appendField("         SIG name:");
+    this.appendValueInput('time').appendField(
+      '         Send at time:'
+    );
+    this.setPreviousStatement(true);
+    this.setNextStatement(false);
+    this.setOutput(false);
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['slackchannel'] = function (block: Blockly.Block) {
+  var message = javascriptGenerator.valueToCode(
+    block,
+    'message1',
+    javascriptGenerator.ORDER_NONE
+  );
+  var recipient = javascriptGenerator.valueToCode(
+    block,
+    'channel',
+    javascriptGenerator.ORDER_NONE
+  );
+  var time = javascriptGenerator.valueToCode(
+    block,
+    'time',
+    javascriptGenerator.ORDER_NONE
+  );
+  var code = 'messageChannel({\nmessage: ' + message + ',\n' + 'sigName: ' + recipient + ',\n' + 'opportunity: ' + time + '\n})';
+  return code;
+};
+
 // Custom Text Block
 Blockly.Blocks['my_text_join'] = {
   init: function () {
@@ -213,7 +317,11 @@ export const communicationToolboxCategories = {
   contents: [
     {
       kind: 'block',
-      type: 'send',
+      type: 'slackppl',
+    },
+    {
+      kind: 'block',
+      type: 'slackchannel',
     },
     {
       kind: 'block',

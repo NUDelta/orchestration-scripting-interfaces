@@ -12,6 +12,7 @@ import { VariablesToolboxCategories } from './variableBlocks';
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 import { strategiesToolboxCategories } from './strategiesBlocks';
+import { UseVenuesToolboxCategories } from './UseVenuesExampleBlocks';
 
 Blockly.Blocks['and'] = {
   init: function () {
@@ -67,6 +68,76 @@ javascriptGenerator['myif'] = function (block: Blockly.Block) {
   );
 
   var code = 'function () { \nreturn ' + ifinput + '};\n\nfunction(){\nreturn ' + doinput + '};';
+  return code;
+};
+
+Blockly.Blocks['Detector'] = {
+  init: function () {
+    this.appendValueInput('Detector').appendField('Detector (="if")');
+    this.setInputsInline(false);
+    this.setOutput(false, null);
+    this.setColour(210);
+    this.setTooltip('');
+    this.setHelpUrl('');
+    this.setDeletable(false);
+    this.setMovable(false);
+  },
+};
+
+javascriptGenerator['Detector'] = function (block: Blockly.Block) {
+  var ifinput = javascriptGenerator.valueToCode(
+    block,
+    'Detector',
+    javascriptGenerator.ORDER_ATOMIC
+  );
+  var code = 'function () { \nreturn ' + ifinput + ';\n}\n';
+  return code;
+};
+
+Blockly.Blocks['Strategies'] = {
+  init: function () {
+    this.appendStatementInput('Strategy')
+        .appendField('Strategy')
+        .appendField(new Blockly.FieldNumber(1), 'FIELDNAME');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setInputsInline(false);
+    this.setOutput(false, null);
+    this.setColour(210);
+    this.setTooltip('');
+    this.setHelpUrl('');
+    this.setDeletable(false);
+    // this.setMovable(false);
+  },
+};
+
+javascriptGenerator['Strategies'] = function (block: Blockly.Block) {
+  var doinput = javascriptGenerator.statementToCode(
+    block,
+    'Strategy',
+  );
+
+  var code = 'function(){\nreturn' + doinput + ';\n}\n';
+  return code;
+};
+
+Blockly.Blocks['StrategiesWrapper'] = {
+  init: function () {
+    this.appendStatementInput('Strategies').appendField('Set of');
+    this.setInputsInline(false);
+    this.setOutput(false, null);
+    this.setColour(160);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['StrategiesWrapper'] = function (block: Blockly.Block) {
+  var doinput = javascriptGenerator.statementToCode(
+    block,
+    'Strategies',
+  );
+  var code = 'strategies: [\n' + doinput + ']';
   return code;
 };
 
@@ -151,5 +222,6 @@ export const toolboxCategories = {
     // customToolboxCategories,
     venuesToolboxCategories,
     OvercommittedToolboxCategories,
+    UseVenuesToolboxCategories,
   ],
 };

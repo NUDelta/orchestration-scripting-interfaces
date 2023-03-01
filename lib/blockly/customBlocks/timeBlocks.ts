@@ -1,85 +1,99 @@
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
-// Blockly.Blocks['time'] = {
-//   init: function () {
-//     this.appendDummyInput().appendField('time');
+Blockly.Blocks['time'] = {
+  init: function () {
+    this.appendDummyInput().appendField('time');
 
-//     this.appendDummyInput()
-//       .setAlign(Blockly.ALIGN_RIGHT)
-//       .appendField(
-//         new Blockly.FieldDropdown([
-//           ['0', '0'],
-//           ['1', '1'],
-//           ['2', '2'],
-//           ['3', '3'],
-//           ['4', '4'],
-//           ['5', '5'],
-//           ['6', '6'],
-//         ]),
-//         'days'
-//       )
-//       .appendField('days')
-//       .appendField(
-//         new Blockly.FieldDropdown([
-//           ['0', '0'],
-//           ['1', '1'],
-//           ['2', '2'],
-//           ['3', '3'],
-//           ['6', '6'],
-//           ['12', '12'],
-//         ]),
-//         'hours'
-//       )
-//       .appendField('hours')
-//       .appendField(
-//         new Blockly.FieldDropdown([
-//           ['0', '0'],
-//           ['5', '5'],
-//           ['15', '15'],
-//           ['30', '30'],
-//           ['45', '45'],
-//         ]),
-//         'minutes'
-//       )
-//       .appendField('minutes')
-//       .appendField(
-//         new Blockly.FieldDropdown([
-//           ['At', 'At'],
-//           ['Before', 'Before'],
-//           ['After', 'After'],
-//         ]),
-//         'relation'
-//       );
-//     this.appendDummyInput().appendField(
-//       new Blockly.FieldDropdown([
-//         ['Beginning of Sprint', 'Beginning of Sprint'],
-//         ['Middle of Sprint', 'Middle of Sprint'],
-//         ['Middle of Week', 'Middle of Week'],
-//         ['End of Sprint', 'End of Sprint'],
-//         ['SIG', 'SIG'],
-//         ['Office Hour', 'Office Hour'],
-//         ['Studio', 'Studio'],
-//         ['Sunday', 'Sunday'],
-//         ['Monday', 'Monday'],
-//         ['Tuesday', 'Tuesday'],
-//         ['Wednesday', 'Wednesday'],
-//         ['Thursday', 'Thursday'],
-//         ['Friday', 'Friday'],
-//         ['Saturday', 'Saturday'],
-//       ]),
-//       'event'
-//     );
-//     this.setOutput(true, null);
-//     this.setColour(330);
-//     this.setTooltip('');
-//     this.setHelpUrl('');
-//   },
-// };
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['0', '0'],
+          ['1', '1'],
+          ['2', '2'],
+          ['3', '3'],
+          ['4', '4'],
+          ['5', '5'],
+          ['6', '6'],
+        ]),
+        'days'
+      )
+      .appendField('days')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['0', '0'],
+          ['1', '1'],
+          ['2', '2'],
+          ['3', '3'],
+          ['6', '6'],
+          ['12', '12'],
+        ]),
+        'hours'
+      )
+      .appendField('hours')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['0', '0'],
+          ['5', '5'],
+          ['15', '15'],
+          ['30', '30'],
+          ['45', '45'],
+        ]),
+        'minutes'
+      )
+      .appendField('minutes')
+      .appendField(
+        new Blockly.FieldDropdown([
+          // ['At', 'At'],
+          ['Before', 'Before'],
+          ['After', 'After'],
+        ]),
+        'relation'
+      );
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        // ['Beginning of Sprint', 'Beginning of Sprint'],
+        // ['Middle of Sprint', 'Middle of Sprint'],
+        // ['Middle of Week', 'Middle of Week'],
+        // ['End of Sprint', 'End of Sprint'],
+        ['SIG Meeting', 'SIG'],
+        ['Office Hour', 'OH'],
+        ['Studio', 'Studio'],
+        // ['Sunday', 'Sunday'],
+        // ['Monday', 'Monday'],
+        // ['Tuesday', 'Tuesday'],
+        // ['Wednesday', 'Wednesday'],
+        // ['Thursday', 'Thursday'],
+        // ['Friday', 'Friday'],
+        // ['Saturday', 'Saturday'],
+      ]),
+      'event'
+    );
+    this.setOutput(true, null);
+    this.setColour(330);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
 
-// javascriptGenerator['time'] = function (block: Blockly.Block) {
-//   return 'time_in_python';
-// };
+javascriptGenerator['time'] = function (block: Blockly.Block) {
+  //TODO should be able to accept 1 day X minutes X hours
+  var hours = block.getFieldValue('hours');
+  var beforeAfter = block.getFieldValue('relation');
+  var venue = block.getFieldValue('event');
+  var venueCode = '';
+  if (venue == "SIG"){
+    venueCode = 'venues.find(this.where("kind", "SigMeeting"))'
+  } else if (venue == "OH"){
+    venueCode = 'venues.find(this.where("kind", "OfficeHours"))'
+  } else if (venue == "Studio") {
+    venueCode = 'venues.find(this.where("kind", "Studio"))'
+  }
+  var code = '(function () {return \nhours' + beforeAfter + 'Venue(\n' + venueCode + ', ' + hours + ')})'
+  return [code, javascriptGenerator.ORDER_ATOMIC];
+};
+
 
 Blockly.Blocks['modifier'] = {
   init: function () {

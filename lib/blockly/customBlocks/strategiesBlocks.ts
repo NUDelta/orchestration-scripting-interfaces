@@ -1,7 +1,7 @@
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
-Blockly.Blocks['strategies'] = {
+Blockly.Blocks['strategiesmsg'] = {
   init: function () {
     this.appendDummyInput().appendField('Strategies');
     // input will only accept strings -- was trying to make it accept text only but couldn't figure it out
@@ -15,7 +15,7 @@ Blockly.Blocks['strategies'] = {
   },
 };
 
-javascriptGenerator['strategies'] = function (block: Blockly.Block) {
+javascriptGenerator['strategiesmsg'] = function (block: Blockly.Block) {
   var strategy0 =
     javascriptGenerator.valueToCode(
       block,
@@ -83,7 +83,15 @@ export const strategiesToolboxCategories = {
   contents: [
     {
       kind: 'block',
-      type: 'strategies',
+      type: 'strategiesmsg',
     },
+    {
+      kind: 'block',
+      type: 'Strategies',
+    },
+    {
+      kind: 'block',
+      type: 'StrategiesWrapper',
+    }
   ],
 };
