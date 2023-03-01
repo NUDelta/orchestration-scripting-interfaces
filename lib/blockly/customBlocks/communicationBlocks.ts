@@ -3,7 +3,7 @@ import { javascriptGenerator } from 'blockly/javascript';
 
 Blockly.Blocks['slackppl'] = {
   init: function () {
-    this.appendDummyInput().appendField('Send Slack Msg to Ppl');
+    this.appendDummyInput().appendField('Send Slack Message to People');
     this.appendValueInput('message1')
       // .setCheck('String')
       .appendField('         Your Message here:');

@@ -3,7 +3,7 @@ import { javascriptGenerator } from 'blockly/javascript';
   
   export const UseVenuesToolboxCategories = {
     kind: 'category',
-    name: 'Example UseVenues',
+    name: '* UseVenues',
     colour: '#5CA699',
     contents: [
       {

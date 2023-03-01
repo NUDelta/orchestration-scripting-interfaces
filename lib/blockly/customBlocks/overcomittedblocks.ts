@@ -126,7 +126,7 @@ javascriptGenerator['sprintTime'] = function (block: Blockly.Block) {
 
 export const OvercommittedToolboxCategories = {
   kind: 'category',
-  name: 'Example Overcommitted',
+  name: '* OV',
   colour: '#5CA699',
   contents: [
     {

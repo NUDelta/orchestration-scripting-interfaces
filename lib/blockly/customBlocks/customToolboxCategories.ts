@@ -73,7 +73,9 @@ javascriptGenerator['myif'] = function (block: Blockly.Block) {
 
 Blockly.Blocks['Detector'] = {
   init: function () {
-    this.appendValueInput('Detector').appendField('Detector (="if")');
+    this.appendDummyInput().appendField('Detector (="if")');
+    this.appendValueInput('Detector');
+    this.setNextStatement(true);
     this.setInputsInline(false);
     this.setOutput(false, null);
     this.setColour(210);
@@ -90,7 +92,7 @@ javascriptGenerator['Detector'] = function (block: Blockly.Block) {
     'Detector',
     javascriptGenerator.ORDER_ATOMIC
   );
-  var code = 'function () { \nreturn ' + ifinput + ';\n}\n';
+  var code = 'function () { \nreturn ' + ifinput + ';\n}\n\n';
   return code;
 };
 
@@ -117,13 +119,14 @@ javascriptGenerator['Strategies'] = function (block: Blockly.Block) {
     'Strategy',
   );
 
-  var code = 'function(){\nreturn' + doinput + ';\n}\n';
+  var code = 'function(){\nreturn' + doinput + '}\n';
   return code;
 };
 
 Blockly.Blocks['StrategiesWrapper'] = {
   init: function () {
     this.appendStatementInput('Strategies').appendField('Set of');
+    this.setPreviousStatement(true);
     this.setInputsInline(false);
     this.setOutput(false, null);
     this.setColour(160);
@@ -167,7 +170,7 @@ export const toolboxCategories = {
         },
         {
           kind: 'block',
-          type: 'text_print',
+          type: 'or',
         },
       ],
     },
@@ -221,6 +224,12 @@ export const toolboxCategories = {
     timeToolboxCategories,
     // customToolboxCategories,
     venuesToolboxCategories,
+    {
+      kind: 'category',
+      name: '',
+      colour: 'white',
+      contents: [],
+    },
     OvercommittedToolboxCategories,
     UseVenuesToolboxCategories,
   ],

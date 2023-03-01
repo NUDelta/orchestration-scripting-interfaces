@@ -16,33 +16,32 @@ Blockly.Blocks['time'] = {
           ['4', '4'],
           ['5', '5'],
           ['6', '6'],
-        ]),
-        'days'
-      )
-      .appendField('days')
-      .appendField(
-        new Blockly.FieldDropdown([
-          ['0', '0'],
-          ['1', '1'],
-          ['2', '2'],
-          ['3', '3'],
-          ['6', '6'],
           ['12', '12'],
-        ]),
-        'hours'
-      )
-      .appendField('hours')
-      .appendField(
-        new Blockly.FieldDropdown([
-          ['0', '0'],
-          ['5', '5'],
           ['15', '15'],
           ['30', '30'],
           ['45', '45'],
         ]),
-        'minutes'
+        'time'
       )
-      .appendField('minutes')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['days', 'days'],
+          ['hours', 'hours'],
+          ['minutes', 'minutes'],
+        ]),
+        'timestep'
+      )
+      // .appendField('hours')
+      // .appendField(
+      //   new Blockly.FieldDropdown([
+      //     ['0', '0'],
+      //     ['5', '5'],
+      //     ['15', '15'],
+      //     ['30', '30'],
+      //     ['45', '45'],
+      //   ]),
+      //   'minutes'
+      // )
       .appendField(
         new Blockly.FieldDropdown([
           // ['At', 'At'],
@@ -79,7 +78,8 @@ Blockly.Blocks['time'] = {
 
 javascriptGenerator['time'] = function (block: Blockly.Block) {
   //TODO should be able to accept 1 day X minutes X hours
-  var hours = block.getFieldValue('hours');
+  var time = block.getFieldValue('time');
+  var timestep = block.getFieldValue('timestep');
   var beforeAfter = block.getFieldValue('relation');
   var venue = block.getFieldValue('event');
   var venueCode = '';
@@ -90,7 +90,7 @@ javascriptGenerator['time'] = function (block: Blockly.Block) {
   } else if (venue == "Studio") {
     venueCode = 'venues.find(this.where("kind", "Studio"))'
   }
-  var code = '(function () {return \nhours' + beforeAfter + 'Venue(\n' + venueCode + ', ' + hours + ')})'
+  var code = '(function () {return \n' + timestep + beforeAfter + 'Venue(\n' + venueCode + ', ' + time + ')})'
   return [code, javascriptGenerator.ORDER_ATOMIC];
 };
 

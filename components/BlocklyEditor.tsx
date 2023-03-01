@@ -8,7 +8,7 @@ export default function BlockEditor() {
   const [javascriptCode, setJavascriptCode] = useState('');
 
   const initialXml =
-    '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="ApplicableSet" x="35" y="30"></block><block type="Detector" x="35" y="150"></block><block type="StrategiesWrapper" x="35" y="200"></block><block type="Strategies" x="70" y="200"></block></xml>';
+    '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="ApplicableSet" x="30" y="30"></block><block type="Detector" x="30" y="145"></block><block type="StrategiesWrapper" x="30" y="200"></block><block type="Strategies" x="70" y="200"></block></xml>';
 
   function workspaceDidChange(workspace) {
     // console.log(workspace);

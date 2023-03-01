@@ -21,8 +21,7 @@ javascriptGenerator['or'] = function (block: Blockly.Block) {
 
 Blockly.Blocks['addition'] = {
   init: function () {
-    this.appendValueInput('left').setCheck(null);
-    this.appendDummyInput().appendField('+');
+    this.appendValueInput('left').setCheck(null).appendField('+');
     this.appendValueInput('right').setCheck(null);
     this.setInputsInline(false);
     this.setOutput(true, null);
@@ -38,8 +37,7 @@ javascriptGenerator['addition'] = function (block: Blockly.Block) {
 
 Blockly.Blocks['subtraction'] = {
   init: function () {
-    this.appendValueInput('left').setCheck(null);
-    this.appendDummyInput().appendField('-');
+    this.appendValueInput('left').setCheck(null).appendField('-');
     this.appendValueInput('right').setCheck(null);
 
     this.setInputsInline(false);
@@ -51,7 +49,73 @@ Blockly.Blocks['subtraction'] = {
 };
 
 javascriptGenerator['subtraction'] = function (block: Blockly.Block) {
-  return null;
+  var left = javascriptGenerator.valueToCode(
+    block,
+    'left',
+    javascriptGenerator.ORDER_SUBTRACTION
+  );
+  var right = javascriptGenerator.valueToCode(
+    block,
+    'right',
+    javascriptGenerator.ORDER_SUBTRACTION
+  );
+  var code = left + ' - ' + right;
+  return [code, javascriptGenerator.ORDER_SUBTRACTION];
+};
+
+Blockly.Blocks['multiplication'] = {
+  init: function () {
+    this.appendValueInput('left').setCheck(null).appendField('*');
+    this.appendValueInput('right').setCheck(null);
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['multiplication'] = function (block: Blockly.Block) {
+  var left = javascriptGenerator.valueToCode(
+    block,
+    'left',
+    javascriptGenerator.ORDER_MULTIPLICATION
+  );
+  var right = javascriptGenerator.valueToCode(
+    block,
+    'right',
+    javascriptGenerator.ORDER_MULTIPLICATION
+  );
+  var code = left + ' * ' + right;
+  return [code, javascriptGenerator.ORDER_MULTIPLICATION];
+};
+
+Blockly.Blocks['division'] = {
+  init: function () {
+    this.appendValueInput('left').setCheck(null).appendField('/');
+    this.appendValueInput('right').setCheck(null);
+
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['division'] = function (block: Blockly.Block) {
+  var left = javascriptGenerator.valueToCode(
+    block,
+    'left',
+    javascriptGenerator.ORDER_MULTIPLICATION
+  );
+  var right = javascriptGenerator.valueToCode(
+    block,
+    'right',
+    javascriptGenerator.ORDER_MULTIPLICATION
+  );
+  var code = left + ' / ' + right;
+  return [code, javascriptGenerator.ORDER_MULTIPLICATION];
 };
 
 Blockly.Blocks['greater_than'] = {
@@ -133,10 +197,6 @@ export const mathToolboxCategories = {
     },
     {
       kind: 'block',
-      type: 'or',
-    },
-    {
-      kind: 'block',
       type: 'addition',
     },
     {
@@ -145,12 +205,20 @@ export const mathToolboxCategories = {
     },
     {
       kind: 'block',
-      type: 'greater_than',
+      type: 'multiplication',
     },
     {
       kind: 'block',
-      type: 'less_than',
+      type: 'division',
     },
+    // {
+    //   kind: 'block',
+    //   type: 'greater_than',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'less_than',
+    // },
     {
       kind: 'block',
       type: 'abs',
