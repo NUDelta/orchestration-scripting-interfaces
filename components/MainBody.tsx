@@ -1,4 +1,8 @@
 import dynamic from 'next/dynamic';
+import styles from './MainBody.module.css';
+import { Carousel } from '@mantine/carousel';
+import { BottomRow } from 'blockly/core/renderers/zelos/zelos';
+
 const BlocklyEditor = dynamic(() => import('./BlocklyEditor'), { ssr: false });
 
 export const MainBody = () => {
@@ -96,9 +100,66 @@ export const MainBody = () => {
             </div>
           ))}
         </div>
-
         {/* Blockly Interface */}
-        <div id="blocklyContainer">
+        <div>
+          <div className={styles.carouselContainer}>
+            <Carousel
+              w="100%"
+              withIndicators
+              bg={'#f5f5f5'}
+              height={200}
+              loop
+              draggable={false}
+              styles={{ controls: { bottom: '0' } }}
+            >
+              <Carousel.Slide>
+                <div className={styles.guideStep}>
+                  <h3 className={styles.guideHeader}>
+                    Step 1: Getting started
+                  </h3>
+                  <p className={styles.guideDescription}>
+                    A general script consists of 3 parts: Scope, Detector, and
+                    Strategies. We will walk you through how to construct each
+                    part.
+                  </p>
+                </div>
+              </Carousel.Slide>
+              <Carousel.Slide ml={100}>
+                <div className={styles.guideStep}>
+                  <h3 className={styles.guideHeader}>Step 2: Script Scope</h3>
+                  <p className={styles.guideDescription}>
+                    Let's define the scope of this script! You will specify your
+                    scope by attaching a "Scope" block to the "I want this
+                    script to apply to" block. <br></br>
+                    Who do you want this script to apply for? Is it a specific
+                    SIG? Is it all projects?<br></br>Take a look at the "Scope"
+                    blocks under Social Structures
+                  </p>
+                </div>
+              </Carousel.Slide>
+              <Carousel.Slide>
+                <div className={styles.guideStep}>
+                  <h3 className={styles.guideHeader}>
+                    Step 3: Script Detector
+                  </h3>
+                  <p className={styles.guideDescription}>
+                    Explain detector hhehe
+                  </p>
+                </div>
+              </Carousel.Slide>
+              <Carousel.Slide>
+                <div className={styles.guideStep}>
+                  <h3 className={styles.guideHeader}>
+                    Step 4: Script Strategies
+                  </h3>
+                  <p className={styles.guideDescription}>
+                    When this situation is detected, what do you want to do
+                    about? <br></br>Take a look at the blocks blah blah blah
+                  </p>
+                </div>
+              </Carousel.Slide>
+            </Carousel>
+          </div>
           <BlocklyEditor />
         </div>
       </div>
