@@ -7,17 +7,6 @@ Blockly.Blocks['slackppl'] = {
     this.appendValueInput('message1')
       // .setCheck('String')
       .appendField('         Your Message here:');
-    /*
-      this.appendValueInput("message2")
-          .setCheck("String")
-          .appendField("(input: underlying strategy)");
-      this.appendValueInput("recipient")
-          .setCheck("recipient")
-          .appendField("(input: recipient)");
-    */
-    // this.appendValueInput('medium')
-    //   .setCheck('medium')
-    //   .appendField('         medium - slack or email');
     this.appendValueInput('recipient')
       // .setCheck('String')
       .appendField("         Recipient:");
@@ -220,23 +209,6 @@ javascriptGenerator['email_address'] = function (block: Blockly.Block) {
   return null;
 };
 
-Blockly.Blocks['slack_channel'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Recipient: Slack Channel');
-    this.appendValueInput('name')
-      .setCheck('String')
-      .appendField('(input: channel)');
-    this.setOutput(true, 'recipient');
-    this.setColour(20);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-javascriptGenerator['slack_channel'] = function (block: Blockly.Block) {
-  return null;
-};
-
 Blockly.Blocks['slack_medium'] = {
   init: function () {
     this.appendDummyInput().appendField('Medium: Slack');
@@ -403,10 +375,6 @@ export const communicationToolboxCategories = {
     {
       kind: 'block',
       type: 'email',
-    },
-    {
-      kind: 'block',
-      type: 'slack_channel',
     },
     {
       kind: 'block',

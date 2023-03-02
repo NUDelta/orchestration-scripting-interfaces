@@ -9,6 +9,7 @@ import { mathToolboxCategories } from './mathBlocks';
 import { canvasesToolboxCategories } from './canvasesBlocks';
 import { ProjectToolboxCategories } from './projectBlocks';
 import { VariablesToolboxCategories } from './variableBlocks';
+import { EOQReminderToolboxCategories } from './EOQReminderExample';
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 import { strategiesToolboxCategories } from './strategiesBlocks';
@@ -21,7 +22,7 @@ Blockly.Blocks['and'] = {
     this.appendValueInput('right');
     //.appendField("(output: boolean)");
     this.setInputsInline(false);
-    this.setOutput(true, null);
+    this.setOutput(true, Boolean);
     this.setColour(210);
     this.setTooltip('');
     this.setHelpUrl('');
@@ -71,10 +72,42 @@ javascriptGenerator['myif'] = function (block: Blockly.Block) {
   return code;
 };
 
+// create a fixed block
+Blockly.Blocks['ApplicableSet'] = {
+  init: function () {
+    //description
+    this.appendDummyInput().appendField('I want this script to apply to:');
+    //indents
+    this.appendValueInput('projects');
+    //fixed
+    this.setMovable(false);
+    //indent and description on same line?
+    this.setInputsInline(false);
+    //is the block an input to another block
+    this.setOutput(false, null);
+    this.setColour(110);
+    this.setTooltip('Specify the applicable set for this script');
+    this.setHelpUrl('');
+    this.setDeletable(false);
+  },
+};
+
+javascriptGenerator['ApplicableSet'] = function (block: Blockly.Block) {
+  var value = javascriptGenerator.valueToCode(
+    block,
+    'projects',
+    javascriptGenerator.ORDER_ATOMIC
+  );
+
+  // Generate the code to perform the calculation using the value
+  var code = 'function () { \nreturn ' + value + ';\n}\n';
+  return code;
+};
+
 Blockly.Blocks['Detector'] = {
   init: function () {
     this.appendDummyInput().appendField('Detector (="if")');
-    this.appendValueInput('Detector');
+    this.appendValueInput('Detector').setCheck(Boolean);
     this.setNextStatement(true);
     this.setInputsInline(false);
     this.setOutput(false, null);
@@ -232,5 +265,6 @@ export const toolboxCategories = {
     },
     OvercommittedToolboxCategories,
     UseVenuesToolboxCategories,
+    EOQReminderToolboxCategories,
   ],
 };

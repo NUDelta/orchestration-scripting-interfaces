@@ -243,32 +243,68 @@ javascriptGenerator['at'] = function (block: Blockly.Block) {
   return null;
 };
 
-Blockly.Blocks['first_sig'] = {
+Blockly.Blocks['firstlast_venue'] = {
   init: function () {
-    this.appendDummyInput().appendField('Event: First SIG');
-    this.setOutput(true, 'event');
+    this.appendDummyInput().appendField('Event:')
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ['First', 'First'],
+        ['Last', 'Last'],
+      ]),
+      'firstlastmodifier'
+    );
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ['SIG Meeting', 'SigMeeting'],
+        ['Office Hours', 'OfficeHours'],
+        ['Studio', 'Studio'],
+      ]),
+      'venue'
+    );
+    this.setOutput(true, 'date');
     this.setColour(330);
     this.setTooltip('');
     this.setHelpUrl('');
   },
 };
 
-javascriptGenerator['first_sig'] = function (block: Blockly.Block) {
-  return null;
+javascriptGenerator['firstlast_venue'] = function (block: Blockly.Block) {
+  var firstlastmodifier = block.getFieldValue('firstlastmodifier');
+  var venue = block.getFieldValue('venue');
+  var code = '(get' + firstlastmodifier + "(venues.find(where('kind', '" + venue + "')))).start_time"
+  return [code, javascriptGenerator.ORDER_NONE];
 };
 
-Blockly.Blocks['second_sig'] = {
+Blockly.Blocks['IsDayOf'] = {
   init: function () {
-    this.appendDummyInput().appendField('Event: Second SIG');
-    this.setOutput(true, 'event');
+    this.appendValueInput('date')
+        .setCheck('date')
+        .appendField('Is ')
+    .appendField(
+      new Blockly.FieldDropdown([
+        ['Day of', 'Day'],
+        ['Week of', 'Week'],
+      ]),
+      'time'
+    );
+    
+    this.setOutput(true, Boolean);
     this.setColour(330);
     this.setTooltip('');
     this.setHelpUrl('');
   },
 };
 
-javascriptGenerator['second_sig'] = function (block: Blockly.Block) {
-  return null;
+javascriptGenerator['IsDayOf'] = function (block: Blockly.Block) {
+  var date =
+  javascriptGenerator.valueToCode(
+    block,
+    'date',
+    javascriptGenerator.ORDER_NONE
+  );
+  var dayWeekModifier = block.getFieldValue('time');
+  var code = 'is'+ dayWeekModifier + 'Of(' + date + ')'
+  return [code, javascriptGenerator.ORDER_FUNCTION_CALL];
 };
 
 Blockly.Blocks['sprint'] = {
@@ -294,21 +330,6 @@ javascriptGenerator['sprint'] = function (block: Blockly.Block) {
   return null;
 };
 
-/*Blockly.Blocks['days_of_the_week'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Event: Days of the week");
-    this.setOutput(true, "event");
-    this.setColour(330);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-javascriptGenerator['days_of_the_week'] = function (block: Blockly.Block) {
-    return null;
-};
-*/
 Blockly.Blocks['mysore'] = {
   init: function () {
     this.appendDummyInput().appendField('Event: Mysore');
@@ -320,62 +341,6 @@ Blockly.Blocks['mysore'] = {
 };
 
 javascriptGenerator['mysore'] = function (block: Blockly.Block) {
-  return null;
-};
-
-Blockly.Blocks['first_office_hour'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Event: First Office hours');
-    this.setOutput(true, 'event');
-    this.setColour(330);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-javascriptGenerator['first_office_hour'] = function (block: Blockly.Block) {
-  return null;
-};
-
-Blockly.Blocks['second_office_hour'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Event: Second Office hours');
-    this.setOutput(true, 'event');
-    this.setColour(330);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-javascriptGenerator['second_office_hour'] = function (block: Blockly.Block) {
-  return null;
-};
-
-Blockly.Blocks['first_studio'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Event: First Studio');
-    this.setOutput(true, 'event');
-    this.setColour(330);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-javascriptGenerator['first_studio'] = function (block: Blockly.Block) {
-  return null;
-};
-
-Blockly.Blocks['second_studio'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Event: Second Studio');
-    this.setOutput(true, 'event');
-    this.setColour(330);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-javascriptGenerator['second_studio'] = function (block: Blockly.Block) {
   return null;
 };
 
@@ -620,6 +585,19 @@ Blockly.Blocks['currentlyIs'] = {
   },
 };
 
+javascriptGenerator['currentlyIs'] = function (block: Blockly.Block) {
+  // TODO:
+  var value = javascriptGenerator.valueToCode(
+    block,
+    'currentlyIs',
+    javascriptGenerator.ORDER_NONE
+  );
+
+  // Generate the code to perform the calculation using the value
+  var code = 'currentlyIs(' + value + ')'
+  return [code, javascriptGenerator.ORDER_LOGICAL_AND];
+};
+
 export const timeToolboxCategories = {
   kind: 'category',
   name: 'Time',
@@ -638,14 +616,10 @@ export const timeToolboxCategories = {
     { kind: 'block', type: 'during' },
     { kind: 'block', type: 'at' },
     { kind: 'block', type: 'amount_time_modifier' },
-    { kind: 'block', type: 'first_sig' },
-    { kind: 'block', type: 'second_sig' },
+    { kind: 'block', type: 'firstlast_venue' },
+    { kind: 'block', type: 'IsDayOf' },
     { kind: 'block', type: 'sprint' },
     { kind: 'block', type: 'mysore' },
-    { kind: 'block', type: 'first_office_hour' },
-    { kind: 'block', type: 'second_office_hour' },
-    { kind: 'block', type: 'first_studio' },
-    { kind: 'block', type: 'second_studio' },
     { kind: 'block', type: 'week' },
     { kind: 'block', type: 'time_elapsed' },
     { kind: 'block', type: 'time_period' },

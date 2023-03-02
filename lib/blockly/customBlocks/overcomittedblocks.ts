@@ -1,64 +1,6 @@
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
-// create a fixed block
-Blockly.Blocks['ApplicableSet'] = {
-  init: function () {
-    //description
-    this.appendDummyInput().appendField('I want this script to apply to:');
-    //indents
-    this.appendValueInput('projects');
-    //fixed
-    this.setMovable(false);
-    //indent and description on same line?
-    this.setInputsInline(false);
-    //is the block an input to another block
-    this.setOutput(false, null);
-    this.setColour(110);
-    this.setTooltip('Specify the applicable set for this script');
-    this.setHelpUrl('');
-    this.setDeletable(false);
-  },
-};
-
-javascriptGenerator['ApplicableSet'] = function (block: Blockly.Block) {
-  var value = javascriptGenerator.valueToCode(
-    block,
-    'projects',
-    javascriptGenerator.ORDER_ATOMIC
-  );
-
-  // Generate the code to perform the calculation using the value
-  var code = 'function () { \nreturn ' + value + ';\n}\n';
-  return code;
-};
-
-//currentlyIs
-Blockly.Blocks['currentlyIs'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Currently is');
-    this.appendValueInput('currentlyIs');
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(110);
-    this.setTooltip('check if the current time is in the specified time block');
-    this.setHelpUrl('');
-  },
-};
-
-javascriptGenerator['currentlyIs'] = function (block: Blockly.Block) {
-  // TODO:
-  var value = javascriptGenerator.valueToCode(
-    block,
-    'currentlyIs',
-    javascriptGenerator.ORDER_NONE
-  );
-
-  // Generate the code to perform the calculation using the value
-  var code = 'currentlyIs(' + value + ')'
-  return [code, javascriptGenerator.ORDER_LOGICAL_AND];
-};
-
 //multiply [Backlog for now]
 
 //Sprint log -- this is to enable the user to pull data from the sprint log (e.g. total points spent, total points available)

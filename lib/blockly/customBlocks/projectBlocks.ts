@@ -121,6 +121,26 @@ Blockly.Blocks['projectlistofstudents'] = {
     }
   };
 
+  Blockly.Blocks['PROJ_subcategory'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("---------------PROJECT--------------");
+      this.setColour("#000000");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks['SoS_subcategory'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("----------SOCIAL STRUCTURE----------");
+      this.setColour("#000000");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
   // create a venue object block
 Blockly.Blocks['AllSIGs'] = {
   init: function () {
@@ -138,6 +158,9 @@ Blockly.Blocks['AllSIGs'] = {
     this.appendDummyInput()
       .appendField("CAMP")
       .appendField(new Blockly.FieldCheckbox(true), 'CAMP');
+    this.appendDummyInput()
+      .appendField("BBQ")
+      .appendField(new Blockly.FieldCheckbox(true), 'BBQ');
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(110);
@@ -150,6 +173,7 @@ javascriptGenerator['AllSIGs'] = function (block: Blockly.Block) {
   var CE = block.getFieldValue('CE');
   var RALE = block.getFieldValue('RALE');
   var CAMP = block.getFieldValue('CAMP');
+  var BBQ = block.getFieldValue('BBQ');
   var code = 'socialStructures.filter(where("name",\n[';
   if (NOT == "TRUE"){
       code += '"Networked Orchestration Technologies",\n';
@@ -161,7 +185,10 @@ javascriptGenerator['AllSIGs'] = function (block: Blockly.Block) {
       code += '"Readily Available Learning Experiences",\n';
   }
   if (CAMP == "TRUE"){
-      code += '"Contextually-Aware Metacognitive Practice"';
+      code += '"Contextually-Aware Metacognitive Practice",\n';
+  }
+  if (BBQ == "TRUE"){
+    code += '"SUMMER BBQ"';
   }
   code += '])'
   return [code, javascriptGenerator.ORDER_ATOMIC];
@@ -177,7 +204,7 @@ Blockly.Blocks['sig_attributes'] = {
           ['name', 'name'],
           ['abbreviation', 'abbreviation'],
           ['slackChannel', 'slackChannel'],
-          ['sigHead', 'sigHead'],
+          ['sigHead', 'sigHead.name'],
         ]),
         'sig_attributes'
       );
@@ -197,9 +224,13 @@ javascriptGenerator['sig_attributes'] = function (block: Blockly.Block) {
 
   export const ProjectToolboxCategories = {
     kind: 'category',
-    name: 'Project related',
+    name: 'Social Structure',
     colour: '#5CA699',
     contents: [
+      {
+        kind: 'block',
+        type: 'PROJ_subcategory',
+      },
       {
         kind: 'block',
         type: 'AllProjects',
@@ -228,6 +259,10 @@ javascriptGenerator['sig_attributes'] = function (block: Blockly.Block) {
         kind: 'block',
         type: 'sig_attributes',
       },
+      {
+        kind: 'block',
+        type: 'SoS_subcategory',
+      }
     ],
   };
   

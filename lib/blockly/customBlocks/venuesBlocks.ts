@@ -25,7 +25,7 @@ Blockly.Blocks['venue'] = {
 // create the code output from the venue object block
 javascriptGenerator['venue'] = function (block: Blockly.Block) {
   var venue = block.getFieldValue('NAME');
-  var code ="venues.find(where('kind', " + venue + "))"
+  var code ="venues.find(where('kind', '" + venue + "'))"
   return [code, javascriptGenerator.ORDER_ATOMIC];
 };
 

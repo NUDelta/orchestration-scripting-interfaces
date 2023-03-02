@@ -1,9 +1,9 @@
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
   
-  export const UseVenuesToolboxCategories = {
+  export const EOQReminderToolboxCategories = {
     kind: 'category',
-    name: '* UseVenues',
+    name: '* EOQReminder',
     colour: '#5CA699',
     contents: [
       {
@@ -16,20 +16,10 @@ import { javascriptGenerator } from 'blockly/javascript';
       },
       {
         kind: 'block',
-        type: 'slackSIG',
+        type: 'slackppl',
       },
-      {
-        kind: 'block',
-        type: 'venue',
-      },
-      {
-        kind: 'block',
-        type: 'Morningofvenue',
-      },
-      {
-        kind: 'block',
-        type: 'Boolean',
-      },
+      { kind: 'block', type: 'firstlast_venue' },
+      { kind: 'block', type: 'IsDayOf' },
       { kind: 'block', type: 'time' },
     ],
   };
