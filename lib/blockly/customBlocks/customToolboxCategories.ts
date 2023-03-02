@@ -14,6 +14,7 @@ import { EOQChecklistToolboxCategories } from './EOQChecklistExample';
 import { PhDProgressToolboxCategories } from './researchPhDExample';
 import { UndercommittedToolboxCategories } from './undercomittedExample';
 import { statusUpdateStudentToolboxCategories } from './statusUpdateStudent';
+import { CompassExampleToolboxCategories } from './statusUpdateStudent';
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 import { strategiesToolboxCategories } from './strategiesBlocks';
@@ -273,6 +274,7 @@ export const toolboxCategories = {
     EOQChecklistToolboxCategories,
     PhDProgressToolboxCategories,
     UndercommittedToolboxCategories,
-    statusUpdateStudentToolboxCategories
+    statusUpdateStudentToolboxCategories,
+    CompassExampleToolboxCategories,
   ],
 };
