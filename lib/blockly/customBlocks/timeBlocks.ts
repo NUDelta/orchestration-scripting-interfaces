@@ -620,7 +620,7 @@ Blockly.Blocks['DaysBefore'] = {
       );
     this.appendValueInput('date')
     .setCheck('date')
-    .appendField(' Before')
+    .appendField(' Before (<- date)')
     this.setOutput(true, 'date');
     this.setColour(330);
     this.setTooltip('');
@@ -641,6 +641,38 @@ javascriptGenerator['DaysBefore'] = function (block: Blockly.Block) {
   return [code, javascriptGenerator.ORDER_FUNCTION_CALL];
 };
 
+  Blockly.Blocks['startofVenue'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(
+          new Blockly.FieldDropdown([
+            ['Start of', 'startOf'],
+            ['End of', 'endOf'],
+          ]),
+          'dropdown'
+        )
+        // .appendField('venue')
+      this.appendValueInput('venue');
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setColour(110);
+      this.setTooltip('');
+      this.setHelpUrl('');
+    },
+  };
+  
+  // create the code output from the venue object block
+  javascriptGenerator['startofVenue'] = function (block: Blockly.Block) {
+    var time = block.getFieldValue('dropdown');
+    var venue = javascriptGenerator.valueToCode(
+      block,
+      'venue',
+      javascriptGenerator.ORDER_NONE
+    );
+    var code = time + 'Venue(' + venue +')';
+    return [code, javascriptGenerator.ORDER_ATOMIC];
+  };
+
 export const timeToolboxCategories = {
   kind: 'category',
   name: 'Time',
@@ -650,17 +682,18 @@ export const timeToolboxCategories = {
     { kind: 'block',
     type: 'Morningofvenue',
     },
-    { kind: 'block', type: 'modifier' },
-    { kind: 'block', type: 'midweek' },
+    // { kind: 'block', type: 'modifier' },
+    // { kind: 'block', type: 'midweek' },
     { kind: 'block', type: 'currentlyIs' },
     { kind: 'block', type: 'Weekdays' },
-    { kind: 'block', type: 'after' },
-    { kind: 'block', type: 'before' },
-    { kind: 'block', type: 'during' },
-    { kind: 'block', type: 'at' },
+    // { kind: 'block', type: 'after' },
+    // { kind: 'block', type: 'before' },
+    // { kind: 'block', type: 'during' },
+    // { kind: 'block', type: 'at' },
+    { kind: 'block', type: 'IsDayOf' },
+    { kind: 'block', type: 'startofVenue' },
     { kind: 'block', type: 'DaysBefore' },
     { kind: 'block', type: 'firstlast_venue' },
-    { kind: 'block', type: 'IsDayOf' },
     { kind: 'block', type: 'sprint' },
     { kind: 'block', type: 'mysore' },
     { kind: 'block', type: 'week' },

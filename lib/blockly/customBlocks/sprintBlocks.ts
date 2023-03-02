@@ -263,26 +263,26 @@ export const sprintToolboxCategories = {
   name: 'Sprint',
   colour: '#5CA699',
   contents: [
-    // {
-    //   kind: 'block',
-    //   type: 'sprintLog',
-    // },
+    {
+      kind: 'block',
+      type: 'sprintLog',
+    },
     // {
     //   kind: 'block',
     //   type: 'sprintTime',
     // },
-    {
-      kind: 'block',
-      type: 'before_next_sig',
-    },
-    {
-      kind: 'block',
-      type: 'before_next_oh',
-    },
-    {
-      kind: 'block',
-      type: 'before_next_studio',
-    },
+    // {
+    //   kind: 'block',
+    //   type: 'before_next_sig',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'before_next_oh',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'before_next_studio',
+    // },
     {
       kind: 'block',
       type: 'high_sprint_log_contains',

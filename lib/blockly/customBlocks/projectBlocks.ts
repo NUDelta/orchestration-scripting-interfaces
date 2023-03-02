@@ -9,6 +9,7 @@ Blockly.Blocks['AllProjects'] = {
       .appendField(
         new Blockly.FieldDropdown([
           ['All Projects', 'projects'],
+          ['Non-Phd Projects', 'Non-Phd projects'],
           [
             'Orchestration Scripting Environments',
             'Orchestration Scripting Environments',
@@ -38,7 +39,14 @@ Blockly.Blocks['AllProjects'] = {
 javascriptGenerator['AllProjects'] = function (block: Blockly.Block) {
   // TODO: return the project/projects from the selected dropdown
   var operator = block.getFieldValue('PROJNAME');
-  return [operator, javascriptGenerator.ORDER_ATOMIC];
+  var code = '';
+  if (operator == 'projects'){
+    return [operator, javascriptGenerator.ORDER_ATOMIC];
+  }
+  if (operator == 'Non-Phd projects'){
+    code = 'projects.filter(whereAll("students", "role", "NonPhdStudent"))'
+  }
+  return [code, javascriptGenerator.ORDER_ATOMIC];
 };
 
 // create a venue object block
