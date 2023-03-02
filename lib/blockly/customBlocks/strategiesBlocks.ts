@@ -81,10 +81,10 @@ export const strategiesToolboxCategories = {
   name: 'Strategies',
   colour: '#5CA699',
   contents: [
-    {
-      kind: 'block',
-      type: 'strategiesmsg',
-    },
+    // {
+    //   kind: 'block',
+    //   type: 'strategiesmsg',
+    // },
     {
       kind: 'block',
       type: 'Strategies',

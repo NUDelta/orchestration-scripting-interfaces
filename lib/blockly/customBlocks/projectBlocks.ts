@@ -49,6 +49,74 @@ javascriptGenerator['AllProjects'] = function (block: Blockly.Block) {
   return [code, javascriptGenerator.ORDER_ATOMIC];
 };
 
+  // create a venue object block
+  Blockly.Blocks['AllProj2'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('Project')
+      this.appendDummyInput()
+        .appendField("OSE")
+        .appendField(new Blockly.FieldCheckbox(true), 'OSE');
+      this.appendDummyInput()
+        .appendField("OPR")
+        .appendField(new Blockly.FieldCheckbox(true), 'OPR');
+      this.appendDummyInput()
+        .appendField("KM")
+        .appendField(new Blockly.FieldCheckbox(true), 'KM');
+      this.appendDummyInput()
+        .appendField("CN")
+        .appendField(new Blockly.FieldCheckbox(true), 'CN');
+      this.appendDummyInput()
+        .appendField("Q&A")
+        .appendField(new Blockly.FieldCheckbox(true), 'Q&A');
+      this.appendDummyInput()
+        .appendField("Path")
+        .appendField(new Blockly.FieldCheckbox(true), 'Path');
+      this.appendDummyInput()
+        .appendField("CERD")
+        .appendField(new Blockly.FieldCheckbox(true), 'CERD');
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setColour(110);
+      this.setTooltip('');
+      this.setHelpUrl('');
+    },
+  };
+  javascriptGenerator['AllProj2'] = function (block: Blockly.Block) {
+    var OSE = block.getFieldValue('OSE');
+    var OPR = block.getFieldValue('OPR');
+    var KM = block.getFieldValue('KM');
+    var CN = block.getFieldValue('CN');
+    var QA = block.getFieldValue('Q&A');
+    var Path = block.getFieldValue('Path');
+    var CERD = block.getFieldValue('CERD');
+    var code = 'projects.filter(where("name",\n[';
+    if (OSE == "TRUE"){
+        code += '"Orchestration Scripting Environments",\n';
+    }
+    if (OPR == "TRUE"){
+        code += '"Orchestrating Planning and Reflection",\n';
+    }
+    if (CN == "TRUE"){
+        code += '"Collective Narrative",\n';
+    }
+    if (KM == "TRUE"){
+        code += '"Knowledge Map",\n';
+    }
+    if (QA == "TRUE"){
+      code += '"Q&A Buddy",\n';
+    }
+    if (Path == "TRUE"){
+      code += '"Path",\n';
+    }
+    if (CERD == "TRUE"){
+      code += '"CE for Relationship Development"';
+    }
+    code += '])'
+    return [code, javascriptGenerator.ORDER_ATOMIC];
+  };
+
+  
 // create a venue object block
 Blockly.Blocks['project_people'] = {
     init: function () {
@@ -149,6 +217,16 @@ Blockly.Blocks['projectlistofstudents'] = {
     }
   };
 
+  Blockly.Blocks['Applicable_subcategory'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("---------------Scope---------------");
+      this.setColour("#000000");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
   // create a venue object block
 Blockly.Blocks['AllSIGs'] = {
   init: function () {
@@ -232,16 +310,26 @@ javascriptGenerator['sig_attributes'] = function (block: Blockly.Block) {
 
   export const ProjectToolboxCategories = {
     kind: 'category',
-    name: 'Social Structure',
+    name: 'Social Structures',
     colour: '#5CA699',
     contents: [
+      {kind: 'block',
+        type: 'Applicable_subcategory'},
+        {
+          kind: 'block',
+          type: 'AllProjects',
+        },
+        {
+          kind: 'block',
+          type: 'AllProj2',
+        },
+        {
+          kind: 'block',
+          type: 'AllSIGs',
+        },
       {
         kind: 'block',
         type: 'PROJ_subcategory',
-      },
-      {
-        kind: 'block',
-        type: 'AllProjects',
       },
       {
         kind: 'block',
@@ -258,10 +346,6 @@ javascriptGenerator['sig_attributes'] = function (block: Blockly.Block) {
       {
         kind: 'block',
         type: 'SIG_subcategory',
-      },
-      {
-        kind: 'block',
-        type: 'AllSIGs',
       },
       {
         kind: 'block',
