@@ -38,9 +38,5 @@ export const venuesToolboxCategories = {
       kind: 'block',
       type: 'venue',
     },
-    {
-      kind: 'block',
-      type: 'Morningofvenue',
-    },
   ],
 };

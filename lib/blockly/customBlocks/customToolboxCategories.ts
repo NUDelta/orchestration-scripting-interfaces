@@ -11,6 +11,7 @@ import { ProjectToolboxCategories } from './projectBlocks';
 import { VariablesToolboxCategories } from './variableBlocks';
 import { EOQReminderToolboxCategories } from './EOQReminderExample';
 import { EOQChecklistToolboxCategories } from './EOQChecklistExample';
+import { PhDProgressToolboxCategories } from './researchPhDExample';
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 import { strategiesToolboxCategories } from './strategiesBlocks';
@@ -268,5 +269,6 @@ export const toolboxCategories = {
     UseVenuesToolboxCategories,
     EOQReminderToolboxCategories,
     EOQChecklistToolboxCategories,
+    PhDProgressToolboxCategories,
   ],
 };

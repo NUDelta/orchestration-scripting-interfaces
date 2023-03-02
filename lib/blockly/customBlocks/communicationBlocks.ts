@@ -38,7 +38,7 @@ javascriptGenerator['slackppl'] = function (block: Blockly.Block) {
     'time',
     javascriptGenerator.ORDER_NONE
   );
-  var code = 'messagePeople({\nmessage: ' + message + ',\n' + 'people: [' + recipient + '],\n' + 'opportunity: ' + time + '});\n';
+  var code = 'messagePeople({\nmessage: ' + message + ',\n' + 'people: [' + recipient + '],\n' + 'opportunity: (function() {return ' + time + '})\n})\n';
   return code;
 };
 
@@ -90,7 +90,7 @@ javascriptGenerator['slackSIG'] = function (block: Blockly.Block) {
     'time',
     javascriptGenerator.ORDER_NONE
   );
-  var code = 'messageChannel({\nmessage: ' + message + ',\n' + 'sigName: ' + recipient + ',\n' + 'opportunity: ' + time + '\n})';
+  var code = 'messageChannel({\nmessage: ' + message + ',\n' + 'sigName: ' + recipient + ',\n' + 'opportunity: (function() {return ' + time + '})\n})\n';
   return code;
 };
 

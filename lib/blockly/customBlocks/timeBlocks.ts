@@ -90,7 +90,7 @@ javascriptGenerator['time'] = function (block: Blockly.Block) {
   } else if (venue == "Studio") {
     venueCode = 'venues.find(this.where("kind", "Studio"))'
   }
-  var code = '(function () {return \n' + timestep + beforeAfter + 'Venue(\n' + venueCode + ', ' + time + ')})'
+  var code = timestep + beforeAfter + 'Venue(\n' + venueCode + ', ' + time + ')'
   return [code, javascriptGenerator.ORDER_ATOMIC];
 };
 
@@ -123,7 +123,7 @@ javascriptGenerator['Morningofvenue'] = function (block: Blockly.Block) {
     'venue',
     javascriptGenerator.ORDER_NONE
   );
-  var code = '(function () {return\n' + time + 'Venue(' + venue +')})';
+  var code = time + 'Venue(' + venue +')';
   return [code, javascriptGenerator.ORDER_ATOMIC];
 };
 
