@@ -654,7 +654,7 @@ javascriptGenerator['DaysBefore'] = function (block: Blockly.Block) {
         // .appendField('venue')
       this.appendValueInput('venue');
       this.setInputsInline(true);
-      this.setOutput(true, null);
+      this.setOutput(true, 'date');
       this.setColour(110);
       this.setTooltip('');
       this.setHelpUrl('');
