@@ -672,6 +672,25 @@ javascriptGenerator['DaysBefore'] = function (block: Blockly.Block) {
     var code = time + 'Venue(' + venue +')';
     return [code, javascriptGenerator.ORDER_ATOMIC];
   };
+  
+  Blockly.Blocks['statusUpatedate'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('statusUpate date')
+        // .appendField('venue')
+      this.setInputsInline(true);
+      this.setOutput(true, 'date');
+      this.setColour(110);
+      this.setTooltip('');
+      this.setHelpUrl('');
+    },
+  };
+  
+  // create the code output from the venue object block
+  javascriptGenerator['statusUpatedate'] = function (block: Blockly.Block) {
+    var code = 'this.project.statusUpdateDate'
+    return [code, javascriptGenerator.ORDER_ATOMIC];
+  };
 
 export const timeToolboxCategories = {
   kind: 'category',
@@ -695,6 +714,7 @@ export const timeToolboxCategories = {
     { kind: 'block', type: 'DaysBefore' },
     { kind: 'block', type: 'firstlast_venue' },
     { kind: 'block', type: 'sprint' },
+    { kind: 'block', type: 'statusUpatedate' },
     { kind: 'block', type: 'mysore' },
     { kind: 'block', type: 'week' },
     { kind: 'block', type: 'time_elapsed' },
