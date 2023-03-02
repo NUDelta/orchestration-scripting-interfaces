@@ -598,6 +598,49 @@ javascriptGenerator['currentlyIs'] = function (block: Blockly.Block) {
   return [code, javascriptGenerator.ORDER_LOGICAL_AND];
 };
 
+
+Blockly.Blocks['DaysBefore'] = {
+  init: function () {
+    this.appendDummyInput()
+    .appendField(
+      new Blockly.FieldDropdown([
+        ['0', '0'],
+        ['1', '1'],
+        ['2', '2'],
+        ['3', '3'],
+        ['4', '4'],
+        ['5', '5'],
+        ['6', '6'],
+      ]), 'time'
+      ).appendField(
+      new Blockly.FieldDropdown([
+        ['Day', 'days'],
+        ['Week', 'weeks'],
+      ]), 'timestep'
+      );
+    this.appendValueInput('date')
+    .setCheck('date')
+    .appendField(' Before')
+    this.setOutput(true, 'date');
+    this.setColour(330);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['DaysBefore'] = function (block: Blockly.Block) {
+  var date =
+  javascriptGenerator.valueToCode(
+    block,
+    'date',
+    javascriptGenerator.ORDER_NONE
+  );
+  var dayWeekModifier = block.getFieldValue('timestep');
+  var time = block.getFieldValue('time');
+  var code = dayWeekModifier + 'Before((' + date + ', ' + time +'))'
+  return [code, javascriptGenerator.ORDER_FUNCTION_CALL];
+};
+
 export const timeToolboxCategories = {
   kind: 'category',
   name: 'Time',
@@ -615,7 +658,7 @@ export const timeToolboxCategories = {
     { kind: 'block', type: 'before' },
     { kind: 'block', type: 'during' },
     { kind: 'block', type: 'at' },
-    { kind: 'block', type: 'amount_time_modifier' },
+    { kind: 'block', type: 'DaysBefore' },
     { kind: 'block', type: 'firstlast_venue' },
     { kind: 'block', type: 'IsDayOf' },
     { kind: 'block', type: 'sprint' },
