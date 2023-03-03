@@ -151,7 +151,7 @@ export const MainBody = () => {
                   <p className={styles.guideDescription}>
                     Let's define the scope of this script! You will specify your
                     scope by attaching a "Scope" block to the "I want this
-                    script to apply to" block. <br></br>
+                    script to apply to" block. <br></br><br></br>
                     Who do you want this script to apply for? Is it a specific
                     SIG? Is it all projects?<br></br>Take a look at the "Scope"
                     blocks under Social Structures
@@ -164,18 +164,20 @@ export const MainBody = () => {
                     Step 3: Script Detector
                   </h3>
                   <p className={styles.guideDescription}>
-                    Now that we have a scope, let's define how we will detect
-                    the situation. <br></br>
+                    <b>Now that we have a scope, let's define how we will detect
+                    the situation.</b> <br></br>
                     You can build the detector by attaching different condition
                     blocks to the blue "Detector (=if)" block. <br></br> For
                     example, you can attach conditions like checking what time
                     it is in the sprint, or checking for the work students are
                     doing using the tools in the "Sprint", "Canvases", and
                     "Github" categories.{' '}
-                    <em>
+                    {/* <em>
                       Hint: you can combine different conditions using the
                       "Logic" blocks.
-                    </em>
+                    </em> */}
+                    <br></br>
+                      Note: if your scope contains more than one object (1+ projects, SIGs etc.), the detector and strategy will automatically run for each object.
                   </p>
                 </div>
               </Carousel.Slide>
@@ -185,8 +187,8 @@ export const MainBody = () => {
                     Step 4: Script Strategies
                   </h3>
                   <p className={styles.guideDescription}>
-                    When this situation is detected, what do you want to do
-                    about it? <br></br>You can use the blue "Strategy" block to
+                    <b>When this situation is detected, what do you want to do
+                    about it?</b> <br></br>You can use the blue "Strategy" block to
                     include how you want to support your students. <br></br> A
                     situation can also have multiple strategies. Use the "Set
                     of" green block to declare a set of strategies. Then, attach
@@ -194,7 +196,7 @@ export const MainBody = () => {
                     attach your strategy/set of strategies to the detector.{' '}
                     <br></br>
                     <em>
-                      Hint: one strategy could be to send a slack message to
+                      e.g. one strategy could be to send a slack message to
                       yourself/your student when something comes up (look under
                       "Communication")
                     </em>
