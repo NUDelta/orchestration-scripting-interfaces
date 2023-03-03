@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import styles from './MainBody.module.css';
 import { Carousel } from '@mantine/carousel';
+import { rem } from '@mantine/core';
 import { BottomRow } from 'blockly/core/renderers/zelos/zelos';
 
 const BlocklyEditor = dynamic(() => import('./BlocklyEditor'), { ssr: false });
@@ -107,10 +108,30 @@ export const MainBody = () => {
               w="100%"
               withIndicators
               bg={'#f5f5f5'}
-              height={200}
+              height={250}
               loop
               draggable={false}
-              styles={{ controls: { bottom: '0' } }}
+              controlSize={40}
+              styles={{
+                controls: {
+                  marginTop: 75,
+                  height: rem(50),
+                  borderColor: 'black',
+                },
+                control: {
+                  border: '1px solid black',
+                },
+                // indicators: {
+                //   width: rem(50),
+                //   height: rem(4),
+                //   transition: 'width 250ms ease',
+                //   backgroundColor: 'black',
+
+                //   '&[data-active]': {
+                //     width: rem(40),
+                //   },
+                // },
+              }}
             >
               <Carousel.Slide>
                 <div className={styles.guideStep}>
@@ -143,7 +164,18 @@ export const MainBody = () => {
                     Step 3: Script Detector
                   </h3>
                   <p className={styles.guideDescription}>
-                    Explain detector hhehe
+                    Now that we have a scope, let's define how we will detect
+                    the situation. <br></br>
+                    You can build the detector by attaching different condition
+                    blocks to the blue "Detector (=if)" block. <br></br> For
+                    example, you can attach conditions like checking what time
+                    it is in the sprint, or checking for the work students are
+                    doing using the tools in the "Sprint", "Canvases", and
+                    "Github" categories.{' '}
+                    <em>
+                      Hint: you can combine different conditions using the
+                      "Logic" blocks.
+                    </em>
                   </p>
                 </div>
               </Carousel.Slide>
@@ -154,7 +186,18 @@ export const MainBody = () => {
                   </h3>
                   <p className={styles.guideDescription}>
                     When this situation is detected, what do you want to do
-                    about? <br></br>Take a look at the blocks blah blah blah
+                    about it? <br></br>You can use the blue "Strategy" block to
+                    include how you want to support your students. <br></br> A
+                    situation can also have multiple strategies. Use the "Set
+                    of" green block to declare a set of strategies. Then, attach
+                    the strategies to the "Set of" block. When you're done,
+                    attach your strategy/set of strategies to the detector.{' '}
+                    <br></br>
+                    <em>
+                      Hint: one strategy could be to send a slack message to
+                      yourself/your student when something comes up (look under
+                      "Communication")
+                    </em>
                   </p>
                 </div>
               </Carousel.Slide>
