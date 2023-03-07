@@ -33,6 +33,101 @@ javascriptGenerator['strategiesmsg'] = function (block: Blockly.Block) {
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
+Blockly.Blocks['Strategies'] = {
+  init: function () {
+    this.appendStatementInput('Strategy')
+        .appendField('Strategy')
+        .appendField(new Blockly.FieldNumber(1), 'FIELDNAME');
+    // this.setPreviousStatement(true);
+    // this.setNextStatement(true);
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(210);
+    this.setTooltip('');
+    this.setHelpUrl('');
+    this.setDeletable(true);
+    // this.setMovable(false);
+  },
+};
+
+javascriptGenerator['Strategies'] = function (block: Blockly.Block) {
+  var doinput = javascriptGenerator.statementToCode(
+    block,
+    'Strategy',
+  );
+
+  var code = 'function(){\nreturn' + doinput + '}\n';
+  return code;
+};
+
+Blockly.Blocks['rootCause'] = {
+  init: function () {
+    this.appendValueInput('Root Cause')
+        .appendField('Root Cause')
+        .appendField(new Blockly.FieldNumber(1), 'FIELDNAME');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setInputsInline(false);
+    this.setColour(270);
+    this.setTooltip('');
+    this.setHelpUrl('');
+    this.setDeletable(false);
+    // this.setMovable(false);
+  },
+};
+
+javascriptGenerator['rootCause'] = function (block: Blockly.Block) {
+  var doinput = javascriptGenerator.statementToCode(
+    block,
+    'Strategy',
+  );
+
+  return doinput;
+};
+
+
+Blockly.Blocks['StrategiesWrapper'] = {
+  init: function () {
+    this.appendStatementInput('Strategies').appendField('Set of');
+    this.setPreviousStatement(true);
+    this.setInputsInline(false);
+    this.setOutput(false, null);
+    this.setColour(160);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['StrategiesWrapper'] = function (block: Blockly.Block) {
+  var doinput = javascriptGenerator.statementToCode(
+    block,
+    'Strategies',
+  );
+  var code = 'strategies: [\n' + doinput + ']';
+  return code;
+};
+
+Blockly.Blocks['RCMessage'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Construct Message:');
+    this.appendStatementInput("Message")
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setInputsInline(false);
+    this.setOutput(false, null);
+    this.setColour('#cc9900');
+    this.setTooltip('');
+    this.setHelpUrl('');
+    this.setDeletable(true);
+    this.setMovable(true);
+  },
+};
+
+javascriptGenerator['RCMessage'] = function (block: Blockly.Block) {
+  return null;
+};
+
+
 // ATTEMPT & TODO: trying to allow for more than 2 strategies
 // javascriptGenerator['strategies'] = function (block: Blockly.Block) {
 //   var strategies = [];
@@ -92,6 +187,14 @@ export const strategiesToolboxCategories = {
     {
       kind: 'block',
       type: 'StrategiesWrapper',
-    }
+    },
+    {
+      kind: 'block',
+      type: 'rootCause',
+    },
+    {
+      kind: 'block',
+      type: 'RCMessage',
+    },  
   ],
 };

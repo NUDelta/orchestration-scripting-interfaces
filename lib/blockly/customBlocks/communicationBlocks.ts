@@ -1,6 +1,26 @@
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
+Blockly.Blocks['slackme'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Send Slack Message to me when detector triggers');
+    this.appendValueInput('message1')
+      // .setCheck('String')
+      .appendField('         Your Message here:');
+    this.setInputsInline(false);
+    this.setPreviousStatement(true);
+    this.setNextStatement(false);
+    this.setOutput(false);
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['slackme'] = function (block: Blockly.Block) {
+  return null;
+};
+
 Blockly.Blocks['slackppl'] = {
   init: function () {
     this.appendDummyInput().appendField('Send Slack Message to People');
@@ -342,6 +362,10 @@ export const communicationToolboxCategories = {
   contents: [
     {
       kind: 'block',
+      type: 'slackme',
+    },
+    {
+      kind: 'block',
       type: 'slackppl',
     },
     {
@@ -364,22 +388,22 @@ export const communicationToolboxCategories = {
       kind: 'block',
       type: 'my_text_join',
     },
-    {
-      kind: 'block',
-      type: 'person',
-    },
-    {
-      kind: 'block',
-      type: 'email_address',
-    },
-    {
-      kind: 'block',
-      type: 'email',
-    },
-    {
-      kind: 'block',
-      type: 'slack_medium',
-    },
+    // {
+    //   kind: 'block',
+    //   type: 'person',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'email_address',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'email',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'slack_medium',
+    // },
     {
       kind: 'block',
       type: 'high_deliverables',
