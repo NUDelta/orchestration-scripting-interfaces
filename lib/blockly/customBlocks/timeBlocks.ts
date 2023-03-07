@@ -243,38 +243,6 @@ javascriptGenerator['at'] = function (block: Blockly.Block) {
   return null;
 };
 
-Blockly.Blocks['firstlast_venue'] = {
-  init: function () {
-    this.appendDummyInput().appendField('Event:')
-    this.appendDummyInput().appendField(
-      new Blockly.FieldDropdown([
-        ['First', 'First'],
-        ['Last', 'Last'],
-      ]),
-      'firstlastmodifier'
-    );
-    this.appendDummyInput().appendField(
-      new Blockly.FieldDropdown([
-        ['SIG Meeting', 'SigMeeting'],
-        ['Office Hours', 'OfficeHours'],
-        ['Studio', 'Studio'],
-      ]),
-      'venue'
-    );
-    this.setOutput(true, 'date');
-    this.setColour(330);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  },
-};
-
-javascriptGenerator['firstlast_venue'] = function (block: Blockly.Block) {
-  var firstlastmodifier = block.getFieldValue('firstlastmodifier');
-  var venue = block.getFieldValue('venue');
-  var code = '(get' + firstlastmodifier + "(venues.find(where('kind', '" + venue + "')))).start_time"
-  return [code, javascriptGenerator.ORDER_NONE];
-};
-
 Blockly.Blocks['IsDayOf'] = {
   init: function () {
     this.appendValueInput('date')
@@ -676,7 +644,7 @@ javascriptGenerator['DaysBefore'] = function (block: Blockly.Block) {
   Blockly.Blocks['statusUpatedate'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('statusUpate date')
+        .appendField('Event: Status Update')
         // .appendField('venue')
       this.setInputsInline(true);
       this.setOutput(true, 'date');
@@ -692,31 +660,100 @@ javascriptGenerator['DaysBefore'] = function (block: Blockly.Block) {
     return [code, javascriptGenerator.ORDER_ATOMIC];
   };
 
+  //time blocks under the TimeOfVenue_subcategory connects to a venue object
+  //venueobject: name of venue, start_time, end_time, and day of week.
+  Blockly.Blocks['TimeOfVenue_subcategory'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("~~Takes in a Venue, Return a point in time~~");
+      this.setColour("#000000");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  //time blocks under the TimeOfVenue_subcategory connects to a venue object
+  //venueobject: name of venue, start_time, end_time, and day of week.
+  Blockly.Blocks['TimePoint_subcategory'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("~~Returns a Point in time~~");
+      this.setColour("#000000");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+    //time blocks under the TimeOfVenue_subcategory connects to a venue object
+  //venueobject: name of venue, start_time, end_time, and day of week.
+  Blockly.Blocks['TimeModifiers_subcategory'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("~~Takes in & returns a Point in time~~");
+      this.setColour("#000000");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+      //time blocks under the TimeOfVenue_subcategory connects to a venue object
+  Blockly.Blocks['TimePeriod_subcategory'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("~~Returns a period of time~~");
+      this.setColour("#000000");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks['TimeBoolean_subcategory'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("~~Takes in a point in time, Returns a Boolean~~");
+      this.setColour("#000000");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
 export const timeToolboxCategories = {
   kind: 'category',
   name: 'Time',
   colour: '#5CA699',
   contents: [
+    { kind: 'block',
+    type: 'TimePoint_subcategory',
+    },
     { kind: 'block', type: 'time' },
+    { kind: 'block', type: 'Weekdays' },
+    { kind: 'block', type: 'statusUpatedate' },
+    { kind: 'block', type: 'mysore' },
+    { kind: 'block', type: 'week' },
+    { kind: 'block',
+    type: 'TimeOfVenue_subcategory',
+    },
     { kind: 'block',
     type: 'Morningofvenue',
     },
+    { kind: 'block', type: 'startofVenue' },
+    { kind: 'block',
+    type: 'TimeModifiers_subcategory',
+    },
+    { kind: 'block', type: 'DaysBefore' },
     // { kind: 'block', type: 'modifier' },
     // { kind: 'block', type: 'midweek' },
+    { kind: 'block', type: 'TimeBoolean_subcategory' },
     { kind: 'block', type: 'currentlyIs' },
-    { kind: 'block', type: 'Weekdays' },
     // { kind: 'block', type: 'after' },
     // { kind: 'block', type: 'before' },
     // { kind: 'block', type: 'during' },
     // { kind: 'block', type: 'at' },
     { kind: 'block', type: 'IsDayOf' },
-    { kind: 'block', type: 'startofVenue' },
-    { kind: 'block', type: 'DaysBefore' },
-    { kind: 'block', type: 'firstlast_venue' },
-    { kind: 'block', type: 'sprint' },
-    { kind: 'block', type: 'statusUpatedate' },
-    { kind: 'block', type: 'mysore' },
-    { kind: 'block', type: 'week' },
+    // { kind: 'block', type: 'sprint' },
+    { kind: 'block',
+    type: 'TimePeriod_subcategory',
+    },
     { kind: 'block', type: 'time_elapsed' },
     { kind: 'block', type: 'time_period' },
   ],

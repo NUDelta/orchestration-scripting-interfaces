@@ -29,6 +29,38 @@ javascriptGenerator['venue'] = function (block: Blockly.Block) {
   return [code, javascriptGenerator.ORDER_ATOMIC];
 };
 
+Blockly.Blocks['firstlast_venue'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Venue')
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ['First', 'First'],
+        ['Last', 'Last'],
+      ]),
+      'firstlastmodifier'
+    );
+    this.appendDummyInput().appendField(
+      new Blockly.FieldDropdown([
+        ['SIG Meeting', 'SigMeeting'],
+        ['Office Hours', 'OfficeHours'],
+        ['Studio', 'Studio'],
+      ]),
+      'venue'
+    );
+    this.setOutput(true, 'date');
+    this.setColour(330);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['firstlast_venue'] = function (block: Blockly.Block) {
+  var firstlastmodifier = block.getFieldValue('firstlastmodifier');
+  var venue = block.getFieldValue('venue');
+  var code = '(get' + firstlastmodifier + "(venues.find(where('kind', '" + venue + "')))).start_time"
+  return [code, javascriptGenerator.ORDER_NONE];
+};
+
 export const venuesToolboxCategories = {
   kind: 'category',
   name: 'Venues',
@@ -38,5 +70,7 @@ export const venuesToolboxCategories = {
       kind: 'block',
       type: 'venue',
     },
+    { kind: 'block', 
+    type: 'firstlast_venue' },
   ],
 };
