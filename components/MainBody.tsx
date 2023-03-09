@@ -102,31 +102,19 @@ export const MainBody = () => {
             <div className={styles.list}>
               <div className={styles.listItem}>
                 <span className={styles.itemNumber}>1</span>
-                <span
-                  role="textbox"
-                  className={styles.itemInput}
-                  contentEditable
-                ></span>
+                <input type="text" className={styles.itemInput}></input>
               </div>
             </div>
             <div className={styles.list}>
               <div className={styles.listItem}>
                 <span className={styles.itemNumber}>2</span>
-                <span
-                  role="textbox"
-                  className={styles.itemInput}
-                  contentEditable
-                ></span>
+                <input type="text" className={styles.itemInput}></input>
               </div>
             </div>
             <div className={styles.list}>
               <div className={styles.listItem}>
                 <span className={styles.itemNumber}>3</span>
-                <span
-                  role="textbox"
-                  className={styles.itemInput}
-                  contentEditable
-                ></span>
+                <input type="text" className={styles.itemInput}></input>
                 <button className={styles.addItem}>+</button>
               </div>
             </div>
@@ -139,31 +127,21 @@ export const MainBody = () => {
             <div className={styles.list}>
               <div className={styles.listItem}>
                 <span className={styles.itemNumber}>1</span>
-                <span
-                  role="textbox"
-                  className={styles.itemInput}
-                  contentEditable
-                ></span>
+                <input type="text" className={styles.itemInput}></input>
               </div>
             </div>
             <div className={styles.list}>
               <div className={styles.listItem}>
                 <span className={styles.itemNumber}>2</span>
-                <span
-                  role="textbox"
-                  className={styles.itemInput}
-                  contentEditable
-                ></span>
+                <input type="text" className={styles.itemInput}></input>
               </div>
             </div>
             <div className={styles.listItem}>
-              <span className={styles.itemNumber}>3</span>
-              <span
-                role="textbox"
-                className={styles.itemInput}
-                contentEditable
-              ></span>
-              <button className={styles.addItem}>+</button>
+              <div className={styles.listItem}>
+                <span className={styles.itemNumber}>3</span>
+                <input type="text" className={styles.itemInput}></input>
+                <button className={styles.addItem}>+</button>
+              </div>
             </div>
           </div>
         </div>
@@ -306,8 +284,7 @@ export const MainBody = () => {
                     how you want to support your students. <br></br> A situation
                     can also have multiple strategies. Use the "Set of" green
                     block to declare a set of strategies. Then, attach the
-                    strategies to a "Root Cause" block to specify which root cause it addresses. When you're done, attach
-                    your strategy/set of strategies to the detector. <br></br>
+                    strategies to a "Root Cause" block to specify which root cause it addresses. <br></br>
                     <em>
                       e.g. one strategy could be to send a slack message to
                       yourself/your student when something comes up (look under
