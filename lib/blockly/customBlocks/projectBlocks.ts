@@ -124,8 +124,10 @@ Blockly.Blocks['project_people'] = {
         .appendField('Project')
         .appendField(
           new Blockly.FieldDropdown([
-            ['sigHead','sigHead.name'],
             ['students','students'],
+            ['student 1','student 1'],
+            ['student 2','student 2'],
+            ['sigHead','sigHead.name'],
             ['facultyMentor', 'facultyMentor'],
           ]),
           'PROJPPL'
@@ -143,6 +145,37 @@ Blockly.Blocks['project_people'] = {
     var code = "project." + operator;
     return [code, javascriptGenerator.ORDER_ATOMIC];
   };
+
+
+// create a venue object block
+Blockly.Blocks['project_people_input'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('Project')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['students','students'],
+          ['student 1','student 1'],
+          ['student 2','student 2'],
+          ['sigHead','sigHead.name'],
+          ['facultyMentor', 'facultyMentor'],
+        ]),
+        'PROJPPL'
+      );
+    this.appendValueInput('attribute');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(110);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+javascriptGenerator['project_people_input'] = function (block: Blockly.Block) {
+  // TODO: return the project/projects from the selected dropdown
+  var operator = block.getFieldValue('PROJPPL');
+  var code = "project." + operator;
+  return [code, javascriptGenerator.ORDER_ATOMIC];
+};
 
   // create a venue object block
 Blockly.Blocks['project_attributes'] = {
@@ -334,6 +367,10 @@ javascriptGenerator['sig_attributes'] = function (block: Blockly.Block) {
       {
         kind: 'block',
         type: 'project_people'
+      },
+      {
+        kind: 'block',
+        type: 'project_people_input'
       },
       {
         kind: 'block',
