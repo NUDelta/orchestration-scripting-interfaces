@@ -4,18 +4,12 @@ import { javascriptGenerator } from 'blockly/javascript';
 Blockly.Blocks['slackme'] = {
   init: function () {
     this.appendDummyInput().appendField('Send Slack Message to me when detector triggers');
-    this.appendValueInput('message1')
+    this.appendValueInput('situationdesc')
       // .setCheck('String')
-      .appendField('      Hey, looks like your detector for : ');
-    this.appendDummyInput().appendField('      has been triggered! Here are the porential');
-    this.appendDummyInput().appendField("      root causes that you've identified: ");
-    this.appendValueInput('rc1')
-    // .setCheck('String')
-    .appendField('                    rc1: ');
-    this.appendValueInput('rc2')
-    .appendField('                    rc2: ');
-    this.appendValueInput('rc3')
-    .appendField('                    rc3: ');
+      .appendField('    Hey, looks like your detector for : ');
+    this.appendValueInput('violation').appendField("    has been triggered! This is what triggered it:");
+    this.appendDummyInput().appendField("    Here are the porential root causes that you");
+    this.appendDummyInput().appendField("    have identified: ");
     this.setInputsInline(false);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -30,22 +24,33 @@ javascriptGenerator['slackme'] = function (block: Blockly.Block) {
   return null;
 };
 
+Blockly.Blocks['slackmerc'] = {
+  init: function () {
+    this.appendValueInput('Root Cause')
+    .appendField('RC')
+    .appendField(new Blockly.FieldNumber(1), 'FIELDNAME')
+    .appendField(':')
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setOutput(false);
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['slackmerc'] = function (block: Blockly.Block) {
+  return null;
+};
+
 Blockly.Blocks['slackme2'] = {
   init: function () {
     this.appendDummyInput().appendField("      The relevant data points for each of these ");
     this.appendDummyInput().appendField("      RCs are as such: ");
-    this.appendValueInput('dataRC1')
-    // .setCheck('String')
-    .appendField('                    rc1: ');
-    this.appendValueInput('dataRC2')
-    .appendField('                    rc2: ');
-    this.appendValueInput('dataRC3')
-    .appendField('                    rc3: ');
-    this.appendDummyInput().appendField("Which root cause do you think is happening?");
-    this.appendDummyInput().appendField("If you think it's none of these, [TODO]");
     this.setInputsInline(false);
     this.setPreviousStatement(true);
-    this.setNextStatement(false);
+    this.setNextStatement(true);
     this.setOutput(false);
     this.setColour(20);
     this.setTooltip('');
@@ -56,6 +61,25 @@ Blockly.Blocks['slackme2'] = {
 javascriptGenerator['slackme2'] = function (block: Blockly.Block) {
   return null;
 };
+
+Blockly.Blocks['slackme3'] = {
+  init: function () {
+    this.appendDummyInput().appendField("Which root cause do you think is causing this?");
+    // this.appendDummyInput().appendField("If you think it's none of these, [TODO]");
+    this.setInputsInline(false);
+    this.setPreviousStatement(true);
+    this.setNextStatement(false);
+    this.setOutput(false);
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['slackme3'] = function (block: Blockly.Block) {
+  return null;
+};
+
 
 Blockly.Blocks['slackppl'] = {
   init: function () {
@@ -391,6 +415,26 @@ javascriptGenerator[
   return null;
 };
 
+Blockly.Blocks['TriggerMsgSubCategory'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("------------TriggerMsg------------");
+    this.setColour("#000000");
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['SendslackSubCategory'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("------------Send Slack------------");
+    this.setColour("#000000");
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
 export const communicationToolboxCategories = {
   kind: 'category',
   name: 'Communication',
@@ -398,12 +442,28 @@ export const communicationToolboxCategories = {
   contents: [
     {
       kind: 'block',
+      type: 'TriggerMsgSubCategory',
+    },
+    {
+      kind: 'block',
       type: 'slackme',
     },
-    // {
-    //   kind: 'block',
-    //   type: 'slackme2',
-    // },
+    {
+      kind: 'block',
+      type: 'slackmerc',
+    },
+    {
+      kind: 'block',
+      type: 'slackme2',
+    },
+    {
+      kind: 'block',
+      type: 'slackme3',
+    },
+    {
+      kind: 'block',
+      type: 'SendslackSubCategory',
+    },
     {
       kind: 'block',
       type: 'slackppl',

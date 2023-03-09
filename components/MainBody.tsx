@@ -201,8 +201,12 @@ export const MainBody = () => {
                   </h3>
                   <p className={styles.guideDescription}>
                     A general script consists of 3 parts: Scope, Detector, and
-                    Strategies. We will walk you through how to construct each
-                    part.
+                    Strategies. The execution flow of a script is as such: <br></br>
+                    Detector triggers -> <br></br>
+                    send message to you that 1. provide suggestions for root causes 2. relevant data points to 
+                    help you diagnose the cause of the problem
+                    <br></br>-> select root cause
+                    <br></br>-> system execute strategy for the root cause selected
                   </p>
                 </div>
               </Carousel.Slide>
@@ -232,11 +236,9 @@ export const MainBody = () => {
                     </b>{' '}
                     <br></br>
                     You can build the detector by attaching different condition
-                    blocks to the blue "Detector (=if)" block. <br></br> For
-                    example, you can attach conditions like checking what time
-                    it is in the sprint, or checking for the work students are
-                    doing using the tools in the "Sprint", "Canvases", and
-                    "Github" categories.{' '}
+                    blocks to the blue "Detector (=if)" block. <br></br> 
+                    After the 
+                    Don't worry about detecting any root causes in the detector.{' '}
                     {/* <em>
                       Hint: you can combine different conditions using the
                       "Logic" blocks.
@@ -248,6 +250,26 @@ export const MainBody = () => {
                   </p>
                 </div>
               </Carousel.Slide>
+              {/* <Carousel.Slide>
+                <div className={styles.guideStep}>
+                  <h3 className={styles.guideHeader}>
+                    Step 4: Construct Message
+                  </h3>
+                  <p className={styles.guideDescription}>
+                    <b>
+                      Now that we have a scope, let's define how we will detect
+                      the situation.
+                    </b>{' '}
+                    <br></br>
+                    You can build the detector by attaching different condition
+                    blocks to the blue "Detector (=if)" block. <br></br> For
+                    example, you can attach conditions like checking what time
+                    it is in the sprint, or checking for the work students are
+                    doing using the tools in the "Sprint", "Canvases", and
+                    "Github" categories.{' '}
+                  </p>
+                </div>
+              </Carousel.Slide> */}
               <Carousel.Slide>
                 <div className={styles.guideStep}>
                   <h3 className={styles.guideHeader}>
@@ -262,8 +284,7 @@ export const MainBody = () => {
                     how you want to support your students. <br></br> A situation
                     can also have multiple strategies. Use the "Set of" green
                     block to declare a set of strategies. Then, attach the
-                    strategies to a "Root Cause" block to specify which root cause it addresses. When you're done, attach
-                    your strategy/set of strategies to the detector. <br></br>
+                    strategies to a "Root Cause" block to specify which root cause it addresses. <br></br>
                     <em>
                       e.g. one strategy could be to send a slack message to
                       yourself/your student when something comes up (look under

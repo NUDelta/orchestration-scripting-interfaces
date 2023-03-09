@@ -77,6 +77,70 @@ javascriptGenerator['sprintLogPointDTR'] = function (block: Blockly.Block) {
   return null;
 };
 
+Blockly.Blocks['sprintLogStory'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('Sprint Log: Summary of Stories')
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['sprintLogStory'] = function (block: Blockly.Block) {
+  return null;
+};
+
+Blockly.Blocks['sprintLogTasks'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('Sprint Log: Summary of Tasks')
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['sprintLogTasks'] = function (block: Blockly.Block) {
+  return null;
+};
+
+Blockly.Blocks['sprintLogFocus'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('Sprint Log: D T R Category spent most points on')
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['sprintLogFocus'] = function (block: Blockly.Block) {
+  return null;
+};
+
+Blockly.Blocks['sprintLogSlice'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('Sprint Log: D T R makeup of each stories')
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['sprintLogSlice'] = function (block: Blockly.Block) {
+  return null;
+};
+
 /*Blockly.Blocks['before_first_sig_of_sprint'] = {
   init: function() {
     this.appendDummyInput()
@@ -280,6 +344,16 @@ javascriptGenerator['high_sprint_updated2'] = function (block: Blockly.Block) {
   return null;
 };
 
+Blockly.Blocks['datapoint_subcategory'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("-----------For exclusive use in messages---------");
+    this.setColour("#000000");
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
 ///////////////////////////
 
 export const sprintToolboxCategories = {
@@ -322,6 +396,26 @@ export const sprintToolboxCategories = {
     {
       kind: 'block',
       type: 'high_sprint_updated2',
+    },
+    {
+      kind: 'block',
+      type: 'sprintLogFocus',
+    },
+    {
+      kind: 'block',
+      type: 'datapoint_subcategory',
+    },
+    {
+      kind: 'block',
+      type: 'sprintLogStory',
+    },
+    {
+      kind: 'block',
+      type: 'sprintLogTasks',
+    },
+    {
+      kind: 'block',
+      type: 'sprintLogSlice',
     },
     // {
     //   kind: 'block',
