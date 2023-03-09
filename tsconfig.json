@@ -20,7 +20,8 @@
     "**/*.ts",
     "**/*.tsx",
     "components/blocklyworkspace.tsx",
-    "components/blocklytools.tsx"
+    "components/blocklytools.tsx",
+    "components/List.jsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -59,9 +59,19 @@
 }
 
 .itemInput {
-  flex: 1;
   padding: 5px;
   border: 1px solid #ccc;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  resize: both;
+  min-height: 40px;
+  line-height: 20px;
+}
+
+.itemInput[contenteditable]:empty::before {
+  content: 'Write your root cause here...';
+  color: gray;
 }
 
 .scaffoldingHeader {
@@ -72,5 +82,11 @@
 .textInput {
   margin: 6px;
   border: 1px solid #ccc;
+  padding: 10px;
   width: 90%;
+  height: auto;
+  min-height: 150px;
+  max-height: 250px;
+  overflow-y: scroll;
+  resize: vertical;
 }
