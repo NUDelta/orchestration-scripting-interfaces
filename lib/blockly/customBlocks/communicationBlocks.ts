@@ -400,10 +400,10 @@ export const communicationToolboxCategories = {
       kind: 'block',
       type: 'slackme',
     },
-    {
-      kind: 'block',
-      type: 'slackme2',
-    },
+    // {
+    //   kind: 'block',
+    //   type: 'slackme2',
+    // },
     {
       kind: 'block',
       type: 'slackppl',

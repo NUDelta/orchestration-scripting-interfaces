@@ -53,6 +53,30 @@ javascriptGenerator['sprint_log3'] = function (block: Blockly.Block) {
   return null;
 };
 
+Blockly.Blocks['sprintLogPointDTR'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('Points spent on')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['Tech', 'Tech'],
+          ['Design', 'Design'],
+          ['Research', 'Research'],
+        ]),
+        'NAME'
+      );
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('TAKES IN A STUDENT');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['sprintLogPointDTR'] = function (block: Blockly.Block) {
+  return null;
+};
+
 /*Blockly.Blocks['before_first_sig_of_sprint'] = {
   init: function() {
     this.appendDummyInput()
@@ -267,6 +291,10 @@ export const sprintToolboxCategories = {
       kind: 'block',
       type: 'sprintLog',
     },
+    {
+      kind: 'block',
+      type: 'sprintLogPointDTR',
+    },
     // {
     //   kind: 'block',
     //   type: 'sprintTime',
@@ -294,14 +322,6 @@ export const sprintToolboxCategories = {
     {
       kind: 'block',
       type: 'high_sprint_updated2',
-    },
-    {
-      kind: 'block',
-      type: 'high_sprint_log_contains',
-    },
-    {
-      kind: 'block',
-      type: 'high_sprint_updated',
     },
     // {
     //   kind: 'block',

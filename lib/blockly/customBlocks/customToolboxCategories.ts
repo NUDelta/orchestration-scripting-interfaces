@@ -112,7 +112,8 @@ javascriptGenerator['ApplicableSet'] = function (block: Blockly.Block) {
 Blockly.Blocks['Detector'] = {
   init: function () {
     this.appendDummyInput().appendField('Detector (="if")');
-    this.appendValueInput('Detector').setCheck(Boolean);
+    this.appendValueInput('Detector')
+    // .setCheck(Boolean);
     this.setNextStatement(true);
     this.setInputsInline(false);
     this.setOutput(false, null);

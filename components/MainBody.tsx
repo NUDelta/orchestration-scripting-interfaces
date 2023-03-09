@@ -217,7 +217,7 @@ export const MainBody = () => {
                     how you want to support your students. <br></br> A situation
                     can also have multiple strategies. Use the "Set of" green
                     block to declare a set of strategies. Then, attach the
-                    strategies to the "Set of" block. When you're done, attach
+                    strategies to a "Root Cause" block to specify which root cause it addresses. When you're done, attach
                     your strategy/set of strategies to the detector. <br></br>
                     <em>
                       e.g. one strategy could be to send a slack message to
