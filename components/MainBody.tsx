@@ -3,13 +3,14 @@ import styles from './MainBody.module.css';
 import { Carousel } from '@mantine/carousel';
 import { rem } from '@mantine/core';
 import { BottomRow } from 'blockly/core/renderers/zelos/zelos';
+// import List from '../components/List.jsx';
 
 const BlocklyEditor = dynamic(() => import('./BlocklyEditor'), { ssr: false });
 
 export const MainBody = () => {
   const scaffoldingSteps = [
     {
-      step: 'Step 1: reflect on situation to script for',
+      step: 'Step 1: Describe the situation to script for',
       prompt: (
         <>
           Think back to a time when one of your students was not working or
@@ -32,7 +33,7 @@ export const MainBody = () => {
       ),
     },
     {
-      step: 'Step 2: reflect on strategy for the above situation',
+      step: 'Step 2: Based on your understanding of your students, what do you think is causing this situation? List several if you think there are multiple potential causes',
       prompt: (
         <>
           After you noticed the above situation, how did you support your
@@ -52,7 +53,7 @@ export const MainBody = () => {
       ),
     },
     {
-      step: 'Step 3: describe your situation and strategy in pseudocode',
+      step: 'Step 3: Formulate a help strategy for the potential cause(s) identified in step 2. If you identified multiple potential causes, strategize for each one.',
       prompt: (
         <>
           Based on your answers for Steps 1 and 2, write pseudocode for both the
@@ -83,24 +84,68 @@ export const MainBody = () => {
 
   return (
     <main className="h-screen w-screen relative">
-      {/* Scaffolding prompts */}
       <div className="grid grid-cols-25/75">
         <div>
-          {scaffoldingSteps.map(({ step, prompt, example }, index) => (
-            <div key={'scaffolding-step-' + index} className="p-5">
-              <b className="font-sans text-xl leading-3">{step}</b>
-              <div className="space-y-3">
-                <p className="font-sans text-base leading-4 whitespace-normal">
-                  {prompt}
-                </p>
-                <div className="font-sans text-sm whitespace-normal leading-3 italic">
-                  {example}
-                </div>
-                <textarea className="border border-black w-full"></textarea>
+          <div>
+            <div className={styles.scaffoldingHeader}>
+              {' '}
+              <b>{scaffoldingSteps[0].step}</b>
+              <p>{scaffoldingSteps[0].example}</p>
+            </div>
+            <textarea className={styles.textInput}></textarea>
+          </div>
+          <div>
+            <div className={styles.scaffoldingHeader}>
+              {' '}
+              <b>{scaffoldingSteps[1].step}</b>
+            </div>
+            <div className={styles.list}>
+              <div className={styles.listItem}>
+                <span className={styles.itemNumber}>1</span>
+                <input type="text" className={styles.itemInput}></input>
               </div>
             </div>
-          ))}
+            <div className={styles.list}>
+              <div className={styles.listItem}>
+                <span className={styles.itemNumber}>2</span>
+                <input type="text" className={styles.itemInput}></input>
+              </div>
+            </div>
+            <div className={styles.list}>
+              <div className={styles.listItem}>
+                <span className={styles.itemNumber}>3</span>
+                <input type="text" className={styles.itemInput}></input>
+                <button className={styles.addItem}>+</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className={styles.scaffoldingHeader}>
+              {' '}
+              <b>{scaffoldingSteps[2].step}</b>
+            </div>
+            <div className={styles.list}>
+              <div className={styles.listItem}>
+                <span className={styles.itemNumber}>1</span>
+                <input type="text" className={styles.itemInput}></input>
+              </div>
+            </div>
+            <div className={styles.list}>
+              <div className={styles.listItem}>
+                <span className={styles.itemNumber}>2</span>
+                <input type="text" className={styles.itemInput}></input>
+              </div>
+            </div>
+            <div className={styles.listItem}>
+              <div className={styles.listItem}>
+                <span className={styles.itemNumber}>3</span>
+                <input type="text" className={styles.itemInput}></input>
+                <button className={styles.addItem}>+</button>
+              </div>
+            </div>
+          </div>
         </div>
+
         {/* Blockly Interface */}
         <div>
           <div className={styles.carouselContainer}>

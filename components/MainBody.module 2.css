@@ -1,0 +1,23 @@
+.carouselContainer {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: start;
+}
+
+.guideStep {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.guideHeader {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.guideDescription {
+  font-size: 1rem;
+  font-weight: 400;
+}

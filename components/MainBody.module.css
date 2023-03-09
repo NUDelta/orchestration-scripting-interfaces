@@ -21,3 +21,56 @@
   font-size: 1rem;
   font-weight: 400;
 }
+
+.list {
+  margin: 20px 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.itemNumber {
+  margin-right: 10px;
+  font-weight: bold;
+  margin-left: 6px;
+}
+
+.addItem {
+  margin-left: 10px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.addItem:hover {
+  background-color: #3e8e41;
+}
+
+.itemInput {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.scaffoldingHeader {
+  margin-left: 6px;
+  margin-top: 6px;
+}
+
+.textInput {
+  margin: 6px;
+  border: 1px solid #ccc;
+  width: 90%;
+}
