@@ -102,19 +102,31 @@ export const MainBody = () => {
             <div className={styles.list}>
               <div className={styles.listItem}>
                 <span className={styles.itemNumber}>1</span>
-                <input type="text" className={styles.itemInput}></input>
+                <span
+                  role="textbox"
+                  className={styles.itemInput}
+                  contentEditable
+                ></span>
               </div>
             </div>
             <div className={styles.list}>
               <div className={styles.listItem}>
                 <span className={styles.itemNumber}>2</span>
-                <input type="text" className={styles.itemInput}></input>
+                <span
+                  role="textbox"
+                  className={styles.itemInput}
+                  contentEditable
+                ></span>
               </div>
             </div>
             <div className={styles.list}>
               <div className={styles.listItem}>
                 <span className={styles.itemNumber}>3</span>
-                <input type="text" className={styles.itemInput}></input>
+                <span
+                  role="textbox"
+                  className={styles.itemInput}
+                  contentEditable
+                ></span>
                 <button className={styles.addItem}>+</button>
               </div>
             </div>
@@ -127,19 +139,31 @@ export const MainBody = () => {
             <div className={styles.list}>
               <div className={styles.listItem}>
                 <span className={styles.itemNumber}>1</span>
-                <input type="text" className={styles.itemInput}></input>
+                <span
+                  role="textbox"
+                  className={styles.itemInput}
+                  contentEditable
+                ></span>
               </div>
             </div>
             <div className={styles.list}>
               <div className={styles.listItem}>
                 <span className={styles.itemNumber}>2</span>
-                <input type="text" className={styles.itemInput}></input>
+                <span
+                  role="textbox"
+                  className={styles.itemInput}
+                  contentEditable
+                ></span>
               </div>
             </div>
             <div className={styles.listItem}>
               <div className={styles.listItem}>
                 <span className={styles.itemNumber}>3</span>
-                <input type="text" className={styles.itemInput}></input>
+                <span
+                  role="textbox"
+                  className={styles.itemInput}
+                  contentEditable
+                ></span>
                 <button className={styles.addItem}>+</button>
               </div>
             </div>
@@ -201,12 +225,15 @@ export const MainBody = () => {
                   </h3>
                   <p className={styles.guideDescription}>
                     A general script consists of 3 parts: Scope, Detector, and
-                    Strategies. The execution flow of a script is as such: <br></br>
-                    Detector triggers -> <br></br>
-                    send message to you that 1. provide suggestions for root causes 2. relevant data points to 
-                    help you diagnose the cause of the problem
-                    <br></br>-> select root cause
-                    <br></br>-> system execute strategy for the root cause selected
+                    Strategies. The execution flow of a script is as such:{' '}
+                    <br></br>
+                    Detector triggers - <br></br>
+                    send message to you that 1. provide suggestions for root
+                    causes 2. relevant data points to help you diagnose the
+                    cause of the problem
+                    <br></br>- select root cause
+                    <br></br>- system execute strategy for the root cause
+                    selected
                   </p>
                 </div>
               </Carousel.Slide>
@@ -236,9 +263,9 @@ export const MainBody = () => {
                     </b>{' '}
                     <br></br>
                     You can build the detector by attaching different condition
-                    blocks to the blue "Detector (=if)" block. <br></br> 
-                    After the 
-                    Don't worry about detecting any root causes in the detector.{' '}
+                    blocks to the blue "Detector (=if)" block. <br></br>
+                    After the Don't worry about detecting any root causes in the
+                    detector.{' '}
                     {/* <em>
                       Hint: you can combine different conditions using the
                       "Logic" blocks.
@@ -284,7 +311,8 @@ export const MainBody = () => {
                     how you want to support your students. <br></br> A situation
                     can also have multiple strategies. Use the "Set of" green
                     block to declare a set of strategies. Then, attach the
-                    strategies to a "Root Cause" block to specify which root cause it addresses. <br></br>
+                    strategies to a "Root Cause" block to specify which root
+                    cause it addresses. <br></br>
                     <em>
                       e.g. one strategy could be to send a slack message to
                       yourself/your student when something comes up (look under
