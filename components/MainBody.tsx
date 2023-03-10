@@ -224,15 +224,14 @@ export const MainBody = () => {
                     Step 1: Getting started
                   </h3>
                   <p className={styles.guideDescription}>
-                    A general script consists of 3 parts: Scope, Detector, and
-                    Strategies. The execution flow of a script is as such:{' '}
-                    <br></br>
-                    Detector triggers - <br></br>
-                    send message to you that 1. provide suggestions for root
-                    causes 2. relevant data points to help you diagnose the
-                    cause of the problem
-                    <br></br>- select root cause
-                    <br></br>- system execute strategy for the root cause
+                    The execution flow of a script is as such: <br></br>
+                    -- Detector triggers <br></br>
+                    -- send message to you that provide 1. suggestions for root
+                    causes 2. context information to help you diagnose the cause
+                    of the problem
+                    <br></br>-- you select a root cause by replying to the
+                    message
+                    <br></br>-- system execute strategy for the root cause
                     selected
                   </p>
                 </div>
@@ -241,13 +240,18 @@ export const MainBody = () => {
                 <div className={styles.guideStep}>
                   <h3 className={styles.guideHeader}>Step 2: Script Scope</h3>
                   <p className={styles.guideDescription}>
-                    Let's define the scope of this script! You will specify your
-                    scope by attaching a "Scope" block to the "I want this
-                    script to apply to" block. <br></br>
+                    A general script consists of 4 parts:{' '}
+                    <b>Scope, Detector, Message Constructor, and Strategies.</b>{' '}
                     <br></br>
-                    Who do you want this script to apply for? Is it a specific
-                    SIG? Is it all projects?<br></br>Take a look at the "Scope"
-                    blocks under Social Structures
+                    <br></br>
+                    Let's first define the scope of this script! Who do you want
+                    this script to apply for? Is it a specific SIG? Is it all
+                    projects?<br></br>
+                    You will specify your scope by attaching a "Scope" block to
+                    the "I want this script to apply to" block. <br></br>
+                    <b>
+                      Take a look at the "Scope" blocks under Social Structures
+                    </b>
                   </p>
                 </div>
               </Carousel.Slide>
@@ -270,33 +274,38 @@ export const MainBody = () => {
                       Hint: you can combine different conditions using the
                       "Logic" blocks.
                     </em> */}
-                    <br></br>
+                    {/* <br></br>
                     Note: if your scope contains more than one object (1+
                     projects, SIGs etc.), the detector and strategy will
-                    automatically run for each object.
+                    automatically run for each object. */}
                   </p>
                 </div>
               </Carousel.Slide>
-              {/* <Carousel.Slide>
+              <Carousel.Slide>
                 <div className={styles.guideStep}>
                   <h3 className={styles.guideHeader}>
                     Step 4: Construct Message
                   </h3>
                   <p className={styles.guideDescription}>
                     <b>
-                      Now that we have a scope, let's define how we will detect
-                      the situation.
+                      After the Detector triggers, the system will send a slack
+                      message to you to notify you of the situation.
                     </b>{' '}
                     <br></br>
-                    You can build the detector by attaching different condition
-                    blocks to the blue "Detector (=if)" block. <br></br> For
-                    example, you can attach conditions like checking what time
-                    it is in the sprint, or checking for the work students are
-                    doing using the tools in the "Sprint", "Canvases", and
-                    "Github" categories.{' '}
+                    You can customize your own message under the yellow
+                    "Construct Message" block, adding situation name, root
+                    causes, context, memo to yourself etc.. <br></br>
+                    For each root causes, first enter a description, then some
+                    context information that you would like to know to help you
+                    diagnose the situation.
+                    <i>
+                      e.g. you can use data from the tools (check under "Sprint"
+                      "Canvases") or use a text block to write a memo to
+                      yourself to remind you to ask further about the issue!
+                    </i>
                   </p>
                 </div>
-              </Carousel.Slide> */}
+              </Carousel.Slide>
               <Carousel.Slide>
                 <div className={styles.guideStep}>
                   <h3 className={styles.guideHeader}>

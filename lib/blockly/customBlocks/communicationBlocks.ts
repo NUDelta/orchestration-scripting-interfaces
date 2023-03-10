@@ -34,7 +34,7 @@ Blockly.Blocks['slackmerc'] = {
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setOutput(false);
-    this.setColour(20);
+    this.setColour(70);
     this.setTooltip('');
     this.setHelpUrl('');
   },
@@ -44,10 +44,50 @@ javascriptGenerator['slackmerc'] = function (block: Blockly.Block) {
   return null;
 };
 
+
+Blockly.Blocks['slackmecontext'] = {
+  init: function () {
+    this.appendValueInput('Root Cause')
+    // .appendField('RC')
+    .appendField(new Blockly.FieldNumber(1), 'FIELDNAME')
+    .appendField(':')
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setOutput(false);
+    this.setColour(70);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['slackmecontext'] = function (block: Blockly.Block) {
+  return null;
+};
+
+Blockly.Blocks['slackme1/2'] = {
+  init: function () {
+    this.appendDummyInput().appendField("      Here's some context information too better");
+    this.appendDummyInput().appendField("      understand the RCs: ");
+    this.setInputsInline(false);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setOutput(false);
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['slackme1/2'] = function (block: Blockly.Block) {
+  return null;
+};
+
+
 Blockly.Blocks['slackme2'] = {
   init: function () {
-    this.appendDummyInput().appendField("      The relevant data points for each of these ");
-    this.appendDummyInput().appendField("      RCs are as such: ");
+    this.appendDummyInput().appendField("      The context information distinctive to each");
+    this.appendDummyInput().appendField("      RCs are as such (optional): ");
     this.setInputsInline(false);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -451,6 +491,14 @@ export const communicationToolboxCategories = {
     {
       kind: 'block',
       type: 'slackmerc',
+    },
+    {
+      kind: 'block',
+      type: 'slackme1/2',
+    },
+    {
+      kind: 'block',
+      type: 'slackmecontext',
     },
     {
       kind: 'block',
