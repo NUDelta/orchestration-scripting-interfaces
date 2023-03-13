@@ -58,7 +58,7 @@
   background-color: #3e8e41;
 }
 
-.itemInput {
+.causeInput {
   padding: 5px;
   border: 1px solid #ccc;
   display: block;
@@ -69,8 +69,24 @@
   line-height: 20px;
 }
 
-.itemInput[contenteditable]:empty::before {
+.causeInput[contenteditable]:empty::before {
   content: 'Write your root cause here...';
+  color: gray;
+}
+
+.strategyInput {
+  padding: 5px;
+  border: 1px solid #ccc;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  resize: both;
+  min-height: 40px;
+  line-height: 20px;
+}
+
+.strategyInput[contenteditable]:empty::before {
+  content: 'Write your strategy here...';
   color: gray;
 }
 

@@ -104,7 +104,7 @@ export const MainBody = () => {
                 <span className={styles.itemNumber}>1</span>
                 <span
                   role="textbox"
-                  className={styles.itemInput}
+                  className={styles.causeInput}
                   contentEditable
                 ></span>
               </div>
@@ -114,7 +114,7 @@ export const MainBody = () => {
                 <span className={styles.itemNumber}>2</span>
                 <span
                   role="textbox"
-                  className={styles.itemInput}
+                  className={styles.causeInput}
                   contentEditable
                 ></span>
               </div>
@@ -124,7 +124,7 @@ export const MainBody = () => {
                 <span className={styles.itemNumber}>3</span>
                 <span
                   role="textbox"
-                  className={styles.itemInput}
+                  className={styles.causeInput}
                   contentEditable
                 ></span>
                 <button className={styles.addItem}>+</button>
@@ -141,7 +141,7 @@ export const MainBody = () => {
                 <span className={styles.itemNumber}>1</span>
                 <span
                   role="textbox"
-                  className={styles.itemInput}
+                  className={styles.strategyInput}
                   contentEditable
                 ></span>
               </div>
@@ -151,21 +151,19 @@ export const MainBody = () => {
                 <span className={styles.itemNumber}>2</span>
                 <span
                   role="textbox"
-                  className={styles.itemInput}
+                  className={styles.strategyInput}
                   contentEditable
                 ></span>
               </div>
             </div>
             <div className={styles.listItem}>
-              <div className={styles.listItem}>
-                <span className={styles.itemNumber}>3</span>
-                <span
-                  role="textbox"
-                  className={styles.itemInput}
-                  contentEditable
-                ></span>
-                <button className={styles.addItem}>+</button>
-              </div>
+              <span className={styles.itemNumber}>3</span>
+              <span
+                role="textbox"
+                className={styles.strategyInput}
+                contentEditable
+              ></span>
+              <button className={styles.addItem}>+</button>
             </div>
           </div>
         </div>
