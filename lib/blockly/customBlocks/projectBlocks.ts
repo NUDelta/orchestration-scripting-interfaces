@@ -155,8 +155,8 @@ Blockly.Blocks['project_people_input'] = {
       .appendField(
         new Blockly.FieldDropdown([
           ['students','students'],
-          ['student 1','student 1'],
-          ['student 2','student 2'],
+          ['student 1','students[0]'],
+          ['student 2','students[1]'],
           ['sigHead','sigHead.name'],
           ['facultyMentor', 'facultyMentor'],
         ]),
@@ -173,7 +173,13 @@ Blockly.Blocks['project_people_input'] = {
 javascriptGenerator['project_people_input'] = function (block: Blockly.Block) {
   // TODO: return the project/projects from the selected dropdown
   var operator = block.getFieldValue('PROJPPL');
-  var code = "project." + operator;
+  var dtr = 
+  javascriptGenerator.valueToCode(
+    block,
+    'attribute',
+    javascriptGenerator.ORDER_NONE
+  );
+  var code = operator + dtr
   return [code, javascriptGenerator.ORDER_ATOMIC];
 };
 

@@ -8,7 +8,7 @@ Blockly.Blocks['slackme'] = {
       // .setCheck('String')
       .appendField('    Hey, looks like your detector for : ');
     this.appendValueInput('violation').appendField("    has been triggered! This is what triggered it:");
-    this.appendDummyInput().appendField("    Here are the porential root causes that you");
+    this.appendDummyInput().appendField("    Here are the potential root causes that you");
     this.appendDummyInput().appendField("    have identified: ");
     this.setInputsInline(false);
     this.setPreviousStatement(true);
@@ -21,7 +21,19 @@ Blockly.Blocks['slackme'] = {
 };
 
 javascriptGenerator['slackme'] = function (block: Blockly.Block) {
-  return null;
+  var situation =
+  javascriptGenerator.valueToCode(
+    block,
+    'situationdesc',
+    javascriptGenerator.ORDER_NONE
+  );
+  var trigger = javascriptGenerator.valueToCode(
+    block,
+    'violation',
+    javascriptGenerator.ORDER_NONE
+  );
+  var msg = 'Hey, looks like your detector for ' + situation + ' has been triggered! This is what triggered it: ' + trigger + '\nHere are the potential root causes that you have identified: \n';
+  return msg;
 };
 
 Blockly.Blocks['slackmerc'] = {
@@ -41,7 +53,14 @@ Blockly.Blocks['slackmerc'] = {
 };
 
 javascriptGenerator['slackmerc'] = function (block: Blockly.Block) {
-  return null;
+  var num = block.getFieldValue('FIELDNAME')
+  var desc = javascriptGenerator.valueToCode(
+    block,
+    'Root Cause',
+    javascriptGenerator.ORDER_NONE
+  );
+  var code = 'Root cause ' + num + ': ' + desc + '\n'
+  return code;
 };
 
 
@@ -62,7 +81,14 @@ Blockly.Blocks['slackmecontext'] = {
 };
 
 javascriptGenerator['slackmecontext'] = function (block: Blockly.Block) {
-  return null;
+  var num = block.getFieldValue('FIELDNAME')
+  var desc = javascriptGenerator.valueToCode(
+    block,
+    'Root Cause',
+    javascriptGenerator.ORDER_NONE
+  );
+  var code = num + ': ' + desc + '\n'
+  return code;
 };
 
 Blockly.Blocks['slackme1/2'] = {
@@ -80,7 +106,7 @@ Blockly.Blocks['slackme1/2'] = {
 };
 
 javascriptGenerator['slackme1/2'] = function (block: Blockly.Block) {
-  return null;
+  return "Here's some context information too better understand the RCs:\n";
 };
 
 
@@ -99,7 +125,7 @@ Blockly.Blocks['slackme2'] = {
 };
 
 javascriptGenerator['slackme2'] = function (block: Blockly.Block) {
-  return null;
+  return "The context information distinctive to each RCs are as such (optional):\n";
 };
 
 Blockly.Blocks['slackme3'] = {
@@ -117,7 +143,7 @@ Blockly.Blocks['slackme3'] = {
 };
 
 javascriptGenerator['slackme3'] = function (block: Blockly.Block) {
-  return null;
+  return "Which root cause do you think is causing this?";
 };
 
 

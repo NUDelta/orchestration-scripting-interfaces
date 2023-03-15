@@ -57,7 +57,7 @@ javascriptGenerator['Strategies'] = function (block: Blockly.Block) {
   );
 
   var code = 'function(){\nreturn' + doinput + '}\n';
-  return code;
+  return [code, javascriptGenerator.ORDER_ATOMIC];
 };
 
 Blockly.Blocks['rootCause'] = {
@@ -77,12 +77,12 @@ Blockly.Blocks['rootCause'] = {
 };
 
 javascriptGenerator['rootCause'] = function (block: Blockly.Block) {
-  var doinput = javascriptGenerator.statementToCode(
+  var rc = javascriptGenerator.valueToCode(
     block,
-    'Strategy',
+    'Root Cause',
+    javascriptGenerator.ORDER_NONE
   );
-
-  return doinput;
+  return rc;
 };
 
 
@@ -124,7 +124,12 @@ Blockly.Blocks['RCMessage'] = {
 };
 
 javascriptGenerator['RCMessage'] = function (block: Blockly.Block) {
-  return null;
+  var msg = javascriptGenerator.statementToCode(
+    block,
+    'Message',
+  );
+  msg = '"' + msg + '"\n\n';
+  return msg;
 };
 
 

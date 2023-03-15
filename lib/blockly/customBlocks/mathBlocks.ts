@@ -32,7 +32,18 @@ Blockly.Blocks['addition'] = {
 };
 
 javascriptGenerator['addition'] = function (block: Blockly.Block) {
-  return null;
+  var left = javascriptGenerator.valueToCode(
+    block,
+    'left',
+    javascriptGenerator.ORDER_MULTIPLICATION
+  );
+  var right = javascriptGenerator.valueToCode(
+    block,
+    'right',
+    javascriptGenerator.ORDER_MULTIPLICATION
+  );
+  var code = left + ' + ' + right;
+  return [code, javascriptGenerator.ORDER_MULTIPLICATION];
 };
 
 Blockly.Blocks['subtraction'] = {

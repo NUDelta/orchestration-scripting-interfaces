@@ -50,6 +50,36 @@ javascriptGenerator['and'] = function (block: Blockly.Block) {
   return [left + ' && ' + right, javascriptGenerator.ORDER_ATOMIC];
 };
 
+Blockly.Blocks['myor'] = {
+  init: function () {
+    this.appendValueInput('left');
+    this.appendDummyInput().appendField('OR');
+    this.appendValueInput('right');
+    //.appendField("(output: boolean)");
+    this.setInputsInline(false);
+    this.setOutput(true, Boolean);
+    this.setColour(210);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['myor'] = function (block: Blockly.Block) {
+  var left = javascriptGenerator.valueToCode(
+    block,
+    'left',
+    javascriptGenerator.ORDER_FUNCTION_CALL
+  );
+  var right = javascriptGenerator.valueToCode(
+    block,
+    'right',
+    javascriptGenerator.ORDER_RELATIONAL
+  );
+  console.log('LEFT' + left);
+
+  return [left + ' || ' + right, javascriptGenerator.ORDER_ATOMIC];
+};
+
 Blockly.Blocks['myif'] = {
   init: function () {
     this.appendValueInput('if').appendField('if');
@@ -161,7 +191,7 @@ export const toolboxCategories = {
         },
         {
           kind: 'block',
-          type: 'or',
+          type: 'myor',
         },
       ],
     },

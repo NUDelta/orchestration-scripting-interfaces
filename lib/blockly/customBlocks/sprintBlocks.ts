@@ -59,9 +59,9 @@ Blockly.Blocks['sprintLogPointDTR'] = {
       .appendField('Points spent on')
       .appendField(
         new Blockly.FieldDropdown([
-          ['Tech', 'Tech'],
-          ['Design', 'Design'],
-          ['Research', 'Research'],
+          ['Tech', 'tech'],
+          ['Design', 'design'],
+          ['Research', 'research'],
         ]),
         'NAME'
       );
@@ -74,7 +74,9 @@ Blockly.Blocks['sprintLogPointDTR'] = {
 };
 
 javascriptGenerator['sprintLogPointDTR'] = function (block: Blockly.Block) {
-  return null;
+  var attribute = block.getFieldValue('NAME');
+  var code = '.sprintLog.totalPoints.pointsCommitted.' + attribute
+  return [code, javascriptGenerator.ORDER_ATOMIC];
 };
 
 Blockly.Blocks['sprintLogStory'] = {
@@ -90,7 +92,7 @@ Blockly.Blocks['sprintLogStory'] = {
 };
 
 javascriptGenerator['sprintLogStory'] = function (block: Blockly.Block) {
-  return null;
+  return ['Sprint Log: Summary of Stories', javascriptGenerator.ORDER_ATOMIC];
 };
 
 Blockly.Blocks['sprintLogTasks'] = {
@@ -106,7 +108,7 @@ Blockly.Blocks['sprintLogTasks'] = {
 };
 
 javascriptGenerator['sprintLogTasks'] = function (block: Blockly.Block) {
-  return null;
+  return ['[Summary of Stories]', javascriptGenerator.ORDER_ATOMIC];
 };
 
 Blockly.Blocks['sprintLogFocus'] = {
@@ -138,7 +140,7 @@ Blockly.Blocks['sprintLogSlice'] = {
 };
 
 javascriptGenerator['sprintLogSlice'] = function (block: Blockly.Block) {
-  return null;
+  return ['[D T R makeup of each stories]', javascriptGenerator.ORDER_ATOMIC];;
 };
 
 /*Blockly.Blocks['before_first_sig_of_sprint'] = {
