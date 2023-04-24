@@ -20,7 +20,6 @@ export const MainBody = () => {
       ),
       example: (
         <>
-          <p>
             {' '}
             Example: <br />
             Student was <u>building prototype to polish</u>, and not actively
@@ -28,7 +27,6 @@ export const MainBody = () => {
             noticed this during <u>office hours</u> when the student felt like
             they needed to build features but didn&apos;t have plans to test
             them.{' '}
-          </p>
         </>
       ),
     },
@@ -42,13 +40,11 @@ export const MainBody = () => {
       ),
       example: (
         <>
-          <p>
             {' '}
             Example: <br />I encouraged the student to <u>
               test the prototype
             </u>{' '}
             in its imperfect state so we could understand its implications.{' '}
-          </p>
         </>
       ),
     },
@@ -63,9 +59,7 @@ export const MainBody = () => {
       ),
       example: (
         <>
-          <p>
             Example: <br />
-          </p>
           <ul className="list-disc font-sans text-sm whitespace-normal leading-3 italic">
             <li>
               Situation: <u>when</u> student is building prototype but does not
