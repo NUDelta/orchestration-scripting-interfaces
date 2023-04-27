@@ -5,6 +5,7 @@
     justify-content: center;
     margin-bottom: 20px;
     align-items: center;
+    height: 100%;
 }
 
 .container textarea {
@@ -14,4 +15,5 @@
 
 .container > * {
     padding: 20px;
+    height: 100%;
 }

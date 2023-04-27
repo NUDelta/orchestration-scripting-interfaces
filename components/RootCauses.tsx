@@ -4,11 +4,11 @@ import { RootCause } from "./RootCause"
 
 export const RootCauses = () => {
 
-    const [RCs, setRCs] = useState([{rootCause: "", context: "", strategy: ""}])
+    const [RCs, setRCs] = useState([{rootCause: "", context: new Set(), strategy: ""}])
 
     const addRC = () => {
         let copy = [...RCs]
-        copy.push({rootCause: "", context: "", strategy: ""})
+        copy.push({rootCause: "", context: new Set(), strategy: ""})
         setRCs(copy)
     }
 
