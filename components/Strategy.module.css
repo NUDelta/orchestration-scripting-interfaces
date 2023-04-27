@@ -1,0 +1,12 @@
+
+.container {
+    background-color: lightgray;
+    height: 100%;
+    padding: 10px;
+}
+
+.container img {
+    width: 25px;
+    float: right;
+    cursor: pointer;
+}
