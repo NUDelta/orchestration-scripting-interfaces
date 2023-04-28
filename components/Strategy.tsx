@@ -8,7 +8,7 @@ const BlocklyEditor = dynamic(
     { ssr: false, loading: () => <p>Loading BlocklyEditor...</p> }
   );
 
-export const Strategy = ({RCs, index, setRCS} : any) => {
+export const Strategy = ({RCs, index, setRCs, workspaceId} : any) => {
 
     const [modalIsOpen, setIsOpen] = useState(false)
 
@@ -16,14 +16,11 @@ export const Strategy = ({RCs, index, setRCS} : any) => {
         <div className={styles.container}>
             <img src="pencil.png" onClick={() => setIsOpen(true)} />
 
-            {/* <Modal isOpen={modalIsOpen} onRequestClose={() => setIsOpen(false)} style={{overlay: {zIndex: 100}}}>
-                <div className={styles.blockly} style={{ zIndex: 101 }}>
-                    <BlocklyEditor workspaceId="workspace2"/>
-                </div>
-            </Modal> */}
-            <Modal isOpen={modalIsOpen} onRequestClose={() => setIsOpen(false)} style={{overlay: {zIndex: 100}}}>
-                <BlocklyEditor workspaceId="workspace2" modalIsOpen={modalIsOpen} closeModal={() => setIsOpen(false)} />
+            <Modal isOpen={modalIsOpen} onRequestClose={() => setIsOpen(false)} style={{ overlay: { zIndex: 100 } }}>
+                <BlocklyEditor workspaceId={workspaceId} modalIsOpen={modalIsOpen} closeModal={() => setIsOpen(false)} />
             </Modal>
+
+            <BlocklyEditor workspaceId={workspaceId} modalIsOpen={modalIsOpen} closeModal={() => setIsOpen(false)} />
         </div>
     )
 }

@@ -4,13 +4,13 @@ import { RootCause } from "./RootCause"
 
 export const RootCauses = () => {
 
-    const [RCs, setRCs] = useState([{rootCause: "", context: new Set(), strategy: ""}])
+    const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: ""}]);
 
     const addRC = () => {
-        let copy = [...RCs]
-        copy.push({rootCause: "", context: new Set(), strategy: ""})
-        setRCs(copy)
-    }
+      let copy = [...RCs];
+      copy.push({id: copy.length + 1, rootCause: "", context: new Set(), strategy: ""});
+      setRCs(copy);
+    };
 
     return (
         <div className={styles.container}>
@@ -22,7 +22,7 @@ export const RootCauses = () => {
                 <button onClick={addRC}>+</button>
             </div>
 
-            {RCs.map((x, i) => <RootCause index={i} key={i} RCs={RCs} setRCs={setRCs} />)}
+            {RCs.map((x, i) => <RootCause index={i} key={i} RCs={RCs} setRCs={setRCs} id={x.id}/>)}
 
         </div>
     )

@@ -54,6 +54,142 @@ export default function BlockEditor({ workspaceId }) {
         onWorkspaceChange={workspaceDidChange}
         onXmlChange={setXml}
       />)}
+      {workspaceId === 'workspace3' && (
+      <BlocklyWorkspace
+        id="workspace3"
+        toolboxConfiguration={toolboxCategories}
+        initialXml={initialXml}
+        className="blocklyWorkspace"
+        workspaceConfiguration={{
+          grid: {
+            spacing: 20,
+            length: 3,
+            colour: 'blue',
+            snap: true,
+          },
+        }}
+        onWorkspaceChange={workspaceDidChange}
+        onXmlChange={setXml}
+      />)}
+      {workspaceId === 'workspace4' && (
+      <BlocklyWorkspace
+        id="workspace4"
+        toolboxConfiguration={toolboxCategories}
+        initialXml={initialXml}
+        className="blocklyWorkspace"
+        workspaceConfiguration={{
+          grid: {
+            spacing: 20,
+            length: 3,
+            colour: 'green',
+            snap: true,
+          },
+        }}
+        onWorkspaceChange={workspaceDidChange}
+        onXmlChange={setXml}
+      />)}
+      {workspaceId === 'workspace5' && (
+      <BlocklyWorkspace
+        id="workspace5"
+        toolboxConfiguration={toolboxCategories}
+        initialXml={initialXml}
+        className="blocklyWorkspace"
+        workspaceConfiguration={{
+          grid: {
+            spacing: 20,
+            length: 3,
+            colour: 'purple',
+            snap: true,
+          },
+        }}
+        onWorkspaceChange={workspaceDidChange}
+        onXmlChange={setXml}
+      />)}
+      {workspaceId === 'workspace6' && (
+      <BlocklyWorkspace
+        id="workspace6"
+        toolboxConfiguration={toolboxCategories}
+        initialXml={initialXml}
+        className="blocklyWorkspace"
+        workspaceConfiguration={{
+          grid: {
+            spacing: 20,
+            length: 3,
+            colour: 'pink',
+            snap: true,
+          },
+        }}
+        onWorkspaceChange={workspaceDidChange}
+        onXmlChange={setXml}
+      />)}
+      {workspaceId === 'workspace7' && (
+      <BlocklyWorkspace
+        id="workspace7"
+        toolboxConfiguration={toolboxCategories}
+        initialXml={initialXml}
+        className="blocklyWorkspace"
+        workspaceConfiguration={{
+          grid: {
+            spacing: 20,
+            length: 3,
+            colour: 'yellow',
+            snap: true,
+          },
+        }}
+        onWorkspaceChange={workspaceDidChange}
+        onXmlChange={setXml}
+      />)}
+      {workspaceId === 'workspace8' && (
+      <BlocklyWorkspace
+        id="workspace8"
+        toolboxConfiguration={toolboxCategories}
+        initialXml={initialXml}
+        className="blocklyWorkspace"
+        workspaceConfiguration={{
+          grid: {
+            spacing: 20,
+            length: 3,
+            colour: 'orange',
+            snap: true,
+          },
+        }}
+        onWorkspaceChange={workspaceDidChange}
+        onXmlChange={setXml}
+      />)}
+      {workspaceId === 'workspace9' && (
+      <BlocklyWorkspace
+        id="workspace9"
+        toolboxConfiguration={toolboxCategories}
+        initialXml={initialXml}
+        className="blocklyWorkspace"
+        workspaceConfiguration={{
+          grid: {
+            spacing: 20,
+            length: 3,
+            colour: 'lavender',
+            snap: true,
+          },
+        }}
+        onWorkspaceChange={workspaceDidChange}
+        onXmlChange={setXml}
+      />)}
+      {workspaceId === 'workspace10' && (
+      <BlocklyWorkspace
+        id="workspace10"
+        toolboxConfiguration={toolboxCategories}
+        initialXml={initialXml}
+        className="blocklyWorkspace"
+        workspaceConfiguration={{
+          grid: {
+            spacing: 20,
+            length: 3,
+            colour: 'black',
+            snap: true,
+          },
+        }}
+        onWorkspaceChange={workspaceDidChange}
+        onXmlChange={setXml}
+      />)}
     </>
   );
 }
