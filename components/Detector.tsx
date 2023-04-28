@@ -10,7 +10,7 @@ export const Detector = () => {
             <h2>Detector</h2>
 
             <div className={styles.blockly}>
-                <BlocklyEditor />
+                <BlocklyEditor workspaceId="workspace1"/>
             </div>
         </div>
     )

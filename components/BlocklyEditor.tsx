@@ -3,7 +3,7 @@ import { BlocklyWorkspace } from 'react-blockly';
 import { toolboxCategories } from '../lib/blockly/customBlocks/customToolboxCategories';
 import { javascriptGenerator } from 'blockly/javascript';
 
-export default function BlockEditor() {
+export default function BlockEditor({ workspaceId }) {
   const [xml, setXml] = useState('');
   const [javascriptCode, setJavascriptCode] = useState('');
 
@@ -19,7 +19,9 @@ export default function BlockEditor() {
 
   return (
     <>
+    {workspaceId === 'workspace1' && (
       <BlocklyWorkspace
+        id="workspace1"
         toolboxConfiguration={toolboxCategories}
         initialXml={initialXml}
         className="blocklyWorkspace"
@@ -34,6 +36,24 @@ export default function BlockEditor() {
         onWorkspaceChange={workspaceDidChange}
         onXmlChange={setXml}
       />
+    )}
+    {workspaceId === 'workspace2' && (
+      <BlocklyWorkspace
+        id="workspace2"
+        toolboxConfiguration={toolboxCategories}
+        initialXml={initialXml}
+        className="blocklyWorkspace"
+        workspaceConfiguration={{
+          grid: {
+            spacing: 20,
+            length: 3,
+            colour: 'red',
+            snap: true,
+          },
+        }}
+        onWorkspaceChange={workspaceDidChange}
+        onXmlChange={setXml}
+      />)}
     </>
   );
 }
