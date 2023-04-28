@@ -23,24 +23,6 @@ export default function BlockEditor({ workspaceId, RCs, setRCs, index } : any) {
     console.log(code);
   }
 
-  // return (
-  //   <BlocklyWorkspace
-  //       toolboxConfiguration={toolboxCategories}
-  //       initialXml={initialXml}
-  //       className="blocklyWorkspace"
-  //       workspaceConfiguration={{
-  //         grid: {
-  //           spacing: 20,
-  //           length: 3,
-  //           colour: '#ccc',
-  //           snap: true,
-  //         },
-  //       }}
-  //       onWorkspaceChange={workspaceDidChange}
-  //       onXmlChange={setXml}
-  //     />
-  // )
-
   return (
     <>
     {workspaceId === 'workspace1' && (
