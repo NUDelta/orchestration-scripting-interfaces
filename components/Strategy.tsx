@@ -17,10 +17,10 @@ export const Strategy = ({RCs, index, setRCs, workspaceId} : any) => {
             <img src="pencil.png" onClick={() => setIsOpen(true)} />
 
             <Modal isOpen={modalIsOpen} onRequestClose={() => setIsOpen(false)} style={{ overlay: { zIndex: 100 } }}>
-                <BlocklyEditor workspaceId={workspaceId} modalIsOpen={modalIsOpen} closeModal={() => setIsOpen(false)} />
+                <BlocklyEditor workspaceId={workspaceId} RCs={RCs} index={index} setRCs={setRCs} modalIsOpen={modalIsOpen} closeModal={() => setIsOpen(false)} />
             </Modal>
 
-            <BlocklyEditor workspaceId={workspaceId} modalIsOpen={modalIsOpen} closeModal={() => setIsOpen(false)} />
+            {/* <BlocklyEditor workspaceId={workspaceId} modalIsOpen={modalIsOpen} closeModal={() => setIsOpen(false)} /> */}
         </div>
     )
 }

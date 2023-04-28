@@ -4,11 +4,11 @@ import { RootCause } from "./RootCause"
 
 export const RootCauses = () => {
 
-    const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: ""}]);
+    const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="ApplicableSet" x="30" y="30"></block><block type="rootCause" x="200" y="300"></block><block type="Detector" x="30" y="145"></block><block type="StrategiesWrapper" x="30" y="200"></block><block type="Strategies" x="200" y="200"></block></xml>'}]);
 
     const addRC = () => {
       let copy = [...RCs];
-      copy.push({id: copy.length + 1, rootCause: "", context: new Set(), strategy: ""});
+      copy.push({id: copy.length + 1, rootCause: "", context: new Set(), strategy: '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="ApplicableSet" x="30" y="30"></block><block type="rootCause" x="200" y="300"></block><block type="Detector" x="30" y="145"></block><block type="StrategiesWrapper" x="30" y="200"></block><block type="Strategies" x="200" y="200"></block></xml>'});
       setRCs(copy);
     };
 
