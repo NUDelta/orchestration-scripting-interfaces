@@ -1,15 +1,15 @@
 import styles from "./Context.module.css"
 import { Tag } from "./Tag"
 
-const options = ["Sprint log Total Points Spent this Sprint",
-                 "Sprint log Total Points Available this Sprint",
-                 "Sprint log Summary of Stories", 
-                 "Sprint log Summary of Tasks", 
-                 "Sprint log Riskiest Risk specified in Planning View",
-                 "PRC Time Last Edited",
-                 "PRC Slides Updated in this sprint",
-                 "Github Number of Lines Code Committed this sprint",
-                 "Github Number of Branches Created this sprint",]
+const options = ["Sprint log-Total Points Spent this Sprint",
+                 "Sprint log-Total Points Available this Sprint",
+                 "Sprint log-Summary of Stories", 
+                 "Sprint log-Summary of Tasks", 
+                 "Sprint log-Riskiest Risk specified in Planning View",
+                 "PRC-Time Last Edited",
+                 "PRC-Slides Updated in this sprint",
+                 "Github-Number of Lines Code Committed this sprint",
+                 "Github-Number of Branches Created this sprint",]
 
 export const Context = ({index, RCs, setRCs} : any) => {
 

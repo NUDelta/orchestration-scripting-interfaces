@@ -1,6 +1,37 @@
 import Blockly from 'blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 
+Blockly.Blocks['sprintLog'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('Sprint log: Total Points')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['Available', 'Available'],
+          ['spent', 'Committed.total'],
+          // //TODO: change the value of this field
+          // ['Total Points spent on Design in the sprint', 'pointsSpentDesign'], //put this one for now to see what it's like to have more options
+        ]),
+        'Dropdown'
+      )
+      .appendField('in the sprint');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(110);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+//TODO: change name
+javascriptGenerator['sprintLog'] = function (block: Blockly.Block) {
+  var selection = block.getFieldValue('Dropdown');
+
+  // Generate the code to perform the calculation using the value
+  var code = "project.tools.planningLog.totalPoints.points" + selection;
+  return [code, javascriptGenerator.ORDER_RELATIONAL];
+};
+
 Blockly.Blocks['sprint_log3'] = {
   init: function () {
     this.appendDummyInput()
