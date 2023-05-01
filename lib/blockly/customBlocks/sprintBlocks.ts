@@ -328,7 +328,7 @@ javascriptGenerator['before_next_oh'] = function (block: Blockly.Block) {
 
 Blockly.Blocks['high_sprint_log_contains'] = {
   init: function () {
-    this.appendDummyInput().appendField('Sprint Log Stories or Tasks contains');
+    this.appendDummyInput().appendField('Sprint Log Stories that contain');
     this.appendDummyInput().appendField(
       new Blockly.FieldTextInput('type here!'),
       'NAME'
@@ -342,6 +342,47 @@ Blockly.Blocks['high_sprint_log_contains'] = {
 };
 
 javascriptGenerator['high_sprint_log_contains'] = function (
+  block: Blockly.Block
+) {
+  return null;
+};
+
+Blockly.Blocks['high_sprint_log_contains_bool'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Sprint Log Stories contain');
+    this.appendDummyInput().appendField(
+      new Blockly.FieldTextInput('type here!'),
+      'NAME'
+    );
+    this.appendDummyInput().appendField('(bool)');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['high_sprint_log_contains_bool'] = function (
+  block: Blockly.Block
+) {
+  return null;
+};
+
+Blockly.Blocks['Backlogged'] = {
+  init: function () {
+    this.appendValueInput('situationdesc')
+    this.appendDummyInput()
+      .appendField('is Backlogged');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['Backlogged'] = function (
   block: Blockly.Block
 ) {
   return null;
@@ -425,11 +466,19 @@ export const sprintToolboxCategories = {
     },
     {
       kind: 'block',
+      type: 'high_sprint_log_contains_bool',
+    },
+    {
+      kind: 'block',
       type: 'high_sprint_updated',
     },
     {
       kind: 'block',
       type: 'high_sprint_updated2',
+    },
+    {
+      kind: 'block',
+      type: 'Backlogged',
     },
     {
       kind: 'block',
