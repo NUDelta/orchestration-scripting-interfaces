@@ -7,8 +7,9 @@ Blockly.Blocks['sprintLog'] = {
       .appendField('Sprint log: Total Points')
       .appendField(
         new Blockly.FieldDropdown([
+          ['Spent', 'Spent'],
+          ['Committed', 'Committed.total'],
           ['Available', 'Available'],
-          ['spent', 'Committed.total'],
           // //TODO: change the value of this field
           // ['Total Points spent on Design in the sprint', 'pointsSpentDesign'], //put this one for now to see what it's like to have more options
         ]),
