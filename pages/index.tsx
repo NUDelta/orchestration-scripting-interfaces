@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import Link from 'next/link';
 import Head from 'next/head';
 import { MainBody } from '../components/MainBody';
 import { Sidebar } from '../components/Sidebar';
@@ -19,7 +20,9 @@ const Home: NextPage = () => {
         </div>
 
       </main>
-
+    <Link href="/response">
+      Generate report page
+    </Link>
     </div>
   );
 };

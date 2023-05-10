@@ -19,7 +19,7 @@ export const RootCauses = () => {
                 <h3>Potential Cause(s)</h3>
                 <h3>Context</h3>
                 <h3>Strategy</h3>
-                <button style={{fontSize: '35px'}}  onClick={addRC}>+</button>
+                <button className={styles.addbutton} onClick={addRC}>+</button>
             </div>
 
             {RCs.map((x, i) => <RootCause index={i} key={i} RCs={RCs} setRCs={setRCs} id={x.id}/>)}

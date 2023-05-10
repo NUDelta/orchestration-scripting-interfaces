@@ -2,8 +2,8 @@ import type { NextPage } from 'next';
 import styles from "./response.module.css"
 import { Accordion, AccordionItem, AccordionPanel, AccordionButton, AccordionIcon } from "@vygruppen/spor-accordion-react";
 
-const DETECTOR = "Overcommited"
-const REASONS = ["12 points assigned", "10 minutes before SIG"]
+const DETECTOR = "Student is Overcommited"
+const REASONS = ["20 points spent by Student A out of 16 points available", "Currently is end of sprint"]
 const GEN_CONTEXT = [{title: "Story Title", data: "Building a user interface for diagnosing RCs"}, {title: "Last Canvas Edit", data: "5/9/23 6:12 PM"}]
 const ROOT_CAUSES = [{RC: "RC A", context: ["Context A1", "Context A2"], strategy: "Strategy A..."}, {RC: "RC B", context: ["Context B1", "Context B2"], strategy: "Strategy B..."}, {RC: "RC C", context: ["Context C1", "Context C2"], strategy: "Strategy C..."}]
 
