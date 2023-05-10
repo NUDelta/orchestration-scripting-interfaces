@@ -52,8 +52,8 @@ export const Sidebar = () => {
                 },
               }}
             >
-            {steps.map((x) => (
-                <Carousel.Slide>
+            {steps.map((x, i) => (
+                <Carousel.Slide key={i}>
                     {x.map((y) => (
                         <div className={styles.step} key={y.title}>
                         <h2>{y.title}</h2>
