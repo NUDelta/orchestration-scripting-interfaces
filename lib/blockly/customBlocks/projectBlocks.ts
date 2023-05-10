@@ -394,10 +394,10 @@ javascriptGenerator['sig_attributes'] = function (block: Blockly.Block) {
         kind: 'block',
         type: 'sig_attributes',
       },
-      {
-        kind: 'block',
-        type: 'SoS_subcategory',
-      }
+      // {
+      //   kind: 'block',
+      //   type: 'SoS_subcategory',
+      // }
     ],
   };
   

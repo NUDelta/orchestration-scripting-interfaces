@@ -144,7 +144,7 @@ Blockly.Blocks['Detector'] = {
     this.appendDummyInput().appendField('Detector (="if")');
     this.appendValueInput('Detector')
     // .setCheck(Boolean);
-    this.setNextStatement(true);
+    this.setNextStatement(false);
     this.setInputsInline(false);
     this.setOutput(false, null);
     this.setColour(210);
@@ -222,7 +222,7 @@ export const toolboxCategories = {
     // functionsToolboxCategories,
     ProjectToolboxCategories,
     communicationToolboxCategories,
-    strategiesToolboxCategories,
+    // strategiesToolboxCategories,
     {
       kind: 'category',
       name: '',
@@ -251,13 +251,13 @@ export const toolboxCategories = {
       colour: 'white',
       contents: [],
     },
-    OvercommittedToolboxCategories,
-    UseVenuesToolboxCategories,
-    EOQReminderToolboxCategories,
-    EOQChecklistToolboxCategories,
-    PhDProgressToolboxCategories,
-    UndercommittedToolboxCategories,
-    statusUpdateStudentToolboxCategories,
-    CompassExampleToolboxCategories,
+    // OvercommittedToolboxCategories,
+    // UseVenuesToolboxCategories,
+    // EOQReminderToolboxCategories,
+    // EOQChecklistToolboxCategories,
+    // PhDProgressToolboxCategories,
+    // UndercommittedToolboxCategories,
+    // statusUpdateStudentToolboxCategories,
+    // CompassExampleToolboxCategories,
   ],
 };

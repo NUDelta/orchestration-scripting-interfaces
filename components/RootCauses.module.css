@@ -1,0 +1,18 @@
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 50px;
+    text-align: center;
+}
+
+.header > * {
+    padding: 0px;
+}
+
+.addbutton {
+    font-size: 35px;
+    background-color: black;
+    color: white;
+    margin: 0px;
+    margin-bottom: 10px;
+}

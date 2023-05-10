@@ -506,34 +506,34 @@ export const communicationToolboxCategories = {
   name: 'Communication',
   colour: '#5CA699',
   contents: [
-    {
-      kind: 'block',
-      type: 'TriggerMsgSubCategory',
-    },
-    {
-      kind: 'block',
-      type: 'slackme',
-    },
-    {
-      kind: 'block',
-      type: 'slackmerc',
-    },
-    {
-      kind: 'block',
-      type: 'slackme1/2',
-    },
-    {
-      kind: 'block',
-      type: 'slackmecontext',
-    },
-    {
-      kind: 'block',
-      type: 'slackme2',
-    },
-    {
-      kind: 'block',
-      type: 'slackme3',
-    },
+    // {
+    //   kind: 'block',
+    //   type: 'TriggerMsgSubCategory',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'slackme',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'slackmerc',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'slackme1/2',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'slackmecontext',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'slackme2',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'slackme3',
+    // },
     {
       kind: 'block',
       type: 'SendslackSubCategory',

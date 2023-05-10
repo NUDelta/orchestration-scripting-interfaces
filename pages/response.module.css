@@ -1,0 +1,50 @@
+
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.container h2 {
+    font-size: 24px;
+    margin-bottom: 14px;
+}
+
+.container h3 {
+    font-size: 20px;
+}
+
+.section {
+    padding: 15px 30px;
+    background-color: #EEE;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.debrief {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.accordionItem {
+    border: 1px solid lightgray;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background-color: #EEE;
+}
+
+.accordionPanel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 10px;
+}
+
+.container h4 {
+    font-weight: bold;
+}
