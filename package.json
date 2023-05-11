@@ -17,6 +17,7 @@
     "@vygruppen/spor-accordion-react": "^1.0.1",
     "blockly": "^9.2.1",
     "embla-carousel-react": "^7.0.9",
+    "framer-motion": "^10.12.10",
     "next": "latest",
     "react": "18.2.0",
     "react-blockly": "^7.0.1",
