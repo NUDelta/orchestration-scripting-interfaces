@@ -28,7 +28,7 @@ export const Context = ({index, RCs, setRCs} : any) => {
                 {options.map((x) => <option key={x}>{x}</option>)}
             </select>
             <div className={styles.contexts}>
-                {[...RCs[index].context].map((x: any) => <Tag name={x} RCs={RCs} index={index} setRCs={setRCs} />)}
+                {[...RCs[index].context].map((x: any, i: number) => <Tag key={i} name={x} RCs={RCs} index={index} setRCs={setRCs} />)}
             </div>
         </div>
     )

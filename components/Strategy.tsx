@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Strategy.module.css"
 import Modal from 'react-modal';
+import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 const BlocklyEditor = dynamic(
@@ -14,7 +15,7 @@ export const Strategy = ({RCs, index, setRCs, workspaceId} : any) => {
 
     return (
         <div className={styles.container}>
-            <img src="pencil.png" onClick={() => setIsOpen(true)} />
+            <Image src="/pencil.png" onClick={() => setIsOpen(true)} alt="" width={10} height={10}/>
 
             <Modal isOpen={modalIsOpen} onRequestClose={() => setIsOpen(false)} style={{ overlay: { zIndex: 100 } }}>
                 <BlocklyEditor workspaceId={workspaceId} RCs={RCs} index={index} setRCs={setRCs} modalIsOpen={modalIsOpen} closeModal={() => setIsOpen(false)} />
