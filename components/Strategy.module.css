@@ -10,3 +10,24 @@
     float: right;
     cursor: pointer;
 }
+
+.textbutton {
+    background-color: white;
+    padding: 5px;
+    font-size: small;
+}
+
+.textareaContainer {
+    margin: 10px 0px;
+  }
+  
+.textarea {
+    width: 100%;
+    padding: 2px;
+}
+
+.textarea::placeholder {
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color: gray;
+  }

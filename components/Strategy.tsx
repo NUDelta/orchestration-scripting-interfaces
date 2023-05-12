@@ -12,16 +12,39 @@ const BlocklyEditor = dynamic(
 export const Strategy = ({RCs, index, setRCs, workspaceId} : any) => {
 
     const [modalIsOpen, setIsOpen] = useState(false)
+    const [editorMode, setEditorMode] = useState("blockly");
+
+    const switchToText = () => {
+      setEditorMode("text");
+    };
+  
+    const switchToBlockly = () => {
+      setEditorMode("blockly");
+    };
 
     return (
         <div className={styles.container}>
+            {editorMode === "blockly" ? (
+            <>
+            <button className={styles.textbutton} onClick={switchToText}>
+                Switch to Text
+            </button>
             <Image src="/pencil.png" onClick={() => setIsOpen(true)} alt="" width={10} height={10}/>
 
             <Modal isOpen={modalIsOpen} onRequestClose={() => setIsOpen(false)} style={{ overlay: { zIndex: 100 } }}>
                 <BlocklyEditor workspaceId={workspaceId} RCs={RCs} index={index} setRCs={setRCs} modalIsOpen={modalIsOpen} closeModal={() => setIsOpen(false)} />
             </Modal>
-
-            {/* <BlocklyEditor workspaceId={workspaceId} modalIsOpen={modalIsOpen} closeModal={() => setIsOpen(false)} /> */}
+            </>
+            ):(
+        <>
+        <button className={styles.textbutton} onClick={switchToBlockly}>
+            Switch to Blockly
+          </button>
+          <textarea 
+            placeholder="Enter your strategy here" 
+            className={styles.textarea} />
+          </>
+      )}
         </div>
     )
 }
