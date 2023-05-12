@@ -1,5 +1,7 @@
 import type { NextPage } from 'next';
+import React, { useState } from 'react';
 import styles from "./response.module.css"
+import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc';
 import { Accordion, AccordionItem, AccordionPanel, AccordionButton, AccordionIcon } from "@vygruppen/spor-accordion-react";
 
 const DETECTOR = "Student is Overcommited"
@@ -8,6 +10,48 @@ const GEN_CONTEXT = [{title: "Story Title", data: "Building a user interface for
 const ROOT_CAUSES = [{RC: "RC A", context: ["Context A1", "Context A2"], strategy: "Strategy A..."}, {RC: "RC B", context: ["Context B1", "Context B2"], strategy: "Strategy B..."}, {RC: "RC C", context: ["Context C1", "Context C2"], strategy: "Strategy C..."}]
 
 const Home: NextPage = () => {
+    const [items, setItems] = useState([
+        { id: 1, RC: "RC A", context: ["Context A1", "Context A2"], strategy: "Strategy A..." },
+        { id: 2, RC: "RC B", context: ["Context B1", "Context B2"], strategy: "Strategy B..."},
+        { id: 3, RC: "RC C", context: ["Context C1", "Context C2"], strategy: "Strategy C..."},
+      ]);
+    
+    const handleSortEnd = ({ oldIndex, newIndex }) => {
+        setItems(arrayMove(items, oldIndex, newIndex));
+    };
+    
+    const SortableItem = SortableElement(({ item }) => (
+        <div className="item">
+          <AccordionItem className={styles.accordionItem} key={item.RC}>
+                    <AccordionButton style={{display: 'flex', justifyContent: 'space-between'}}>
+                        <h3>{item.RC}</h3>
+                        <AccordionIcon /> 
+                    </ AccordionButton>
+                    <AccordionPanel className={styles.accordionPanel}>
+                        <div>
+                            <h4>Context</h4>
+                            <ul className='list-disc list-inside'>
+                                {item.context.map((context) => <li key={context}>{context}</li>)}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Strategy</h4>
+                            <p>{item.strategy}</p>
+                        </div>
+                    </AccordionPanel>
+                </ AccordionItem>
+        </div>
+      ));
+    
+    const SortableList = SortableContainer(({ items }) => (
+        <Accordion>
+          {items.map((item, index) => (
+            <SortableItem key={item.id} index={index} item={item} />
+          ))}
+        </Accordion>
+    ));
+
+
     return (
       <div className={styles.container}>
         <h1>Your detector called {DETECTOR} has been triggered.</h1>
@@ -33,7 +77,8 @@ const Home: NextPage = () => {
         </div>
 
         <h2>Root Causes & Strategies</h2>
-        <Accordion allowMultiple variant="card" defaultIndex={0}>  
+        <SortableList items={items} onSortEnd={handleSortEnd} />
+        {/* <Accordion allowMultiple variant="card" defaultIndex={0}>  
             {ROOT_CAUSES.map((x) => {return (
                 <AccordionItem className={styles.accordionItem} key={x.RC}>
                     <AccordionButton style={{display: 'flex', justifyContent: 'space-between'}}>
@@ -55,7 +100,7 @@ const Home: NextPage = () => {
                 </ AccordionItem>
             )
             })}
-        </ Accordion>
+        </ Accordion> */}
         {/* {ROOT_CAUSES.map((x) => <Dropdown key={x.RC} RC={x.RC} context={x.context} strategy={x.strategy} />)} */}
       </div>
     );

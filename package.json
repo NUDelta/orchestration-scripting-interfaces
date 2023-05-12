@@ -21,14 +21,17 @@
     "framer-motion": "^10.12.10",
     "next": "latest",
     "react": "18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-blockly": "^7.0.1",
     "react-dom": "18.2.0",
     "react-modal": "^3.16.1",
+    "react-sortable-hoc": "^2.0.0",
     "reactstrap": "^9.1.6"
   },
   "devDependencies": {
     "@types/node": "18.13.0",
     "@types/react": "18.0.27",
+    "@types/react-beautiful-dnd": "^13.1.4",
     "@types/react-dom": "18.0.10",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.33.0",
