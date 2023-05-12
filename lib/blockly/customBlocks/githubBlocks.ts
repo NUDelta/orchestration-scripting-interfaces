@@ -24,8 +24,8 @@ Blockly.Blocks['github'] = {
       .appendField('Github')
       .appendField(
         new Blockly.FieldDropdown([
-          ['num lines code committed', 'num lines code committed'],
-          ['num branches created', 'num branches created'],
+          ['num lines code committed this sprint', 'num lines code committed'],
+          ['num branches created this sprint', 'num branches created'],
         ]),
         'NAME'
       );

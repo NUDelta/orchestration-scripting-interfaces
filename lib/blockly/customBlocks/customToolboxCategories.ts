@@ -165,6 +165,26 @@ javascriptGenerator['Detector'] = function (block: Blockly.Block) {
   return code;
 };
 
+Blockly.Blocks['contain_text'] = {
+  init: function () {
+    this.appendValueInput('input');
+    this.appendDummyInput().appendField('contains')
+    .appendField(
+      new Blockly.FieldTextInput('type keyword'),
+      'NAME1'
+    );
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['contain_text'] = function (block: Blockly.Block) {
+  return null;
+};
+
 export const toolboxCategories = {
   kind: 'categoryToolbox',
   contents: [
@@ -210,6 +230,10 @@ export const toolboxCategories = {
           kind: 'block',
           type: 'text_join',
         },
+        {
+          kind: 'block',
+          type: 'contain_text',
+        }
       ],
     },
     VariablesToolboxCategories,
