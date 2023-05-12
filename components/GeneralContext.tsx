@@ -13,6 +13,14 @@ const options = ["Sprint log-Total Points Spent this Sprint",
                  "Github-Number of Branches Created this sprint",
                  "Github-Summary of Commits made this sprint"]
 
+function getOptionExplanation(option) {
+    if (option === "Sprint log-Summary of Stories") {
+        return "Title, Purpose, Deliverable, Points Planned, DTR Points Breakdown, and Points Spent";
+    } else if (option === "Sprint log-Summary of Tasks") {
+        return "Deliverable, Points Planned, DTR Points Breakdown, Person Assigned to, and Points Spent";
+    }
+}
+
 const GeneralContext = () => {
   const [selectedTags, setSelectedTags] = useState([]);
 
@@ -32,7 +40,7 @@ const GeneralContext = () => {
       <select onChange={(e) => addTag(e.target.value)}>
         <option value="">Select context</option>
         {options.map((option, index) => (
-          <option key={index} value={option}>
+          <option key={index} value={option} title={getOptionExplanation(option)}>
             {option}
           </option>
         ))}
