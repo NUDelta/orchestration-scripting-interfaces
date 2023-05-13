@@ -49,12 +49,16 @@
     font-weight: bold;
 }
 
+.firstElement{
+    flex: 1;
+}
+
 .leftElement {
-    flex: 9; /* Takes 90% of the width */
+    flex: 9; 
   }
   
 .rightElement {
-    flex: 1; /* Takes 10% of the width */
+    flex: 1;
 }
 
 .leftandright{
@@ -63,8 +67,18 @@
 
 .disableButton{
     margin: 10px;
-    padding: 2px;
-    padding-top: 20px;
+    width: 60px;
+    height: 60px;
     background-color: skyblue;
     border-radius: 10px;
 }
+
+.selectButton{
+    margin: 10px;
+    padding: 2px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: skyblue;
+    border-radius: 10px;
+}
+

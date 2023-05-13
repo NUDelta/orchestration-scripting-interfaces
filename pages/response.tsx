@@ -11,10 +11,13 @@ const ROOT_CAUSES = [{RC: "RC A", context: ["Context A1", "Context A2"], strateg
 
 const Home: NextPage = () => {
     const [items, setItems] = useState([
-        { id: 1, RC: "RC A", context: ["Context A1", "Context A2"], strategy: "Strategy A...", Disabled:false},
-        { id: 2, RC: "RC B", context: ["Context B1", "Context B2"], strategy: "Strategy B...", Disabled:false},
-        { id: 3, RC: "RC C", context: ["Context C1", "Context C2"], strategy: "Strategy C...", Disabled:false},
+        // Selected = opacity = 0.3 -> not Selected
+        { id: 1, RC: "RC A", context: ["Context A1", "Context A2"], strategy: "Strategy A...", Disabled:false, Selected:0.3},
+        { id: 2, RC: "RC B", context: ["Context B1", "Context B2"], strategy: "Strategy B...", Disabled:false, Selected:0.3},
+        { id: 3, RC: "RC C", context: ["Context C1", "Context C2"], strategy: "Strategy C...", Disabled:false, Selected:0.3},
       ]);
+    // Disable Button
+    const [DisableText, setDisableText] = useState('Disable');
     
     const handleSortEnd = ({ oldIndex, newIndex }) => {
         setItems(arrayMove(items, oldIndex, newIndex));
@@ -26,10 +29,15 @@ const Home: NextPage = () => {
         console.log(itemIndex + ' ' + desiredDictIndex)
         console.log(items)
 
-        // Check if the desired dictionary was found
+        // Check if the desired item was found
         if (desiredDictIndex !== -1) {
           const updatedDict = { ...items[desiredDictIndex]};
           updatedDict.Disabled = !updatedDict.Disabled;
+          if (updatedDict.Disabled == true){
+            setDisableText('Enable');
+          } else {
+            setDisableText('Disable');
+          }
           const updatedList = [
             ...updatedDisabledItems.slice(0, desiredDictIndex),
             updatedDict,
@@ -43,11 +51,42 @@ const Home: NextPage = () => {
         console.log(itemIndex + "disabled")
         return null;
     };
+
+    const ToggleSelected = ({itemIndex}) => {
+        const updatedDisabledItems = [...items];
+        const desiredDictIndex = items.findIndex(item => item.id === itemIndex);
+        console.log(itemIndex + ' ' + desiredDictIndex)
+        console.log(items)
+
+        // Check if the desired item was found
+        if (desiredDictIndex !== -1) {
+          const updatedDict = { ...items[desiredDictIndex]};
+          if (updatedDict.Selected == 0.3) {
+            updatedDict.Selected = 1
+          } else {
+            updatedDict.Selected = 0.3
+          }
+          const updatedList = [
+            ...updatedDisabledItems.slice(0, desiredDictIndex),
+            updatedDict,
+            ...updatedDisabledItems.slice(desiredDictIndex + 1)
+          ];
+            setItems(updatedList);
+        } else {
+            console.log(desiredDictIndex)
+        return <p>item with id = 1 not found.</p>;
+        }
+        console.log(itemIndex + "Selected")
+        return null;
+    };
     
     const SortableItem = SortableElement(({ item }) => (
         <div className={styles.leftandright}>
+            <div className={styles.firstElement}>
+                <button className={styles.selectButton} style={{ opacity: item.Selected }} onClick={() => ToggleSelected({ itemIndex: item.id })}> ✅ </button>
+            </div>
           <div className={styles.leftElement}>
-          <AccordionItem className={styles.accordionItem} key={item.RC} isDisabled={item.Disabled}>
+          <AccordionItem className={styles.accordionItem} style={{ opacity: item.Disabled ? 0.45 : 1 }} key={item.RC} isDisabled={item.Disabled}>
                     <AccordionButton style={{display: 'flex', justifyContent: 'space-between'}}>
                         <h3>{item.RC}</h3>
                         <AccordionIcon /> 
@@ -67,7 +106,7 @@ const Home: NextPage = () => {
                 </ AccordionItem>
             </div>
             <div className={styles.rightElement}>
-                <button className={styles.disableButton} onClick={() => SetDisableStatus({ itemIndex: item.id })}> Disable</button>
+                <button className={styles.disableButton} onClick={() => SetDisableStatus({ itemIndex: item.id })}>{DisableText}</button>
             </div>
         </div>
       ));
