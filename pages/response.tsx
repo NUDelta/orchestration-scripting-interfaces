@@ -45,8 +45,8 @@ const Home: NextPage = () => {
     };
     
     const SortableItem = SortableElement(({ item }) => (
-        <div className="item">
-          <button onClick={() => SetDisableStatus({ itemIndex: item.id })}> Disable</button>
+        <div className={styles.leftandright}>
+          <div className={styles.leftElement}>
           <AccordionItem className={styles.accordionItem} key={item.RC} isDisabled={item.Disabled}>
                     <AccordionButton style={{display: 'flex', justifyContent: 'space-between'}}>
                         <h3>{item.RC}</h3>
@@ -65,6 +65,10 @@ const Home: NextPage = () => {
                         </div>
                     </AccordionPanel>
                 </ AccordionItem>
+            </div>
+            <div className={styles.rightElement}>
+                <button className={styles.disableButton} onClick={() => SetDisableStatus({ itemIndex: item.id })}> Disable</button>
+            </div>
         </div>
       ));
     

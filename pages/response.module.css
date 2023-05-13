@@ -48,3 +48,23 @@
 .container h4 {
     font-weight: bold;
 }
+
+.leftElement {
+    flex: 9; /* Takes 90% of the width */
+  }
+  
+.rightElement {
+    flex: 1; /* Takes 10% of the width */
+}
+
+.leftandright{
+    display: flex;
+}
+
+.disableButton{
+    margin: 10px;
+    padding: 2px;
+    padding-top: 20px;
+    background-color: skyblue;
+    border-radius: 10px;
+}
