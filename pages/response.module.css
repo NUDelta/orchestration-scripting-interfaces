@@ -82,3 +82,19 @@
     border-radius: 10px;
 }
 
+.titleContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.RCtitle {
+    text-align: left;
+}
+  
+.addButton {
+    text-align: right;
+    background-color: #EEE;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 30px;
+ }

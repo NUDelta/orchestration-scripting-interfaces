@@ -23,6 +23,18 @@ const Home: NextPage = () => {
         setItems(arrayMove(items, oldIndex, newIndex));
     };
 
+    const addRootCause = () => {
+        const updatedItems = [...items];
+        const largestId = updatedItems.reduce((maxId, item) => {
+            return item.id > maxId ? item.id : maxId;
+          }, 0);
+        const newRC = { id: largestId + 1, RC: "TBD", context: [], strategy: "TBD", Disabled:false, Selected:0.3}
+        console.log(newRC)
+        const updatedList = [newRC, ...updatedItems];
+        setItems(updatedList)
+        return null;
+    }
+
     const SetDisableStatus = ({itemIndex}) => {
         const updatedDisabledItems = [...items];
         const desiredDictIndex = items.findIndex(item => item.id === itemIndex);
@@ -88,7 +100,13 @@ const Home: NextPage = () => {
           <div className={styles.leftElement}>
           <AccordionItem className={styles.accordionItem} style={{ opacity: item.Disabled ? 0.45 : 1 }} key={item.RC} isDisabled={item.Disabled}>
                     <AccordionButton style={{display: 'flex', justifyContent: 'space-between'}}>
-                        <h3>{item.RC}</h3>
+                        {item.RC !== "TBD" ? (
+                            <>
+                            <h3>{item.RC}</h3>
+                            </>
+                        ) : (
+                            <input type="text" style={{width: 450}} placeholder="Enter your Root Cause here..." />
+                        )}
                         <AccordionIcon /> 
                     </ AccordionButton>
                     <AccordionPanel className={styles.accordionPanel}>
@@ -99,8 +117,14 @@ const Home: NextPage = () => {
                             </ul>
                         </div>
                         <div>
-                            <h4>Strategy</h4>
-                            <p>{item.strategy}</p>
+                            {item.RC !== "TBD" ? (
+                                <>
+                                    <h4>Strategy</h4>
+                                    <p>{item.strategy}</p>
+                                </>
+                            ) : (
+                                <textarea type="text" style={{width: 300}} placeholder="Enter your Strategy here..." />
+                            )}
                         </div>
                     </AccordionPanel>
                 </ AccordionItem>
@@ -144,7 +168,10 @@ const Home: NextPage = () => {
             </ul>
         </div>
 
-        <h2>Root Causes & Strategies</h2>
+        <div className={styles.titleContainer}>
+            <h2 className={styles.RCtitle}>Root Causes & Strategies</h2>
+            <button className={styles.addButton} onClick={() => addRootCause()}>Add Root Cause</button>
+        </div>
         <SortableList items={items} onSortEnd={handleSortEnd} />
         {/* <Accordion allowMultiple variant="card" defaultIndex={0}>  
             {ROOT_CAUSES.map((x) => {return (
