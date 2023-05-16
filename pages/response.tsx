@@ -35,34 +35,26 @@ const Home: NextPage = () => {
         return null;
     }
 
-    const SetDisableStatus = ({itemIndex}) => {
+    const SetDisableStatus = ({ itemIndex }) => {
         const updatedDisabledItems = [...items];
-        const desiredDictIndex = items.findIndex(item => item.id === itemIndex);
-        console.log(itemIndex + ' ' + desiredDictIndex)
-        console.log(items)
-
+        const desiredDictIndex = items.findIndex((item) => item.id === itemIndex);
+      
         // Check if the desired item was found
         if (desiredDictIndex !== -1) {
-          const updatedDict = { ...items[desiredDictIndex]};
+          const updatedDict = { ...items[desiredDictIndex] };
           updatedDict.Disabled = !updatedDict.Disabled;
-          if (updatedDict.Disabled == true){
-            setDisableText('Enable');
-          } else {
-            setDisableText('Disable');
-          }
+      
           const updatedList = [
             ...updatedDisabledItems.slice(0, desiredDictIndex),
             updatedDict,
             ...updatedDisabledItems.slice(desiredDictIndex + 1)
           ];
-        setItems(updatedList);
-        } else {
-            console.log(desiredDictIndex)
-        return <p>item with id = 1 not found.</p>;
+      
+          setItems(updatedList);
         }
-        console.log(itemIndex + "disabled")
+      
         return null;
-    };
+      };
 
     const ToggleSelected = ({itemIndex}) => {
         const updatedDisabledItems = [...items];
@@ -94,44 +86,62 @@ const Home: NextPage = () => {
     
     const SortableItem = SortableElement(({ item }) => (
         <div className={styles.leftandright}>
-            <div className={styles.firstElement}>
-                <button className={styles.selectButton} style={{ opacity: item.Selected }} onClick={() => ToggleSelected({ itemIndex: item.id })}> ✅ </button>
-            </div>
+          <div className={styles.firstElement}>
+            <button
+              className={styles.selectButton}
+              style={{ opacity: item.Selected }}
+              onClick={() => ToggleSelected({ itemIndex: item.id })}
+            >
+              ✅
+            </button>
+          </div>
           <div className={styles.leftElement}>
-          <AccordionItem className={styles.accordionItem} style={{ opacity: item.Disabled ? 0.45 : 1 }} key={item.RC} isDisabled={item.Disabled}>
-                    <AccordionButton style={{display: 'flex', justifyContent: 'space-between'}}>
-                        {item.RC !== "TBD" ? (
-                            <>
-                            <h3>{item.RC}</h3>
-                            </>
-                        ) : (
-                            <input type="text" style={{width: 450}} placeholder="Enter your Root Cause here..." />
-                        )}
-                        <AccordionIcon /> 
-                    </ AccordionButton>
-                    <AccordionPanel className={styles.accordionPanel}>
-                        <div>
-                            <h4>Context</h4>
-                            <ul className='list-disc list-inside'>
-                                {item.context.map((context) => <li key={context}>{context}</li>)}
-                            </ul>
-                        </div>
-                        <div>
-                            {item.RC !== "TBD" ? (
-                                <>
-                                    <h4>Strategy</h4>
-                                    <p>{item.strategy}</p>
-                                </>
-                            ) : (
-                                <textarea type="text" style={{width: 300}} placeholder="Enter your Strategy here..." />
-                            )}
-                        </div>
-                    </AccordionPanel>
-                </ AccordionItem>
-            </div>
-            <div className={styles.rightElement}>
-                <button className={styles.disableButton} onClick={() => SetDisableStatus({ itemIndex: item.id })}>{DisableText}</button>
-            </div>
+            <AccordionItem
+              className={styles.accordionItem}
+              style={{ opacity: item.Disabled ? 0.45 : 1 }}
+              key={item.RC}
+              isDisabled={item.Disabled}
+            >
+              <AccordionButton style={{ display: 'flex', justifyContent: 'space-between' }}>
+                {item.RC !== 'TBD' ? (
+                  <>
+                    <h3>{item.RC}</h3>
+                  </>
+                ) : (
+                  <input type="text" style={{ width: 450 }} placeholder="Enter your Root Cause here..." />
+                )}
+                <AccordionIcon />
+              </AccordionButton>
+              <AccordionPanel className={styles.accordionPanel}>
+                <div>
+                  <h4>Context</h4>
+                  <ul className="list-disc list-inside">
+                    {item.context.map((context) => (
+                      <li key={context}>{context}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  {item.RC !== 'TBD' ? (
+                    <>
+                      <h4>Strategy</h4>
+                      <p>{item.strategy}</p>
+                    </>
+                  ) : (
+                    <textarea type="text" style={{ width: 300 }} placeholder="Enter your Strategy here..." />
+                  )}
+                </div>
+              </AccordionPanel>
+            </AccordionItem>
+          </div>
+          <div className={styles.rightElement}>
+            <button
+              className={styles.disableButton}
+              onClick={() => SetDisableStatus({ itemIndex: item.id })}
+            >
+              {item.Disabled ? 'Enable' : 'Disable'}
+            </button>
+          </div>
         </div>
       ));
     
