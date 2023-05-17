@@ -40,20 +40,6 @@ const Home: NextPage = () => {
         setItems(updatedItems);
         console.log('Adding RC')
       };
-
-    //   const handleRootCauseChange = (e, itemId) => {
-    //     const updatedItems = items.map((item) => {
-    //       if (item.id === itemId) {
-    //         console.log('RC:', item.RC)
-    //         console.log('edit:', e.target.value)
-    //         console.log(items)
-    //         return { ...item, RC: e.target.value};
-    //       }
-    //       return item;
-    //     });
-    //     setItems(updatedItems);
-    //     return null;
-    //   };
       
     const SetDisableStatus = ({ itemIndex }) => {
         const updatedDisabledItems = [...items];
@@ -144,10 +130,7 @@ const Home: NextPage = () => {
 
         const [editedStrategy, setEditedStrategy] = useState(item.strategy);
         const [isEditing, setIsEditing] = useState(false);
-        useEffect(() => {
-            console.log('ISEDITING?:', isEditing);
-          }, [isEditing]);
-      
+        
         const handleEditClick = () => {
           setIsEditing(true);
         };
