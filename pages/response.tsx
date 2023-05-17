@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./response.module.css"
 import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc';
 import { Accordion, AccordionItem, AccordionPanel, AccordionButton, AccordionIcon } from "@vygruppen/spor-accordion-react";
@@ -26,15 +26,35 @@ const Home: NextPage = () => {
     const addRootCause = () => {
         const updatedItems = [...items];
         const largestId = updatedItems.reduce((maxId, item) => {
-            return item.id > maxId ? item.id : maxId;
-          }, 0);
-        const newRC = { id: largestId + 1, RC: "TBD", context: [], strategy: "TBD", Disabled:false, Selected:0.3}
-        console.log(newRC)
-        const updatedList = [newRC, ...updatedItems];
-        setItems(updatedList)
-        return null;
-    }
+          return item.id > maxId ? item.id : maxId;
+        }, 0);
+        const newRC = {
+          id: largestId + 1,
+          RC: '',
+          context: [],
+          strategy: '',
+          Disabled: false,
+          Selected: 0.3,
+        };
+        updatedItems.unshift(newRC);
+        setItems(updatedItems);
+        console.log('Adding RC')
+      };
 
+    //   const handleRootCauseChange = (e, itemId) => {
+    //     const updatedItems = items.map((item) => {
+    //       if (item.id === itemId) {
+    //         console.log('RC:', item.RC)
+    //         console.log('edit:', e.target.value)
+    //         console.log(items)
+    //         return { ...item, RC: e.target.value};
+    //       }
+    //       return item;
+    //     });
+    //     setItems(updatedItems);
+    //     return null;
+    //   };
+      
     const SetDisableStatus = ({ itemIndex }) => {
         const updatedDisabledItems = [...items];
         const desiredDictIndex = items.findIndex((item) => item.id === itemIndex);
@@ -84,66 +104,163 @@ const Home: NextPage = () => {
         return null;
     };
     
-    const SortableItem = SortableElement(({ item }) => (
-        <div className={styles.leftandright}>
-          <div className={styles.firstElement}>
-            <button
-              className={styles.selectButton}
-              style={{ opacity: item.Selected }}
-              onClick={() => ToggleSelected({ itemIndex: item.id })}
-            >
-              ✅
-            </button>
+    const SortableItem = SortableElement(({ item }) => {
+        const [rootCauseInput, setRootCauseInput] = useState(item.RC);
+      
+        const handleRootCauseInputChange = (e) => {
+          setRootCauseInput(e.target.value);
+        };
+
+        const handleRootCauseChange = (itemId) => {
+            const updatedItems = items.map((item) => {
+              if (item.id === itemId) {
+                console.log('Input: ', rootCauseInput)
+                return { ...item, RC: rootCauseInput};
+              }
+              return item;
+            });
+            console.log(updatedItems)
+            setItems(updatedItems);
+            return null;
+        };
+
+        const [strategyInput, setStrategyInput] = useState(item.RC);
+      
+        const handleStrategyInputChange = (e) => {
+            setStrategyInput(e.target.value);
+        };
+
+        const handleStrategyChange = (itemId) => {
+            const updatedItems = items.map((item) => {
+              if (item.id === itemId) {
+                console.log('Input: ', strategyInput)
+                return { ...item, strategy: strategyInput};
+              }
+              return item;
+            });
+            setItems(updatedItems);
+            return null;
+        };
+
+        const [editedStrategy, setEditedStrategy] = useState(item.strategy);
+        const [isEditing, setIsEditing] = useState(false);
+        useEffect(() => {
+            console.log('ISEDITING?:', isEditing);
+          }, [isEditing]);
+      
+        const handleEditClick = () => {
+          setIsEditing(true);
+        };
+      
+        const handleSaveClick = (e, itemId) => {
+            const updatedItems = items.map((item) => {
+                if (item.id === itemId) {
+                  return { ...item, strategy: editedStrategy};
+                }
+                return item;
+              });
+              setIsEditing(false);
+              setItems(updatedItems);
+              console.log(updatedItems)
+              console.log('Strat', editedStrategy)
+              console.log('ISEDITING?:', isEditing)
+              return null;
+        };
+      
+        const handleCancelClick = () => {
+          setEditedStrategy(item.strategy);
+          setIsEditing(false);
+        };
+      
+        return (
+          <div className={styles.leftandright}>
+            <div className={styles.firstElement}>
+              <button
+                className={styles.selectButton}
+                style={{ opacity: item.Selected }}
+                onClick={() => ToggleSelected({ itemIndex: item.id })}
+              >
+                ✅
+              </button>
+            </div>
+            <div className={styles.leftElement}>
+              <AccordionItem
+                className={styles.accordionItem}
+                style={{ opacity: item.Disabled ? 0.45 : 1 }}
+                key={item.RC}
+                isDisabled={item.Disabled}
+              >
+                <AccordionButton style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    {item.RC !== '' ? (
+                        <>
+                        <h3>{item.RC}</h3>
+                        </>
+                    ) : (
+                        <>
+                        <input
+                            type="text"
+                            style={{ width: 450 }}
+                            placeholder="Enter your Root Cause here..."
+                            // value={item.RC}
+                            onChange={(e) => handleRootCauseInputChange(e)}
+                            />
+                        <button onClick={() => handleRootCauseChange(item.id)}>Save</button>
+                        </>
+                    )}
+                  <AccordionIcon />
+                </AccordionButton>
+                <AccordionPanel className={styles.accordionPanel}>
+                  <div>
+                    <h4>Context</h4>
+                    <ul className="list-disc list-inside">
+                      {item.context.map((context) => (
+                        <li key={context}>{context}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    {item.strategy !== '' ? (
+                      <>
+                        <h4>Strategy</h4>
+                        {isEditing ? (
+                            <>
+                            <textarea
+                                value={editedStrategy}
+                                onChange={(e) => setEditedStrategy(e.target.value)}
+                            />
+                            <button onClick={(e)=> handleSaveClick(e, item.id)}>Save</button>
+                            <button onClick={handleCancelClick}>Cancel</button>
+                            </>
+                        ) : (
+                            <>
+                            <p>{editedStrategy}</p>
+                            <button onClick={handleEditClick}>Edit</button>
+                            </>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                      <textarea
+                        type="text"
+                        style={{ width: 300 }}
+                        placeholder="Enter your Strategy here..."
+                        onChange={(e) => handleStrategyInputChange(e)}
+                      />
+                      <button onClick={() => handleStrategyChange(item.id)}>Save</button>
+                      </>
+                    )}
+                  </div>
+                </AccordionPanel>
+              </AccordionItem>
+            </div>
+            <div className={styles.rightElement}>
+              <button className={styles.disableButton} onClick={() => SetDisableStatus({ itemIndex: item.id })}>
+                {item.Disabled ? 'Enable' : 'Disable'}
+              </button>
+            </div>
           </div>
-          <div className={styles.leftElement}>
-            <AccordionItem
-              className={styles.accordionItem}
-              style={{ opacity: item.Disabled ? 0.45 : 1 }}
-              key={item.RC}
-              isDisabled={item.Disabled}
-            >
-              <AccordionButton style={{ display: 'flex', justifyContent: 'space-between' }}>
-                {item.RC !== 'TBD' ? (
-                  <>
-                    <h3>{item.RC}</h3>
-                  </>
-                ) : (
-                  <input type="text" style={{ width: 450 }} placeholder="Enter your Root Cause here..." />
-                )}
-                <AccordionIcon />
-              </AccordionButton>
-              <AccordionPanel className={styles.accordionPanel}>
-                <div>
-                  <h4>Context</h4>
-                  <ul className="list-disc list-inside">
-                    {item.context.map((context) => (
-                      <li key={context}>{context}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  {item.RC !== 'TBD' ? (
-                    <>
-                      <h4>Strategy</h4>
-                      <p>{item.strategy}</p>
-                    </>
-                  ) : (
-                    <textarea type="text" style={{ width: 300 }} placeholder="Enter your Strategy here..." />
-                  )}
-                </div>
-              </AccordionPanel>
-            </AccordionItem>
-          </div>
-          <div className={styles.rightElement}>
-            <button
-              className={styles.disableButton}
-              onClick={() => SetDisableStatus({ itemIndex: item.id })}
-            >
-              {item.Disabled ? 'Enable' : 'Disable'}
-            </button>
-          </div>
-        </div>
-      ));
+        );
+      });            
     
     const SortableList = SortableContainer(({ items }) => (
         <Accordion>
