@@ -3,14 +3,15 @@ import mongoose from 'mongoose';
 export interface OSEScript {
   Name: String;
   Desc: String;
+  Applicable_Set: String;
   //Blockly's Xml + Code generated
   Detector: [String, String];
-  GeneralContext: String[];
+  GeneralContext: [String];
   RC_C_S: [{
            RC: String,
            C: [String],
            S: String,
-         }]
+         }];
 }
 
 const OSEScriptSchema = new mongoose.Schema<OSEScript>({
