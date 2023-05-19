@@ -1,5 +1,6 @@
 import styles from './Sidebar.module.css';
 import { Carousel } from '@mantine/carousel';
+import { useState } from 'react';
 
 const steps = [
     [{ title: "Getting started", instructions: "A general script consists of 4 parts: Detector, Potential Causes, Context for Key Cause Diagnosis, and Strategies. "},
@@ -20,8 +21,11 @@ const steps = [
     { instructions: "2. If the student is a first-quarter DTR student, consider recommending them to meet with their onboarding mentors."}]
 ]
 
-export const Sidebar = () => {
-
+interface SidebarProps {
+  name: string | undefined;
+}
+export const Sidebar: React.FC<SidebarProps> = ({ name }) => {
+  
     return (
         <div className={styles.container}>
             <h1>Orchestration Scripting Environment</h1>
@@ -66,6 +70,8 @@ export const Sidebar = () => {
                                 <textarea 
                                     placeholder="Enter your description here" 
                                     className={styles.textarea} 
+                                    value={name} 
+                                    readOnly
                                 />
                             </div>
                             )}

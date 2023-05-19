@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
 export interface OSEScript {
-  // Name: String;
-  Description: String;
+  Name: String;
+  // Description: String;
   // Applicable_Set: String;
   // //Blockly's Xml + Code generated
   // Detector: [String, String];
@@ -15,14 +15,14 @@ export interface OSEScript {
 }
 
 const OSEScriptSchema = new mongoose.Schema<OSEScript>({
-  // Name: {
-  //   type: String,
-  //   required: true,
-  // },
-  Description: {
+  Name: {
     type: String,
     required: true,
   },
+  // Description: {
+  //   type: String,
+  //   required: true,
+  // },
   // Detector: {
   //   type: [String,String],
   //   required: true,
