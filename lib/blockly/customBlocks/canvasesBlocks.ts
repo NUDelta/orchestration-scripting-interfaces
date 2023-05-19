@@ -22,7 +22,9 @@ javascriptGenerator['end_of_quarter_goal'] = function (block: Blockly.Block) {
 
 Blockly.Blocks['high_canvas_update'] = {
   init: function () {
-    this.appendDummyInput().appendField('Canvas not updated');
+    this.appendDummyInput().appendField('Canvas not updated within')
+    .appendField(new Blockly.FieldDropdown([['past week', 'past week'],
+    ['this sprint', 'this sprint']]));
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour('#0066cc');
@@ -37,7 +39,9 @@ javascriptGenerator['high_canvas_update'] = function (block: Blockly.Block) {
 
 Blockly.Blocks['high_canvas_update2'] = {
   init: function () {
-    this.appendDummyInput().appendField('Canvas updated');
+    this.appendDummyInput().appendField('Canvas updated within')
+    .appendField(new Blockly.FieldDropdown([['past week', 'past week'],
+    ['this sprint', 'this sprint']]));
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour('#0066cc');
