@@ -9,18 +9,8 @@ const GEN_CONTEXT = [{title: "Story Title", data: "Building a user interface for
 const ROOT_CAUSES = [{RC: "RC A", context: ["Context A1", "Context A2"], strategy: "Strategy A..."}, {RC: "RC B", context: ["Context B1", "Context B2"], strategy: "Strategy B..."}, {RC: "RC C", context: ["Context C1", "Context C2"], strategy: "Strategy C..."}]
 
 const Home: NextPage = () => {
-    const [items, setItems] = useState([
-        // Selected = opacity = 0.3 -> not Selected
-        { id: 1, RC: "RC A", context: ["Context A1", "Context A2"], strategy: "Strategy A...", Disabled:false, Selected: false},
-        { id: 2, RC: "RC B", context: ["Context B1", "Context B2"], strategy: "Strategy B...", Disabled:false, Selected: false},
-        { id: 3, RC: "RC C", context: ["Context C1", "Context C2"], strategy: "Strategy C...", Disabled:false, Selected: false},
-      ]);
+    const [items, setItems] = useState(ROOT_CAUSES);
     // Disable Button
-    const [DisableText, setDisableText] = useState('Disable');
-    
-    const handleSortEnd = ({ oldIndex, newIndex }) => {
-        setItems(arrayMove(items, oldIndex, newIndex));
-    };
 
     const addRootCause = () => {
         const updatedItems = [...items];
