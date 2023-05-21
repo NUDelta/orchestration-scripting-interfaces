@@ -1,7 +1,5 @@
 import styles from "./GeneralContext.module.css"
 import { useState, useEffect} from 'react';
-import { useRouter } from 'next/router';
-import Test from '../models/testModel';
 
 const options = ["Sprint log-Total Points Spent this Sprint",
                  "Sprint log-Total Points Commited this Sprint",
@@ -25,8 +23,6 @@ function getOptionExplanation(option) {
 
 const GeneralContext = () => {
   const [selectedTags, setSelectedTags] = useState([]);
-  const router = useRouter();
-  const { id } = router.query;
 
   // Add tag function
   const addTag = (tag) => {
@@ -38,16 +34,6 @@ const GeneralContext = () => {
   const removeTag = (tag) => {
     setSelectedTags(selectedTags.filter((t) => t !== tag));
   };
-
-  // useEffect(() => {
-  //   if (id) {
-  //     Test.findByIdAndUpdate(
-  //       id,
-  //       { GeneralContext: selectedTags },
-  //       { new: true },
-  //     );
-  //   }
-  // }, [selectedTags, id]);
 
   return (
     <div className={styles.gencontainer}>
