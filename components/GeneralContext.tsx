@@ -21,7 +21,7 @@ function getOptionExplanation(option) {
     }
 }
 
-const GeneralContext = () => {
+const GeneralContext = ({ onGeneralContextDataChange }) => {
   const [selectedTags, setSelectedTags] = useState([]);
 
   // Add tag function

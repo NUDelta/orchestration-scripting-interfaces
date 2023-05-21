@@ -3,7 +3,7 @@ import styles from './Detector.module.css'
 
 const BlocklyEditor = dynamic(() => import('./BlocklyEditor'), { ssr: false });
 
-export const Detector = () => {
+export const Detector = ({onDetectorDataChange}) => {
 
     return (
         <div className={styles.container}>

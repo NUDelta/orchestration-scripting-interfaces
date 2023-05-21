@@ -2,7 +2,7 @@ import { useState } from "react"
 import styles from "./RootCauses.module.css"
 import { RootCause } from "./RootCause"
 
-export const RootCauses = () => {
+export const RootCauses = ({onRootCausesDataChange}) => {
 
     const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: '<xml xmlns="http://www.w3.org/1999/xhtml"></xml>'}]);
 
