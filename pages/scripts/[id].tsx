@@ -15,10 +15,8 @@ const ScriptPage = ({ tests }) => {
       </Head>
 
       <main className="h-screen w-screen relative">
-
         <div className="grid grid-cols-25/75">
-          <h1>{tests.title}{tests.sigName}</h1>
-          <Sidebar />
+          <Sidebar title={tests.title} sigName={tests.sigName} desc={tests.Description}/>
           <MainBody />  
         </div>
 

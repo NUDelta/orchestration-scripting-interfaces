@@ -22,11 +22,11 @@ const steps = [
     { instructions: "2. If the student is a first-quarter DTR student, consider recommending them to meet with their onboarding mentors."}]
 ]
 
-export const Sidebar = () => {
+export const Sidebar = ({title, sigName, desc}) => {
 
     return (
         <div className={styles.container}>
-            <h1>Orchestration Scripting Environment</h1>
+            <h1>{title}-{sigName}</h1>
 
             <div className={styles.carouselContainer}>
             <Carousel
@@ -43,7 +43,7 @@ export const Sidebar = () => {
               }
               styles={{
                 controls: {
-                  marginTop: '37vh',
+                  marginTop: '47vh',
                   justifyContent: 'center',
                   gap: 20,
                   borderColor: 'black',
@@ -68,6 +68,7 @@ export const Sidebar = () => {
                                 <textarea 
                                     placeholder="Enter your description here" 
                                     className={styles.textarea} 
+                                    defaultValue={desc}
                                 />
                             </div>
                             )}

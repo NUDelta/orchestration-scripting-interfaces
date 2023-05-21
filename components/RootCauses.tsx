@@ -10,6 +10,7 @@ export const RootCauses = () => {
       let copy = [...RCs];
       copy.push({id: copy.length + 1, rootCause: "", context: new Set(), strategy: '<xml xmlns="http://www.w3.org/1999/xhtml"></xml>'});
       setRCs(copy);
+    //   console.log('RCs: ', RCs)
     };
 
     return (

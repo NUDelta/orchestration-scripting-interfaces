@@ -10,6 +10,7 @@ export const MainBody = () => {
       <Detector />
       <GeneralContext />
       <RootCauses />
+      <button>Save Script</button>
     </div>
   );
 };

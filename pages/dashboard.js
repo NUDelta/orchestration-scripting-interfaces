@@ -44,6 +44,7 @@ export default function Home({tests}) {
       body: JSON.stringify({
         title: title,
         sigName: sigName,
+        Description: 'Test',
         Detector: ['',''],
         GeneralContext: [''],
         RC_C_S: [{

@@ -3,6 +3,7 @@ import { Schema, model, models, Document } from 'mongoose';
 export interface ITest extends Document {
   title: string;
   sigName: string;
+  Description: string;
   Detector: [string, string];
   GeneralContext: [string];
   RC_C_S: {
@@ -18,6 +19,7 @@ const testSchema = new Schema({
     type: String,
     required: true,
   },
+  Description: String,
   Detector: {
     type: [String,String],
   },
@@ -34,8 +36,3 @@ const testSchema = new Schema({
 });
 
 export default models.Test || model('Test', testSchema);
-// export default model('Test', testSchema);
-// const Test = model<ITest>('Test', testSchema);
-
-// export default {Test};
-// export { ITest };
