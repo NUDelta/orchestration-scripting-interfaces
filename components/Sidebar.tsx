@@ -1,15 +1,16 @@
 import styles from './Sidebar.module.css';
 import { Carousel } from '@mantine/carousel';
-import { useState } from 'react';
 
 const steps = [
     [{ title: "Getting started", instructions: "A general script consists of 4 parts: Detector, Potential Causes, Context for Key Cause Diagnosis, and Strategies. "},
     { title: "1. The Detector", instructions: "Describe the situation that you want to script for. "},
     { title: "1.1 Scope", instructions: "First, specify who you want this script to apply for. Is it a specific SIG? Is it all projects? Take a look at the 'Scope' blocks under Social Structures."
     + "Attach a 'Scope' block to the 'I want this script to apply to' block."},
-    { title: "1.2 Detecting the situation", instructions: "Think back to a time when this situation happened. What did the student do and how did you notice it was happening? Using the blocks on the right, build a detector that can help you know when the problem is happening."}],
+    { title: "1.2 Time", instructions: "Second, when you want the script to check for the situation. Do you want to check at the morning of SIG? Or when it's currently 1 day before OH? Take a look at the blocks under 'Time'."
+    + " Use a Logic 'And' connector to use it in your detector."},
+    { title: "1.3 Detecting the situation", instructions: "Think back to a time when this situation happened. What did the student do and how did you notice it was happening? Using the blocks on the right, build a detector that can help you know when the problem is happening."}],
     [{ title: "2. General Context", instructions: "Using the dropdown, select some context information that you think will help you learn more about whether the situation is happening. When the detector triggers, the context information you selected will be sent to you."},
-    {instructions: "Hover over the options to view a breakdown what it contains."},
+    {instructions: "Hover over the options to view a breakdown of the information it contains."},
     { title: "Example", instructions: "Say that you selected 'Sprint Log-Summary of Stories' for your script that detects whether your student is overcommitted. When the detector triggers you will receive a summary of the stories in their sprint log, which you can read to help you understand why they're overcommiting."}],
     [{ title: "3. Potential Causes", instructions: "Based on your understanding of your students, what do you think is causing this situation? Under Potential Causes, list the common reasons why your student might be struggling with the issue."},
     {instructions: "Use the add button on the right to add more potential causes. Use the X button to delete causes."},
@@ -21,11 +22,8 @@ const steps = [
     { instructions: "2. If the student is a first-quarter DTR student, consider recommending them to meet with their onboarding mentors."}]
 ]
 
-interface SidebarProps {
-  name: string | undefined;
-}
-export const Sidebar: React.FC<SidebarProps> = ({ name }) => {
-  
+export const Sidebar = () => {
+
     return (
         <div className={styles.container}>
             <h1>Orchestration Scripting Environment</h1>
@@ -70,8 +68,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ name }) => {
                                 <textarea 
                                     placeholder="Enter your description here" 
                                     className={styles.textarea} 
-                                    value={name} 
-                                    readOnly
                                 />
                             </div>
                             )}

@@ -1,47 +1,12 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetServerSideProps} from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
 import { MainBody } from '../../components/MainBody';
 import { Sidebar } from '../../components/Sidebar';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { OSEScript } from '../../models/ScriptModel';
-
-
-const Home: NextPage = () => {
-  const router = useRouter();
-  const { id } = router.query;
-  const [name, setName] = useState<string | undefined>();
-
-    // GET request to get a script
-    useEffect(() => {
-      // wait for the useRouter hook to asynchronously get the query id
-      if (!id) {
-        return;
-      }
-      console.log('id: ', id)
-  
-      const fetchUser = async () => {
-        const response = await fetch(`/api/script/${id}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json"
-          },
-        });
-  
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
-  
-        console.log('GET', response)
-  
-        const script: OSEScript = await response.json();
-        setName(script?.Name);
-      }
-  
-      fetchUser();
-    }, [id]);
-
+import Test from '../../models/testModel';
+import connectMongo from '../../utils/connectMongo';
+ 
+const ScriptPage = ({ tests }) => {
   return (
     <div className="bodyContainer">
       <Head>
@@ -52,16 +17,45 @@ const Home: NextPage = () => {
       <main className="h-screen w-screen relative">
 
         <div className="grid grid-cols-25/75">
-          <Sidebar name={name}/>
+          <h1>{tests.title}{tests.sigName}</h1>
+          <Sidebar />
           <MainBody />  
         </div>
 
       </main>
-    <Link href="/response">
-      Generate report page
-    </Link>
     </div>
   );
 };
 
-export default Home;
+export const getServerSideProps = async (context) => {
+  const { id } = context.query;
+
+  try {
+    console.log('CONNECTING TO MONGO');
+    await connectMongo();
+    console.log('CONNECTED TO MONGO');
+
+    console.log('FETCHING DOCUMENTS');
+    const tests = await Test.findById(id);
+    console.log('FETCHED DOCUMENTS');
+    console.log(tests)
+
+    if (!tests) {
+      return {
+        notFound: true, // Return a 404 page if script is not found
+      };
+    }
+
+    return {
+      props: {
+        tests: JSON.parse(JSON.stringify(tests)),
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      notFound: true,
+    };
+  }
+};
+export default ScriptPage;
