@@ -6,7 +6,8 @@ import { Sidebar } from '../../components/Sidebar';
 import Test from '../../models/testModel';
 import connectMongo from '../../utils/connectMongo';
  
-const ScriptPage = ({ tests }) => {
+const ScriptPage = ({ tests, id }) => {
+
   return (
     <div className="bodyContainer">
       <Head>
@@ -17,9 +18,8 @@ const ScriptPage = ({ tests }) => {
       <main className="h-screen w-screen relative">
         <div className="grid grid-cols-25/75">
           <Sidebar title={tests.title} sigName={tests.sigName} desc={tests.Description}/>
-          <MainBody />  
+          <MainBody data={tests} id={id}/>  
         </div>
-
       </main>
     </div>
   );
@@ -47,6 +47,7 @@ export const getServerSideProps = async (context) => {
     return {
       props: {
         tests: JSON.parse(JSON.stringify(tests)),
+        id: id,
       },
     };
   } catch (error) {

@@ -1,0 +1,3 @@
+{"_id":{"$oid":"646a7c86297252323999bf61"},"title":"User Study Design","sigName":"NOT","Description":"","Detector":["",""],"GeneralContext":[""],"RC_C_S":[{"RC":"","C":[""],"S":"","_id":{"$oid":"646a7c86297252323999bf62"}}],"__v":0}
+{"_id":{"$oid":"646a7caa297252323999bf6e"},"title":"aaaa","sigName":"aaaa","Description":"Test","Detector":["",""],"GeneralContext":[""],"RC_C_S":[{"RC":"","C":[""],"S":"","_id":{"$oid":"646a7caa297252323999bf6f"}}],"__v":0}
+{"_id":{"$oid":"646a891c5a858c89d418fa02"},"title":"user study 1","sigName":"RALE","Description":"Test","Detector":["",""],"GeneralContext":[""],"RC_C_S":[{"RC":"","C":[""],"S":"","_id":{"$oid":"646a891c5a858c89d418fa03"}}],"__v":0}
