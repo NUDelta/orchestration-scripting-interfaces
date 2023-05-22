@@ -43,7 +43,7 @@ export const Sidebar = () => {
               }
               styles={{
                 controls: {
-                  marginTop: '37vh',
+                  marginTop: '47vh',
                   justifyContent: 'center',
                   gap: 20,
                   borderColor: 'black',
