@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { BlocklyWorkspace } from 'react-blockly';
 import { toolboxCategories } from '../lib/blockly/customBlocks/customToolboxCategories';
 import { javascriptGenerator } from 'blockly/javascript';
+import Blockly from 'blockly/core';
+import 'blockly/blocks';
+import 'blockly/javascript';
 
 export default function BlockEditor({ workspaceId, RCs, setRCs, index, onJSChange, onXmlChange } : any) {
   const [xml, setXml] = useState('');
@@ -23,6 +26,15 @@ export default function BlockEditor({ workspaceId, RCs, setRCs, index, onJSChang
     setJavascriptCode(code)
     console.log('WORKSPACE CHANGED:', javascriptCode);
     onJSChange(code)
+    var curr_xml = convertWorkspaceToXml(workspace)
+    onXmlChange(curr_xml)
+    console.log('CURR XML:', curr_xml)
+  }
+
+  function convertWorkspaceToXml(workspace) {
+    const xml = Blockly.Xml.workspaceToDom(workspace);
+    const xmlString = Blockly.Xml.domToPrettyText(xml);
+    return xmlString;
   }
 
   return (

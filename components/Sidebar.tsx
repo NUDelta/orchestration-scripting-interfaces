@@ -1,5 +1,6 @@
 import styles from './Sidebar.module.css';
 import { Carousel } from '@mantine/carousel';
+import { useState } from 'react';
 
 const steps = [
     [{ title: "Getting started", instructions: "A general script consists of 4 parts: Detector, Potential Causes, Context for Key Cause Diagnosis, and Strategies. "},
@@ -22,7 +23,9 @@ const steps = [
     { instructions: "2. If the student is a first-quarter DTR student, consider recommending them to meet with their onboarding mentors."}]
 ]
 
-export const Sidebar = ({title, sigName, desc}) => {
+export const Sidebar = ({title, sigName, desc, onDescChange}) => {
+    const [description, setDescription] = useState('');
+    onDescChange(description);
 
     return (
         <div className={styles.container}>
@@ -69,6 +72,7 @@ export const Sidebar = ({title, sigName, desc}) => {
                                     placeholder="Enter your description here" 
                                     className={styles.textarea} 
                                     defaultValue={desc}
+                                    onChange={(e) => setDescription(e.target.value)}
                                 />
                             </div>
                             )}

@@ -6,8 +6,12 @@ import { Sidebar } from '../../components/Sidebar';
 import Test from '../../models/testModel';
 import connectMongo from '../../utils/connectMongo';
 import { ObjectId } from 'mongodb'
+import { useState } from 'react';
  
 const ScriptPage = ({ tests, id }) => {
+  const [desc, setDesc] = useState('');
+
+  
 
   return (
     <div className="bodyContainer">
@@ -18,7 +22,7 @@ const ScriptPage = ({ tests, id }) => {
 
       <main className="h-screen w-screen relative">
         <div className="grid grid-cols-25/75">
-          <Sidebar title={tests[0].title} sigName={tests[0].sigName} desc={tests[0].Description}/>
+          <Sidebar title={tests[0].title} sigName={tests[0].sigName} desc={tests[0].Description} onDescChange={setDesc}/>
           <MainBody data={tests} id={id}/>  
         </div>
       </main>
