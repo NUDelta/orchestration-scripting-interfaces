@@ -27,7 +27,7 @@ const GeneralContext = ({ onGeneralContextDataChange }) => {
   // Add tag function
   const addTag = (tag) => {
     setSelectedTags([...selectedTags, tag]);
-    // console.log('GEN:', selectedTags)
+    console.log('GEN:', selectedTags)
     onGeneralContextDataChange([...selectedTags, tag])
   };
 

@@ -1,9 +1,11 @@
 import dynamic from 'next/dynamic';
 import styles from './Detector.module.css'
+import { useState, useEffect} from 'react';
 
 const BlocklyEditor = dynamic(() => import('./BlocklyEditor'), { ssr: false });
 
-export const Detector = () => {
+export const Detector = ({onDetectorDataChange}) => {
+    const [detector, setDetector] = useState([]);
 
     return (
         <div className={styles.container}>

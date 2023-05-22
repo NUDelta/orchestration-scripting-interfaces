@@ -7,17 +7,17 @@ export default async function modifyTest(req, res) {
     try {
       const { id } = req.query; 
       const updatedData = req.body;
-  
+
       // Connect to MongoDB
       await connectMongo();
-  
+
       // Update the Test document by ID
       const updatedTest = await Test.findByIdAndUpdate(
         id,
         updatedData,
         { new: true }
       );
-  
+
       if (updatedTest) {
         // If the document is updated successfully, send the updated document in the response
         res.status(200).json({ test: updatedTest });
@@ -34,4 +34,3 @@ export default async function modifyTest(req, res) {
     res.status(405).json({ error: 'Method Not Allowed' });
   }
 }
-  

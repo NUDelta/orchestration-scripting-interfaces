@@ -6,13 +6,28 @@ import { useState } from 'react';
 import modifyTest from '../pages/api/test/save'
 
 export const MainBody = ({data, id}) => {
-  // const [detectorData, setDetectorData] = useState('');
+  const [detectorData, setDetectorData] = useState('');
   const [generalContextData, setGeneralContextData] = useState('');
   // const [rootCausesData, setRootCausesData] = useState('');
 
-  const handleSaveScript = async (id, updatedData) => {
+  const handleSaveScript = async (id, generalContextData) => {
     try {
-      const response = await fetch(`/api/test/save`, {
+      console.log('GEN CON: ', generalContextData)
+      const updatedData = 
+      {
+        title: '',
+        sigName: '',
+        Description: '',
+        Detector: ['',''],
+        GeneralContext: generalContextData,
+        RC_C_S: [{
+              RC: '',
+              C: [''],
+              S: '',
+            }]
+      }
+
+      const response = await fetch(`../api/test/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -35,8 +50,8 @@ export const MainBody = ({data, id}) => {
 
   return (
     <div className={styles.container}>
-      {/* <Detector onDetectorDataChange={setDetectorData} /> */}
-      <Detector />
+      <Detector onDetectorDataChange={setDetectorData} />
+      {/* <Detector /> */}
       <GeneralContext onGeneralContextDataChange={setGeneralContextData} />
       {/* <RootCauses onRootCausesDataChange={setRootCausesData} /> */}
       <RootCauses />
