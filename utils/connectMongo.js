@@ -1,21 +1,26 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(process.env.MONGO_URI, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
 
-export async function connect(command) {
+export default async function connect(command) {
+    const client = new MongoClient(process.env.MONGO_URI, {
+        serverApi: {
+          version: ServerApiVersion.v1,
+          strict: true,
+          deprecationErrors: true,
+        }
+      });
+
+      let output = null
+
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
     // Send a ping to confirm a successful connection
-    await client.db("test").command(command);
+    output = await client.db("test").command(command);
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
   }
+
+  return output?.cursor.firstBatch
 }
