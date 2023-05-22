@@ -124,7 +124,7 @@ export default function Home({tests}) {
 export const getServerSideProps = async () => {
     try {
       console.log('CONNECTING TO MONGO');
-      await connectMongo();
+      await connectMongo({ find: "scripts"});
       console.log('CONNECTED TO MONGO');
   
       console.log('FETCHING DOCUMENTS');

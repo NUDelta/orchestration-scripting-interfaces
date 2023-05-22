@@ -8,7 +8,7 @@ const scriptsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         const { title } = req.body;
   
         // Connect to MongoDB
-        await connectMongo();
+        await connectMongo({find: "scripts"});
   
         // Search for the script by title
         const script = await Test.findOne({ title });
@@ -33,7 +33,7 @@ const scriptsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         const { title } = req.body;
   
         // Connect to MongoDB
-        await connectMongo();
+        await connectMongo({find: "scripts"});
   
         // Search for the script by title
         const script = await Test.findOne({ title });

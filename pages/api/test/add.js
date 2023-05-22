@@ -8,7 +8,7 @@ import Test from '../../../models/testModel';
 export default async function addTest(req, res) {
   try {
     console.log('CONNECTING TO MONGO');
-    await connectMongo();
+    await connectMongo({find: "scripts"});
     console.log('CONNECTED TO MONGO');
 
     console.log('CREATING DOCUMENT');

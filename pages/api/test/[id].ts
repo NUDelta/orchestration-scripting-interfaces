@@ -9,7 +9,7 @@ export default async function modifyTest(req, res) {
       const updatedData = req.body;
 
       // Connect to MongoDB
-      await connectMongo();
+      await connectMongo({ find: "scripts"});
 
       // Update the Test document by ID
       const updatedTest = await Test.findByIdAndUpdate(

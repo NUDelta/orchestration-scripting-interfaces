@@ -30,7 +30,7 @@ export const getServerSideProps = async (context) => {
 
   try {
     console.log('CONNECTING TO MONGO');
-    await connectMongo();
+    await connectMongo({find: "scripts"});
     console.log('CONNECTED TO MONGO');
 
     console.log('FETCHING DOCUMENTS');
@@ -40,7 +40,7 @@ export const getServerSideProps = async (context) => {
 
     if (!tests) {
       return {
-        notFound: true, // Return a 404 page if script is not found
+        notFound: true,
       };
     }
 
