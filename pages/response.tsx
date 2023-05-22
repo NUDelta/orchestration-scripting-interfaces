@@ -73,13 +73,15 @@ const Home: NextPage = ({reasons, gen_context, detector, root_causes}) => {
 
   export const getServerSideProps: GetServerSideProps = async (context) => {
     let script_id = context.query?.script
+    console.log("SCRIPT ID:", script_id)
 
     let response_data = await connectMongo({find: "responses", filter: {script: script_id}})
     response_data = response_data[0]
 
-    let script_data = await connectMongo({find: "scripts", filter: {script: script_id}})
+    let script_data = await connectMongo({find: "scripts", filter: {_id: new ObjectId(String(script_id))}})
     script_data = script_data[0]
     console.log('SCRIPT DATA:', script_data)
+    console.log('RC', script_data.RC_C_S)
     
     let root_causes = []
     for (let i=0; i < script_data.RC_C_S.length; i++) {
@@ -88,7 +90,7 @@ const Home: NextPage = ({reasons, gen_context, detector, root_causes}) => {
       if (!Array.isArray(context)) {
         context = [context]
       }
-      root_causes.push({id: i, RC: root_cause.RC, context: context, strategy: root_cause.S})
+      root_causes.push({id: root_cause.id, RC: root_cause.rootCause, context: context, strategy: root_cause.strategy})
     }
 
     let gen_context = response_data.gen_context

@@ -138,6 +138,7 @@ export const getServerSideProps = async () => {
 
       let responses = await connectMongo({find: "responses"});
       responses.forEach((x) => delete x._id)
+      console.log("RESPONSES:", responses)
   
       // console.log('FETCHING DOCUMENTS');
       // const tests = await Test.find();
