@@ -2,25 +2,19 @@ import type { NextPage } from 'next';
 import React, { useState, useEffect } from 'react';
 import styles from "./response.module.css"
 import { RootCauses } from '../components/response/RootCauses';
+import { GetServerSideProps } from 'next';
+import connectMongo from "../utils/connectMongo"
+import { ObjectId } from 'mongodb'
 
-const DETECTOR = "Student is Overcommited"
-const REASONS = ["20 points spent by Student A out of 16 points available", "Currently is end of sprint"]
-const GEN_CONTEXT = [{title: "Story Title", data: "Building a user interface for diagnosing RCs"}, {title: "Last Canvas Edit", data: "5/9/23 6:12 PM"}]
-const ROOT_CAUSES = [{RC: "RC A", context: ["Context A1", "Context A2"], strategy: "Strategy A..."}, {RC: "RC B", context: ["Context B1", "Context B2"], strategy: "Strategy B..."}, {RC: "RC C", context: ["Context C1", "Context C2"], strategy: "Strategy C..."}]
 
-const Home: NextPage = () => {
-    const [items, setItems] = useState([
-        // Selected = opacity = 0.3 -> not Selected
-        { id: 1, RC: "RC A", context: ["Context A1", "Context A2"], strategy: "Strategy A...", Disabled:false, Selected: false},
-        { id: 2, RC: "RC B", context: ["Context B1", "Context B2"], strategy: "Strategy B...", Disabled:false, Selected: false},
-        { id: 3, RC: "RC C", context: ["Context C1", "Context C2"], strategy: "Strategy C...", Disabled:false, Selected: false},
-      ]);
-    // Disable Button
-    const [DisableText, setDisableText] = useState('Disable');
-    
-    const handleSortEnd = ({ oldIndex, newIndex }) => {
-        setItems(arrayMove(items, oldIndex, newIndex));
-    };
+// const DETECTOR = "Student is Overcommited"
+// const REASONS = ["20 points spent by Student A out of 16 points available", "Currently is end of sprint"]
+// const GEN_CONTEXT = [{title: "Story Title", data: "Building a user interface for diagnosing RCs"}, {title: "Last Canvas Edit", data: "5/9/23 6:12 PM"}]
+// const ROOT_CAUSES = [{RC: "RC A", context: ["Context A1", "Context A2"], strategy: "Strategy A..."}, {RC: "RC B", context: ["Context B1", "Context B2"], strategy: "Strategy B..."}, {RC: "RC C", context: ["Context C1", "Context C2"], strategy: "Strategy C..."}]
+
+const Home: NextPage = ({reasons, gen_context, detector, root_causes}) => {
+
+    const [items, setItems] = useState(root_causes);
 
     const addRootCause = () => {
         const updatedItems = [...items];
@@ -44,7 +38,7 @@ const Home: NextPage = () => {
 
     return (
       <div className={styles.container}>
-        <h1>Your detector called {DETECTOR} has been triggered.</h1>
+        <h1>Your detector called {detector} has been triggered.</h1>
 
         <div className={styles.section}>
             <h2>Detector Debrief</h2>
@@ -53,7 +47,7 @@ const Home: NextPage = () => {
                 <div>
                     <p>The detector was triggered because:</p>
                     <ul className='list-disc list-inside'>
-                        {REASONS.map((reason) => <li key={reason}>{reason}</li>)}
+                        {reasons.map((reason) => <li key={reason}>{reason}</li>)}
                     </ul>
                 </div>
             </div>
@@ -62,7 +56,7 @@ const Home: NextPage = () => {
         <div className={styles.section}>
             <h2>General Context</h2>
             <ul className='list-disc list-inside'>
-                {GEN_CONTEXT.map((reason) => <li key={reason.title}><span style={{fontWeight: 'bold'}}>{reason.title}:</span> {reason.data}</li>)}
+                {gen_context.map((reason) => <li key={reason.title}><span style={{fontWeight: 'bold'}}>{reason.title}:</span> {reason.data}</li>)}
             </ul>
         </div>
 
@@ -76,3 +70,30 @@ const Home: NextPage = () => {
   };
   
   export default Home;
+
+  export const getServerSideProps: GetServerSideProps = async (context) => {
+    let script_id = context.query?.script
+
+    let response_data = await connectMongo({find: "responses", filter: {script: script_id}})
+    response_data = response_data[0]
+
+    let script_data = await connectMongo({find: "scripts", filter: {_id: new ObjectId(script_id)}})
+    script_data = script_data[0]
+    
+    let root_causes = []
+    for (let i=0; i < script_data.RC_C_S.length; i++) {
+      let root_cause = script_data.RC_C_S[i]
+      let context = response_data.rc_context[i]
+      if (!Array.isArray(context)) {
+        context = [context]
+      }
+      root_causes.push({id: i, RC: root_cause.RC, context: context, strategy: root_cause.S})
+    }
+
+    let gen_context = response_data.gen_context
+    if (!Array.isArray(gen_context)) {
+      gen_context = [gen_context]
+    }
+
+    return {props: {reasons: response_data.triggers, gen_context: gen_context, detector: script_data.title, root_causes: root_causes}}
+  };

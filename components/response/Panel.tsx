@@ -24,8 +24,8 @@ export const Panel = ({item, items, setItems, id}) => {
         <AccordionPanel className={styles.accordionPanel}>
             <div>
                 <h4>Context</h4>
-                <ul className="list-disc list-inside">
-                    {item.context?.map(context => <li key={context}>{context}</li>)}
+                <ul className='list-disc list-inside'>
+                    {item.context?.map((reason) => <li key={reason.title}><span style={{fontWeight: 'bold'}}>{reason.title}:</span> {reason.data}</li>)}
                 </ul>
             </div>
             {item.strategy ? (
