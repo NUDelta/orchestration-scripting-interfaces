@@ -21,8 +21,12 @@ function getOptionExplanation(option) {
     }
 }
 
-const GeneralContext = ({ onGeneralContextDataChange }) => {
-  const [selectedTags, setSelectedTags] = useState([]);
+const GeneralContext = ({ data, onGeneralContextDataChange }) => {
+  const [selectedTags, setSelectedTags] = useState(data[0].GeneralContext || []);
+  console.log('SELETECTED TAGS', data[0].GeneralContext)
+  useEffect(() => {
+    setSelectedTags(data[0].GeneralContext || []);
+  }, [data[0].GeneralContext]);
 
   // Add tag function
   const addTag = (tag) => {

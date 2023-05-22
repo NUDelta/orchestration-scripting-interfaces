@@ -2,7 +2,7 @@ import { useState } from "react"
 import styles from "./RootCauses.module.css"
 import { RootCause } from "./RootCause"
 
-export const RootCauses = ({onRootCausesChange}) => {
+export const RootCauses = ({data, onRootCausesChange}) => {
 
     const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: ''}]);
     onRootCausesChange(RCs);
@@ -24,7 +24,7 @@ export const RootCauses = ({onRootCausesChange}) => {
                 <button className={styles.addbutton} onClick={addRC}>+</button>
             </div>
 
-            {RCs.map((x, i) => <RootCause index={i} key={i} RCs={RCs} setRCs={setRCs} id={x.id}/>)}
+            {RCs.map((x, i) => <RootCause data={data} index={i} key={i} RCs={RCs} setRCs={setRCs} id={x.id}/>)}
 
         </div>
     )

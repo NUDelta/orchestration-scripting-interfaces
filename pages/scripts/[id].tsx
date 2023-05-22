@@ -9,12 +9,35 @@ import { ObjectId } from 'mongodb'
 import { useState } from 'react';
  
 const ScriptPage = ({ tests, id }) => {
-  const [desc, setDesc] = useState('');
+  const [desc, setDesc] = useState(tests[0].Description||'');
   const [detectorData, setDetectorData] = useState('');
   const [xml, setXml] = useState('');
   const [generalContextData, setGeneralContextData] = useState('');
   const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: ''}]);
   console.log('SCRIPTPAGE CHANGED:', RCs)
+
+  const handleReadScript = async (title) => {
+    try {
+      const response = await fetch(`../api/test/${id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({title}),
+      });
+
+      console.log('POST: ', response)
+  
+      if (!response.ok) {
+        throw new Error('Request failed');
+      }
+  
+      const data = await response.json();
+      console.log(data); // Handle the response data as per your requirements
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleSaveScript = async (id, desc, generalContextData, Xml, detectorData, RCs) => {
     try {
@@ -27,8 +50,6 @@ const ScriptPage = ({ tests, id }) => {
       console.log('LIST RCs', convertedRCs);
       const updatedData = 
       {
-        // title: '',
-        // sigName: '',
         Description: desc,
         Detector: [Xml, detectorData],
         GeneralContext: generalContextData,
@@ -65,7 +86,7 @@ const ScriptPage = ({ tests, id }) => {
 
       <main className="h-screen w-screen relative">
         <div className="grid grid-cols-25/75">
-          <Sidebar title={tests[0].title} sigName={tests[0].sigName} desc={tests[0].Description} onDescChange={setDesc}/>
+          <Sidebar title={tests[0].title} sigName={tests[0].sigName} desc={desc} onDescChange={setDesc}/>
           <MainBody data={tests} id={id} onMainBodyChange={[setDetectorData, setXml, setGeneralContextData, setRCs]}/>  
           <button onClick={() => handleSaveScript(id, desc, generalContextData, xml, detectorData, RCs)}>Save Script</button>
         </div>

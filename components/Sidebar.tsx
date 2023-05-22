@@ -24,8 +24,8 @@ const steps = [
 ]
 
 export const Sidebar = ({title, sigName, desc, onDescChange}) => {
-    const [description, setDescription] = useState('');
-    onDescChange(description);
+    const InitialDescription = desc;
+    const [description, setDescription] = useState(InitialDescription||'');
     console.log('SIDE BAR:', description)
 
     return (
@@ -72,8 +72,9 @@ export const Sidebar = ({title, sigName, desc, onDescChange}) => {
                                 <textarea 
                                     placeholder="Enter your description here" 
                                     className={styles.textarea} 
-                                    defaultValue={desc}
-                                    onChange={(e) => setDescription(e.target.value)}
+                                    value = {desc}
+                                    defaultValue={InitialDescription}
+                                    onChange={(e) => onDescChange(e.target.value)}
                                 />
                             </div>
                             )}
