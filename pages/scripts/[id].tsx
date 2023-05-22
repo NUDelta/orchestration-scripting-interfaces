@@ -12,9 +12,9 @@ const ScriptPage = ({ tests, id }) => {
   const [desc, setDesc] = useState(tests[0].Description||'');
   const [detectorData, setDetectorData] = useState('');
   const [xml, setXml] = useState('');
-  const [generalContextData, setGeneralContextData] = useState('');
+  const [generalContextData, setGeneralContextData] = useState(tests[0].GeneralContext||'');
   const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: ''}]);
-  console.log('SCRIPTPAGE CHANGED:', RCs)
+  console.log('SCRIPTPAGE CHANGED:', generalContextData)
 
   const handleReadScript = async (title) => {
     try {

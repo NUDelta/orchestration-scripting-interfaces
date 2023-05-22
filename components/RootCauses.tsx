@@ -4,7 +4,8 @@ import { RootCause } from "./RootCause"
 
 export const RootCauses = ({data, onRootCausesChange}) => {
 
-    const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: ''}]);
+    const [RCs, setRCs] = useState(data[0].RC_C_S||[{id: 1, rootCause: "", context: new Set(), strategy: ''}]);
+    console.log('DATA RCS: ', data[0].RC_C_S)
     onRootCausesChange(RCs);
 
     const addRC = () => {
