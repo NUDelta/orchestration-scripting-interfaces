@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import { Sig } from '../components/dashboard/Sig'
 
 
-const SIGS = ["HAT", "NOT", "BBQ", "OSE", "RALE"]
+const SIGS = ["HAT", "NOT CAMP", "BBQ", "OSE", "RALE"]
 
 export default function Home({tests, responses}) {
   const [title, setTitle] = useState('');
