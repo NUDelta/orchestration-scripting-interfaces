@@ -26,6 +26,7 @@ const steps = [
 export const Sidebar = ({title, sigName, desc, onDescChange}) => {
     const [description, setDescription] = useState('');
     onDescChange(description);
+    console.log('SIDE BAR:', description)
 
     return (
         <div className={styles.container}>

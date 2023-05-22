@@ -12,9 +12,10 @@ export default async function modifyTest(req, res) {
       // Connect to MongoDB
       const updatedTest = await connectMongo({ findAndModify: "scripts", 
                                                query: { _id: new ObjectId(id)}, 
-                                               update: {$set: {Detector: updatedData.Detector, 
+                                               update: {$set: {Description: updatedData.Description,
+                                                               Detector: updatedData.Detector, 
                                                                GeneralContext: updatedData.GeneralContext,
-                                                               
+
                                                               }}, 
                                                new: true});
       console.log('PUTTING OK?', updatedTest)
