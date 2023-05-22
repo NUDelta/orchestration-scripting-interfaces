@@ -5,7 +5,10 @@ import connectMongo from '../utils/connectMongo';
 import Test from '../models/testModel';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+import { Sig } from '../components/dashboard/Sig'
+
+
+const SIGS = ["HAT", "NOT", "BBQ", "OSE", "RALE"]
 
 export default function Home({tests, responses}) {
   const [title, setTitle] = useState('');
@@ -125,8 +128,8 @@ export default function Home({tests, responses}) {
         <p className={styles.description}>
                   Address Your {' '}
                   <code className={styles.code}>Active Issues</code>
-                </p>
-        {responses.map((res, i) => <><Link key={i} href={"/response?script=" + res.script}><u>Diagnosis Page for {res.title}-{res.sigName}</u></Link><br /></>)}
+                </p>        
+        {SIGS.map((sig) => <Sig key={sig} name={sig} responses={responses} />)}
 
       </main>
     </div>
