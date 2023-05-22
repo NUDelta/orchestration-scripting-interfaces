@@ -71,8 +71,8 @@ Blockly.Blocks['high_new_argument'] = {
     this.appendDummyInput().appendField('PRC: Has new');
     this.appendDummyInput().appendField(
       new Blockly.FieldDropdown([
-        ['gap in canvas which is risky', 'gap in canvas which is risky'],
-        ['focus for sprint', 'focus for sprint'],
+        // ['gap in canvas which is risky', 'gap in canvas which is risky'],
+        // ['focus for sprint', 'focus for sprint'],
         ['problem statement', 'problem statement'],
         ['design argument', 'design argument'],
         ['interface model', 'interface model'],
@@ -276,6 +276,25 @@ javascriptGenerator['prc'] = function (block: Blockly.Block) {
   return null;
 };
 
+Blockly.Blocks['Updated?'] = {
+  init: function () {
+    this.appendValueInput('situationdesc')
+    this.appendDummyInput()
+      .appendField('is Updated')
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['Updated'] = function (
+  block: Blockly.Block
+) {
+  return null;
+};
+
 export const canvasesToolboxCategories = {
   kind: 'category',
   name: 'Canvases',
@@ -297,17 +316,21 @@ export const canvasesToolboxCategories = {
       kind: 'block',
       type: 'high_new_argument',
     },
-    {
-      kind: 'block',
-      type: 'high_new_argument_rrc',
-    },
-    {
-      kind: 'block',
-      type: 'rrc',
-    },
+    // {
+    //   kind: 'block',
+    //   type: 'high_new_argument_rrc',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'rrc',
+    // },
     {
       kind: 'block',
       type: 'prc',
+    },
+    {
+      kind: 'block',
+      type: 'Updated?',
     },
   ],
 };

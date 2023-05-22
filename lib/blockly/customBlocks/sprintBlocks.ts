@@ -146,7 +146,12 @@ javascriptGenerator['sprintLogTasks'] = function (block: Blockly.Block) {
 Blockly.Blocks['sprintLogFocus'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField('Sprint Log: D T R Category spent most points on')
+    .appendField(new Blockly.FieldDropdown([['D', 'Backlogged'],
+                                            ['D', 'Completed'],
+                                            ['D', 'Incomplete']
+                                          ]))
+    this.appendDummyInput()
+      .appendField('is the Category spent most points on')
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour('#0066cc');
