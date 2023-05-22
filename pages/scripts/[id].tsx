@@ -5,6 +5,7 @@ import { MainBody } from '../../components/MainBody';
 import { Sidebar } from '../../components/Sidebar';
 import Test from '../../models/testModel';
 import connectMongo from '../../utils/connectMongo';
+import { ObjectId } from 'mongodb'
  
 const ScriptPage = ({ tests, id }) => {
 
@@ -30,14 +31,14 @@ export const getServerSideProps = async (context) => {
 
   try {
     console.log('CONNECTING TO MONGO');
-    console.log('ID: ', id)
-    const tests = await connectMongo({find: "scripts", filter: {script: id}});
+    console.log('SCRIPT ID: ', id)
+    const tests = await connectMongo({find: "scripts", filter: {_id: new ObjectId(id)}});
+    console.log('SCRIPT: ', tests)
     console.log('CONNECTED TO MONGO');
 
     console.log('FETCHING DOCUMENTS');
     // const tests = await Test.findById(id);
     console.log('FETCHED DOCUMENTS');
-    console.log('ID.tsx TESTS', tests)
 
     if (!tests) {
       return {

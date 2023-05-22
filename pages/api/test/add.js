@@ -8,11 +8,12 @@ import Test from '../../../models/testModel';
 export default async function addTest(req, res) {
   try {
     console.log('CONNECTING TO MONGO');
-    await connectMongo({find: "scripts"});
+    const test = await connectMongo({insert: "scripts", documents: [req.body] });
     console.log('CONNECTED TO MONGO');
+    console.log('ADDING ', test)
 
     console.log('CREATING DOCUMENT');
-    const test = await Test.create(req.body);
+    // const test = await Test.create(req.body);
     console.log('CREATED DOCUMENT');
 
     res.json({ test });

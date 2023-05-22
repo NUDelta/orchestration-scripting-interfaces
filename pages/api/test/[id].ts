@@ -9,14 +9,15 @@ export default async function modifyTest(req, res) {
       const updatedData = req.body;
 
       // Connect to MongoDB
-      await connectMongo({ find: "scripts"});
+      const updatedTest = await connectMongo({ insert: "scripts", documents: [updatedData]});
+      console.log('PUTTING OK?', updatedTest)
 
-      // Update the Test document by ID
-      const updatedTest = await Test.findByIdAndUpdate(
-        id,
-        updatedData,
-        { new: true }
-      );
+      // // Update the Test document by ID
+      // const updatedTest = await Test.findByIdAndUpdate(
+      //   id,
+      //   updatedData,
+      //   { new: true }
+      // );
 
       if (updatedTest) {
         // If the document is updated successfully, send the updated document in the response

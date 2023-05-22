@@ -35,7 +35,7 @@ const scriptsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   
         // Connect to MongoDB
         let script = await connectMongo({find: "scripts", filter: {title: title}});
-        console.log(script)
+        console.log('PUT:', script)
   
         // // Search for the script by title
         // const script = await Test.findOne({ title });

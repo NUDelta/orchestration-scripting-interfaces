@@ -11,6 +11,7 @@ export default async function connect(command) {
       });
 
       let output = null
+      let response = null
 
   try {
     // Connect the client to the server	(optional starting in v4.7)
@@ -22,5 +23,12 @@ export default async function connect(command) {
     await client.close();
   }
 
-  return output?.cursor.firstBatch
+  if (command.insert){
+    response = output.ok
+    console.log('CONNECT INSERT COMMAND')
+  } else{
+    response = output?.cursor.firstBatch
+  }
+
+  return response
 }

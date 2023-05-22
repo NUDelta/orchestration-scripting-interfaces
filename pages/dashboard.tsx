@@ -47,6 +47,7 @@ export default function Home({tests, responses}) {
       body: JSON.stringify({
         title: title,
         sigName: sigName,
+        script: '',
         Description: 'Test',
         Detector: ['',''],
         GeneralContext: [''],
