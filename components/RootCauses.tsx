@@ -2,15 +2,16 @@ import { useState } from "react"
 import styles from "./RootCauses.module.css"
 import { RootCause } from "./RootCause"
 
-export const RootCauses = () => {
+export const RootCauses = ({onRootCausesChange}) => {
 
-    const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: '<xml xmlns="http://www.w3.org/1999/xhtml"></xml>'}]);
+    const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: ''}]);
+    onRootCausesChange(RCs);
 
     const addRC = () => {
       let copy = [...RCs];
-      copy.push({id: copy.length + 1, rootCause: "", context: new Set(), strategy: '<xml xmlns="http://www.w3.org/1999/xhtml"></xml>'});
+      copy.push({id: copy.length + 1, rootCause: "", context: new Set(), strategy: ''});
       setRCs(copy);
-    //   console.log('RCs: ', RCs)
+      console.log('RCs: ', RCs)
     };
 
     return (

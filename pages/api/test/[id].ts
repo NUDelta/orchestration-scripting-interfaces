@@ -15,7 +15,7 @@ export default async function modifyTest(req, res) {
                                                update: {$set: {Description: updatedData.Description,
                                                                Detector: updatedData.Detector, 
                                                                GeneralContext: updatedData.GeneralContext,
-
+                                                               RC_C_S: updatedData.RC_C_S
                                                               }}, 
                                                new: true});
       console.log('PUTTING OK?', updatedTest)

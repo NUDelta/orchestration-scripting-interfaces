@@ -13,11 +13,18 @@ const ScriptPage = ({ tests, id }) => {
   const [detectorData, setDetectorData] = useState('');
   const [xml, setXml] = useState('');
   const [generalContextData, setGeneralContextData] = useState('');
-  console.log('SCRIPTPAGE CHANGED:', desc)
+  const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: ''}]);
+  console.log('SCRIPTPAGE CHANGED:', RCs)
 
-  const handleSaveScript = async (id, desc, generalContextData, Xml, detectorData) => {
+  const handleSaveScript = async (id, desc, generalContextData, Xml, detectorData, RCs) => {
     try {
       console.log('GEN CON: ', generalContextData)
+      const convertedRCs = RCs.map(item => ({
+        ...item,
+        context: [...item.context] // Convert Set to array using spread operator
+      }));
+      
+      console.log('LIST RCs', convertedRCs);
       const updatedData = 
       {
         // title: '',
@@ -25,11 +32,7 @@ const ScriptPage = ({ tests, id }) => {
         Description: desc,
         Detector: [Xml, detectorData],
         GeneralContext: generalContextData,
-        // RC_C_S: [{
-        //       RC: '',
-        //       C: [''],
-        //       S: '',
-        //     }]
+        RC_C_S: convertedRCs
       }
 
       const response = await fetch(`../api/test/${id}`, {
@@ -63,8 +66,8 @@ const ScriptPage = ({ tests, id }) => {
       <main className="h-screen w-screen relative">
         <div className="grid grid-cols-25/75">
           <Sidebar title={tests[0].title} sigName={tests[0].sigName} desc={tests[0].Description} onDescChange={setDesc}/>
-          <MainBody data={tests} id={id} onMainBodyChange={[setDetectorData, setXml, setGeneralContextData]}/>  
-          <button onClick={() => handleSaveScript(id, desc, generalContextData, xml, detectorData)}>Save Script</button>
+          <MainBody data={tests} id={id} onMainBodyChange={[setDetectorData, setXml, setGeneralContextData, setRCs]}/>  
+          <button onClick={() => handleSaveScript(id, desc, generalContextData, xml, detectorData, RCs)}>Save Script</button>
         </div>
       </main>
     </div>

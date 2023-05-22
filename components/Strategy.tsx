@@ -9,10 +9,13 @@ const BlocklyEditor = dynamic(
     { ssr: false, loading: () => <p>Loading BlocklyEditor...</p> }
   );
 
-export const Strategy = ({RCs, index, setRCs, workspaceId} : any) => {
+export const Strategy = ({RCs, index, setRCs, workspaceId, onStrategyChange} : any) => {
 
-    const [modalIsOpen, setIsOpen] = useState(false)
+    const [modalIsOpen, setIsOpen] = useState(false);
     const [editorMode, setEditorMode] = useState("blockly");
+    const [strategy, setStrategy] = useState('');
+
+    onStrategyChange(strategy)
 
     const switchToText = () => {
       setEditorMode("text");
@@ -24,7 +27,7 @@ export const Strategy = ({RCs, index, setRCs, workspaceId} : any) => {
 
     return (
         <div className={styles.container}>
-            {editorMode === "blockly" ? (
+            {/* {editorMode === "blockly" ? (
             <>
             <button className={styles.textbutton} onClick={switchToText}>
                 Switch to Text
@@ -35,16 +38,17 @@ export const Strategy = ({RCs, index, setRCs, workspaceId} : any) => {
                 <BlocklyEditor workspaceId={workspaceId} RCs={RCs} index={index} setRCs={setRCs} modalIsOpen={modalIsOpen} closeModal={() => setIsOpen(false)} />
             </Modal>
             </>
-            ):(
+            ):( */}
         <>
-        <button className={styles.textbutton} onClick={switchToBlockly}>
+        {/* <button className={styles.textbutton} onClick={switchToBlockly}>
             Switch to Blockly
-          </button>
+          </button> */}
           <textarea 
             placeholder="Enter your strategy here" 
-            className={styles.textarea} />
+            className={styles.textarea} 
+            onChange = {(e) => setStrategy(e.target.value)}/>
           </>
-      )}
+      {/* // )} */}
         </div>
     )
 }

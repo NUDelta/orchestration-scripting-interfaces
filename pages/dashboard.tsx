@@ -52,10 +52,11 @@ export default function Home({tests, responses}) {
         Detector: ['',''],
         GeneralContext: [''],
         RC_C_S: [{
-              RC: '',
-              C: [''],
-              S: '',
-            }]
+          id: 0,
+          rootCause: '',
+          context: [''],
+          strategy: '',
+        }]
       }),
     });
 

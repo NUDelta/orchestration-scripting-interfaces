@@ -8,12 +8,13 @@ export const MainBody = ({data, id, onMainBodyChange}) => {
   const [detectorData, setDetectorData] = useState('');
   const [xml, setXml] = useState('');
   const [generalContextData, setGeneralContextData] = useState('');
-  // const [rootCausesData, setRootCausesData] = useState('');
+  const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: ''}]);
 
   onMainBodyChange[0](detectorData);
   onMainBodyChange[1](xml);
   onMainBodyChange[2](generalContextData)
-  console.log('MANBODY CHANGED:', detectorData)
+  onMainBodyChange[3](RCs)
+  console.log('MANBODY CHANGED:', RCs[0].context)
 
   return (
     <div className={styles.container}>
@@ -21,7 +22,7 @@ export const MainBody = ({data, id, onMainBodyChange}) => {
       {/* <Detector /> */}
       <GeneralContext onGeneralContextDataChange={setGeneralContextData} />
       {/* <RootCauses onRootCausesDataChange={setRootCausesData} /> */}
-      <RootCauses />
+      <RootCauses onRootCausesChange={setRCs}/>
     </div>
   );
 };

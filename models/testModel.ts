@@ -7,11 +7,12 @@ export interface ITest extends Document {
   Description: string;
   Detector: [string, string];
   GeneralContext: [string];
-  RC_C_S: {
-    RC: string;
-    C: [string];
-    S: string;
-  };
+  RC_C_S: [{
+    id: number;
+    rootCause: string;
+    context: [string];
+    strategy: string;
+  }];
 }
 
 const testSchema = new Schema({
@@ -30,9 +31,10 @@ const testSchema = new Schema({
   },
   RC_C_S: {
     type: [{
-      RC: String,
-      C: [String],
-      S: String,
+      id: Number,
+      rootCause: String,
+      context: [String],
+      strategy: String,
     }],
   }
 });
