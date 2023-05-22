@@ -122,7 +122,11 @@ export default function Home({tests, responses}) {
           </div>
         )}
 
-        {responses.map((res, i) => <><Link key={i} href={"/response?script=" + res.script}>Response for {res.title}</Link><br /></>)}
+        <p className={styles.description}>
+                  Address Your {' '}
+                  <code className={styles.code}>Active Issues</code>
+                </p>
+        {responses.map((res, i) => <><Link key={i} href={"/response?script=" + res.script}><u>Diagnosis Page for {res.title}-{res.sigName}</u></Link><br /></>)}
 
       </main>
     </div>
