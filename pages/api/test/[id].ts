@@ -1,5 +1,6 @@
 import connectMongo from '../../../utils/connectMongo';
 import Test from '../../../models/testModel';
+import { ObjectId } from 'mongodb';
 
 export default async function modifyTest(req, res) {
   if (req.method === 'PUT') {
@@ -9,7 +10,13 @@ export default async function modifyTest(req, res) {
       const updatedData = req.body;
 
       // Connect to MongoDB
-      const updatedTest = await connectMongo({ insert: "scripts", documents: [updatedData]});
+      const updatedTest = await connectMongo({ findAndModify: "scripts", 
+                                               query: { _id: new ObjectId(id)}, 
+                                               update: {$set: {Detector: updatedData.Detector, 
+                                                               GeneralContext: updatedData.GeneralContext,
+                                                               
+                                                              }}, 
+                                               new: true});
       console.log('PUTTING OK?', updatedTest)
 
       // // Update the Test document by ID
