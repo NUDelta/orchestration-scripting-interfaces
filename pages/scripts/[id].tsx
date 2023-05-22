@@ -17,7 +17,7 @@ const ScriptPage = ({ tests, id }) => {
 
       <main className="h-screen w-screen relative">
         <div className="grid grid-cols-25/75">
-          <Sidebar title={tests.title} sigName={tests.sigName} desc={tests.Description}/>
+          <Sidebar title={tests[0].title} sigName={tests[0].sigName} desc={tests[0].Description}/>
           <MainBody data={tests} id={id}/>  
         </div>
       </main>
@@ -30,13 +30,14 @@ export const getServerSideProps = async (context) => {
 
   try {
     console.log('CONNECTING TO MONGO');
-    await connectMongo({find: "scripts"});
+    console.log('ID: ', id)
+    const tests = await connectMongo({find: "scripts", filter: {script: id}});
     console.log('CONNECTED TO MONGO');
 
     console.log('FETCHING DOCUMENTS');
-    const tests = await Test.findById(id);
+    // const tests = await Test.findById(id);
     console.log('FETCHED DOCUMENTS');
-    console.log(tests)
+    console.log('ID.tsx TESTS', tests)
 
     if (!tests) {
       return {

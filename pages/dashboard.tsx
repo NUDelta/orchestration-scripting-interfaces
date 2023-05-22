@@ -5,8 +5,9 @@ import connectMongo from '../utils/connectMongo';
 import Test from '../models/testModel';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
-export default function Home({tests}) {
+export default function Home({tests, responses}) {
   const [title, setTitle] = useState('');
   const [sigName, setSigName] = useState('');
   const [showPopup, setShowPopup] = useState(false);
@@ -22,8 +23,10 @@ export default function Home({tests}) {
         body: JSON.stringify({ title }),
       });
   
+      console.log('RES ', res)
       if (res.ok) {
         const { scriptId } = await res.json();
+        console.log('ID:', scriptId)
         router.push(`/scripts/${scriptId}`);
       } else {
         console.log('Script not found');
@@ -92,7 +95,7 @@ export default function Home({tests}) {
             <a
             // href="https://nextjs.org/docs"
             onClick={() => handleScriptCardClick(test.title)}
-            key={test._id}
+            key={test.script}
             className={styles.card}
             >
             <h2>{test.title} &rarr;</h2>
@@ -117,6 +120,8 @@ export default function Home({tests}) {
           </div>
         )}
 
+        {responses.map((res, i) => <><Link key={i} href={"/response?script=" + res.script}>Response for {res.title}</Link><br /></>)}
+
       </main>
     </div>
   );
@@ -124,16 +129,22 @@ export default function Home({tests}) {
 export const getServerSideProps = async () => {
     try {
       console.log('CONNECTING TO MONGO');
-      await connectMongo({ find: "scripts"});
-      console.log('CONNECTED TO MONGO');
+      let tests = await connectMongo({find: "scripts"});
+      tests.forEach((x) => delete x._id)
+
+      console.log('TEST ', tests)
+
+      let responses = await connectMongo({find: "responses"});
+      responses.forEach((x) => delete x._id)
   
-      console.log('FETCHING DOCUMENTS');
-      const tests = await Test.find();
-      console.log('FETCHED DOCUMENTS');
+      // console.log('FETCHING DOCUMENTS');
+      // const tests = await Test.find();
+      // console.log('FETCHED DOCUMENTS');
   
       return {
         props: {
-          tests: JSON.parse(JSON.stringify(tests)),
+          tests: tests,
+          responses: responses
         },
       };
     } catch (error) {
