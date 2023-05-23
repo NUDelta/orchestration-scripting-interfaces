@@ -18,14 +18,22 @@ export const Context = ({data, index, RCs, setRCs} : any) => {
 
     const addContext = (val : string) => {
         let copy = [...RCs]
-        copy[index].context.push(val)
+        console.log('CONTEXT COPY:', copy[index].context)
+        if (Array.isArray(copy[index].context)){
+            copy[index].context.push(val)
+        } else {
+            copy[index].context.add(val)
+        }
         setRCs(copy)
         const updatedSelectedContexts = [...copy[index].context];
         setSelectedContexts(updatedSelectedContexts);
     }
-
+    let context = []
+    if (data[0].RC_C_S[index]){
+        context = [...data[0].RC_C_S[index].context]
+    }
     const [selectedContexts, setSelectedContexts] = useState(
-        [...data[0].RC_C_S[index].context] || []
+        context || []
       );
     console.log('INDEX:', index)
     console.log('SELECTED CONTEXT: ', selectedContexts)

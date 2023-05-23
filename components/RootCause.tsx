@@ -5,8 +5,12 @@ import { Strategy } from "./Strategy"
 
 export const RootCause = ({ data, index, RCs, setRCs, id} : any) => {
     const workspaceId = `workspace${id+1}`
-    const initialRootCause = data[0].RC_C_S[index].rootCause || '';
-    const initialStrategy = data[0].RC_C_S[index].strategy || '';
+    let initialRootCause = ''
+    let initialStrategy = ''
+    if (data[0].RC_C_S[index]){
+        initialRootCause = data[0].RC_C_S[index].rootCause;
+        initialStrategy = data[0].RC_C_S[index].strategy;
+    }
 
     const deleteRC = () => {
         let copy = [...RCs]

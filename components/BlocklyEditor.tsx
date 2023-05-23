@@ -26,7 +26,6 @@ export default function BlockEditor({ workspaceId, RCs, setRCs, index, onJSChang
     onJSChange(code)
     var curr_xml = convertWorkspaceToXml(workspace)
     onXmlChange(curr_xml)
-    console.log('CURR XML:', curr_xml)
   }
 
   function convertWorkspaceToXml(workspace) {
