@@ -13,7 +13,6 @@ export const RootCauses = ({data, onRootCausesChange}) => {
       copy.push({id: copy.length + 1, rootCause: "", context: new Set(), strategy: ''});
       setRCs(copy);
       console.log('RCs: ', RCs)
-      
     };
 
     return (

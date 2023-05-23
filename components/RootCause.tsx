@@ -16,7 +16,6 @@ export const RootCause = ({ data, index, RCs, setRCs, id} : any) => {
     const deleteRC = () => {
         let copy = [...RCs]
         copy.splice(index, 1)
-        console.log(index, copy)
         setRCs(copy)
     }
 
@@ -30,12 +29,21 @@ export const RootCause = ({ data, index, RCs, setRCs, id} : any) => {
     useEffect(() => {
         // updatedRCs[index].rootCause = initialRootCause;
         // updatedRCs[index].strategy = initialStrategy;
-        updatedRCs[index] = {
-            ...updatedRCs[index],
-            rootCause: initialRootCause,
-            strategy: initialStrategy,
-          };
-        setRCs(updatedRCs);
+        // updatedRCs[index] = {
+        //     ...updatedRCs[index],
+        //     rootCause: initialRootCause,
+        //     strategy: initialStrategy,
+        //   };
+        // setRCs(updatedRCs);
+        setRCs(prevRCs => {
+            const updated = [...prevRCs];
+            updated[index] = {
+              ...updated[index],
+              rootCause: initialRootCause,
+              strategy: initialStrategy,
+            };
+            return updated;
+          });
       }, [initialRootCause, initialStrategy, index, setRCs]);
     //   [data, index]
 

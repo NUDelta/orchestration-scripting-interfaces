@@ -14,7 +14,6 @@ export const MainBody = ({data, id, onMainBodyChange}) => {
   onMainBodyChange[1](xml);
   onMainBodyChange[2](generalContextData)
   onMainBodyChange[3](RCs)
-  console.log('MANBODY CHANGED:', generalContextData)
 
   return (
     <div className={styles.container}>

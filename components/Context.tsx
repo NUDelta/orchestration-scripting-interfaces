@@ -35,9 +35,7 @@ export const Context = ({data, index, RCs, setRCs} : any) => {
     const [selectedContexts, setSelectedContexts] = useState(
         context || []
       );
-    console.log('INDEX:', index)
-    console.log('SELECTED CONTEXT: ', selectedContexts)
-
+      
     return (
         <div className={styles.container}>
             <select onChange={(e) => addContext(e.target.value)} value="Select context">
