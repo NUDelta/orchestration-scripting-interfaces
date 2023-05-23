@@ -12,9 +12,14 @@ import { ObjectId } from 'mongodb'
 // const GEN_CONTEXT = [{title: "Story Title", data: "Building a user interface for diagnosing RCs"}, {title: "Last Canvas Edit", data: "5/9/23 6:12 PM"}]
 // const ROOT_CAUSES = [{RC: "RC A", context: ["Context A1", "Context A2"], strategy: "Strategy A..."}, {RC: "RC B", context: ["Context B1", "Context B2"], strategy: "Strategy B..."}, {RC: "RC C", context: ["Context C1", "Context C2"], strategy: "Strategy C..."}]
 
-const Home: NextPage = ({reasons, gen_context, detector, root_causes}) => {
+const Home: NextPage = ({reasons, gen_context, detector, root_causes, id}) => {
 
     const [items, setItems] = useState(root_causes);
+
+    const updateResponse = () => {
+      let s = JSON.stringify(items)
+      fetch(`/api/test/update_response?_id=${id}&rcs=${s}`)
+    }
 
     const addRootCause = () => {
         const updatedItems = [...items];
@@ -65,6 +70,9 @@ const Home: NextPage = ({reasons, gen_context, detector, root_causes}) => {
             <button className={styles.addButton} onClick={() => addRootCause()}>Add Root Cause</button>
         </div>
         <RootCauses items={items} setItems={setItems} />
+
+        <button className="bg-gray-200 hover:bg-gray-300 active:bg-gray-400 px-4 py-2 rounded-lg"
+          onClick={updateResponse}>Save</button>
       </div>
     );
   };
@@ -72,31 +80,30 @@ const Home: NextPage = ({reasons, gen_context, detector, root_causes}) => {
   export default Home;
 
   export const getServerSideProps: GetServerSideProps = async (context) => {
-    let script_id = context.query?.script
-    console.log("SCRIPT ID:", script_id)
+    let response_id = context.query?.response
 
-    let response_data = await connectMongo({find: "responses", filter: {script: script_id}})
-    response_data = response_data[0]
-
-    let script_data = await connectMongo({find: "scripts", filter: {_id: new ObjectId(String(script_id))}})
-    script_data = script_data[0]
-    console.log('SCRIPT DATA:', script_data)
-    console.log('RC', script_data.RC_C_S)
+    let data = await connectMongo({find: "responses", filter: {_id: new ObjectId(response_id)}})
+    data = data[0]
     
     let root_causes = []
-    for (let i=0; i < script_data.RC_C_S.length; i++) {
-      let root_cause = script_data.RC_C_S[i]
-      let context = response_data.rc_context[i]
+    for (let i=0; i < data.rcs.length; i++) {
+      let root_cause = data.rcs[i]
+      let context = root_cause.context
       if (!Array.isArray(context)) {
         context = [context]
       }
-      root_causes.push({id: root_cause.id, RC: root_cause.rootCause, context: context, strategy: root_cause.strategy})
+      root_causes.push({id: i, rc: root_cause.rc, context: context, strategy: root_cause.strategy, disabled: root_cause.disabled, checked: root_cause.checked})
     }
 
-    let gen_context = response_data.gen_context
+    let gen_context = data.gen_context
     if (!Array.isArray(gen_context)) {
       gen_context = [gen_context]
     }
 
-    return {props: {reasons: response_data.triggers, gen_context: gen_context, detector: script_data.title, root_causes: root_causes}}
+    let triggers = data.triggers
+    if (!Array.isArray(triggers)) {
+      triggers = [triggers]
+    }
+
+    return {props: {reasons: triggers, gen_context: gen_context, detector: data.title, root_causes: root_causes, id: data._id.toString()}}
   };

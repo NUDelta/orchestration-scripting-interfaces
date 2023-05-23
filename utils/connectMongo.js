@@ -31,7 +31,7 @@ export default async function connect(command) {
     console.log('CONNECT findAndModify COMMAND')
     console.log('MODIFIED: ', response)
   }
-   else{
+   else if (command.find || command.filter) {
     response = output?.cursor.firstBatch
   }
 

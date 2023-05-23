@@ -25,7 +25,7 @@ export const RootCause = ({item, id, items, setItems, i}) => {
       const ToggleSelected = () => {
         const copy = [...items];
         const desiredDictIndex = items.findIndex(item => item.id === id);
-        copy[desiredDictIndex].Selected = !copy[desiredDictIndex].Selected
+        copy[desiredDictIndex].checked = !copy[desiredDictIndex].checked
         setItems(copy);
     };   
     
@@ -33,7 +33,7 @@ export const RootCause = ({item, id, items, setItems, i}) => {
     const SetDisableStatus = () => {
       const copy = [...items];
       const desiredDictIndex = items.findIndex((item) => item.id === id);
-      copy[desiredDictIndex].Disabled = !copy[desiredDictIndex].Disabled
+      copy[desiredDictIndex].disabled = !copy[desiredDictIndex].disabled
       setItems(copy);
     }; 
 
@@ -41,15 +41,15 @@ export const RootCause = ({item, id, items, setItems, i}) => {
     return (
       <Accordion allowMultiple variant="card" defaultIndex={i==0 ? 0 : undefined}>
         <div style={style} ref={setNodeRef} {...attributes}>
-            <button className={styles.selectButton} style={{ opacity: item.Selected ? 1 : 0.3}} onClick={ToggleSelected}>✅</button>
+            <button className={styles.selectButton} style={{ opacity: item.checked ? 1 : 0.3}} onClick={ToggleSelected}>✅</button>
             
-            <AccordionItem className={styles.accordionItem} style={{ opacity: item.Disabled ? 0.45 : 1, width: '100%' }} isDisabled={item.Disabled}>
+            <AccordionItem className={styles.accordionItem} style={{ opacity: item.disabled ? 0.45 : 1, width: '100%' }} isDisabled={item.disabled}>
                 <TopBar items={items} setItems={setItems} item={item} listeners={listeners} id={id} />
                 <Panel items={items} setItems={setItems} item={item} id={id} />
               </AccordionItem>
               <div className={styles.rightElement}>
                <button className={styles.disableButton} onClick={SetDisableStatus}>
-                 {item.Disabled ? 'Enable' : 'Disable'}
+                 {item.disabled ? 'Enable' : 'Disable'}
                </button>
              </div>
         </div>
