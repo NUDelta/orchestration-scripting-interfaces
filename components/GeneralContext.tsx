@@ -30,7 +30,7 @@ const GeneralContext = ({ data, generalContextData, onGeneralContextDataChange }
   useEffect(() => {
     setSelectedTags(InitialSelectedContext || []);
     onGeneralContextDataChange(generalContextData)
-  }, [data[0].GeneralContext]);
+  }, [data[0].GeneralContext, InitialSelectedContext, generalContextData, onGeneralContextDataChange]);
 
   // Add tag function
   const addTag = (tag) => {

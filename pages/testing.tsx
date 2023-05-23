@@ -312,7 +312,7 @@ const Home: NextPage = () => {
         <div className={styles.section}>
             <h2>Detector Debrief</h2>
             <div className={styles.debrief}>
-                <p>Detector description: <br></br> At the end of each sprint, check if students dedicated >98% of points to one D T R category</p>
+                <p>Detector description: <br></br> At the end of each sprint, check if students dedicated over 98% of points to one D T R category</p>
                 <div>
                     <p>The detector was triggered because:</p>
                     <ul className='list-disc list-inside'>
