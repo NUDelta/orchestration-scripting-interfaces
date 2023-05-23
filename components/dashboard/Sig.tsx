@@ -8,7 +8,7 @@ export const Sig = ({name, responses}) => {
     return (
         <div className="border-2 p-3 rounded-lg mt-3">
             <h3 className="text-xl">{name}</h3>
-            {sig_responses.length > 0 ? sig_responses.map((res, i) => <><Link key={i} href={"/response?script=" + res.script}><u>Diagnosis Page for {res.title}-{res.sigName}</u></Link><br /></>)
+            {sig_responses.length > 0 ? sig_responses.map((res, i) => <><Link key={i} href={"/response?response=" + res._id}><u>Diagnosis Page for {res.title}-{res.sigName}</u></Link><br /></>)
             : <p>No active issues</p>}
         </div>
         

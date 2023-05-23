@@ -12,13 +12,13 @@ export const TopBar = ({items, setItems, item, listeners, id}) => {
     const handleRootCauseChange = () => {
         let copy = [...items]
         const desiredDictIndex = items.findIndex(item => item.id === id);
-        copy[desiredDictIndex].RC = rootCauseInput
+        copy[desiredDictIndex].rc = rootCauseInput
         setItems(copy);
     }; 
 
     return (
         <AccordionButton style={{ display: 'flex', justifyContent: 'space-between' }}>
-            {item.RC ? <h3>{item.RC}</h3>: (
+            {item.rc ? <h3>{item.rc}</h3>: (
                 <>
                 <input
                     type="text"
