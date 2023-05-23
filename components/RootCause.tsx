@@ -21,16 +21,23 @@ export const RootCause = ({ data, index, RCs, setRCs, id} : any) => {
 
     const updateRC = (val : string, field : string) => {
         let copy = [...RCs]
-        copy[index][field] = val
+        // copy[index][field] = val
+        copy[index] = { ...copy[index], [field]: val };
         setRCs(copy)
     }
 
     useEffect(() => {
         const updatedRCs = [...RCs];
-        updatedRCs[index].rootCause = initialRootCause;
-        updatedRCs[index].strategy = initialStrategy;
+        // updatedRCs[index].rootCause = initialRootCause;
+        // updatedRCs[index].strategy = initialStrategy;
+        updatedRCs[index] = {
+            ...updatedRCs[index],
+            rootCause: initialRootCause,
+            strategy: initialStrategy,
+          };
         setRCs(updatedRCs);
-      }, [data, index]);
+      }, [initialRootCause, initialStrategy, index, setRCs]);
+    //   [data, index]
 
     return (
         <div className={styles.container}>
