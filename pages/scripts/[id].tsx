@@ -100,7 +100,12 @@ export const getServerSideProps = async (context) => {
   try {
     console.log('CONNECTING TO MONGO');
     console.log('SCRIPT ID: ', id)
-    const tests = await connectMongo({find: "scripts", filter: {_id: new ObjectId(id)}});
+    let tests = []
+    try {
+      tests = await connectMongo({find: "scripts", filter: {_id: new ObjectId(id)}});
+    } catch (error) {
+      console.error('Error occurred during data retrieval:', error);
+    }
     console.log('SCRIPT: ', tests)
     console.log('CONNECTED TO MONGO');
 

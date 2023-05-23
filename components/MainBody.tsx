@@ -2,7 +2,7 @@ import styles from './MainBody.module.css';
 import { Detector } from './Detector';
 import { RootCauses } from './RootCauses';
 import  GeneralContext  from './GeneralContext';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export const MainBody = ({data, id, onMainBodyChange}) => {
   const [detectorData, setDetectorData] = useState('');
@@ -10,10 +10,12 @@ export const MainBody = ({data, id, onMainBodyChange}) => {
   const [generalContextData, setGeneralContextData] = useState(data[0].GeneralContext||'');
   const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: ''}]);
 
-  onMainBodyChange[0](detectorData);
-  onMainBodyChange[1](xml);
-  onMainBodyChange[2](generalContextData)
-  onMainBodyChange[3](RCs)
+  useEffect(() => {
+    onMainBodyChange[0](detectorData);
+    onMainBodyChange[1](xml);
+    onMainBodyChange[2](generalContextData);
+    onMainBodyChange[3](RCs);
+  }, [detectorData, xml, generalContextData, RCs, onMainBodyChange]);
 
   return (
     <div className={styles.container}>
