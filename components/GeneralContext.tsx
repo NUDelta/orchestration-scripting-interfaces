@@ -24,7 +24,7 @@ function getOptionExplanation(option) {
 const GeneralContext = ({ data, generalContextData, onGeneralContextDataChange }) => {
   const InitialSelectedContext = generalContextData
   const [selectedTags, setSelectedTags] = useState(InitialSelectedContext || []);
-  const GenConDependency = [data[0].GeneralContext, InitialSelectedContext, generalContextData, onGeneralContextDataChange];
+  const GenConDependency = data[0].GeneralContext;
 
   useEffect(() => {
     setSelectedTags(InitialSelectedContext || []);

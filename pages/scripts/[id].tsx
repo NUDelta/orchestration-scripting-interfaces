@@ -32,7 +32,7 @@ const ScriptPage = ({ tests, id }) => {
       }
   
       const data = await response.json();
-      console.log(data); // Handle the response data as per your requirements
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -70,7 +70,7 @@ const ScriptPage = ({ tests, id }) => {
       }
   
       const data = await response.json();
-      console.log(data); // Handle the response data as per your requirements
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
