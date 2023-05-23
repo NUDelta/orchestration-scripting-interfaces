@@ -25,11 +25,7 @@ const scriptsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         console.log('Error fetching script:', error);
         res.status(500).json({ error: 'Internal Server Error' });
       }
-    } else {
-      // Return a 405 Method Not Allowed error if other HTTP methods are used
-      res.status(405).json({ error: 'Method Not Allowed' });
-    }
-    if (req.method === 'PUT') {
+    } else if (req.method === 'PUT') {
       try {
         const { title } = req.body;
   
