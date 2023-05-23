@@ -27,10 +27,12 @@ const GeneralContext = ({ data, generalContextData, onGeneralContextDataChange }
   console.log('INITIAL SELETECTED TAGS', InitialSelectedContext)
   console.log('Data SELETECTED TAGS', data[0].GeneralContext)
   console.log('SELECTED TAGS', selectedTags)
+  const dependencyArray = [data[0].GeneralContext, InitialSelectedContext, generalContextData, onGeneralContextDataChange];
+
   useEffect(() => {
     setSelectedTags(InitialSelectedContext || []);
     onGeneralContextDataChange(generalContextData)
-  }, [data[0].GeneralContext, InitialSelectedContext, generalContextData, onGeneralContextDataChange]);
+  }, dependencyArray);
 
   // Add tag function
   const addTag = (tag) => {
