@@ -18,7 +18,7 @@ export const Context = ({data, index, RCs, setRCs} : any) => {
 
     const addContext = (val : string) => {
         let copy = [...RCs]
-        copy[index].context.add(val)
+        copy[index].context.push(val)
         setRCs(copy)
         const updatedSelectedContexts = [...copy[index].context];
         setSelectedContexts(updatedSelectedContexts);
