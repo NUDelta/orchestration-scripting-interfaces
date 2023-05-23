@@ -18,7 +18,7 @@ export const MainBody = ({data, id, onMainBodyChange}) => {
 
   return (
     <div className={styles.container}>
-      <Detector onDetectorDataChange={setDetectorData} onXmlChange={setXml} />
+      <Detector data={data} onDetectorDataChange={setDetectorData} onXmlChange={setXml} />
       {/* <Detector /> */}
       <GeneralContext data={data} generalContextData={generalContextData} onGeneralContextDataChange={setGeneralContextData} />
       {/* <RootCauses onRootCausesDataChange={setRootCausesData} /> */}
