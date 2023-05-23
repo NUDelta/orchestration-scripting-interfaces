@@ -13,8 +13,7 @@ const ScriptPage = ({ tests, id }) => {
   const [detectorData, setDetectorData] = useState('');
   const [xml, setXml] = useState('');
   const [generalContextData, setGeneralContextData] = useState(tests[0].GeneralContext||'');
-  const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: ''}]);
-  console.log('SCRIPTPAGE CHANGED:', generalContextData)
+  const [RCs, setRCs] = useState([{id: 1, rootCause: "", context: new Set(), strategy: ''}]|| '');
 
   const handleReadScript = async (title) => {
     try {
@@ -101,7 +100,12 @@ export const getServerSideProps = async (context) => {
   try {
     console.log('CONNECTING TO MONGO');
     console.log('SCRIPT ID: ', id)
-    const tests = await connectMongo({find: "scripts", filter: {_id: new ObjectId(id)}});
+    let tests = []
+    try {
+      tests = await connectMongo({find: "scripts", filter: {_id: new ObjectId(id)}});
+    } catch (error) {
+      console.error('Error occurred during data retrieval:', error);
+    }
     console.log('SCRIPT: ', tests)
     console.log('CONNECTED TO MONGO');
 

@@ -5,28 +5,47 @@ import { Strategy } from "./Strategy"
 
 export const RootCause = ({ data, index, RCs, setRCs, id} : any) => {
     const workspaceId = `workspace${id+1}`
-    const initialRootCause = data[0].RC_C_S[index].rootCause || '';
-    const initialStrategy = data[0].RC_C_S[index].strategy || '';
+    let initialRootCause = ''
+    let initialStrategy = ''
+    if (data[0].RC_C_S[index]){
+        initialRootCause = data[0].RC_C_S[index].rootCause;
+        initialStrategy = data[0].RC_C_S[index].strategy;
+    }
+    const updatedRCs = [...RCs];
 
     const deleteRC = () => {
         let copy = [...RCs]
         copy.splice(index, 1)
-        console.log(index, copy)
         setRCs(copy)
     }
 
     const updateRC = (val : string, field : string) => {
         let copy = [...RCs]
-        copy[index][field] = val
+        // copy[index][field] = val
+        copy[index] = { ...copy[index], [field]: val };
         setRCs(copy)
     }
 
     useEffect(() => {
-        const updatedRCs = [...RCs];
-        updatedRCs[index].rootCause = initialRootCause;
-        updatedRCs[index].strategy = initialStrategy;
-        setRCs(updatedRCs);
-      }, [data, index]);
+        // updatedRCs[index].rootCause = initialRootCause;
+        // updatedRCs[index].strategy = initialStrategy;
+        // updatedRCs[index] = {
+        //     ...updatedRCs[index],
+        //     rootCause: initialRootCause,
+        //     strategy: initialStrategy,
+        //   };
+        // setRCs(updatedRCs);
+        setRCs(prevRCs => {
+            const updated = [...prevRCs];
+            updated[index] = {
+              ...updated[index],
+              rootCause: initialRootCause,
+              strategy: initialStrategy,
+            };
+            return updated;
+          });
+      }, [initialRootCause, initialStrategy, index, setRCs]);
+    //   [data, index]
 
     return (
         <div className={styles.container}>

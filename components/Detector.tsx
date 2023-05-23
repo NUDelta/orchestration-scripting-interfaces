@@ -4,12 +4,12 @@ import { useState, useEffect} from 'react';
 
 const BlocklyEditor = dynamic(() => import('./BlocklyEditor'), { ssr: false });
 
-export const Detector = ({onDetectorDataChange, onXmlChange}) => {
+export const Detector = ({data, onDetectorDataChange, onXmlChange}) => {
     const [detector, setDetector] = useState([]);
     const [xml, setXml] = useState('');
     const [javascriptCode, setJavascriptCode] = useState('');
+    const BlocklyinitialXml = data[0].Detector[0] || '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="ApplicableSet" x="30" y="30"></block><block type="Detector" x="30" y="145"></block></xml>';
     
-    console.log('DETECTOR CHANGED: ', javascriptCode)
     onDetectorDataChange(javascriptCode);
     onXmlChange(xml);
 
@@ -18,7 +18,7 @@ export const Detector = ({onDetectorDataChange, onXmlChange}) => {
             <h2>Detector</h2>
 
             <div className={styles.blockly}>
-                <BlocklyEditor onXmlChange={setXml} onJSChange={setJavascriptCode} workspaceId="workspace1"/>
+                <BlocklyEditor BlocklyinitialXml={BlocklyinitialXml} onXmlChange={setXml} onJSChange={setJavascriptCode} workspaceId="workspace1"/>
             </div>
         </div>
     )

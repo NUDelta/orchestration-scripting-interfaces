@@ -7,16 +7,19 @@ export const Tag = ({name, index, RCs, setRCs, selectedContexts, setTagContexts}
     const removeContext = () => {
         const copy = [...RCs];
         console.log('TAG Copy before:', copy)
-        copy[index].context.delete(name);
+        // copy[index].context.delete(name);
+        console.log('COPY: ', copy[index].context)
+        console.log('COPY name: ', name)
+        copy[index].context = copy[index].context.filter(item => item !== name);
         console.log('TAG Copy after:', copy)
         setRCs(copy);
-        console.log('Removing name:', name)
-        const updatedSelectedContexts = selectedContexts.filter(item => item !== name);
-        console.log('TAG Updated:', updatedSelectedContexts)
-        setTagSelectedContexts(updatedSelectedContexts);
+        setTagContexts(copy[index].context)
+        // const updatedSelectedContexts = selectedContexts.filter(item => item !== name);
+        // console.log('TAG Updated:', updatedSelectedContexts)
+        // setTagSelectedContexts(updatedSelectedContexts);
     }
-    console.log('TAG:', tagSelectedContexts)
-    setTagContexts(tagSelectedContexts)
+    // console.log('TAG:', tagSelectedContexts)
+    // setTagContexts(tagSelectedContexts)
 
     return (
         <div className={styles.container}>

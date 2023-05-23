@@ -6,8 +6,10 @@ import Blockly from 'blockly/core';
 import 'blockly/blocks';
 import 'blockly/javascript';
 
-export default function BlockEditor({ workspaceId, RCs, setRCs, index, onJSChange, onXmlChange } : any) {
-  const [xml, setXml] = useState('');
+export default function BlockEditor({ workspaceId, RCs, setRCs, index, onJSChange, onXmlChange, BlocklyinitialXml} : any) {
+  const initialXml =
+  '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="ApplicableSet" x="30" y="30"></block><block type="Detector" x="30" y="145"></block></xml>';
+  const [xml, setXml] = useState(BlocklyinitialXml || initialXml);
   const [javascriptCode, setJavascriptCode] = useState('');
 
   // const setXml = (e : any) => {
@@ -15,10 +17,6 @@ export default function BlockEditor({ workspaceId, RCs, setRCs, index, onJSChang
   //   copy[index].strategy = e
   //   setRCs(copy)
   // }
-
-  const initialXml =
-    '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="ApplicableSet" x="30" y="30"></block><block type="Detector" x="30" y="145"></block></xml>';
-
   function workspaceDidChange(workspace) {
     // console.log(workspace);
     javascriptGenerator.addReservedWords('code');
@@ -28,7 +26,6 @@ export default function BlockEditor({ workspaceId, RCs, setRCs, index, onJSChang
     onJSChange(code)
     var curr_xml = convertWorkspaceToXml(workspace)
     onXmlChange(curr_xml)
-    console.log('CURR XML:', curr_xml)
   }
 
   function convertWorkspaceToXml(workspace) {
@@ -43,7 +40,7 @@ export default function BlockEditor({ workspaceId, RCs, setRCs, index, onJSChang
       <BlocklyWorkspace
         id="workspace1"
         toolboxConfiguration={toolboxCategories}
-        initialXml={initialXml}
+        initialXml={xml}
         className="blocklyWorkspace"
         workspaceConfiguration={{
           grid: {
