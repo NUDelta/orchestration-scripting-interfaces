@@ -80,6 +80,39 @@ javascriptGenerator['myor'] = function (block: Blockly.Block) {
   return [left + ' || ' + right, javascriptGenerator.ORDER_ATOMIC];
 };
 
+Blockly.Blocks['mynot'] = {
+  init: function () {
+    this.appendValueInput('left').appendField('NOT');
+    this.setInputsInline(false);
+    this.setOutput(true, Boolean);
+    this.setColour(210);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['mynot'] = function (block: Blockly.Block) {
+  return null;
+};
+
+Blockly.Blocks['contains'] = {
+  init: function () {
+    this.appendValueInput('left');
+    this.appendDummyInput().appendField('contains');
+    this.appendValueInput('right');
+    //.appendField("(output: boolean)");
+    this.setInputsInline(true);
+    this.setOutput(true, Boolean);
+    this.setColour(210);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['contains'] = function (block: Blockly.Block) {
+  return null;
+};
+
 Blockly.Blocks['myif'] = {
   init: function () {
     this.appendValueInput('if').appendField('if');
@@ -212,6 +245,14 @@ export const toolboxCategories = {
         {
           kind: 'block',
           type: 'myor',
+        },
+        {
+          kind: 'block',
+          type: 'mynot',
+        },
+        {
+          kind: 'block',
+          type: 'contains',
         },
       ],
     },

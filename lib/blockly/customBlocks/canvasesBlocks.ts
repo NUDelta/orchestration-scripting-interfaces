@@ -22,7 +22,9 @@ javascriptGenerator['end_of_quarter_goal'] = function (block: Blockly.Block) {
 
 Blockly.Blocks['high_canvas_update'] = {
   init: function () {
-    this.appendDummyInput().appendField('Canvas not updated');
+    this.appendDummyInput().appendField('Canvas not updated within')
+    .appendField(new Blockly.FieldDropdown([['past week', 'past week'],
+    ['this sprint', 'this sprint']]));
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour('#0066cc');
@@ -37,7 +39,9 @@ javascriptGenerator['high_canvas_update'] = function (block: Blockly.Block) {
 
 Blockly.Blocks['high_canvas_update2'] = {
   init: function () {
-    this.appendDummyInput().appendField('Canvas updated');
+    this.appendDummyInput().appendField('Canvas updated within')
+    .appendField(new Blockly.FieldDropdown([['past week', 'past week'],
+    ['this sprint', 'this sprint']]));
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour('#0066cc');
@@ -67,8 +71,8 @@ Blockly.Blocks['high_new_argument'] = {
     this.appendDummyInput().appendField('PRC: Has new');
     this.appendDummyInput().appendField(
       new Blockly.FieldDropdown([
-        ['gap in canvas which is risky', 'gap in canvas which is risky'],
-        ['focus for sprint', 'focus for sprint'],
+        // ['gap in canvas which is risky', 'gap in canvas which is risky'],
+        // ['focus for sprint', 'focus for sprint'],
         ['problem statement', 'problem statement'],
         ['design argument', 'design argument'],
         ['interface model', 'interface model'],
@@ -272,6 +276,25 @@ javascriptGenerator['prc'] = function (block: Blockly.Block) {
   return null;
 };
 
+Blockly.Blocks['Updated?'] = {
+  init: function () {
+    this.appendValueInput('situationdesc')
+    this.appendDummyInput()
+      .appendField('is Updated')
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['Updated'] = function (
+  block: Blockly.Block
+) {
+  return null;
+};
+
 export const canvasesToolboxCategories = {
   kind: 'category',
   name: 'Canvases',
@@ -293,17 +316,21 @@ export const canvasesToolboxCategories = {
       kind: 'block',
       type: 'high_new_argument',
     },
-    {
-      kind: 'block',
-      type: 'high_new_argument_rrc',
-    },
-    {
-      kind: 'block',
-      type: 'rrc',
-    },
+    // {
+    //   kind: 'block',
+    //   type: 'high_new_argument_rrc',
+    // },
+    // {
+    //   kind: 'block',
+    //   type: 'rrc',
+    // },
     {
       kind: 'block',
       type: 'prc',
+    },
+    {
+      kind: 'block',
+      type: 'Updated?',
     },
   ],
 };

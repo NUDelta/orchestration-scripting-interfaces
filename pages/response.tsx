@@ -12,7 +12,7 @@ import { ObjectId } from 'mongodb'
 // const GEN_CONTEXT = [{title: "Story Title", data: "Building a user interface for diagnosing RCs"}, {title: "Last Canvas Edit", data: "5/9/23 6:12 PM"}]
 // const ROOT_CAUSES = [{RC: "RC A", context: ["Context A1", "Context A2"], strategy: "Strategy A..."}, {RC: "RC B", context: ["Context B1", "Context B2"], strategy: "Strategy B..."}, {RC: "RC C", context: ["Context C1", "Context C2"], strategy: "Strategy C..."}]
 
-const Home: NextPage = ({reasons, gen_context, detector, root_causes, id}) => {
+const Home: NextPage = ({description, reasons, gen_context, detector, root_causes, id}) => {
 
     const [items, setItems] = useState(root_causes);
 
@@ -48,7 +48,7 @@ const Home: NextPage = ({reasons, gen_context, detector, root_causes, id}) => {
         <div className={styles.section}>
             <h2>Detector Debrief</h2>
             <div className={styles.debrief}>
-                <p>Detector block will go here</p>
+                <p>{description}</p>
                 <div>
                     <p>The detector was triggered because:</p>
                     <ul className='list-disc list-inside'>
@@ -95,6 +95,7 @@ const Home: NextPage = ({reasons, gen_context, detector, root_causes, id}) => {
       root_causes.push({id: i, rc: root_cause.rc, context: context, strategy: root_cause.strategy, disabled: root_cause.disabled, checked: root_cause.checked})
     }
 
+    let description = data.description
     let gen_context = data.gen_context
     if (!Array.isArray(gen_context)) {
       gen_context = [gen_context]
@@ -105,5 +106,5 @@ const Home: NextPage = ({reasons, gen_context, detector, root_causes, id}) => {
       triggers = [triggers]
     }
 
-    return {props: {reasons: triggers, gen_context: gen_context, detector: data.title, root_causes: root_causes, id: data._id.toString()}}
+    return {props: {description: description, reasons: triggers, gen_context: gen_context, detector: data.title, root_causes: root_causes, id: data._id.toString()}}
   };

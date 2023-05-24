@@ -48,9 +48,9 @@ Blockly.Blocks['sprint_log3'] = {
           // ['3/4 points planned', '3/4 points planned'],
           ['all points planned', 'all points planned'],
           ['total points planned', 'total points planned'],
-          ['points planned design', 'points planned design'],
-          ['points planned tech', 'points planned tech'],
-          ['points planned research', 'points planned research'],
+          // ['points planned design', 'points planned design'],
+          // ['points planned tech', 'points planned tech'],
+          // ['points planned research', 'points planned research'],
           // ['1/4 through points spent', '1/4 through points spent'],
           // ['halfway through points spent', 'halfway through points spent'],
           // ['3/4 through points spent', '3/4 through points spent'],
@@ -146,7 +146,12 @@ javascriptGenerator['sprintLogTasks'] = function (block: Blockly.Block) {
 Blockly.Blocks['sprintLogFocus'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField('Sprint Log: D T R Category spent most points on')
+    .appendField(new Blockly.FieldDropdown([['D', 'Backlogged'],
+                                            ['D', 'Completed'],
+                                            ['D', 'Incomplete']
+                                          ]))
+    this.appendDummyInput()
+      .appendField('is the Category spent most points on')
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour('#0066cc');
@@ -416,7 +421,11 @@ Blockly.Blocks['Backlogged'] = {
   init: function () {
     this.appendValueInput('situationdesc')
     this.appendDummyInput()
-      .appendField('is Backlogged');
+      .appendField('is')
+      .appendField(new Blockly.FieldDropdown([['Backlogged', 'Backlogged'],
+                                              ['Completed', 'Completed'],
+                                              ['Incomplete', 'Incomplete']
+                                            ]))
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour('#0066cc');
@@ -433,7 +442,9 @@ javascriptGenerator['Backlogged'] = function (
 
 Blockly.Blocks['high_sprint_updated'] = {
   init: function () {
-    this.appendDummyInput().appendField('Sprint Log not updated');
+    this.appendDummyInput().appendField('Sprint Log not updated within')
+    .appendField(new Blockly.FieldDropdown([['past week', 'past week'],
+                                            ['this sprint', 'this sprint']]));
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour('#0066cc');
@@ -448,7 +459,9 @@ javascriptGenerator['high_sprint_updated'] = function (block: Blockly.Block) {
 
 Blockly.Blocks['high_sprint_updated2'] = {
   init: function () {
-    this.appendDummyInput().appendField('Sprint Log updated');
+    this.appendDummyInput().appendField('Sprint Log updated within')
+    .appendField(new Blockly.FieldDropdown([['past week', 'past week'],
+    ['this sprint', 'this sprint']]));
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour('#0066cc');
@@ -470,6 +483,60 @@ Blockly.Blocks['datapoint_subcategory'] = {
  this.setTooltip("");
  this.setHelpUrl("");
   }
+};
+
+Blockly.Blocks['riskiest_risk'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Riskiest risk in Planning View contains');
+    this.appendDummyInput().appendField(
+      new Blockly.FieldTextInput('type keyword'),
+      'NAME1'
+    );
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['riskiest_risk'] = function (block: Blockly.Block) {
+  return null;
+};
+
+Blockly.Blocks['riskiest_risk_bool'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Riskiest risk in Planning View contains');
+    this.appendDummyInput().appendField(
+      new Blockly.FieldTextInput('type keyword'),
+      'NAME1'
+    );
+    this.appendDummyInput().appendField('(bool)')
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['riskiest_risk_bool'] = function (block: Blockly.Block) {
+  return null;
+};
+
+Blockly.Blocks['planning_view_canvas'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Canvas Deliverables checked in Planning View');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('#0066cc');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator['planning_view_canvas'] = function (block: Blockly.Block) {
+  return null;
 };
 
 ///////////////////////////
@@ -505,6 +572,14 @@ export const sprintToolboxCategories = {
     // },
     {
       kind: 'block',
+      type: 'riskiest_risk',
+    },
+    {
+      kind: 'block',
+      type: 'riskiest_risk_bool',
+    },
+    {
+      kind: 'block',
       type: 'high_sprint_log_contains',
     },
     {
@@ -518,6 +593,10 @@ export const sprintToolboxCategories = {
     {
       kind: 'block',
       type: 'high_sprint_log_tasks_contains_bool',
+    },
+    {
+      kind: 'block',
+      type: 'planning_view_canvas',
     },
     {
       kind: 'block',

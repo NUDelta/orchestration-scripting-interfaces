@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import { Sig } from '../components/dashboard/Sig'
 
 
-const SIGS = ["HAT", "NOT CAMP", "BBQ", "OSE", "RALE"]
+const SIGS = ["HAT","CE", "NOT", "CAMP", "RALE","BBQ"]
 
 export default function Home({tests, responses}) {
   const [title, setTitle] = useState('');
@@ -149,10 +149,6 @@ export const getServerSideProps = async () => {
 
       })
       console.log("RESPONSES:", responses)
-  
-      // console.log('FETCHING DOCUMENTS');
-      // const tests = await Test.find();
-      // console.log('FETCHED DOCUMENTS');
   
       return {
         props: {
