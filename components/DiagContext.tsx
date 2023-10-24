@@ -46,7 +46,7 @@ const Context: React.FC = () => {
           className="bg-blue-500 text-white p-2 rounded-md absolute bottom-4 right-4"
           onClick={openPopup}
         >
-          Add
+          Add Context
         </button>
       </div>
       {isPopupOpen && (
