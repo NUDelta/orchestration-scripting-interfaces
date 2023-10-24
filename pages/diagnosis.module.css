@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .column1 {
+    flex: 15%;
+    background:  lightgreen;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .column2 {
+    flex: 60%;
+    background: lightgray;
+    padding: 20px;
+  }
+  
+  .column3 {
+    flex: 25%;
+  }
