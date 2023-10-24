@@ -5,7 +5,7 @@
   
   .column1 {
     flex: 15%;
-    background:  lightgreen;
+    background:  lightblue;
     padding: 20px;
     display: flex;
     flex-direction: column;

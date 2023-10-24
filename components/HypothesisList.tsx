@@ -7,7 +7,7 @@ const ROOT_CAUSES = [
     { RC: "Work was divided unevenly among teammates, causing one student to over-work and another to under-work", context: ["Context C1", "Context C2"], strategy: "Strategy C..." }
   ];
 
-const HypothesisList: React.FC = () => {
+const HypothesisList: React.FC = ({items}) => {
   const [hypotheses, setHypotheses] = useState([
     { title: 'First Hunch', content: 'fill in your first hunch here!' },
   ]);
@@ -57,15 +57,16 @@ const HypothesisList: React.FC = () => {
           <button onClick={closePopup} className="absolute top-2 right-2 text-gray-500 cursor-pointer hover:text-red-500">&times;</button>
           <h3 className="text-lg font-semibold mb-2">Root Causes:</h3>
           <ul>
-            {ROOT_CAUSES.map((cause, index) => (
+            {items.map((item, index) => (
               <li key={index}>
-                <p><strong>{cause.RC}</strong></p>
+                <p><strong>{item.rc}</strong></p>
                 <ul>
-                  {cause.context.map((ctx, i) => (
-                    <li key={i}>{ctx}</li>
+                  {item.context.map((ctx, i) => (
+                    <li key={i}><strong>Context:</strong> {ctx.title}</li>
                   ))}
                 </ul>
-                <p><strong>Strategy:</strong> {cause.strategy}</p>
+                <p><strong>Strategy:</strong> {item.strategy}</p>
+                <br></br>
               </li>
             ))}
           </ul>

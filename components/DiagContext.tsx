@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
 import styles from './DiagContext.module.css';
 
-const initialRelevantOptions = ["Sprint log-Total Points Spent this Sprint",
-                 "Sprint log-Summary of Tasks", 
-                 "Sprint log-Riskiest Risk specified in Planning View",
-                 "PRC-Time Last Edited",
-                 "PRC-Slides Updated in this sprint",
-                 "Github-Summary of Commits made this sprint"]
-const buttonoptions = ["Github-Number of Lines Code Committed this sprint",
-                 "Github-Number of Branches Created this sprint",
+const options = ["Sprint log-Total Points Spent this Sprint",
                  "Sprint log-Total Points Commited this Sprint",
                  "Sprint log-Summary of Stories", 
+                 "Sprint log-Summary of Tasks", 
+                 "Sprint log-Riskiest Risk specified in Planning View",
                  "PRC-Specific Slides (Under construction)",
-                ]
+                 "PRC-Time Last Edited",
+                 "PRC-Slides Updated in this sprint",
+                 "Github-Number of Lines Code Committed this sprint",
+                 "Github-Number of Branches Created this sprint",
+                 "Github-Summary of Commits made this sprint"]
 
 
-const Context: React.FC = () => {
-  const [relevantOptions, setRelevantOptions] = useState(initialRelevantOptions);
-  const [popupOptions, setPopupOptions] = useState([...buttonoptions]);
+const Context: React.FC = ({items, setItems}) => {
+  console.log('context', items)
+  const [popupOptions, setPopupOptions] = useState(options.filter(option => !items.some(item => item.title === option)));
   const [isPopupOpen, setPopupOpen] = useState(false);
 
   const openPopup = () => {
@@ -29,7 +28,7 @@ const Context: React.FC = () => {
   };
 
   const addOptionToContext = (option: any) => {
-    setRelevantOptions([...relevantOptions, option]);
+    setItems([...items, {title: option, data: 'placeholder'}]);
     setPopupOptions(popupOptions.filter((popOption) => popOption !== option));
   };
 
@@ -37,9 +36,9 @@ const Context: React.FC = () => {
     <div className={styles.container}>
       <h2 className="text-lg font-semibold mb-2">Context</h2>
       <div className={styles.context_space}>
-        {relevantOptions.map((option, index) => (
+        {items.map((option, index) => (
           <div key={index} className="bg-blue-200 p-4 rounded-md mb-2">
-            {option}
+            {option.title}
           </div>
         ))}
         <button

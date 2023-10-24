@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { MainBody } from '../../components/MainBody';
 import { Sidebar } from '../../components/Sidebar';
-import Test from '../../models/testModel';
 import connectMongo from '../../utils/connectMongo';
 import { ObjectId } from 'mongodb'
 import { useState } from 'react';

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './diagnosis.module.css';
 import Sidebar from '../components/DiagSidebar';
 import Context from '../components/DiagContext';
-import HypothesisList from '../components/HypothesisList'; // Import the HypothesisList component
+import HypothesisList from '../components/HypothesisList';
 
 const DiagnosisPage: React.FC = () => {
   useEffect(() => {}, []);
@@ -17,7 +17,7 @@ const DiagnosisPage: React.FC = () => {
         <Sidebar
           content={problemContent}
           setContent={setProblemContent}
-          title="Your detector called Undercommitted has been triggered for OSADE."
+          title="undercommitted"
         />
       </div>
       <div className={styles.column2}>
