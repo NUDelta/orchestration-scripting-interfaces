@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Hypothesis.module.css';
 
 interface HypothesisProps {
@@ -7,6 +7,7 @@ interface HypothesisProps {
 }
 
 const Hypothesis: React.FC<HypothesisProps> = ({ hypoData, setHypoContent }) => {
+
   const handleHypoChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setHypoContent(event.target.value);
   };
