@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import Hypothesis from './Hypothesis';
 
-const ROOT_CAUSES = [
-    { RC: "Student felt pressure to reach goals/milestones that they set previously, even though it turned out to be unrealistic", context: ["Context A1", "Context A2"], strategy: "Strategy A..." },
-    { RC: "Student went for too big a slice and they tried to meet goals when they should have re-scoped", context: ["Context B1", "Context B2"], strategy: "Strategy B..." },
-    { RC: "Work was divided unevenly among teammates, causing one student to over-work and another to under-work", context: ["Context C1", "Context C2"], strategy: "Strategy C..." }
-  ];
-
 const HypothesisList: React.FC = ({items}) => {
   const [hypotheses, setHypotheses] = useState([
     { title: 'First Hunch', content: 'fill in your first hunch here!' },
