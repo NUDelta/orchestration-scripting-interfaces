@@ -1,0 +1,1879 @@
+[
+    {
+        "_id": "646d805b1fc2cc091e1f00ae",
+        "name": "Orchestration Scripting Environments",
+        "sig_name": "Networked Orchestration Technologies",
+        "students": [
+            {
+                "_id": "646d805b1fc2cc091e1f0076",
+                "sig_member": "Networked Orchestration Technologies",
+                "sig_head": "646d805b1fc2cc091e1f0073",
+                "individual_progress_map": "",
+                "mid_quarter_check_in": "",
+                "eoq_self_assessment": "",
+                "name": "Grace Wang",
+                "email": "gracewang2025@u.northwestern.edu",
+                "slack_id": "U04CQNKQ3TP",
+                "is_active": true,
+                "role": "NonPhdStudent",
+                "__v": 0
+            },
+            {
+                "_id": "646d805b1fc2cc091e1f0079",
+                "sig_member": "Networked Orchestration Technologies",
+                "sig_head": "646d805b1fc2cc091e1f0073",
+                "individual_progress_map": "",
+                "mid_quarter_check_in": "",
+                "eoq_self_assessment": "",
+                "name": "Jordan Checkoff",
+                "email": "jordancheckoff2024@u.northwestern.edu",
+                "slack_id": "U04TQL7TWLS",
+                "is_active": true,
+                "role": "NonPhdStudent",
+                "__v": 0
+            }
+        ],
+        "sig_head": {
+            "_id": "646d805b1fc2cc091e1f0073",
+            "sig_lead": "Networked Orchestration Technologies",
+            "sig_member": "Summer BBQ",
+            "sig_head": "646d805b1fc2cc091e1f006a",
+            "individual_progress_map": "https://docs.google.com/spreadsheets/d/1xEJ3dDYqNA9SlufiD3GF4mN3DzvXg_JMc3D25rUjSHA/edit?usp=sharing",
+            "mid_quarter_check_in": "",
+            "eoq_self_assessment": "",
+            "name": "Kapil Garg",
+            "email": "kapil@northwestern.edu",
+            "slack_id": "U0G17CVCZ",
+            "is_active": true,
+            "role": "PhdStudent",
+            "__v": 0
+        },
+        "faculty_mentor": {
+            "_id": "646d805b1fc2cc091e1f006a",
+            "sig_lead": "Summer BBQ",
+            "name": "Haoqi Zhang",
+            "email": "haoqi@northwestern.edu",
+            "slack_id": "U0E2XS3LL",
+            "is_active": true,
+            "role": "Faculty",
+            "__v": 0
+        },
+        "sprint_log": {
+            "url": "https://docs.google.com/spreadsheets/d/1lMNZ8x4m-hFH_-JisFXi5B648gol34SsW3dme_q8vLc",
+            "documentId": "1lMNZ8x4m-hFH_-JisFXi5B648gol34SsW3dme_q8vLc",
+            "people": [
+                "Jordan",
+                "Grace"
+            ],
+            "sprints": [
+                {
+                    "name": "Sprint 0",
+                    "points": [
+                        {
+                            "name": "Jordan",
+                            "pointsAvailable": 8,
+                            "pointsCommitted": {
+                                "total": 8,
+                                "design": 1.2999999999999998,
+                                "technology": 1.2,
+                                "research": 6.5
+                            },
+                            "hoursSpent": {
+                                "total": 6.5,
+                                "design": 1.3,
+                                "technology": 1.2,
+                                "research": 5
+                            }
+                        },
+                        {
+                            "name": "Grace",
+                            "pointsAvailable": 8,
+                            "pointsCommitted": {
+                                "total": 8.75,
+                                "design": 1.2999999999999998,
+                                "technology": 2.2,
+                                "research": 6.25
+                            },
+                            "hoursSpent": {
+                                "total": 9.25,
+                                "design": 1.3,
+                                "technology": 2.2,
+                                "research": 6.75
+                            }
+                        }
+                    ],
+                    "stories": [
+                        {
+                            "description": "Document Process and Progress",
+                            "purpose": "Capture and reflect on project progress",
+                            "deliverables": "Sprint video; updated design log and GIT",
+                            "tasks": [
+                                {
+                                    "description": "Update canvases",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "grace",
+                                    "taskStatus": null,
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": "https://www.youtube.com/channel/UCr7qE3kKzvhDon3h4v1Ttxw"
+                                },
+                                {
+                                    "description": "Update design log",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.3,
+                                    "taskCategory": "design",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.3,
+                                    "helpfulLinks": "https://drive.google.com/open?id=0Bwl9EDkZC3TKWFlyVVRVSzRIMlU"
+                                },
+                                {
+                                    "description": "Commit to GIT and comment code",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.2,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0.2,
+                                    "helpfulLinks": "https://github.com/NUDelta"
+                                }
+                            ],
+                            "totalPointsRequired": 1,
+                            "totalPointsSpent": 1.5
+                        },
+                        {
+                            "description": "Onboarding Jordan",
+                            "purpose": null,
+                            "deliverables": null,
+                            "tasks": [
+                                {
+                                    "description": "Read papers and past work to get familiarized with project",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1.5,
+                                    "taskCategory": "research",
+                                    "assignee": "Jordan",
+                                    "taskStatus": "In progress",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Meeting with Rawan",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Codebase session",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 3.5,
+                            "totalPointsSpent": 2
+                        },
+                        {
+                            "description": "Planning for Spring Quarter",
+                            "purpose": null,
+                            "deliverables": null,
+                            "tasks": [
+                                {
+                                    "description": "Set and refine quarterly goals",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Meeting with Kapil and Ryan to discuss quarterly goals",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Read Ply to get a better sense of paper's scope and work that needs to be done",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.75,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.75,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "draft plan for paper submission to solidify scope for spring quarter",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "meeting to discuss the plan for paper",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 2,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 5.75,
+                            "totalPointsSpent": 5.75
+                        },
+                        {
+                            "description": "Preparation for user testing Sprint 1",
+                            "purpose": null,
+                            "deliverables": "design draft",
+                            "tasks": [
+                                {
+                                    "description": "Design meeting to discuss the current prototype and design the next prototype",
+                                    "expectedRoadblocks": "design draft",
+                                    "pointsAllocated": 2,
+                                    "taskCategory": "design",
+                                    "assignee": "everyone",
+                                    "taskStatus": "backlogged",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 2,
+                            "totalPointsSpent": 0
+                        }
+                    ],
+                    "totalPoints": {
+                        "pointAvailable": 16,
+                        "pointsCommitted": {
+                            "total": 16.75,
+                            "design": 2.5999999999999996,
+                            "technology": 3.4000000000000004,
+                            "research": 12.75
+                        },
+                        "hoursSpent": {
+                            "total": 15.75,
+                            "design": 2.6,
+                            "technology": 3.4000000000000004,
+                            "research": 11.75
+                        }
+                    },
+                    "url": "https://docs.google.com/spreadsheets/d/1lMNZ8x4m-hFH_-JisFXi5B648gol34SsW3dme_q8vLc/edit#gid=2143303619"
+                },
+                {
+                    "name": "Sprint 1",
+                    "points": [
+                        {
+                            "name": "Jordan",
+                            "pointsAvailable": 16,
+                            "pointsCommitted": {
+                                "total": 8.8,
+                                "design": 4.3,
+                                "technology": 0,
+                                "research": 5.5
+                            },
+                            "hoursSpent": {
+                                "total": 11.8,
+                                "design": 6.3,
+                                "technology": 1,
+                                "research": 7.5
+                            }
+                        },
+                        {
+                            "name": "Grace",
+                            "pointsAvailable": 16,
+                            "pointsCommitted": {
+                                "total": 15.45,
+                                "design": 4.3999999999999995,
+                                "technology": 0,
+                                "research": 10.55
+                            },
+                            "hoursSpent": {
+                                "total": 18.95,
+                                "design": 6.3999999999999995,
+                                "technology": 1,
+                                "research": 13.55
+                            }
+                        }
+                    ],
+                    "stories": [
+                        {
+                            "description": "Document Process and Progress",
+                            "purpose": "Capture and reflect on project progress",
+                            "deliverables": "Sprint video; updated design log and GIT",
+                            "tasks": [
+                                {
+                                    "description": "Update canvases",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.5,
+                                    "helpfulLinks": "https://www.youtube.com/channel/UCr7qE3kKzvhDon3h4v1Ttxw"
+                                },
+                                {
+                                    "description": "Update design log",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.3,
+                                    "taskCategory": "design",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.3,
+                                    "helpfulLinks": "https://drive.google.com/open?id=0Bwl9EDkZC3TKWFlyVVRVSzRIMlU"
+                                },
+                                {
+                                    "description": "Commit to GIT and comment code",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.2,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": "backlogged",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": "https://github.com/NUDelta"
+                                },
+                                {
+                                    "description": "planning for spring quarter",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.5,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 1.5,
+                            "totalPointsSpent": 1.3
+                        },
+                        {
+                            "description": "Research canvases",
+                            "purpose": "Refine our research direction to be more rigorous",
+                            "deliverables": "Practical research canvases",
+                            "tasks": [
+                                {
+                                    "description": "update PRC to reflect current understanding of the project",
+                                    "expectedRoadblocks": "Practical research canvases",
+                                    "pointsAllocated": 2.5,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "discuss PRC to ensure it's clear and rigorous",
+                                    "expectedRoadblocks": "Practical research canvases",
+                                    "pointsAllocated": 1.5,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "New conceptual diagram",
+                                    "expectedRoadblocks": "conceptual diagram",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "use conceptual diagram and PRC to prepare for meeting with Hq and Ryan",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 6,
+                            "totalPointsSpent": 6.5
+                        },
+                        {
+                            "description": "Paper Preparation",
+                            "purpose": "get feedback on our paper plans and content",
+                            "deliverables": null,
+                            "tasks": [
+                                {
+                                    "description": "Schedule meeting with Ryan and Haoqi",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.05,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.05,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Using the PRC and abstract from Kapil, write a short paper skeleton ",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "backlogged",
+                                    "pointsSpent": 0.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "meet with Ryan, Haoqi, and Kapil to discuss paper skeleton",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 2.05,
+                            "totalPointsSpent": 1.55
+                        },
+                        {
+                            "description": "Prototype modeled after conceptual workflow",
+                            "purpose": "make a more visually intuitive interface that reflects the workflow",
+                            "deliverables": "Enter the deliverable for this story here.",
+                            "tasks": [
+                                {
+                                    "description": "Design meeting to discuss what the design will look like and should be implemented",
+                                    "expectedRoadblocks": "mockup of new design and a development plan",
+                                    "pointsAllocated": 1.5,
+                                    "taskCategory": "design",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "send mockup to Kapil to get feedback",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.1,
+                                    "taskCategory": "design",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "minimally working new interface",
+                                    "expectedRoadblocks": "prototype",
+                                    "pointsAllocated": 4,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": "backlogged",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 5.6,
+                            "totalPointsSpent": 2.6
+                        },
+                        {
+                            "description": "working interface!",
+                            "purpose": "to work towards a working interface that we can test with",
+                            "deliverables": "Enter the deliverable for this story here.",
+                            "tasks": [
+                                {
+                                    "description": "Cleanup work (safety) before getting interface working, mostly type-checks",
+                                    "expectedRoadblocks": "mostly error free environment",
+                                    "pointsAllocated": 2.5,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": "backlogged",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 2.5,
+                            "totalPointsSpent": 0
+                        },
+                        {
+                            "description": "User testing to see whether context is sufficient to help mentors diagnose RC and employ efficient",
+                            "purpose": "Enter the purpose of this story here.",
+                            "deliverables": "Enter the deliverable for this story here.",
+                            "tasks": [
+                                {
+                                    "description": "Design a user test to see if the surfacing of root causes and context is helpful for working",
+                                    "expectedRoadblocks": "user test plan",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Conduct user test with 2 mentors",
+                                    "expectedRoadblocks": "user test takeaways",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Weekend -> collect problems from mentees",
+                                    "expectedRoadblocks": "a set of problems",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "get list of RCs from mentors",
+                                    "expectedRoadblocks": "list of RCs",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.5,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 2.5,
+                            "totalPointsSpent": 4.5
+                        },
+                        {
+                            "description": "User Study Takeaway",
+                            "purpose": "to understand what our last user study uncovered about frictions in our design argument (P->RC->S)",
+                            "deliverables": "User Test Takeaway canvases",
+                            "tasks": [
+                                {
+                                    "description": "Discuss the results together and with Kapil",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1.5,
+                                    "taskCategory": "",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Analyze the result using the user test takeaway canvases",
+                                    "expectedRoadblocks": "Canvas",
+                                    "pointsAllocated": 1.5,
+                                    "taskCategory": "",
+                                    "assignee": "grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 3,
+                            "totalPointsSpent": 2.5
+                        }
+                    ],
+                    "totalPoints": {
+                        "pointAvailable": 32,
+                        "pointsCommitted": {
+                            "total": 24.25,
+                            "design": 8.7,
+                            "technology": 0,
+                            "research": 16.05
+                        },
+                        "hoursSpent": {
+                            "total": 30.75,
+                            "design": 12.7,
+                            "technology": 2,
+                            "research": 21.05
+                        }
+                    },
+                    "url": "https://docs.google.com/spreadsheets/d/1lMNZ8x4m-hFH_-JisFXi5B648gol34SsW3dme_q8vLc/edit#gid=1064913605"
+                },
+                {
+                    "name": "Sprint 2",
+                    "points": [
+                        {
+                            "name": "Jordan",
+                            "pointsAvailable": 16,
+                            "pointsCommitted": {
+                                "total": 15.25,
+                                "design": 3,
+                                "technology": 3.5,
+                                "research": 11.25
+                            },
+                            "hoursSpent": {
+                                "total": 9.6,
+                                "design": 0.6,
+                                "technology": 2,
+                                "research": 7.5
+                            }
+                        },
+                        {
+                            "name": "Grace",
+                            "pointsAvailable": 16,
+                            "pointsCommitted": {
+                                "total": 19.25,
+                                "design": 4,
+                                "technology": 3.5,
+                                "research": 15.25
+                            },
+                            "hoursSpent": {
+                                "total": 13.3,
+                                "design": 2.6,
+                                "technology": 2,
+                                "research": 11.2
+                            }
+                        }
+                    ],
+                    "stories": [
+                        {
+                            "description": "User Study 2 Plan",
+                            "purpose": "update our study design to address the frictions uncovered inthe last user test",
+                            "deliverables": "Study Design canvas",
+                            "tasks": [
+                                {
+                                    "description": "update study design",
+                                    "expectedRoadblocks": "canvas",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "discuss updated study design",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 2,
+                            "totalPointsSpent": 2
+                        },
+                        {
+                            "description": "User Study 2",
+                            "purpose": "test whether mapping root causes to strategies helps mentors employ effective strategies and see what obstacles mentors face in diagnosing root causes",
+                            "deliverables": "User Test Takeaway",
+                            "tasks": [
+                                {
+                                    "description": "User Study set up",
+                                    "expectedRoadblocks": "list of root causes and strategies",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "contact mentors to set up user study",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.4,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.3,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Prepare mentor for user study",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.4,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.4,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "sit in during SIG meeting",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Post study interview",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "anaylze findings",
+                                    "expectedRoadblocks": "User Test Takeaway, design argument, problem statement",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 4.3,
+                            "totalPointsSpent": 5.199999999999999
+                        },
+                        {
+                            "description": "Field Study Design",
+                            "purpose": "get some feedback on our field study plan",
+                            "deliverables": "Design argument, interface argument, study design",
+                            "tasks": [
+                                {
+                                    "description": "Draft Field Study Design",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "meeting with Kapil Haoqi and Ryan",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Finalize field study plan based on Feedback",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 2.5,
+                            "totalPointsSpent": 1.5
+                        },
+                        {
+                            "description": "Prototype II",
+                            "purpose": "Investigate how we can improve interface design to capture design arguments + align our interface arguments with our design arguments",
+                            "deliverables": "1. prototype\n2. User test takeaways",
+                            "tasks": [
+                                {
+                                    "description": "Meet to discuss if there's anything in the prototype design we need to update based on the feedback we got and our user testing results",
+                                    "expectedRoadblocks": "updated prototype design",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "design",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "develop minimally working prototype-layout + context + strategy",
+                                    "expectedRoadblocks": "functional interface",
+                                    "pointsAllocated": 2,
+                                    "taskCategory": "technology",
+                                    "assignee": "jordan",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "develop minimally working prototype-prompts + Blockly",
+                                    "expectedRoadblocks": "functional interface",
+                                    "pointsAllocated": 2,
+                                    "taskCategory": "technology",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Quick usability test with an example with full workflow (P->RC->C->S) and pseudocode for detector and strategy",
+                                    "expectedRoadblocks": "user test findings",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "update interface to address any usability issues",
+                                    "expectedRoadblocks": "user-friendly interface",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "User Study with a past example to test how well the interface captures our design argument (Basically, is the interface ready for our field study? let's test that)",
+                                    "expectedRoadblocks": "user study findings",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Make any adjustment to design as needed",
+                                    "expectedRoadblocks": "updated interface ",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Update interface argument canvas to match new design",
+                                    "expectedRoadblocks": "updated interface argument canvas",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 8.5,
+                            "totalPointsSpent": 6.6
+                        },
+                        {
+                            "description": "Context design argument",
+                            "purpose": "need to understand what kinds of context are useful, can context be useful for teaching strategies? How can we utilize context to improve diagnosis + teaching?",
+                            "deliverables": "updated design argument",
+                            "tasks": [
+                                {
+                                    "description": "Discuss study plan",
+                                    "expectedRoadblocks": "study design canvas",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "prepare for study",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "jordan",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "conduct study",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "grace",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "discuss findings",
+                                    "expectedRoadblocks": "user test takeaway canvas",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 2.5,
+                            "totalPointsSpent": 0
+                        },
+                        {
+                            "description": "answering the WHY in Root Cause Design argument",
+                            "purpose": "Need to see the mechanistic picture of the task mentors are trying to do, what the bottlenecks to doing the task are, and how our design argument is improving it",
+                            "deliverables": "updated design argument canvas",
+                            "tasks": [
+                                {
+                                    "description": "Ask Kapil about Papers for diagnosis -- models of how mentors do diagnosis, or maybe expert sensemaking (many hypotheses, actively gathering evidence of hypothesis, validating / invalidating)",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.2,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "prepare interview questions",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "Jordan",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Interview 2 mentors about some problems they encountered in the past and how they went about diagnosing the reason behind the problem",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Discuss testing results",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.75,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 2.45,
+                            "totalPointsSpent": 0
+                        }
+                    ],
+                    "totalPoints": {
+                        "pointAvailable": 32,
+                        "pointsCommitted": {
+                            "total": 34.5,
+                            "design": 7,
+                            "technology": 7,
+                            "research": 26.5
+                        },
+                        "hoursSpent": {
+                            "total": 22.9,
+                            "design": 3.2,
+                            "technology": 4,
+                            "research": 18.7
+                        }
+                    },
+                    "url": "https://docs.google.com/spreadsheets/d/1lMNZ8x4m-hFH_-JisFXi5B648gol34SsW3dme_q8vLc/edit#gid=775145100"
+                },
+                {
+                    "name": "Sprint 3",
+                    "points": [
+                        {
+                            "name": "Jordan",
+                            "pointsAvailable": 16,
+                            "pointsCommitted": {
+                                "total": 2.25,
+                                "design": 0.3,
+                                "technology": 0.2,
+                                "research": 1.75
+                            },
+                            "hoursSpent": {
+                                "total": 0,
+                                "design": 0,
+                                "technology": 0,
+                                "research": 0
+                            }
+                        },
+                        {
+                            "name": "Grace",
+                            "pointsAvailable": 16,
+                            "pointsCommitted": {
+                                "total": 2.95,
+                                "design": 0.3,
+                                "technology": 0.2,
+                                "research": 2.45
+                            },
+                            "hoursSpent": {
+                                "total": 0,
+                                "design": 0,
+                                "technology": 0,
+                                "research": 0
+                            }
+                        }
+                    ],
+                    "stories": [
+                        {
+                            "description": "Document Process and Progress",
+                            "purpose": "Capture and reflect on project progress",
+                            "deliverables": "Sprint video; updated design log and GIT",
+                            "tasks": [
+                                {
+                                    "description": "Update canvases",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": "https://www.youtube.com/channel/UCr7qE3kKzvhDon3h4v1Ttxw"
+                                },
+                                {
+                                    "description": "Update design log",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.3,
+                                    "taskCategory": "design",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": "https://drive.google.com/open?id=0Bwl9EDkZC3TKWFlyVVRVSzRIMlU"
+                                },
+                                {
+                                    "description": "Commit to GIT and comment code",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.2,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": "https://github.com/NUDelta"
+                                },
+                                {
+                                    "description": "Big words, scope blocks, lack of brainstorming + scratch space, create text, next button, add button, general context",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0,
+                                    "taskCategory": "",
+                                    "assignee": null,
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Context tag -> no idea what they look like",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0,
+                                    "taskCategory": "",
+                                    "assignee": null,
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 1,
+                            "totalPointsSpent": 0
+                        },
+                        {
+                            "description": "answering the WHY in Root Cause Design argument",
+                            "purpose": "Need to see the mechanistic picture of the task mentors are trying to do, what the bottlenecks to doing the task are, and how our design argument is improving it",
+                            "deliverables": "updated design argument canvas",
+                            "tasks": [
+                                {
+                                    "description": "Ask Kapil about Papers for diagnosis -- models of how mentors do diagnosis, or maybe expert sensemaking (many hypotheses, actively gathering evidence of hypothesis, validating / invalidating)",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.2,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "prepare interview questions",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "Jordan",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Interview 2 mentors about some problems they encountered in the past and how they went about diagnosing the reason behind the problem",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Discuss testing results",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.75,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 2.45,
+                            "totalPointsSpent": 0
+                        }
+                    ],
+                    "totalPoints": {
+                        "pointAvailable": 32,
+                        "pointsCommitted": {
+                            "total": 5.2,
+                            "design": 0.6,
+                            "technology": 0.4,
+                            "research": 4.2
+                        },
+                        "hoursSpent": {
+                            "total": 0,
+                            "design": 0,
+                            "technology": 0,
+                            "research": 0
+                        }
+                    },
+                    "url": "https://docs.google.com/spreadsheets/d/1lMNZ8x4m-hFH_-JisFXi5B648gol34SsW3dme_q8vLc/edit#gid=1707369691"
+                },
+                {
+                    "name": "Sprint 4",
+                    "points": [
+                        {
+                            "name": "Jordan",
+                            "pointsAvailable": 16,
+                            "pointsCommitted": {
+                                "total": 15,
+                                "design": 0.3,
+                                "technology": 11.2,
+                                "research": 3.5
+                            },
+                            "hoursSpent": {
+                                "total": 14.25,
+                                "design": 0,
+                                "technology": 11,
+                                "research": 3.25
+                            }
+                        },
+                        {
+                            "name": "Grace",
+                            "pointsAvailable": 16,
+                            "pointsCommitted": {
+                                "total": 28.25,
+                                "design": 2.3,
+                                "technology": 16.35,
+                                "research": 11.6
+                            },
+                            "hoursSpent": {
+                                "total": 31.75,
+                                "design": 1.5,
+                                "technology": 19.65,
+                                "research": 12.1
+                            }
+                        }
+                    ],
+                    "stories": [
+                        {
+                            "description": "Document Process and Progress",
+                            "purpose": "Capture and reflect on project progress",
+                            "deliverables": "Sprint video; updated design log and GIT",
+                            "tasks": [
+                                {
+                                    "description": "Update canvases",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": "https://www.youtube.com/channel/UCr7qE3kKzvhDon3h4v1Ttxw"
+                                },
+                                {
+                                    "description": "Update design log",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.3,
+                                    "taskCategory": "design",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": "https://drive.google.com/open?id=0Bwl9EDkZC3TKWFlyVVRVSzRIMlU"
+                                },
+                                {
+                                    "description": "Commit to GIT and comment code",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.2,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": "https://github.com/NUDelta"
+                                }
+                            ],
+                            "totalPointsRequired": 1,
+                            "totalPointsSpent": 0
+                        },
+                        {
+                            "description": "System Model",
+                            "purpose": "Enter the purpose of this story here.",
+                            "deliverables": "Working system with two working interfaces + demo for user journey",
+                            "tasks": [
+                                {
+                                    "description": "learn next.js tutorial",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 2,
+                                    "taskCategory": "technology",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "CURD Controllers",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "save scripting interface",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "scripting page API setup",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "deployment on digital ocean",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Grace",
+                                    "taskStatus": "backlogged",
+                                    "pointsSpent": 2,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "database local setup",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "database cloud setup",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Jordan",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "dashboard - scripts",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "dashboard - active issues",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Jordan",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "response page fetch",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Jordan",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "response page read and save",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Jordan",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "external routes api call",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Jordan",
+                                    "taskStatus": "In progress",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "set up context query",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 14,
+                            "totalPointsSpent": 15.5
+                        },
+                        {
+                            "description": "Field Study",
+                            "purpose": "Enter the purpose of this story here.",
+                            "deliverables": "Enter the deliverable for this story here.",
+                            "tasks": [
+                                {
+                                    "description": "Draft field study plan - deployment",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1.5,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Draft field study plan - scripting",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "send for feedback",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "in progress",
+                                    "pointsSpent": 0.1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "go to HAT SIG Meeting",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "go to CAMP SIG Meeting",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Jordan",
+                                    "taskStatus": "backlogged",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "go to CE SIG Meeting",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 5.6,
+                            "totalPointsSpent": 4.6
+                        },
+                        {
+                            "description": "Deployment Study prepare",
+                            "purpose": "Enter the purpose of this story here.",
+                            "deliverables": "Enter the deliverable for this story here.",
+                            "tasks": [
+                                {
+                                    "description": "update script library and select scripts for deployment",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "script library update",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1.5,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "check detector is correct",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 2.5,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "WoZ setup",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "JS generator update",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 2,
+                                    "taskCategory": "technology",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "send construct priorities to Kapil",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.15,
+                                    "taskCategory": "technology",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.15,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 8.15,
+                            "totalPointsSpent": 8.65
+                        },
+                        {
+                            "description": "Scripting Field Study",
+                            "purpose": "Enter the purpose of this story here.",
+                            "deliverables": "Enter the deliverable for this story here.",
+                            "tasks": [
+                                {
+                                    "description": "Ryan study",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 2,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Gobi study",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.25,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Kapil study",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "Jordan",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.75,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Haoqi study",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "backlogged",
+                                    "pointsSpent": 0.75,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Usability fixes",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "Grace",
+                                    "taskStatus": "in progress",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Haoqi study 2",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Prepare scripting interface for study",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1.5,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 8,
+                            "totalPointsSpent": 8.75
+                        }
+                    ],
+                    "totalPoints": {
+                        "pointAvailable": 32,
+                        "pointsCommitted": {
+                            "total": 43.25,
+                            "design": 2.5999999999999996,
+                            "technology": 27.55,
+                            "research": 15.1
+                        },
+                        "hoursSpent": {
+                            "total": 46,
+                            "design": 1.5,
+                            "technology": 30.65,
+                            "research": 15.35
+                        }
+                    },
+                    "url": "https://docs.google.com/spreadsheets/d/1lMNZ8x4m-hFH_-JisFXi5B648gol34SsW3dme_q8vLc/edit#gid=605387094"
+                },
+                {
+                    "name": "Sprint 5",
+                    "points": [
+                        {
+                            "name": "Jordan",
+                            "pointsAvailable": 8,
+                            "pointsCommitted": {
+                                "total": 11.5,
+                                "design": 2.3,
+                                "technology": 3.7,
+                                "research": 5.5
+                            },
+                            "hoursSpent": {
+                                "total": 8,
+                                "design": 3.5,
+                                "technology": 5,
+                                "research": 1
+                            }
+                        },
+                        {
+                            "name": "Grace",
+                            "pointsAvailable": 8,
+                            "pointsCommitted": {
+                                "total": 11.7,
+                                "design": 4.3,
+                                "technology": 1.2000000000000002,
+                                "research": 7.199999999999999
+                            },
+                            "hoursSpent": {
+                                "total": 9,
+                                "design": 5.5,
+                                "technology": 2.5,
+                                "research": 3.5
+                            }
+                        }
+                    ],
+                    "stories": [
+                        {
+                            "description": "Document Process and Progress",
+                            "purpose": "Capture and reflect on project progress",
+                            "deliverables": "Sprint video; updated design log and GIT",
+                            "tasks": [
+                                {
+                                    "description": "Update canvases",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": "https://www.youtube.com/channel/UCr7qE3kKzvhDon3h4v1Ttxw"
+                                },
+                                {
+                                    "description": "Update design log",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.3,
+                                    "taskCategory": "design",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": "https://drive.google.com/open?id=0Bwl9EDkZC3TKWFlyVVRVSzRIMlU"
+                                },
+                                {
+                                    "description": "Commit to GIT and comment code",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.2,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": null,
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": "https://github.com/NUDelta"
+                                }
+                            ],
+                            "totalPointsRequired": 1,
+                            "totalPointsSpent": 0
+                        },
+                        {
+                            "description": "User study Diagnosis",
+                            "purpose": "improve the design of the diagnosis interface",
+                            "deliverables": "User Study takeaway",
+                            "tasks": [
+                                {
+                                    "description": "Ask about reasons for lack of interaction with interface + advice for improvement",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.2,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Analyze interface obstacles and ways to improve",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "design",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "adjust interface to address interface obstacles",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "User Study with CE SIG",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "backlogged",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "User Study with HAT SIG",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "backlogged",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "User Study with CAMP SIG",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "backlogged",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "update user study takeaway",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 6.2,
+                            "totalPointsSpent": 4
+                        },
+                        {
+                            "description": "System Model wrap up",
+                            "purpose": "Enter the purpose of this story here.",
+                            "deliverables": "Enter the deliverable for this story here.",
+                            "tasks": [
+                                {
+                                    "description": "activie issues fetch function finish",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 2.5,
+                                    "taskCategory": "technology",
+                                    "assignee": "Jordan",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 2.5,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 2.5,
+                            "totalPointsSpent": 2.5
+                        },
+                        {
+                            "description": "Root Cause User Study",
+                            "purpose": "to understand the mechanism and obstacles for root cause analysis",
+                            "deliverables": "User Study Takeaways",
+                            "tasks": [
+                                {
+                                    "description": "reflect on what we know and don't know about root cause analysis; establish standard for a successful root cause analysis",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 0.5,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0.5,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Design low-fidelity prototype for root cause analysis",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "research",
+                                    "assignee": "Grace",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Test prototype with a mentor",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "design",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "reflect on findings and update canvas",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 1,
+                                    "taskCategory": "design",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 1,
+                                    "helpfulLinks": null
+                                },
+                                {
+                                    "description": "Incorporate new finding into diagnosis page design",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 2,
+                                    "taskCategory": "technology",
+                                    "assignee": "everyone",
+                                    "taskStatus": "backlogged",
+                                    "pointsSpent": 1.5,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 5.5,
+                            "totalPointsSpent": 5
+                        },
+                        {
+                            "description": "EOQ",
+                            "purpose": "Enter the purpose of this story here.",
+                            "deliverables": "Enter the deliverable for this story here.",
+                            "tasks": [
+                                {
+                                    "description": "EOQ paper",
+                                    "expectedRoadblocks": "",
+                                    "pointsAllocated": 4,
+                                    "taskCategory": "research",
+                                    "assignee": "everyone",
+                                    "taskStatus": "done",
+                                    "pointsSpent": 0,
+                                    "helpfulLinks": null
+                                }
+                            ],
+                            "totalPointsRequired": 4,
+                            "totalPointsSpent": 0
+                        }
+                    ],
+                    "totalPoints": {
+                        "pointAvailable": 16,
+                        "pointsCommitted": {
+                            "total": 23.2,
+                            "design": 6.6,
+                            "technology": 4.9,
+                            "research": 12.7
+                        },
+                        "hoursSpent": {
+                            "total": 17,
+                            "design": 9,
+                            "technology": 7.5,
+                            "research": 4.5
+                        }
+                    },
+                    "url": "https://docs.google.com/spreadsheets/d/1lMNZ8x4m-hFH_-JisFXi5B648gol34SsW3dme_q8vLc/edit#gid=1930618723"
+                }
+            ],
+            "current_sprint": null
+        },
+        "compass": "",
+        "eoq_checklist": "",
+        "slack_channel": "proj-os",
+        "status_update_date": "2023-05-12T17:00:00.000Z",
+        "__v": 0
+    }
+]
