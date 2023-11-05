@@ -9,10 +9,6 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ content, setContent, title, project}) => {
-  const [problemContent, setProblemContent] = useState(
-    'Students are significantly undercommitted in this sprint'
-  );
-
   useEffect(() => {
   }, []);
 

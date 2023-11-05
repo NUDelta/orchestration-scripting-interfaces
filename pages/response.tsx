@@ -15,23 +15,28 @@ import getComputedOrganizationalObjectsForProject from '../pages/api/test/get_OS
 
 const Home: NextPage = ({sigName, projName, description, gen_context, detector, root_causes, id, context_lib, hypothesisList}) => {
     const [items, setItems] = useState(root_causes);
+    const [problemContent, setProblemContent] = useState(
+      description
+    );
     const [context, setContext] = useState(gen_context);
     const defaultHypothesis = { title: 'First Hunch', content: 'fill in your first hunch here!' };
     const [hypos, setHypos] = useState(hypothesisList || [defaultHypothesis]);
-    console.log('hypothesisList', hypothesisList)
     // const updateResponse = () => {
     //   console.log('Updated general context for script in MongoDB')
     //   fetch(`/api/test/update_response?_id=${id}&gen_context=${JSON.stringify(gen_context)}`)
     // }
 
-    const updateResponse = async () => {
+    const updateResponse = async (desc) => {
       try {
         const response = await fetch('/api/test/update_response', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ _id: id, gen_context: JSON.stringify(context), hypothesisList: JSON.stringify(hypos)}),
+          body: JSON.stringify({ _id: id, 
+                                 gen_context: JSON.stringify(context), 
+                                 hypothesisList: JSON.stringify(hypos),
+                                 description: desc}),
         });
     
         if (response.ok) {
@@ -45,12 +50,8 @@ const Home: NextPage = ({sigName, projName, description, gen_context, detector, 
     };
 
     useEffect(() => {
-      updateResponse();
-    }, [context, hypos]);
-
-    const [problemContent, setProblemContent] = useState(
-      description
-    );
+      updateResponse(problemContent);
+    }, [context, hypos, problemContent]);
   
     return (
       <div className={styles.container}>

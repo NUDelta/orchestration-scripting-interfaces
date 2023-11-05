@@ -5,14 +5,15 @@ import { ObjectId } from 'mongodb';
 export default async function updateResponse(req, res) {
     if (req.method === 'PUT') {
       try {
-        const { _id, gen_context, hypothesisList } = req.body;
+        const { _id, gen_context, hypothesisList, description} = req.body;
         const genContextObject = JSON.parse(gen_context);
         const hypothesisListObject = JSON.parse(hypothesisList);
 
         const updatedResponse = await connectMongo({ findAndModify: "responses", 
                                                 query: { _id: new ObjectId(_id)}, 
                                                 update: {$set: {gen_context: genContextObject,
-                                                                hypothesisList: hypothesisListObject}}, 
+                                                                hypothesisList: hypothesisListObject,
+                                                                description: description}}, 
                                                 new: true});
         console.log(updatedResponse)
 
