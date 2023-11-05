@@ -16,9 +16,8 @@ import getComputedOrganizationalObjectsForProject from '../pages/api/test/get_OS
 const Home: NextPage = ({sigName, projName, description, gen_context, detector, root_causes, id, context_lib, hypothesisList}) => {
     const [items, setItems] = useState(root_causes);
     const [context, setContext] = useState(gen_context);
-    const [hypos, setHypos] = useState(hypothesisList || [
-      { title: 'First Hunch', content: 'fill in your first hunch here!' },
-    ]);
+    const defaultHypothesis = { title: 'First Hunch', content: 'fill in your first hunch here!' };
+    const [hypos, setHypos] = useState(hypothesisList || [defaultHypothesis]);
     console.log('hypothesisList', hypothesisList)
     // const updateResponse = () => {
     //   console.log('Updated general context for script in MongoDB')
@@ -32,22 +31,22 @@ const Home: NextPage = ({sigName, projName, description, gen_context, detector, 
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ _id: id, gen_context: JSON.stringify(context) }),
+          body: JSON.stringify({ _id: id, gen_context: JSON.stringify(context), hypothesisList: JSON.stringify(hypos)}),
         });
     
         if (response.ok) {
-          console.log('General context updated successfully.');
+          console.log('Database updated successfully.');
         } else {
-          console.error('Failed to update general context.');
+          console.error('Failed to update Database.');
         }
       } catch (error) {
-        console.error('Error updating general context:', error);
+        console.error('Error updating Database:', error);
       }
     };
 
     useEffect(() => {
       updateResponse();
-    }, [context]);
+    }, [context, hypos]);
 
     const [problemContent, setProblemContent] = useState(
       description

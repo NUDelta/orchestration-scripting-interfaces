@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import Hypothesis from './Hypothesis';
 
 const HypothesisList: React.FC = ({items, hypos, setHypos}) => {
-  const [hypotheses, setHypotheses] = useState([
-    { title: 'First Hunch', content: 'fill in your first hunch here!' },
-  ]);
+  // const [hypotheses, setHypotheses] = useState([
+  //   { title: 'First Hunch', content: 'fill in your first hunch here!' },
+  // ]);
 
   const addHypothesis = () => {
     const newHypothesis = { title: 'Updated hypothesis', content: 'fill in your updated hypothesis' };
-    setHypotheses([newHypothesis, ...hypotheses]);
+    setHypos([newHypothesis, ...hypos]);
   };
 
   const updateHypothesis = (index: number, content: string) => {
-    const newHypotheses = [...hypotheses];
+    const newHypotheses = [...hypos];
     newHypotheses[index].content = content;
-    setHypotheses(newHypotheses);
+    setHypos(newHypotheses);
   };
 
   const [popupVisible, setPopupVisible] = useState(false);
@@ -31,7 +31,7 @@ const HypothesisList: React.FC = ({items, hypos, setHypos}) => {
       <button onClick={addHypothesis} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full float-right">
         Add New Hypothesis
       </button>
-      {hypotheses.map((hypoData, index) => (
+      {hypos.map((hypoData, index) => (
         <Hypothesis
           key={index}
           hypoData={hypoData}
