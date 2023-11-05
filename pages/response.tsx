@@ -13,10 +13,13 @@ import Context from '../components/DiagContext';
 import HypothesisList from '../components/HypothesisList';
 import getComputedOrganizationalObjectsForProject from '../pages/api/test/get_OS_project_object.js';
 
-const Home: NextPage = ({sigName, projName, description, reasons, gen_context, detector, root_causes, id, context_lib}) => {
+const Home: NextPage = ({sigName, projName, description, gen_context, detector, root_causes, id, context_lib, hypothesisList}) => {
     const [items, setItems] = useState(root_causes);
     const [context, setContext] = useState(gen_context);
-    console.log(context_lib)
+    const [hypos, setHypos] = useState(hypothesisList || [
+      { title: 'First Hunch', content: 'fill in your first hunch here!' },
+    ]);
+    console.log('hypothesisList', hypothesisList)
     // const updateResponse = () => {
     //   console.log('Updated general context for script in MongoDB')
     //   fetch(`/api/test/update_response?_id=${id}&gen_context=${JSON.stringify(gen_context)}`)
@@ -65,7 +68,7 @@ const Home: NextPage = ({sigName, projName, description, reasons, gen_context, d
           <Context items={context} setItems={setContext} context_lib={context_lib}/>
         </div>
         <div className={styles.column3}>
-          <HypothesisList items={items}/>
+          <HypothesisList items={items} hypos={hypos} setHypos={setHypos}/>
         </div>
       </div>
     );
@@ -115,15 +118,17 @@ const Home: NextPage = ({sigName, projName, description, reasons, gen_context, d
       context_lib[option] = getContextValue(option, project_object);;
     });
 
+    let hypothesisList = data.hypothesisList
+
     return {props: {
       sigName: sigName,
       projName: projName,
       description: description, 
-      reasons: triggers,
       gen_context: gen_context,
       detector: data.title,
       root_causes: root_causes,
       id: data._id.toString(),
       context_lib: context_lib,
+      hypothesisList: hypothesisList,
     }}
   };

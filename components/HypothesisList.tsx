@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Hypothesis from './Hypothesis';
 
-const HypothesisList: React.FC = ({items}) => {
+const HypothesisList: React.FC = ({items, hypos, setHypos}) => {
   const [hypotheses, setHypotheses] = useState([
     { title: 'First Hunch', content: 'fill in your first hunch here!' },
   ]);
