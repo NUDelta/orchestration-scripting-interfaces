@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import React, { useState, useEffect } from 'react';
 // import styles from "./response.module.css"
 import { RootCauses } from '../components/response/RootCauses';
+import { options } from '../lib/context/options';
 import { GetServerSideProps } from 'next';
 import connectMongo from "../utils/connectMongo"
 import { getContextValue } from '../lib/populateContext'
@@ -12,10 +13,10 @@ import Context from '../components/DiagContext';
 import HypothesisList from '../components/HypothesisList';
 import getComputedOrganizationalObjectsForProject from '../pages/api/test/get_OS_project_object.js';
 
-const Home: NextPage = ({sigName, projName, description, reasons, gen_context, detector, root_causes, id}) => {
+const Home: NextPage = ({sigName, projName, description, reasons, gen_context, detector, root_causes, id, context_lib}) => {
     const [items, setItems] = useState(root_causes);
     const [context, setContext] = useState(gen_context);
-
+    console.log(context_lib)
     // const updateResponse = () => {
     //   console.log('Updated general context for script in MongoDB')
     //   fetch(`/api/test/update_response?_id=${id}&gen_context=${JSON.stringify(gen_context)}`)
@@ -28,7 +29,7 @@ const Home: NextPage = ({sigName, projName, description, reasons, gen_context, d
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ _id: id, gen_context: JSON.stringify(gen_context) }),
+          body: JSON.stringify({ _id: id, gen_context: JSON.stringify(context) }),
         });
     
         if (response.ok) {
@@ -43,7 +44,7 @@ const Home: NextPage = ({sigName, projName, description, reasons, gen_context, d
 
     useEffect(() => {
       updateResponse();
-    }, []);
+    }, [context]);
 
     const [problemContent, setProblemContent] = useState(
       description
@@ -52,6 +53,7 @@ const Home: NextPage = ({sigName, projName, description, reasons, gen_context, d
     return (
       <div className={styles.container}>
         <div className={styles.column1}>
+          <button onClick={updateResponse}>Save Page</button>
           <Sidebar
             content={problemContent}
             setContent={setProblemContent}
@@ -59,9 +61,8 @@ const Home: NextPage = ({sigName, projName, description, reasons, gen_context, d
             project={projName}
           />
         </div>
-        <button onClick={updateResponse}>Update Data</button>
         <div className={styles.column2}>
-          <Context items={context} setItems={setContext}/>
+          <Context items={context} setItems={setContext} context_lib={context_lib}/>
         </div>
         <div className={styles.column3}>
           <HypothesisList items={items}/>
@@ -108,6 +109,12 @@ const Home: NextPage = ({sigName, projName, description, reasons, gen_context, d
       context.data = getContextValue(context.title, project_object);
     }
 
+    // creates a library that holds the values of all context options
+    const context_lib: Record<string, any> = {};
+    options.forEach((option) => {
+      context_lib[option] = getContextValue(option, project_object);;
+    });
+
     return {props: {
       sigName: sigName,
       projName: projName,
@@ -117,5 +124,6 @@ const Home: NextPage = ({sigName, projName, description, reasons, gen_context, d
       detector: data.title,
       root_causes: root_causes,
       id: data._id.toString(),
+      context_lib: context_lib,
     }}
   };

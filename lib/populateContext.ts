@@ -57,5 +57,7 @@ export function getContextValue(title, OS_object) {
         let sprintLogPointsContext = populate_sprint_log_points(OS_object)
         let output = 'placeholder'
         return output;
+    } else {
+        return "placeholder";
     }
 }

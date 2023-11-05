@@ -1,25 +1,11 @@
 import React, { useState } from 'react';
 import styles from './DiagContext.module.css';
+import { options } from '../lib/context/options';
 
-const options = ["Sprint log-Total Points Commited This Sprint",
-                 "Sprint log-Total Points Spent This Sprint",
-                 "Sprint log-D T and R Points Breakdown",
-                 "Sprint log-Summary of Stories", 
-                 "Sprint log-Summary of Tasks", 
-                 "Sprint log-Last Edited (Under construction)",
-                 "Sprint log-Riskiest Risk Specified in Planning View (Under construction)",
-                 "Sprint log-Canvases Planned to Update This Week (Under construction)",
-                 "PRC-Specific Slides (Under construction)",
-                 "PRC-Time Last Edited (Under construction)",
-                 "PRC-Slides Updated in this sprint (Under construction)",
-                 "Github-Number of Lines Code Committed this sprint (Under construction)",
-                 "Github-Number of Branches Created this sprint (Under construction)",
-                 "Github-Summary of Commits made this sprint (Under construction)"]
-
-
-const Context: React.FC = ({items, setItems}) => {
+const Context: React.FC = ({items, setItems, context_lib}) => {
   const [popupOptions, setPopupOptions] = useState(options.filter(option => !items.some(item => item.title === option)));
   const [isPopupOpen, setPopupOpen] = useState(false);
+  console.log('context items', items)
 
   const openPopup = () => {
     setPopupOpen(true);
@@ -30,7 +16,7 @@ const Context: React.FC = ({items, setItems}) => {
   };
 
   const addOptionToContext = (option: any) => {
-    setItems([...items, {title: option, data: 'placeholder'}]);
+    setItems([...items, {title: option, data: context_lib[option]}]);
     setPopupOptions(popupOptions.filter((popOption) => popOption !== option));
   };
 
