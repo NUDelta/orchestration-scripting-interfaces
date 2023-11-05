@@ -5,9 +5,10 @@ interface SidebarProps {
   content: string;
   setContent: (content: string) => void;
   title: string;
+  project: string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ content, setContent, title }) => {
+const Sidebar: React.FC<SidebarProps> = ({ content, setContent, title, project}) => {
   const [problemContent, setProblemContent] = useState(
     'Students are significantly undercommitted in this sprint'
   );
@@ -21,7 +22,7 @@ const Sidebar: React.FC<SidebarProps> = ({ content, setContent, title }) => {
 
   return (
     <div>
-      <h1 className="text-xl font-bold mb-2">Your detector for {title} has been triggered.</h1>
+      <h1 className="text-xl font-bold mb-2">Your detector for {title} has been triggered for {project}.</h1>
       <h2 className="text-lg font-semibold mb-2">Detector Debrief</h2>
       <textarea
         className={styles.problem_textbox}

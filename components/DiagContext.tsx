@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import styles from './DiagContext.module.css';
 
-const options = ["Sprint log-Total Points Spent this Sprint",
-                 "Sprint log-Total Points Commited this Sprint",
+const options = ["Sprint log-Total Points Commited This Sprint",
+                 "Sprint log-Total Points Spent This Sprint",
+                 "Sprint log-D T and R Points Breakdown",
                  "Sprint log-Summary of Stories", 
                  "Sprint log-Summary of Tasks", 
-                 "Sprint log-Riskiest Risk specified in Planning View",
+                 "Sprint log-Last Edited (Under construction)",
+                 "Sprint log-Riskiest Risk Specified in Planning View (Under construction)",
+                 "Sprint log-Canvases Planned to Update This Week (Under construction)",
                  "PRC-Specific Slides (Under construction)",
-                 "PRC-Time Last Edited",
-                 "PRC-Slides Updated in this sprint",
-                 "Github-Number of Lines Code Committed this sprint",
-                 "Github-Number of Branches Created this sprint",
-                 "Github-Summary of Commits made this sprint"]
+                 "PRC-Time Last Edited (Under construction)",
+                 "PRC-Slides Updated in this sprint (Under construction)",
+                 "Github-Number of Lines Code Committed this sprint (Under construction)",
+                 "Github-Number of Branches Created this sprint (Under construction)",
+                 "Github-Summary of Commits made this sprint (Under construction)"]
 
 
 const Context: React.FC = ({items, setItems}) => {
-  console.log('context', items)
   const [popupOptions, setPopupOptions] = useState(options.filter(option => !items.some(item => item.title === option)));
   const [isPopupOpen, setPopupOpen] = useState(false);
 
@@ -38,7 +40,7 @@ const Context: React.FC = ({items, setItems}) => {
       <div className={styles.context_space}>
         {items.map((option, index) => (
           <div key={index} className="bg-blue-200 p-4 rounded-md mb-2">
-            {option.title}
+            {option.title}:  {option.data}
           </div>
         ))}
         <button

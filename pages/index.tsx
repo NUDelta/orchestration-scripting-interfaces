@@ -7,7 +7,6 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Sig } from '../components/dashboard/Sig'
 
-
 const SIGS = ["HAT","CE", "NOT", "CAMP", "RALE","BBQ"]
 
 export default function Home({tests, responses}) {
@@ -26,7 +25,7 @@ export default function Home({tests, responses}) {
         body: JSON.stringify({ title }),
       });
   
-      console.log('RES ', res)
+      // console.log('RES ', res)
       if (res.ok) {
         const { scriptId } = await res.json();
         console.log('ID:', scriptId)
@@ -64,7 +63,7 @@ export default function Home({tests, responses}) {
     });
 
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
   
     // Reset input fields and hide the pop-up
     setTitle('');
@@ -141,19 +140,19 @@ export const getServerSideProps = async () => {
       let tests = await connectMongo({find: "scripts"});
       tests.forEach((x) => delete x._id)
 
-      console.log('TEST ', tests)
+      // console.log('TEST ', tests)
 
       let responses = await connectMongo({find: "responses"});
       responses.forEach((x) => {
         x._id = x._id.toString()
 
       })
-      console.log("RESPONSES:", responses)
-  
+      // console.log("RESPONSES:", responses)
+
       return {
         props: {
           tests: tests,
-          responses: responses
+          responses: responses,
         },
       };
     } catch (error) {

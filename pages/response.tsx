@@ -4,25 +4,46 @@ import React, { useState, useEffect } from 'react';
 import { RootCauses } from '../components/response/RootCauses';
 import { GetServerSideProps } from 'next';
 import connectMongo from "../utils/connectMongo"
+import { getContextValue } from '../lib/populateContext'
 import { ObjectId } from 'mongodb'
 import styles from './diagnosis.module.css';
 import Sidebar from '../components/DiagSidebar';
 import Context from '../components/DiagContext';
 import HypothesisList from '../components/HypothesisList';
+import getComputedOrganizationalObjectsForProject from '../pages/api/test/get_OS_project_object.js';
 
-
-const Home: NextPage = ({description, reasons, gen_context, detector, root_causes, id}) => {
-
+const Home: NextPage = ({sigName, projName, description, reasons, gen_context, detector, root_causes, id}) => {
     const [items, setItems] = useState(root_causes);
     const [context, setContext] = useState(gen_context);
+
+    // const updateResponse = () => {
+    //   console.log('Updated general context for script in MongoDB')
+    //   fetch(`/api/test/update_response?_id=${id}&gen_context=${JSON.stringify(gen_context)}`)
+    // }
+
+    const updateResponse = async () => {
+      try {
+        const response = await fetch('/api/test/update_response', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ _id: id, gen_context: JSON.stringify(gen_context) }),
+        });
     
+        if (response.ok) {
+          console.log('General context updated successfully.');
+        } else {
+          console.error('Failed to update general context.');
+        }
+      } catch (error) {
+        console.error('Error updating general context:', error);
+      }
+    };
 
-    const updateResponse = () => {
-      let s = JSON.stringify(items)
-      fetch(`/api/test/update_response?_id=${id}&rcs=${s}`)
-    }
-
-    useEffect(() => {}, []);
+    useEffect(() => {
+      updateResponse();
+    }, []);
 
     const [problemContent, setProblemContent] = useState(
       description
@@ -35,8 +56,10 @@ const Home: NextPage = ({description, reasons, gen_context, detector, root_cause
             content={problemContent}
             setContent={setProblemContent}
             title={detector}
+            project={projName}
           />
         </div>
+        <button onClick={updateResponse}>Update Data</button>
         <div className={styles.column2}>
           <Context items={context} setItems={setContext}/>
         </div>
@@ -76,5 +99,23 @@ const Home: NextPage = ({description, reasons, gen_context, detector, root_cause
       triggers = [triggers]
     }
 
-    return {props: {description: description, reasons: triggers, gen_context: gen_context, detector: data.title, root_causes: root_causes, id: data._id.toString()}}
+    let sigName = data.sigName;
+    let projName = data.projName;
+
+    const project_object = await getComputedOrganizationalObjectsForProject(projName);
+
+    for (let context of gen_context) {
+      context.data = getContextValue(context.title, project_object);
+    }
+
+    return {props: {
+      sigName: sigName,
+      projName: projName,
+      description: description, 
+      reasons: triggers,
+      gen_context: gen_context,
+      detector: data.title,
+      root_causes: root_causes,
+      id: data._id.toString(),
+    }}
   };
