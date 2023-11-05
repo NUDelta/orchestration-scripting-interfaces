@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import Hypothesis from './Hypothesis';
 
 const HypothesisList: React.FC = ({items, hypos, setHypos}) => {
-  // const [hypotheses, setHypotheses] = useState([
-  //   { title: 'First Hunch', content: 'fill in your first hunch here!' },
-  // ]);
-
   const addHypothesis = () => {
     const newHypothesis = { title: 'Updated hypothesis', content: 'fill in your updated hypothesis' };
     setHypos([newHypothesis, ...hypos]);
@@ -15,6 +11,12 @@ const HypothesisList: React.FC = ({items, hypos, setHypos}) => {
     const newHypotheses = [...hypos];
     newHypotheses[index].content = content;
     setHypos(newHypotheses);
+  };
+
+  const deleteHypothesis = (index: number) => {
+    const newHypos = [...hypos];
+    newHypos.splice(index, 1); // Remove the hypothesis at the specified index
+    setHypos(newHypos);
   };
 
   const [popupVisible, setPopupVisible] = useState(false);
@@ -28,16 +30,22 @@ const HypothesisList: React.FC = ({items, hypos, setHypos}) => {
 
   return (
     <div className="p-2">
-      <button onClick={addHypothesis} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full float-right">
+      <button
+        onClick={addHypothesis}
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full absolute right-4"
+      >
         Add New Hypothesis
       </button>
-      {hypos.map((hypoData, index) => (
-        <Hypothesis
-          key={index}
-          hypoData={hypoData}
-          setHypoContent={(content) => updateHypothesis(index, content)}
-        />
-      ))}
+      <div className="mt-12">
+        {hypos.map((hypoData, index) => (
+          <Hypothesis
+            key={index}
+            hypoData={hypoData}
+            setHypoContent={(content) => updateHypothesis(index, content)}
+            onDelete={() => deleteHypothesis(index)}
+          />
+        ))}
+      </div>
       <button
         className={`fixed left-4 bottom-4 p-2 bg-blue-500 text-white rounded cursor-pointer ${
           popupVisible ? 'hidden' : ''

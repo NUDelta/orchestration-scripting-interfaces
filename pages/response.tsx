@@ -56,7 +56,7 @@ const Home: NextPage = ({sigName, projName, description, gen_context, detector, 
     return (
       <div className={styles.container}>
         <div className={styles.column1}>
-          <button onClick={updateResponse}>Save Page</button>
+          {/* <button onClick={updateResponse}>Save Page</button> */}
           <Sidebar
             content={problemContent}
             setContent={setProblemContent}
