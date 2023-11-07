@@ -11,6 +11,5 @@ export const Sig = ({name, responses}) => {
             {sig_responses.length > 0 ? sig_responses.map((res, i) => <><Link key={i} href={"/response?response=" + res._id}><u>Diagnosis Page for {res.title}-{res.sigName}</u></Link><br /></>)
             : <p>No active issues</p>}
         </div>
-        
     )
 }

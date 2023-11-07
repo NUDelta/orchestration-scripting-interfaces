@@ -32,19 +32,14 @@ export default function Home({tests, responses}) {
   };
 
   const responseData =   {
-    _id: '6470b363ebdef5956d06799f',
-    script: '646d409e20bdfd7af352b8ba',
-    triggers: [
-      'Sprint log Total Points Committed = 1',
-      'Sprint log Total Points Available = 16'
-    ],
-    gen_context: [],
-    title: 'Undercommitted',
-    sigName: 'CAMP',
-    rcs: [],
-    description: 'AYO is significantly undercommitted in this sprint',
-    projName: 'Q&A Buddy',
-    hypothesisList: []
+    script: '646d409e20bdfd7af352b8ba', //OS
+    gen_context: [], //from script + OS_object
+    title: 'Undercommitted', //from script
+    sigName: 'CAMP',  //from OS
+    rcs: [], //from script
+    description: 'AYO is significantly undercommitted in this sprint', //from script
+    projName: 'Q&A Buddy', //from OS
+    hypothesisList: [] //initialize to empty
   };
 
   async function createResponse(responseData) {
@@ -87,7 +82,7 @@ export default function Home({tests, responses}) {
   // ]
 
   useEffect(() => {
-    createResponse(responseData);
+    // createResponse(responseData);
   }, []);
 
   const handleScriptCardClick = async (title) => {
