@@ -15,6 +15,81 @@ export default function Home({tests, responses}) {
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
 
+  const fetchSigIssues = async () => {
+    try {
+      const apiUrl = `/api/fetchActiveIssuesForSig`;
+      const response = await fetch(apiUrl);
+
+      if (response.ok) {
+        const data = await response.json();
+        return data;
+      } else {
+        console.error(`Error fetching active issues for SIG: ${response.status}`);
+      }
+    } catch (error) {
+      console.error(`Error when fetching active issues for SIG: ${error}`);
+    }
+  };
+
+  const responseData =   {
+    _id: '6470b363ebdef5956d06799f',
+    script: '646d409e20bdfd7af352b8ba',
+    triggers: [
+      'Sprint log Total Points Committed = 1',
+      'Sprint log Total Points Available = 16'
+    ],
+    gen_context: [],
+    title: 'Undercommitted',
+    sigName: 'CAMP',
+    rcs: [],
+    description: 'AYO is significantly undercommitted in this sprint',
+    projName: 'Q&A Buddy',
+    hypothesisList: []
+  };
+
+  async function createResponse(responseData) {
+    try {
+      const res = await fetch('/api/test/create_response', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(responseData),
+      });
+    } catch (error) {
+      console.error(`Error when creating new response: ${error}`);
+    }
+  }
+
+  // api fetch [
+  //   {
+  //     _id: '653ba6545410fd0bc39fad3a',
+  //     script_id: '6549b9e45410fd0bc39fad26',
+  //     name: 'Support students in planning a Status Update for their project',
+  //     date_triggered: '2023-10-27T12:00:00.000Z',
+  //     expiry_time: '2023-11-03T12:00:00.000Z',
+  //     repeat: false,
+  //     issue_target: {
+  //       targetType: 'project',
+  //       name: 'Human-AI Tools for Concept Expression',
+  //       sig: 'Human-AI Tools',
+  //       sigHead: [Object],
+  //       students: [Array],
+  //       facultyMentor: [Object],
+  //       slackChannel: 'proj-human-ai-conception',
+  //       statusUpdateDate: '2023-11-03T17:00:00.000Z',
+  //       tools: [Object]
+  //     },
+  //     target_hash: '52132b5c5b8d7f4479bed12865b6f897c99f6568',
+  //     computed_strategies: [ [Object], [Object] ],
+  //     __v: 0
+  //   }
+  // ]
+
+  useEffect(() => {
+    createResponse(responseData);
+  }, []);
+
   const handleScriptCardClick = async (title) => {
     try {
       const res = await fetch('/api/scripts', {
@@ -145,9 +220,8 @@ export const getServerSideProps = async () => {
       let responses = await connectMongo({find: "responses"});
       responses.forEach((x) => {
         x._id = x._id.toString()
-
       })
-      // console.log("RESPONSES:", responses)
+      console.log("RESPONSES:", responses)
 
       return {
         props: {
