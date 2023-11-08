@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export function populate_sprint_log_points(OS_object) {
   let project = OS_object.project;
   // console.log('project', project)
@@ -17,6 +19,7 @@ export function populate_sprint_log_points(OS_object) {
     DSpent: totalPoints.hoursSpent.design,
     TSpent: totalPoints.hoursSpent.technology,
     RSpent: totalPoints.hoursSpent.research,
+    // PRC_link: project.tools.practicalResearchCanvas.url,
   };
 
   // Returns a list of student objects with extracted fields
@@ -101,6 +104,7 @@ export function populate_sprint_log_summary_of_stories(OS_object) {
 
 // Takes the title of a context piece and returns the value for it
 export function getContextValue(title, OS_object) {
+  console.log(OS_object.project.tools.researchCanvas.url);
   if (title == 'Sprint log-Total Points Spent This Sprint') {
     let sprintLogPointsContext = populate_sprint_log_points(OS_object);
     let output =
@@ -117,11 +121,14 @@ export function getContextValue(title, OS_object) {
     return output;
   } else if (title == 'Sprint log-D T and R Points Breakdown') {
     let sprintLogPointsContext = populate_sprint_log_points(OS_object);
-    let output = [
-      OS_object.DPointsRequired,
-      OS_object.TPointsRequired,
-      OS_object.RPointsRequired,
-    ];
+    // Extract the D, T, and R points breakdown
+    const DPointsCommitted = sprintLogPointsContext.totalObj.DCommitted;
+    const TPointsCommitted = sprintLogPointsContext.totalObj.TCommitted;
+    const RPointsCommitted = sprintLogPointsContext.totalObj.RCommitted;
+
+    // Format the breakdown as a string
+    const output = `Design Points: ${DPointsCommitted}, \nTechnology Points: ${TPointsCommitted}\n, Research Points: ${RPointsCommitted}`;
+
     return output;
   } else if (title == 'Sprint log-Summary of Stories') {
     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
@@ -139,10 +146,11 @@ export function getContextValue(title, OS_object) {
     } else {
       return output;
     }
-  } else if (title == 'Sprint log-PRC-link to PRC') {
-    return 'placeholder';
-    
+  } else if (title == 'PRC-link to PRC') {
+    let link = OS_object.project.tools.researchCanvas.url;
+
+    return link;
   } else {
     return 'No Match';
   }
- 
+}
