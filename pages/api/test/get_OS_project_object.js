@@ -15,7 +15,7 @@ async function getComputedOrganizationalObjectsForProject(projectName) {
       const data = await response.json();
       return data;
     } else {
-      throw new Error(`Failed to fetch data with ${process.env.API_URL}/organizationalObjects/getComputedOrganizationalObjectsForProject`);
+      throw new Error(`Failed to fetch data with ${process.env.API_URL}/organizationalObjects/getComputedOrganizationalObjectsForProject for ${projectName}`);
     }
   } catch (error) {
     console.error(error);
