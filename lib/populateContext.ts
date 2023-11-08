@@ -104,7 +104,6 @@ export function populate_sprint_log_summary_of_stories(OS_object) {
 
 // Takes the title of a context piece and returns the value for it
 export function getContextValue(title, OS_object) {
-  console.log(OS_object.project.tools.researchCanvas.url);
   if (title == 'Sprint log-Total Points Spent This Sprint') {
     let sprintLogPointsContext = populate_sprint_log_points(OS_object);
     let output =
@@ -132,15 +131,22 @@ export function getContextValue(title, OS_object) {
     return output;
   } else if (title == 'Sprint log-Summary of Stories') {
     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
-    let output = storiesObjs[0].description;
+    const output = storiesObjs.map((story) => story.description);
+    const format_output = output.join(', ');
+
     if (storiesObjs.length == 0) {
       return 'no stories planned';
     } else {
-      return output;
+      return format_output;
     }
   } else if (title == 'Sprint log-Summary of Tasks') {
     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
-    let output = storiesObjs[0].tasks[0].description;
+    console.log('HIIIIIIIIIII');
+    console.log(storiesObjs[0].tasks);
+    const output = storiesObjs.map((story) => {
+      const tasksWithDescriptions = story.tasks.map((task) => task.description);
+      return `${story.description}:\n${tasksWithDescriptions.join('\n')}`;
+    });
     if (storiesObjs.length == 0) {
       return 'no stories planned';
     } else {
