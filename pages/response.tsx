@@ -85,10 +85,11 @@ const Home: NextPage = ({sigName, projName, description, gen_context, detector, 
     let root_causes = []
     for (let i=0; i < data.rcs.length; i++) {
       let root_cause = data.rcs[i]
-      let context = root_cause.context
-      if (!Array.isArray(context)) {
-        context = [context]
-      }
+      let context = []
+      // let context = root_cause.context
+      // if (!Array.isArray(context)) {
+      //   context = [context]
+      // }
       root_causes.push({id: i, rc: root_cause.rc, context: context, strategy: root_cause.strategy, disabled: root_cause.disabled, checked: root_cause.checked})
     }
 

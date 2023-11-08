@@ -6,8 +6,9 @@ import Test from '../models/testModel';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Sig } from '../components/dashboard/Sig'
+import { sigNameOptions } from '../lib/sigProjNames'
 
-const SIGS = ["HAT","CE", "NOT", "CAMP", "RALE","BBQ"]
+// const SIGS = ["HAT", "NOT", "CAMP"]
 
 export default function Home({tests, responses}) {
   const [title, setTitle] = useState('');
@@ -198,7 +199,7 @@ export default function Home({tests, responses}) {
                   Address Your {' '}
                   <code className={styles.code}>Active Issues</code>
                 </p>        
-        {SIGS.map((sig) => <Sig key={sig} name={sig} responses={responses} />)}
+        {sigNameOptions.map((sig) => <Sig key={sig} name={sig} responses={responses} />)}
 
       </main>
     </div>

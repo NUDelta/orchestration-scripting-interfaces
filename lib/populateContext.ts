@@ -126,8 +126,11 @@ export function getContextValue(title, OS_object) {
     const RPointsCommitted = sprintLogPointsContext.totalObj.RCommitted;
 
     // Format the breakdown as a string
-    const output = `Design Points: ${DPointsCommitted}, \nTechnology Points: ${TPointsCommitted}\n, Research Points: ${RPointsCommitted}`;
-
+    const output = `
+        Design Points: ${DPointsCommitted},
+        Technology Points: ${TPointsCommitted},
+        Research Points: ${RPointsCommitted}
+        `;
     return output;
   } else if (title == 'Sprint log-Summary of Stories') {
     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
@@ -141,7 +144,6 @@ export function getContextValue(title, OS_object) {
     }
   } else if (title == 'Sprint log-Summary of Tasks') {
     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
-    console.log('HIIIIIIIIIII');
     console.log(storiesObjs[0].tasks);
     const output = storiesObjs.map((story) => {
       const tasksWithDescriptions = story.tasks.map((task) => task.description);
@@ -154,9 +156,17 @@ export function getContextValue(title, OS_object) {
     }
   } else if (title == 'PRC-link to PRC') {
     let link = OS_object.project.tools.researchCanvas.url;
-
     return link;
-  } else {
+  }  else if (title == 'PRC-Time Last Edited'){
+    return 'Oct 20, 2023, 19 days ago'
+  } else if (title == 'PRC-Slides Updated in this sprint'){
+    return 'No slides updated this sprint'
+  } else if (title == 'Sprint log-Riskiest Risk Specified in Planning View') {
+    return 'we want to understand what affordances our system gives users. our riskiest risk is affinder. In particular having enough comprehension with it to drive desired behaviour.'
+  } else if (title == 'Sprint log-Canvases Planned to Update Last Week') {
+    return 'Interface Argument'
+  }
+  else {
     return 'No Match';
   }
 }

@@ -2,7 +2,7 @@ export const sigNameOptions = [
     'Human-AI Tools',
     'Networked Orchestration Technologies',
     'Contextually-Aware Metacognitive Practice',
-    'All SIGs'
+    // 'All SIGs'
 ]
 
 export const projNameOptions = [
