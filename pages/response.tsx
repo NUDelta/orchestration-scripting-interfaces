@@ -149,4 +149,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       canvasState: canvasState,
     }}
   };
-};
