@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import React from 'react';
 
-export const Sig = ({name, responses}) => {
+export const Sig = React.memo(({name, responses}) => {
 
     let sig_responses = responses.filter((x) => x.sigName === name)
 
@@ -22,4 +23,4 @@ export const Sig = ({name, responses}) => {
             : <p>No active issues</p>}
         </div>
     )
-}
+})

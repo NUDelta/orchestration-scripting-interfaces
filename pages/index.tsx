@@ -10,11 +10,12 @@ import { sigNameOptions } from '../lib/sigProjNames'
 
 // const SIGS = ["HAT", "NOT", "CAMP"]
 
-export default function Home({tests, responses}) {
+const Home: React.FC<{ tests: any; responses: any }> = ({ tests, responses }) => {
   const [title, setTitle] = useState('');
   const [sigName, setSigName] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
+  console.log("Dashboard is rendered!")
 
   const fetchSigIssues = async () => {
     try {
@@ -82,10 +83,6 @@ export default function Home({tests, responses}) {
   //   }
   // ]
 
-  useEffect(() => {
-    // createResponse(responseData);
-  }, []);
-
   const handleScriptCardClick = async (title) => {
     try {
       const res = await fetch('/api/scripts', {
@@ -95,8 +92,6 @@ export default function Home({tests, responses}) {
         },
         body: JSON.stringify({ title }),
       });
-  
-      // console.log('RES ', res)
       if (res.ok) {
         const { scriptId } = await res.json();
         console.log('ID:', scriptId)
@@ -134,8 +129,7 @@ export default function Home({tests, responses}) {
     });
 
     const data = await res.json();
-    // console.log(data);
-  
+
     // Reset input fields and hide the pop-up
     setTitle('');
     setSigName('');
@@ -205,6 +199,11 @@ export default function Home({tests, responses}) {
     </div>
   );
 }
+
+// const MemoizedHome = React.memo(Home);
+
+export default Home;
+
 export const getServerSideProps = async () => {
     try {
       console.log('CONNECTING TO MONGO');
@@ -217,7 +216,7 @@ export const getServerSideProps = async () => {
       responses.forEach((x) => {
         x._id = x._id.toString()
       })
-      console.log("RESPONSES:", responses)
+      // console.log("RESPONSES:", responses)
 
       return {
         props: {

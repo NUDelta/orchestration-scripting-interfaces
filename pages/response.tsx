@@ -13,7 +13,7 @@ import Context from '../components/DiagContext';
 import HypothesisList from '../components/HypothesisList';
 import getComputedOrganizationalObjectsForProject from '../pages/api/test/get_OS_project_object.js';
 
-const Home: NextPage = ({sigName, projName, description, gen_context, detector, root_causes, id, context_lib, hypothesisList}) => {
+const Response: NextPage = ({sigName, projName, description, gen_context, detector, root_causes, id, context_lib, hypothesisList, canvasState}) => {
     const [items, setItems] = useState(root_causes);
     const [problemContent, setProblemContent] = useState(
       description
@@ -21,10 +21,7 @@ const Home: NextPage = ({sigName, projName, description, gen_context, detector, 
     const [context, setContext] = useState(gen_context);
     const defaultHypothesis = { title: 'First Hunch', content: 'fill in your first hunch here!' };
     const [hypos, setHypos] = useState(hypothesisList || [defaultHypothesis]);
-    // const updateResponse = () => {
-    //   console.log('Updated general context for script in MongoDB')
-    //   fetch(`/api/test/update_response?_id=${id}&gen_context=${JSON.stringify(gen_context)}`)
-    // }
+    const [canvas, setCanvas] = useState(canvasState || []);
 
     const updateResponse = async (desc) => {
       try {
@@ -36,7 +33,8 @@ const Home: NextPage = ({sigName, projName, description, gen_context, detector, 
           body: JSON.stringify({ _id: id, 
                                  gen_context: JSON.stringify(context), 
                                  hypothesisList: JSON.stringify(hypos),
-                                 description: desc}),
+                                 description: desc,
+                                 p5Canvas: JSON.stringify(canvas)}),
         });
     
         if (response.ok) {
@@ -51,7 +49,7 @@ const Home: NextPage = ({sigName, projName, description, gen_context, detector, 
 
     useEffect(() => {
       updateResponse(problemContent);
-    }, [context, hypos, problemContent]);
+    }, [context, hypos, problemContent, canvas]);
   
     return (
       <div className={styles.container}>
@@ -65,7 +63,7 @@ const Home: NextPage = ({sigName, projName, description, gen_context, detector, 
           />
         </div>
         <div className={styles.column2}>
-          <Context items={context} setItems={setContext} context_lib={context_lib}/>
+          <Context items={context} setItems={setContext} context_lib={context_lib} canvas={canvas} setCanvas={setCanvas}/>
         </div>
         <div className={styles.column3}>
           <HypothesisList items={items} hypos={hypos} setHypos={setHypos}/>
@@ -74,7 +72,7 @@ const Home: NextPage = ({sigName, projName, description, gen_context, detector, 
     );
   };
   
-  export default Home;
+  export default React.memo(Response);
 
   export const getServerSideProps: GetServerSideProps = async (context) => {
     let response_id = context.query?.response
@@ -121,6 +119,8 @@ const Home: NextPage = ({sigName, projName, description, gen_context, detector, 
 
     let hypothesisList = data.hypothesisList
 
+    let canvasState = data.p5Canvas
+
     return {props: {
       sigName: sigName,
       projName: projName,
@@ -131,5 +131,6 @@ const Home: NextPage = ({sigName, projName, description, gen_context, detector, 
       id: data._id.toString(),
       context_lib: context_lib,
       hypothesisList: hypothesisList,
+      canvasState: canvasState,
     }}
   };
