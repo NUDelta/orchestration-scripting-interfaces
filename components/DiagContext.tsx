@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback} from 'react';
 import styles from './DiagContext.module.css';
 import { options } from '../lib/context/options';
+import P5Canvas from './diagnosis/P5Canvas';
 
-const Context: React.FC = ({ items, setItems, context_lib }) => {
+const Context: React.FC = React.memo(({ items, setItems, context_lib, canvas, setCanvas}) => {
   const [popupOptions, setPopupOptions] = useState(
     options.filter((option) => !items.some((item) => item.title === option))
   );
+
   const [isPopupOpen, setPopupOpen] = useState(false);
 
   const openPopup = () => {
@@ -29,10 +31,14 @@ const Context: React.FC = ({ items, setItems, context_lib }) => {
     setPopupOptions([...popupOptions, removedItem.title]); // Add the removed item back to popupOptions
   };
 
+  const test = ['Sprint log-Total Points Commited This Sprint', 'PRC-link to PRC']
+
   return (
     <div className={styles.container}>
       <h2 className="text-lg font-semibold mb-2">Context</h2>
-      <div className={styles.context_space}>
+      <P5Canvas context={test} canvas={canvas} setCanvas={setCanvas}/>
+      
+      {/* <div className={styles.context_space}>
         {items.map((option, index) => (
           <div
             key={index}
@@ -81,9 +87,9 @@ const Context: React.FC = ({ items, setItems, context_lib }) => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
-};
+});
 
 export default Context;

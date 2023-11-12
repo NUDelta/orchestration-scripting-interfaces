@@ -13,128 +13,66 @@ import Context from '../components/DiagContext';
 import HypothesisList from '../components/HypothesisList';
 import getComputedOrganizationalObjectsForProject from '../pages/api/test/get_OS_project_object.js';
 
-const Home: NextPage = ({
-  sigName,
-  projName,
-  description,
-  gen_context,
-  detector,
-  root_causes,
-  id,
-  context_lib,
-  hypothesisList,
-}) => {
-  const [items, setItems] = useState(root_causes);
-  const [problemContent, setProblemContent] = useState(description);
-  const [context, setContext] = useState(gen_context);
-  const defaultHypothesis = {
-    title: 'First Hunch',
-    content: 'fill in your first hunch here!',
-  };
-  const [hypos, setHypos] = useState(hypothesisList || [defaultHypothesis]);
-  // const updateResponse = () => {
-  //   console.log('Updated general context for script in MongoDB')
-  //   fetch(`/api/test/update_response?_id=${id}&gen_context=${JSON.stringify(gen_context)}`)
-  // }
+const Response: NextPage = ({sigName, projName, description, gen_context, detector, root_causes, id, context_lib, hypothesisList, canvasState}) => {
+    const [items, setItems] = useState(root_causes);
+    const [problemContent, setProblemContent] = useState(
+      description
+    );
+    const [context, setContext] = useState(gen_context);
+    const defaultHypothesis = { title: 'First Hunch', content: 'fill in your first hunch here!' };
+    const [hypos, setHypos] = useState(hypothesisList || [defaultHypothesis]);
+    const [canvas, setCanvas] = useState(canvasState || []);
 
-  const updateResponse = async (desc) => {
-    try {
-      const response = await fetch('/api/test/update_response', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          _id: id,
-          gen_context: JSON.stringify(context),
-          hypothesisList: JSON.stringify(hypos),
-          description: desc,
-        }),
-      });
-
-      if (response.ok) {
-        console.log('Database updated successfully.');
-      } else {
-        console.error('Failed to update Database.');
+    const updateResponse = async (desc) => {
+      try {
+        const response = await fetch('/api/test/update_response', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ _id: id, 
+                                 gen_context: JSON.stringify(context), 
+                                 hypothesisList: JSON.stringify(hypos),
+                                 description: desc,
+                                 p5Canvas: JSON.stringify(canvas)}),
+        });
+    
+        if (response.ok) {
+          console.log('Database updated successfully.');
+        } else {
+          console.error('Failed to update Database.');
+        }
+      } catch (error) {
+        console.error('Error updating Database:', error);
       }
-    } catch (error) {
-      console.error('Error updating Database:', error);
-    }
+    };
+
+    useEffect(() => {
+      updateResponse(problemContent);
+    }, [context, hypos, problemContent, canvas]);
+  
+    return (
+      <div className={styles.container}>
+        <div className={styles.column1}>
+          {/* <button onClick={updateResponse}>Save Page</button> */}
+          <Sidebar
+            content={problemContent}
+            setContent={setProblemContent}
+            title={detector}
+            project={projName}
+          />
+        </div>
+        <div className={styles.column2}>
+          <Context items={context} setItems={setContext} context_lib={context_lib} canvas={canvas} setCanvas={setCanvas}/>
+        </div>
+        <div className={styles.column3}>
+          <HypothesisList items={items} hypos={hypos} setHypos={setHypos}/>
+        </div>
+      </div>
+    );
   };
-
-  // First get RC - list from Script, then update Response's RC list using it
-  // const GetScriptByTitle = async () => {
-  //   let title = 'Undercommitted';
-  //   const res = await fetch('/api/scripts', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({ title }),
-  //   });
-
-  //   if (res.ok) {
-  //     const { script } = await res.json();
-  //     console.log(script);
-  //     let script_root_cause_list = script.RC_C_S;
-  //     console.log(script_root_cause_list);
-  //   } else {
-  //     console.log('Script not found');
-  //   }
-  // };
-  // GetScriptByTitle();
-
-  const getScriptByTitle = async () => {
-    let title = 'Undercommitted';
-    const res = await fetch('/api/scripts', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ title }),
-    });
-    console.log('RESPONSE FETCHED RES', res);
-    if (res.ok) {
-      const { scriptId } = await res.json();
-      console.log('RESPONSE FETCHED ID:', scriptId);
-      let script_root_cause_list = scriptId.RC_C_S;
-      console.log(script_root_cause_list);
-    } else {
-      console.log('Script not found');
-    }
-  };
-  getScriptByTitle();
-
-  useEffect(() => {
-    updateResponse(problemContent);
-  }, []);
-
-  return (
-    <div className={styles.container}>
-      <div className={styles.column1}>
-        {/* <button onClick={updateResponse}>Save Page</button> */}
-        <Sidebar
-          content={problemContent}
-          setContent={setProblemContent}
-          title={detector}
-          project={projName}
-        />
-      </div>
-      <div className={styles.column2}>
-        <Context
-          items={context}
-          setItems={setContext}
-          context_lib={context_lib}
-        />
-      </div>
-      <div className={styles.column3}>
-        <HypothesisList items={items} hypos={hypos} setHypos={setHypos} />
-      </div>
-    </div>
-  );
-};
-
-export default Home;
+  
+  export default React.memo(Response);
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let response_id = context.query?.response;
@@ -193,7 +131,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     context_lib[option] = getContextValue(option, project_object);
   });
 
-  let hypothesisList = data.hypothesisList;
+    let hypothesisList = data.hypothesisList
+
+    let canvasState = data.p5Canvas
 
   return {
     props: {
@@ -206,6 +146,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       id: data._id.toString(),
       context_lib: context_lib,
       hypothesisList: hypothesisList,
-    },
+      canvasState: canvasState,
+    }}
   };
 };

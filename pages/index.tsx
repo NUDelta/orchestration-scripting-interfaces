@@ -10,11 +10,16 @@ import { sigNameOptions } from '../lib/sigProjNames';
 
 // const SIGS = ["HAT", "NOT", "CAMP"]
 
+<<<<<<< HEAD
 export default function Home({ tests, responses }) {
+=======
+const Home: React.FC<{ tests: any; responses: any }> = ({ tests, responses }) => {
+>>>>>>> 94f091c212e66ad8993051295d96a20667f64c72
   const [title, setTitle] = useState('');
   const [sigName, setSigName] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
+  console.log("Dashboard is rendered!")
 
   const fetchSigIssues = async () => {
     try {
@@ -84,11 +89,14 @@ export default function Home({ tests, responses }) {
   //   }
   // ]
 
+<<<<<<< HEAD
   // useEffect(() => {
   //   // createResponse(responseData);
   // }, []);
 
   // Get Script_ID to generate href link to Authoring Page
+=======
+>>>>>>> 94f091c212e66ad8993051295d96a20667f64c72
   const handleScriptCardClick = async (title) => {
     try {
       console.log(title);
@@ -99,8 +107,11 @@ export default function Home({ tests, responses }) {
         },
         body: JSON.stringify({ title }),
       });
+<<<<<<< HEAD
 
       // console.log('RES ', res)
+=======
+>>>>>>> 94f091c212e66ad8993051295d96a20667f64c72
       if (res.ok) {
         const { scriptId } = await res.json();
         console.log('ID:', scriptId._id);
@@ -140,7 +151,10 @@ export default function Home({ tests, responses }) {
     });
 
     const data = await res.json();
+<<<<<<< HEAD
     // console.log(data);
+=======
+>>>>>>> 94f091c212e66ad8993051295d96a20667f64c72
 
     // Reset input fields and hide the pop-up
     setTitle('');
@@ -217,6 +231,11 @@ export default function Home({ tests, responses }) {
     </div>
   );
 }
+
+// const MemoizedHome = React.memo(Home);
+
+export default Home;
+
 export const getServerSideProps = async () => {
   try {
     console.log('CONNECTING TO MONGO');
@@ -225,11 +244,19 @@ export const getServerSideProps = async () => {
 
     // console.log('TEST ', tests)
 
+<<<<<<< HEAD
     let responses = await connectMongo({ find: 'responses' });
     responses.forEach((x) => {
       x._id = x._id.toString();
     });
     console.log('RESPONSES:', responses);
+=======
+      let responses = await connectMongo({find: "responses"});
+      responses.forEach((x) => {
+        x._id = x._id.toString()
+      })
+      // console.log("RESPONSES:", responses)
+>>>>>>> 94f091c212e66ad8993051295d96a20667f64c72
 
     return {
       props: {

@@ -25,11 +25,11 @@ export default async function connect(command) {
 
   if (command.insert){
     response = output.ok
-    console.log('CONNECT INSERT COMMAND')
+    // console.log('CONNECT INSERT COMMAND')
   } else if (command.findAndModify) {
     response = output?.value
-    console.log('CONNECT findAndModify COMMAND')
-    console.log('MODIFIED: ', response)
+    // console.log('CONNECT findAndModify COMMAND')
+    // console.log('MODIFIED: ', response)
   }
    else if (command.find || command.filter) {
     response = output?.cursor.firstBatch
