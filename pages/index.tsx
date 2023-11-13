@@ -10,11 +10,7 @@ import { sigNameOptions } from '../lib/sigProjNames';
 
 // const SIGS = ["HAT", "NOT", "CAMP"]
 
-<<<<<<< HEAD
-export default function Home({ tests, responses }) {
-=======
 const Home: React.FC<{ tests: any; responses: any }> = ({ tests, responses }) => {
->>>>>>> 94f091c212e66ad8993051295d96a20667f64c72
   const [title, setTitle] = useState('');
   const [sigName, setSigName] = useState('');
   const [showPopup, setShowPopup] = useState(false);
@@ -89,14 +85,11 @@ const Home: React.FC<{ tests: any; responses: any }> = ({ tests, responses }) =>
   //   }
   // ]
 
-<<<<<<< HEAD
   // useEffect(() => {
   //   // createResponse(responseData);
   // }, []);
 
   // Get Script_ID to generate href link to Authoring Page
-=======
->>>>>>> 94f091c212e66ad8993051295d96a20667f64c72
   const handleScriptCardClick = async (title) => {
     try {
       console.log(title);
@@ -107,11 +100,6 @@ const Home: React.FC<{ tests: any; responses: any }> = ({ tests, responses }) =>
         },
         body: JSON.stringify({ title }),
       });
-<<<<<<< HEAD
-
-      // console.log('RES ', res)
-=======
->>>>>>> 94f091c212e66ad8993051295d96a20667f64c72
       if (res.ok) {
         const { scriptId } = await res.json();
         console.log('ID:', scriptId._id);
@@ -151,7 +139,6 @@ const Home: React.FC<{ tests: any; responses: any }> = ({ tests, responses }) =>
     });
 
     const data = await res.json();
-    // console.log(data);
 
     // Reset input fields and hide the pop-up
     setTitle('');
@@ -228,9 +215,6 @@ const Home: React.FC<{ tests: any; responses: any }> = ({ tests, responses }) =>
     </div>
   );
 }
-
-// const MemoizedHome = React.memo(Home);
-
 export default Home;
 
 export const getServerSideProps = async () => {

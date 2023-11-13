@@ -4,12 +4,15 @@ const P5Canvas: React.FC<any> = ({ context, canvas, setCanvas}) => {
   const canvasRef = useRef(null);
   const elementWidth = 250;
   const elementHeight = 80;
+  console.log('context', context)
 
   const elements = context.map((element, index) => ({
     type: element,
-    x: canvas.find((item) => item.type === element)?.xPos || 50,
-    y: canvas.find((item) => item.type === element)?.yPos || 50,
+    x: canvas.find((item) => item.type === element.title)?.xPos || 50,
+    y: canvas.find((item) => item.type === element.title)?.yPos || 50,
   }));
+
+  console.log('elements', elements)
 
   let draggingElementIndex = -1;
   let offsetX = 0;
