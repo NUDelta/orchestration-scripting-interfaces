@@ -151,10 +151,7 @@ const Home: React.FC<{ tests: any; responses: any }> = ({ tests, responses }) =>
     });
 
     const data = await res.json();
-<<<<<<< HEAD
     // console.log(data);
-=======
->>>>>>> 94f091c212e66ad8993051295d96a20667f64c72
 
     // Reset input fields and hide the pop-up
     setTitle('');
@@ -244,19 +241,11 @@ export const getServerSideProps = async () => {
 
     // console.log('TEST ', tests)
 
-<<<<<<< HEAD
-    let responses = await connectMongo({ find: 'responses' });
+    let responses = await connectMongo({find: "responses"});
     responses.forEach((x) => {
-      x._id = x._id.toString();
-    });
-    console.log('RESPONSES:', responses);
-=======
-      let responses = await connectMongo({find: "responses"});
-      responses.forEach((x) => {
-        x._id = x._id.toString()
-      })
-      // console.log("RESPONSES:", responses)
->>>>>>> 94f091c212e66ad8993051295d96a20667f64c72
+      x._id = x._id.toString()
+    })
+    // console.log("RESPONSES:", responses)
 
     return {
       props: {
