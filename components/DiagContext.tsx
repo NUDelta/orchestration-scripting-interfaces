@@ -36,7 +36,42 @@ const Context: React.FC = React.memo(({ items, setItems, context_lib, canvas, se
   return (
     <div className={styles.container}>
       <h2 className="text-lg font-semibold mb-2">Context</h2>
-      <P5Canvas context={test} canvas={canvas} setCanvas={setCanvas}/>
+      <div className={styles.context_space}>
+      <P5Canvas context={items} canvas={canvas} setCanvas={setCanvas}/>
+        <button
+            className="bg-blue-500 text-white p-2 rounded-md absolute bottom-4 right-4"
+            onClick={openPopup}
+          >
+            Add Context
+        </button>
+      </div>
+      {isPopupOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-4 rounded-md">
+            <h3 className="text-lg font-semibold mb-2">
+              Select an option to add
+            </h3>
+            <ul>
+              {popupOptions.map((option, index) => (
+                <li key={index} className="mb-2">
+                  <button
+                    className="bg-blue-500 text-white p-2 rounded-md"
+                    onClick={() => addOptionToContext(option)}
+                  >
+                    {option}
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <button
+              className="bg-red-500 text-white p-2 rounded-md mt-4"
+              onClick={closePopup}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
       
       {/* <div className={styles.context_space}>
         {items.map((option, index) => (

@@ -93,7 +93,7 @@ const P5Canvas: React.FC<any> = ({ context, canvas, setCanvas}) => {
     });
   }, []);
 
-  return <div id="p5canvas" ref={canvasRef} style={{ width: '100%', height: '95%' }}/>;
+  return <div id="p5canvas" ref={canvasRef} style={{ width: '100%', height: '100%' }}/>;
 };
 
 export default P5Canvas;
