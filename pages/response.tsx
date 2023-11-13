@@ -23,20 +23,22 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
     const [hypos, setHypos] = useState(hypothesisList || [defaultHypothesis]);
     const [canvas, setCanvas] = useState(canvasState || []);
 
-    const updateResponse = async (desc) => {
+    const updateResponse = async (desc, rclist) => {
       try {
         const response = await fetch('/api/test/update_response', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ _id: id, 
-                                 gen_context: JSON.stringify(context), 
-                                 hypothesisList: JSON.stringify(hypos),
-                                 description: desc,
-                                 p5Canvas: JSON.stringify(canvas)}),
+          body: JSON.stringify({
+            _id: id,
+            gen_context: JSON.stringify(context),
+            hypothesisList: JSON.stringify(hypos),
+            description: desc,
+            p5Canvas: JSON.stringify(canvas),
+            rcs: JSON.stringify(rclist),
+          }),
         });
-    
         if (response.ok) {
           console.log('Database updated successfully.');
         } else {
@@ -46,9 +48,26 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
         console.error('Error updating Database:', error);
       }
     };
+    const getScriptByTitle = async () => {
+      let title = 'Undercommitted';
+      const res = await fetch('/api/scripts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title }),
+      });
+      console.log('RESPONSE FETCHED RES', res);
+      if (res.ok) {
+        const { scriptId } = await res.json();
+        let script_root_cause_list = scriptId.RC_C_S;
+        return script_root_cause_list;
+      } else {
+        console.log('Script not found');
+      }
+    };
+    let rc_list = getScriptByTitle();
 
     useEffect(() => {
-      updateResponse(problemContent);
+      updateResponse(problemContent, rc_list);
     }, [context, hypos, problemContent, canvas]);
   
     return (
@@ -119,8 +138,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     projName
   );
 
-  console.log(project_object);
-
   for (let context of gen_context) {
     context.data = getContextValue(context.title, project_object);
   }
@@ -131,9 +148,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     context_lib[option] = getContextValue(option, project_object);
   });
 
-    let hypothesisList = data.hypothesisList
+  let hypothesisList = data.hypothesisList
 
-    let canvasState = data.p5Canvas
+  let canvasState: { type: string; xPos: number; yPos: number }[] = [];
+  // if canvas isn't initialized properly in DB or canvas is [], use context to initialize it
+  if (!Array.isArray(data.p5Canvas) || data.p5Canvas.length == 0) {
+    gen_context.forEach((context) => {
+      canvasState.push({ type: context.title, xPos: 50, yPos: 50 });
+    });
+  } else {
+    canvasState = data.p5Canvas
+  }
+
+  // let canvasState = data.p5Canvas;
+  console.log('canvasState', canvasState)
 
   return {
     props: {

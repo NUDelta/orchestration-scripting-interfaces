@@ -4,10 +4,9 @@ const P5Canvas: React.FC<any> = ({ context, canvas, setCanvas}) => {
   const canvasRef = useRef(null);
   const elementWidth = 250;
   const elementHeight = 80;
-  console.log('context', context)
 
   const elements = context.map((element, index) => ({
-    type: element,
+    type: element.title,
     x: canvas.find((item) => item.type === element.title)?.xPos || 50,
     y: canvas.find((item) => item.type === element.title)?.yPos || 50,
   }));
@@ -26,7 +25,6 @@ const P5Canvas: React.FC<any> = ({ context, canvas, setCanvas}) => {
                 const parentWidth = canvasRef.current.offsetWidth;
                 const parentHeight = canvasRef.current.offsetHeight;
                 p.createCanvas(parentWidth, parentHeight).parent(canvasRef.current);
-                console.log('P5 canvas created...');
               }
           };
   
@@ -35,6 +33,8 @@ const P5Canvas: React.FC<any> = ({ context, canvas, setCanvas}) => {
             elements.forEach((element, index) => {
                 p.fill(0, 0, 255);
                 p.rect(element.x, element.y, elementWidth, elementHeight);
+                p.fill(0);
+                p.text(element.type, element.x, element.y);
               });
           };
 
@@ -69,6 +69,8 @@ const P5Canvas: React.FC<any> = ({ context, canvas, setCanvas}) => {
                 // Update the position of the dragging element
                 elements[draggingElementIndex].x = p.mouseX - offsetX;
                 elements[draggingElementIndex].y = p.mouseY - offsetY;
+                console.log('elements[draggingElementIndex]', elements[draggingElementIndex])
+                console.log('canvas', canvas)
       
                 // Update the canvasState with the new positions
                 const updatedCanvasState = canvas.map((item) => {
@@ -86,6 +88,7 @@ const P5Canvas: React.FC<any> = ({ context, canvas, setCanvas}) => {
                 // Set the updated canvasState
                 console.log('updated canvasState', updatedCanvasState)
                 setCanvas(updatedCanvasState);
+                console.log('updated canvas', canvas)
               }
             // Stop dragging when the mouse is released
             draggingElementIndex = -1;

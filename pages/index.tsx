@@ -15,7 +15,6 @@ const Home: React.FC<{ tests: any; responses: any }> = ({ tests, responses }) =>
   const [sigName, setSigName] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
-  console.log("Dashboard is rendered!")
 
   const fetchSigIssues = async () => {
     try {
@@ -44,6 +43,7 @@ const Home: React.FC<{ tests: any; responses: any }> = ({ tests, responses }) =>
     description: 'AYO is significantly undercommitted in this sprint', //from script
     projName: 'Q&A Buddy', //from OS
     hypothesisList: [], //initialize to empty
+    p5Canvas: []
   };
 
   async function createResponse(responseData) {
@@ -92,7 +92,6 @@ const Home: React.FC<{ tests: any; responses: any }> = ({ tests, responses }) =>
   // Get Script_ID to generate href link to Authoring Page
   const handleScriptCardClick = async (title) => {
     try {
-      console.log(title);
       const res = await fetch('/api/scripts', {
         method: 'POST',
         headers: {
@@ -102,7 +101,6 @@ const Home: React.FC<{ tests: any; responses: any }> = ({ tests, responses }) =>
       });
       if (res.ok) {
         const { scriptId } = await res.json();
-        console.log('ID:', scriptId._id);
         router.push(`/scripts/${scriptId._id}`);
       } else {
         console.log('Script not found');
