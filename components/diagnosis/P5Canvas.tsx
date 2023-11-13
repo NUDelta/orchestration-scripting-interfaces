@@ -11,8 +11,6 @@ const P5Canvas: React.FC<any> = ({ context, canvas, setCanvas}) => {
     y: canvas.find((item) => item.type === element.title)?.yPos || 50,
   }));
 
-  console.log('elements', elements)
-
   let draggingElementIndex = -1;
   let offsetX = 0;
   let offsetY = 0;
@@ -69,12 +67,11 @@ const P5Canvas: React.FC<any> = ({ context, canvas, setCanvas}) => {
                 // Update the position of the dragging element
                 elements[draggingElementIndex].x = p.mouseX - offsetX;
                 elements[draggingElementIndex].y = p.mouseY - offsetY;
-                console.log('elements[draggingElementIndex]', elements[draggingElementIndex])
-                console.log('canvas', canvas)
       
                 // Update the canvasState with the new positions
                 const updatedCanvasState = canvas.map((item) => {
                   if (item.type === elements[draggingElementIndex].type) {
+                    console.log('updating for', item.type)
                     return {
                       type: item.type,
                       xPos: elements[draggingElementIndex].x,
@@ -86,9 +83,8 @@ const P5Canvas: React.FC<any> = ({ context, canvas, setCanvas}) => {
                 });
       
                 // Set the updated canvasState
-                console.log('updated canvasState', updatedCanvasState)
                 setCanvas(updatedCanvasState);
-                console.log('updated canvas', canvas)
+                canvas = updatedCanvasState;
               }
             // Stop dragging when the mouse is released
             draggingElementIndex = -1;
