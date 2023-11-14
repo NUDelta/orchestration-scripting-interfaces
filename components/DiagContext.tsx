@@ -19,8 +19,10 @@ const Context: React.FC = React.memo(({ items, setItems, context_lib, canvas, se
   };
 
   const addOptionToContext = (option: any) => {
-    setItems([...items, { title: option, data: context_lib[option] }]);
+    const newItem = { title: option, data: context_lib[option] };
+    setItems([...items, newItem]);
     setPopupOptions(popupOptions.filter((popOption) => popOption !== option));
+    setCanvas([...canvas, { type: newItem.title, xPos: 50, yPos: 50 }]);
   };
 
   const removeItem = (index) => {
@@ -36,8 +38,8 @@ const Context: React.FC = React.memo(({ items, setItems, context_lib, canvas, se
   return (
     <div className={styles.container}>
       <h2 className="text-lg font-semibold mb-2">Context</h2>
-      <div className={styles.context_space}>
-      <P5Canvas context={items} canvas={canvas} setCanvas={setCanvas}/>
+      {/* <div className={styles.context_space}> */}
+      {/* <P5Canvas context={items} canvas={canvas} setCanvas={setCanvas}/>
         <button
             className="bg-blue-500 text-white p-2 rounded-md absolute bottom-4 right-4"
             onClick={openPopup}
@@ -72,13 +74,14 @@ const Context: React.FC = React.memo(({ items, setItems, context_lib, canvas, se
           </div>
         </div>
       )}
-      
-      {/* <div className={styles.context_space}>
+       */}
+      <div className={styles.context_space} style={{ whiteSpace: 'pre-line'}}>
+        < div className={styles.context_scrollable} style={{whiteSpace: 'pre-line', overflowY: 'auto'}}>
         {items.map((option, index) => (
           <div
             key={index}
             className="bg-blue-200 p-4 rounded-md mb-2"
-            style={{ display: 'flex', justifyContent: 'space-between' }}
+            style={{ display: 'flex', justifyContent: 'space-between', paddingLeft: '1em'}}
           >
             {option.title}: {option.data}
             <button
@@ -89,6 +92,7 @@ const Context: React.FC = React.memo(({ items, setItems, context_lib, canvas, se
             </button>
           </div>
         ))}
+        </div>
         <button
           className="bg-blue-500 text-white p-2 rounded-md absolute bottom-4 right-4"
           onClick={openPopup}
@@ -122,8 +126,9 @@ const Context: React.FC = React.memo(({ items, setItems, context_lib, canvas, se
             </button>
           </div>
         </div>
-      )} */}
+      )}
     </div>
+    // </div>
   );
 });
 

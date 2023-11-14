@@ -62,11 +62,11 @@ const HypothesisList: React.FC = ({items, hypos, setHypos}) => {
             {items.map((item, index) => (
               <li key={index}>
                 <p><strong>{item.rc}</strong></p>
-                <ul>
+                {/* <ul>
                   {item.context.map((ctx, i) => (
                     <li key={i}><strong>Context:</strong> {ctx.title}</li>
                   ))}
-                </ul>
+                </ul> */}
                 <p><strong>Strategy:</strong> {item.strategy}</p>
                 <br></br>
               </li>

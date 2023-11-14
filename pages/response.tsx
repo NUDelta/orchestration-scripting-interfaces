@@ -12,6 +12,7 @@ import Sidebar from '../components/DiagSidebar';
 import Context from '../components/DiagContext';
 import HypothesisList from '../components/HypothesisList';
 import getComputedOrganizationalObjectsForProject from '../pages/api/test/get_OS_project_object.js';
+import { itemsEqual } from '@dnd-kit/sortable/dist/utilities';
 
 const Response: NextPage = ({sigName, projName, description, gen_context, detector, root_causes, id, context_lib, hypothesisList, canvasState}) => {
     const [items, setItems] = useState(root_causes);
@@ -23,7 +24,7 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
     const [hypos, setHypos] = useState(hypothesisList || [defaultHypothesis]);
     const [canvas, setCanvas] = useState(canvasState || []);
 
-    const updateResponse = async (desc, rclist) => {
+    const updateResponse = async (desc) => {
       try {
         const response = await fetch('/api/test/update_response', {
           method: 'PUT',
@@ -36,7 +37,7 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
             hypothesisList: JSON.stringify(hypos),
             description: desc,
             p5Canvas: JSON.stringify(canvas),
-            rcs: JSON.stringify(rclist),
+            // rcs: JSON.stringify(rclist),
           }),
         });
         if (response.ok) {
@@ -49,7 +50,7 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
       }
     };
     const getScriptByTitle = async () => {
-      let title = 'Undercommitted';
+      let title = 'Unbalanced Work Across Partners';
       const res = await fetch('/api/scripts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -64,10 +65,15 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
         console.log('Script not found');
       }
     };
-    let rc_list = getScriptByTitle();
+
+    // let rc_list = [];
+    // (async () => {
+    // rc_list = await getScriptByTitle();
+    // console.log('rc_list', rc_list)
+    // })();
 
     useEffect(() => {
-      updateResponse(problemContent, rc_list);
+      updateResponse(problemContent);
     }, [context, hypos, problemContent, canvas]);
   
     return (
@@ -115,8 +121,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       rc: root_cause.rc,
       context: context,
       strategy: root_cause.strategy,
-      disabled: root_cause.disabled,
-      checked: root_cause.checked,
+      disabled: false,
+      checked: false,
     });
   }
 

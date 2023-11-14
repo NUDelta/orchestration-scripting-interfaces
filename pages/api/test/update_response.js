@@ -4,12 +4,12 @@ import { ObjectId } from 'mongodb';
 export default async function updateResponse(req, res) {
   if (req.method === 'PUT') {
     try {
-      const { _id, gen_context, hypothesisList, description, p5Canvas, rcs } =
+      const { _id, gen_context, hypothesisList, description, p5Canvas } =
         req.body;
       const genContextObject = JSON.parse(gen_context);
       const hypothesisListObject = JSON.parse(hypothesisList);
       const canvasObject = JSON.parse(p5Canvas);
-      const rcListObject = JSON.parse(rcs);
+      // const rcListObject = JSON.parse(rcs);
       const updatedResponse = await connectMongo({
         findAndModify: 'responses',
         query: { _id: new ObjectId(_id) },
@@ -19,7 +19,7 @@ export default async function updateResponse(req, res) {
             hypothesisList: hypothesisListObject,
             description: description,
             p5Canvas: canvasObject,
-            rcs: rcListObject,
+            // rcs: rcListObject,
           },
         },
         new: true,

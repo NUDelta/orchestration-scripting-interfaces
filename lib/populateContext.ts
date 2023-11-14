@@ -134,8 +134,9 @@ export function getContextValue(title, OS_object) {
     return output;
   } else if (title == 'Sprint log-Summary of Stories') {
     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
+    console.log('storiesObjs', storiesObjs)
     const output = storiesObjs.map((story) => story.description);
-    const format_output = output.join(', ');
+    const format_output = `\n${output.join(', ')}`
 
     if (storiesObjs.length == 0) {
       return 'no stories planned';
@@ -146,8 +147,8 @@ export function getContextValue(title, OS_object) {
     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
     console.log(storiesObjs[0].tasks);
     const output = storiesObjs.map((story) => {
-      const tasksWithDescriptions = story.tasks.map((task) => task.description);
-      return `${story.description}:\n${tasksWithDescriptions.join('\n')}`;
+      const tasksWithDescriptions = story.tasks.map((task) => `----${task.description}, [${task.pointsRequired} hr], [assigned to ${task.assignee}]`);
+      return `\n${story.description}:\n${tasksWithDescriptions.join('\n')}`;
     });
     if (storiesObjs.length == 0) {
       return 'no stories planned';
@@ -158,13 +159,21 @@ export function getContextValue(title, OS_object) {
     let link = OS_object.project.tools.researchCanvas.url;
     return link;
   }  else if (title == 'PRC-Time Last Edited'){
-    return 'Oct 20, 2023, 19 days ago'
+    return 'Nov 7, 7 days ago'
   } else if (title == 'PRC-Slides Updated in this sprint'){
-    return 'No slides updated this sprint'
+    return 'User Study Plan'
   } else if (title == 'Sprint log-Riskiest Risk Specified in Planning View') {
-    return 'we want to understand what affordances our system gives users. our riskiest risk is affinder. In particular having enough comprehension with it to drive desired behaviour.'
+    return 'None Specified.'
   } else if (title == 'Sprint log-Canvases Planned to Update Last Week') {
-    return 'Interface Argument'
+    return 'Design Argument, User Study Plan';
+  } else if (title == 'Sprint log-Individual Points Commited This Sprint') {
+    return 'Ella: 21/16; Jonah 2.5/16'
+  }  else if (title == 'Sprint log-Individual Points Spent This Sprint (MidSprint)') {
+    return 'Ella: 11/8; Jonah 1.5/8'
+  } else if (title == 'Sprint log-Individual Points Commited-All Sprints') {
+    return `\nElla: [Sprint 0] 5/8, [Sprint 1] 12.5/16, [Sprint 2] 6.8/16, [Sprint 3] 14.3/16, [Sprint 4] 21/16\nJonah: [Sprint 0] 5/8, [Sprint 1] 12.5/16, [Sprint 2] 3.8/16, [Sprint 3] 12.3/16, [Sprint 4] 2.5/16`
+  } else if (title == 'Sprint log-Individual Points Spent-All Sprint') {
+    return `\nElla: [Sprint 0] 5/8, [Sprint 1] 12.5/16, [Sprint 2] 6/16, [Sprint 3] 8.3/16, [Sprint 4] 11/16\nJonah: [Sprint 0] 5/8, [Sprint 1] 12.5/16, [Sprint 2] 3/16, [Sprint 3] 10.3/16, [Sprint 4] 1.5/16`
   }
   else {
     return 'No Match';
