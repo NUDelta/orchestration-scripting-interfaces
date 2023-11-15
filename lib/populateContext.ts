@@ -135,8 +135,8 @@ export function getContextValue(title, OS_object) {
   } else if (title == 'Sprint log-Summary of Stories') {
     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
     console.log('storiesObjs', storiesObjs)
-    const output = storiesObjs.map((story) => story.description);
-    const format_output = `\n${output.join(', ')}`
+    const output = storiesObjs.map((story) => `----${story.description} [${story.totalPointsRequired} hr]\nPurpose: ${story.purpose || 'none'}\n Deliverables: ${story.deliverables} \n`);
+    const format_output = `\n${output.join('\n')}`
 
     if (storiesObjs.length == 0) {
       return 'no stories planned';
@@ -145,10 +145,9 @@ export function getContextValue(title, OS_object) {
     }
   } else if (title == 'Sprint log-Summary of Tasks') {
     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
-    console.log(storiesObjs[0].tasks);
     const output = storiesObjs.map((story) => {
       const tasksWithDescriptions = story.tasks.map((task) => `----${task.description}, [${task.pointsRequired} hr], [assigned to ${task.assignee}]`);
-      return `\n${story.description}:\n${tasksWithDescriptions.join('\n')}`;
+      return `\n${story.description}:\n${tasksWithDescriptions.join('\n')}\n`;
     });
     if (storiesObjs.length == 0) {
       return 'no stories planned';
@@ -159,21 +158,21 @@ export function getContextValue(title, OS_object) {
     let link = OS_object.project.tools.researchCanvas.url;
     return link;
   }  else if (title == 'PRC-Time Last Edited'){
-    return 'Nov 7, 7 days ago'
+    return 'Sep 21, 55 days ago'
   } else if (title == 'PRC-Slides Updated in this sprint'){
-    return 'User Study Plan'
+    return 'None'
   } else if (title == 'Sprint log-Riskiest Risk Specified in Planning View') {
-    return 'None Specified.'
+    return `\nExplore and check if there exist another type of prevalence difference (mentioned in lass SIG -> Exist in both but quanlity of reviews or quality is different?).`
   } else if (title == 'Sprint log-Canvases Planned to Update Last Week') {
-    return 'Design Argument, User Study Plan';
+    return 'System Argument';
   } else if (title == 'Sprint log-Individual Points Commited This Sprint') {
-    return 'Ella: 21/16; Jonah 2.5/16'
+    return 'Jiayi: 8/16; Yiran 8/16'
   }  else if (title == 'Sprint log-Individual Points Spent This Sprint (MidSprint)') {
-    return 'Ella: 11/8; Jonah 1.5/8'
+    return 'Jiayi: 0/8; Yiran 0/8'
   } else if (title == 'Sprint log-Individual Points Commited-All Sprints') {
-    return `\nElla: [Sprint 0] 5/8, [Sprint 1] 12.5/16, [Sprint 2] 6.8/16, [Sprint 3] 14.3/16, [Sprint 4] 21/16\nJonah: [Sprint 0] 5/8, [Sprint 1] 12.5/16, [Sprint 2] 3.8/16, [Sprint 3] 12.3/16, [Sprint 4] 2.5/16`
+    return `\nJiayi: [Sprint 0] 10/8, [Sprint 1] 18.75/16, [Sprint 2] 15.5/16, [Sprint 3] 17/16, [Sprint 4] 8/16\nYiran: [Sprint 0] 10/8, [Sprint 1] 18.25/16, [Sprint 2] 15.5/16, [Sprint 3] 11.5/16, [Sprint 4] 8/16`
   } else if (title == 'Sprint log-Individual Points Spent-All Sprint') {
-    return `\nElla: [Sprint 0] 5/8, [Sprint 1] 12.5/16, [Sprint 2] 6/16, [Sprint 3] 8.3/16, [Sprint 4] 11/16\nJonah: [Sprint 0] 5/8, [Sprint 1] 12.5/16, [Sprint 2] 3/16, [Sprint 3] 10.3/16, [Sprint 4] 1.5/16`
+    return `\nJiayi: [Sprint 0] 8/8, [Sprint 1] 14.55/16, [Sprint 2] 8.5/16, [Sprint 3] 14.5/16, [Sprint 4] 0/16\nYiran: [Sprint 0] 8/8, [Sprint 1] 14.05/16, [Sprint 2] 8.5/16, [Sprint 3] 11/16, [Sprint 4] 0/16`
   }
   else {
     return 'No Match';

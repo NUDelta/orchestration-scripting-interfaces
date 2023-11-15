@@ -83,7 +83,13 @@ const Context: React.FC = ({ items, setItems, context_lib, canvas, setCanvas}) =
             className="bg-blue-200 p-4 rounded-md mb-2"
             style={{ display: 'flex', justifyContent: 'space-between', paddingLeft: '1em'}}
           >
-            {option.title}: {option.data}
+          {option.title === 'PRC-link to PRC' ? (
+            <a href={option.data} target="_blank" rel="noopener noreferrer">
+              {option.title}: {option.data}
+            </a>
+          ) : (
+            `${option.title}: ${option.data}`
+          )}
             <button
               className="bg-red-500 text-white p-2 rounded-md ml-2"
               onClick={() => removeItem(index)}
