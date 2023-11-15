@@ -1,4 +1,4 @@
-export default async (req, res) => {
+const fetchActiveIssuesForSig = async (req, res) => {
     try {
     //   const { sigName } = req.query;
       const sigName = 'Human-AI Tools'
@@ -19,3 +19,5 @@ export default async (req, res) => {
       res.status(500).json({ error: `Error fetching active issues for SIG ${sigName}` });
     }
   };
+
+  export default fetchActiveIssuesForSig;

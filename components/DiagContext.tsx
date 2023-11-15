@@ -3,7 +3,7 @@ import styles from './DiagContext.module.css';
 import { options } from '../lib/context/options';
 import P5Canvas from './diagnosis/P5Canvas';
 
-const Context: React.FC = React.memo(({ items, setItems, context_lib, canvas, setCanvas}) => {
+const Context: React.FC = ({ items, setItems, context_lib, canvas, setCanvas}) => {
   const [popupOptions, setPopupOptions] = useState(
     options.filter((option) => !items.some((item) => item.title === option))
   );
@@ -130,6 +130,6 @@ const Context: React.FC = React.memo(({ items, setItems, context_lib, canvas, se
     </div>
     // </div>
   );
-});
+};
 
 export default Context;
