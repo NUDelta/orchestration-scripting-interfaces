@@ -164,16 +164,17 @@ export function getContextValue(title, OS_object) {
       return output;
     }
   } else if (title == 'PRC-link to PRC') {
-    let link = OS_object.project.tools.researchCanvas.url;
+    // let link = OS_object.project.tools.researchCanvas.url;
+    let link = 'https://docs.google.com/presentation/d/1cjlBycSraDkSG_Fb6oZXfc8Eg5Hwo7RdXg4jJ_rXgL8/edit?usp=sharing'
     return link;
   } else if (title == 'PRC-Time Last Edited') {
-    return 'Sep 21, 55 days ago';
+    return 'Nov 16, 12 days ago by Kapil Garg';
   } else if (title == 'PRC-Slides Updated in this sprint') {
     return 'None';
   } else if (title == 'Sprint log-Riskiest Risk Specified in Planning View') {
-    return `\nExplore and check if there exist another type of prevalence difference (mentioned in lass SIG -> Exist in both but quanlity of reviews or quality is different?).`;
+    return `\nLit Review -> Ping Kapil to look over Lit over Thanksgiving \nUSER STUDY TAKEAWAYS -> UPDATE INTERFACE base on results.`;
   } else if (title == 'Sprint log-Canvases Planned to Update Last Week') {
-    return 'System Argument';
+    return 'Design Argument, Interface Argument, System Argument, User Study Takeaways';
   } else if (title == 'Sprint log-Individual Points Commited This Sprint') {
     const output = studentObjs.map(
       (student) => `${student.name} [${student.totalPointsCommitted} hr]; `
@@ -190,13 +191,18 @@ export function getContextValue(title, OS_object) {
     return output;
   } else if (title == 'Sprint log-Individual Points Commited-All Sprints') {
     // Issue: OS_Object only return current sprint [temp sol: hardcode]
-    return `\nJiayi: [Sprint 0] 10/8, [Sprint 1] 18.75/16, [Sprint 2] 15.5/16, [Sprint 3] 17/16, [Sprint 4] 8/16\nYiran: [Sprint 0] 10/8, [Sprint 1] 18.25/16, [Sprint 2] 15.5/16, [Sprint 3] 11.5/16, [Sprint 4] 8/16`;
+    return `\nGrace: [Sprint 0] 1/8, [Sprint 1] 15.9/16, [Sprint 2] 24.5/16, [Sprint 3] 22/16, [Sprint 4] 16/16, [Sprint 5] 15.5/16
+    Linh: [Sprint 0] 7/8, [Sprint 1] 15.9/16, [Sprint 2] 11.5/16, [Sprint 3] 20/16, [Sprint 4] 15/16, [Sprint 5] 15.5/16`;
   } else if (title == 'Sprint log-Individual Points Spent-All Sprint') {
     // Issue: OS_Object only return current sprint [temp sol: hardcode]
     let project = OS_object.project;
     const sprint = project.tools;
-    return `\nJiayi: [Sprint 0] 8/8, [Sprint 1] 14.55/16, [Sprint 2] 8.5/16, [Sprint 3] 14.5/16, [Sprint 4] 0/16\nYiran: [Sprint 0] 8/8, [Sprint 1] 14.05/16, [Sprint 2] 8.5/16, [Sprint 3] 11/16, [Sprint 4] 0/16`;
-  } else {
+    return `\nGrace: [Sprint 0] 0/8, [Sprint 1] 13.7/16, [Sprint 2] 6/16, [Sprint 3] 21/16, [Sprint 4] 14/16, [Sprint 5] 0/16
+    Linh: [Sprint 0] 0/8, [Sprint 1] 13.7/16, [Sprint 2] 5.5/16, [Sprint 3] 19/16, [Sprint 4] 15/16, [Sprint 5] 0/16`;
+  } else if (title == 'Link to Sprint Log') {
+    return 'https://docs.google.com/spreadsheets/d/1c8UWlf4H7Wh2nO5XaP7KGhVfdE6wFvMpnta6LLaAyHU/edit?usp=sharing';
+  }
+  else {
     return 'No Match';
   }
 }

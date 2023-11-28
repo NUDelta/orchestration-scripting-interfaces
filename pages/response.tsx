@@ -77,8 +77,8 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
     }, [context, hypos, problemContent, canvas]);
   
     return (
-      <div className={styles.container}>
-        <div className={styles.column1}>
+      <div className={`${styles.container} flex`}>
+        <div className={`${styles.column1} flex-none`}>
           {/* <button onClick={updateResponse}>Save Page</button> */}
           <Sidebar
             content={problemContent}
@@ -87,10 +87,26 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
             project={projName}
           />
         </div>
-        <div className={styles.column2}>
+        <div className={`${styles.column2} flex-1 flex flex-col`}>
           <Context items={context} setItems={setContext} context_lib={context_lib} canvas={canvas} setCanvas={setCanvas}/>
-        </div>
-        <div className={styles.column3}>
+          <div className={styles.RCcontainer}>
+            <div className={styles.RC_list}>
+              < div className={styles.RC_scrollable} style={{ whiteSpace: 'pre-line', overflowY: 'auto'}}>
+                <h3 className="text-lg font-semibold mb-2">Root Causes:</h3>
+                <ul>
+                  {items.map((item, index) => (
+                    <li key={index}>
+                      <p><strong>{item.rc}</strong></p>
+                      <p><strong>Strategy:</strong> {item.strategy}</p>
+                      <br></br>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              </div>
+            </div>
+          </div>
+        <div className={`${styles.column3} flex-none`}>
           <HypothesisList items={items} hypos={hypos} setHypos={setHypos}/>
         </div>
       </div>

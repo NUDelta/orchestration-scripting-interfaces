@@ -19,14 +19,14 @@ const HypothesisList: React.FC = ({items, hypos, setHypos}) => {
     setHypos(newHypos);
   };
 
-  const [popupVisible, setPopupVisible] = useState(false);
-  const togglePopup = () => {
-    setPopupVisible(!popupVisible);
-  };
+  // const [popupVisible, setPopupVisible] = useState(false);
+  // const togglePopup = () => {
+  //   setPopupVisible(!popupVisible);
+  // };
 
-  const closePopup = () => {
-    setPopupVisible(false);
-  };
+  // const closePopup = () => {
+  //   setPopupVisible(false);
+  // };
 
   return (
     <div className="p-2">
@@ -46,15 +46,15 @@ const HypothesisList: React.FC = ({items, hypos, setHypos}) => {
           />
         ))}
       </div>
-      <button
+      {/* <button
         className={`fixed left-4 bottom-4 p-2 bg-blue-500 text-white rounded cursor-pointer ${
           popupVisible ? 'hidden' : ''
         }`}
         onClick={togglePopup}
       >
         Are you stuck? <br /> Take a look at our list of root causes
-      </button>
-      {popupVisible && (
+      </button> */}
+      {/* {popupVisible && (
         <div className="fixed bottom-12 left-4 bg-white p-4 border border-gray-300 rounded shadow-md">
           <button onClick={closePopup} className="absolute top-2 right-2 text-gray-500 cursor-pointer hover:text-red-500">&times;</button>
           <h3 className="text-lg font-semibold mb-2">Root Causes:</h3>
@@ -67,13 +67,13 @@ const HypothesisList: React.FC = ({items, hypos, setHypos}) => {
                     <li key={i}><strong>Context:</strong> {ctx.title}</li>
                   ))}
                 </ul> */}
-                <p><strong>Strategy:</strong> {item.strategy}</p>
+                {/* <p><strong>Strategy:</strong> {item.strategy}</p>
                 <br></br>
               </li>
             ))}
           </ul>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

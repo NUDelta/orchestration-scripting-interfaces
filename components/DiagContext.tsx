@@ -83,7 +83,7 @@ const Context: React.FC = ({ items, setItems, context_lib, canvas, setCanvas}) =
             className="bg-blue-200 p-4 rounded-md mb-2"
             style={{ display: 'flex', justifyContent: 'space-between', paddingLeft: '1em'}}
           >
-          {option.title === 'PRC-link to PRC' ? (
+          {(option.title === 'PRC-link to PRC' || option.title === 'Link to Sprint Log') ? (
             <a href={option.data} target="_blank" rel="noopener noreferrer">
               {option.title}: {option.data}
             </a>
@@ -107,7 +107,7 @@ const Context: React.FC = ({ items, setItems, context_lib, canvas, setCanvas}) =
         </button>
       </div>
       {isPopupOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[2]">
           <div className="bg-white p-4 rounded-md">
             <h3 className="text-lg font-semibold mb-2">
               Select an option to add
