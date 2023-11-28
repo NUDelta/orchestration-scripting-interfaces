@@ -104,6 +104,8 @@ export function populate_sprint_log_summary_of_stories(OS_object) {
 
 // Takes the title of a context piece and returns the value for it
 export function getContextValue(title, OS_object) {
+  const studentObjs = populate_sprint_log_points(OS_object).studentObjs;
+
   if (title == 'Sprint log-Total Points Spent This Sprint') {
     let sprintLogPointsContext = populate_sprint_log_points(OS_object);
     let output =
@@ -134,9 +136,13 @@ export function getContextValue(title, OS_object) {
     return output;
   } else if (title == 'Sprint log-Summary of Stories') {
     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
-    console.log('storiesObjs', storiesObjs)
-    const output = storiesObjs.map((story) => `----${story.description} [${story.totalPointsRequired} hr]\nPurpose: ${story.purpose || 'none'}\n Deliverables: ${story.deliverables} \n`);
-    const format_output = `\n${output.join('\n')}`
+    const output = storiesObjs.map(
+      (story) =>
+        `----${story.description} [${story.totalPointsRequired} hr]\nPurpose: ${
+          story.purpose || 'none'
+        }\n Deliverables: ${story.deliverables} \n`
+    );
+    const format_output = `\n${output.join('\n')}`;
 
     if (storiesObjs.length == 0) {
       return 'no stories planned';
@@ -146,7 +152,10 @@ export function getContextValue(title, OS_object) {
   } else if (title == 'Sprint log-Summary of Tasks') {
     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
     const output = storiesObjs.map((story) => {
-      const tasksWithDescriptions = story.tasks.map((task) => `----${task.description}, [${task.pointsRequired} hr], [assigned to ${task.assignee}]`);
+      const tasksWithDescriptions = story.tasks.map(
+        (task) =>
+          `----${task.description}, [${task.pointsRequired} hr], [assigned to ${task.assignee}]`
+      );
       return `\n${story.description}:\n${tasksWithDescriptions.join('\n')}\n`;
     });
     if (storiesObjs.length == 0) {
@@ -157,24 +166,37 @@ export function getContextValue(title, OS_object) {
   } else if (title == 'PRC-link to PRC') {
     let link = OS_object.project.tools.researchCanvas.url;
     return link;
-  }  else if (title == 'PRC-Time Last Edited'){
-    return 'Sep 21, 55 days ago'
-  } else if (title == 'PRC-Slides Updated in this sprint'){
-    return 'None'
+  } else if (title == 'PRC-Time Last Edited') {
+    return 'Sep 21, 55 days ago';
+  } else if (title == 'PRC-Slides Updated in this sprint') {
+    return 'None';
   } else if (title == 'Sprint log-Riskiest Risk Specified in Planning View') {
-    return `\nExplore and check if there exist another type of prevalence difference (mentioned in lass SIG -> Exist in both but quanlity of reviews or quality is different?).`
+    return `\nExplore and check if there exist another type of prevalence difference (mentioned in lass SIG -> Exist in both but quanlity of reviews or quality is different?).`;
   } else if (title == 'Sprint log-Canvases Planned to Update Last Week') {
     return 'System Argument';
   } else if (title == 'Sprint log-Individual Points Commited This Sprint') {
-    return 'Jiayi: 8/16; Yiran 8/16'
-  }  else if (title == 'Sprint log-Individual Points Spent This Sprint (MidSprint)') {
-    return 'Jiayi: 0/8; Yiran 0/8'
+    const output = studentObjs.map(
+      (student) => `${student.name} [${student.totalPointsCommitted} hr]; `
+    );
+    return output;
+  } else if (
+    title == 'Sprint log-Individual Points Spent This Sprint (MidSprint)'
+  ) {
+    // How to detect midsprint?
+    const output = studentObjs.map(
+      (student) => `${student.name} [${student.totalHoursSpent} hr]; `
+    );
+    console.log(OS_object);
+    return output;
   } else if (title == 'Sprint log-Individual Points Commited-All Sprints') {
-    return `\nJiayi: [Sprint 0] 10/8, [Sprint 1] 18.75/16, [Sprint 2] 15.5/16, [Sprint 3] 17/16, [Sprint 4] 8/16\nYiran: [Sprint 0] 10/8, [Sprint 1] 18.25/16, [Sprint 2] 15.5/16, [Sprint 3] 11.5/16, [Sprint 4] 8/16`
+    // Issue: OS_Object only return current sprint [temp sol: hardcode]
+    return `\nJiayi: [Sprint 0] 10/8, [Sprint 1] 18.75/16, [Sprint 2] 15.5/16, [Sprint 3] 17/16, [Sprint 4] 8/16\nYiran: [Sprint 0] 10/8, [Sprint 1] 18.25/16, [Sprint 2] 15.5/16, [Sprint 3] 11.5/16, [Sprint 4] 8/16`;
   } else if (title == 'Sprint log-Individual Points Spent-All Sprint') {
-    return `\nJiayi: [Sprint 0] 8/8, [Sprint 1] 14.55/16, [Sprint 2] 8.5/16, [Sprint 3] 14.5/16, [Sprint 4] 0/16\nYiran: [Sprint 0] 8/8, [Sprint 1] 14.05/16, [Sprint 2] 8.5/16, [Sprint 3] 11/16, [Sprint 4] 0/16`
-  }
-  else {
+    // Issue: OS_Object only return current sprint [temp sol: hardcode]
+    let project = OS_object.project;
+    const sprint = project.tools;
+    return `\nJiayi: [Sprint 0] 8/8, [Sprint 1] 14.55/16, [Sprint 2] 8.5/16, [Sprint 3] 14.5/16, [Sprint 4] 0/16\nYiran: [Sprint 0] 8/8, [Sprint 1] 14.05/16, [Sprint 2] 8.5/16, [Sprint 3] 11/16, [Sprint 4] 0/16`;
+  } else {
     return 'No Match';
   }
 }
