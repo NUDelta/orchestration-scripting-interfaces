@@ -164,17 +164,18 @@ export function getContextValue(title, OS_object) {
       return output;
     }
   } else if (title == 'PRC-link to PRC') {
-    // let link = OS_object.project.tools.researchCanvas.url;
-    let link = 'https://docs.google.com/presentation/d/1cjlBycSraDkSG_Fb6oZXfc8Eg5Hwo7RdXg4jJ_rXgL8/edit?usp=sharing'
+    let link = OS_object.project.tools.researchCanvas.url;
+    // let link = 'https://docs.google.com/presentation/d/1cjlBycSraDkSG_Fb6oZXfc8Eg5Hwo7RdXg4jJ_rXgL8/edit?usp=sharing'
     return link;
   } else if (title == 'PRC-Time Last Edited') {
-    return 'Nov 16, 12 days ago by Kapil Garg';
+    return 'Sep 21, by Yiran Mo';
   } else if (title == 'PRC-Slides Updated in this sprint') {
     return 'None';
   } else if (title == 'Sprint log-Riskiest Risk Specified in Planning View') {
-    return `\nLit Review -> Ping Kapil to look over Lit over Thanksgiving \nUSER STUDY TAKEAWAYS -> UPDATE INTERFACE base on results.`;
+    return `\nThe riskeist risk that we need to resolve is to tune paramaters (1)The top percentage of categories that related to FL -> Top 100%? 50%? 20%? (2) Top percentage of the categories that are more closely related to FL than PA -> Top 100%?, 50%? 20%?
+    And filter out the sparse data (categories with few reviews) and test the performance of the model.`;
   } else if (title == 'Sprint log-Canvases Planned to Update Last Week') {
-    return 'Design Argument, Interface Argument, System Argument, User Study Takeaways';
+    return 'Interface Argument, System Argument';
   } else if (title == 'Sprint log-Individual Points Commited This Sprint') {
     const output = studentObjs.map(
       (student) => `${student.name} [${student.totalPointsCommitted} hr]; `
@@ -189,19 +190,18 @@ export function getContextValue(title, OS_object) {
     );
     console.log(OS_object);
     return output;
-  } else if (title == 'Sprint log-Individual Points Commited-All Sprints') {
-    // Issue: OS_Object only return current sprint [temp sol: hardcode]
-    return `\nGrace: [Sprint 0] 1/8, [Sprint 1] 15.9/16, [Sprint 2] 24.5/16, [Sprint 3] 22/16, [Sprint 4] 16/16, [Sprint 5] 15.5/16
-    Linh: [Sprint 0] 7/8, [Sprint 1] 15.9/16, [Sprint 2] 11.5/16, [Sprint 3] 20/16, [Sprint 4] 15/16, [Sprint 5] 15.5/16`;
-  } else if (title == 'Sprint log-Individual Points Spent-All Sprint') {
-    // Issue: OS_Object only return current sprint [temp sol: hardcode]
-    let project = OS_object.project;
-    const sprint = project.tools;
-    return `\nGrace: [Sprint 0] 0/8, [Sprint 1] 13.7/16, [Sprint 2] 6/16, [Sprint 3] 21/16, [Sprint 4] 14/16, [Sprint 5] 0/16
-    Linh: [Sprint 0] 0/8, [Sprint 1] 13.7/16, [Sprint 2] 5.5/16, [Sprint 3] 19/16, [Sprint 4] 15/16, [Sprint 5] 0/16`;
+  // } else if (title == 'Sprint log-Individual Points Commited-All Sprints') {
+  //   // Issue: OS_Object only return current sprint [temp sol: hardcode]
+  //   return `\nGrace: [Sprint 0] 1/8, [Sprint 1] 15.9/16, [Sprint 2] 24.5/16, [Sprint 3] 22/16, [Sprint 4] 16/16, [Sprint 5] 15.5/16
+  //   Linh: [Sprint 0] 7/8, [Sprint 1] 15.9/16, [Sprint 2] 11.5/16, [Sprint 3] 20/16, [Sprint 4] 15/16, [Sprint 5] 15.5/16`;
+  // } else if (title == 'Sprint log-Individual Points Spent-All Sprint') {
+  //   // Issue: OS_Object only return current sprint [temp sol: hardcode]
+  //   let project = OS_object.project;
+  //   const sprint = project.tools;
+  //   return `\nGrace: [Sprint 0] 0/8, [Sprint 1] 13.7/16, [Sprint 2] 6/16, [Sprint 3] 21/16, [Sprint 4] 14/16, [Sprint 5] 0/16
+  //   Linh: [Sprint 0] 0/8, [Sprint 1] 13.7/16, [Sprint 2] 5.5/16, [Sprint 3] 19/16, [Sprint 4] 15/16, [Sprint 5] 0/16`;
   } else if (title == 'Link to Sprint Log') {
-    return 'https://docs.google.com/spreadsheets/d/1c8UWlf4H7Wh2nO5XaP7KGhVfdE6wFvMpnta6LLaAyHU/edit?usp=sharing';
-  }
+    return 'https://docs.google.com/spreadsheets/d/1KJRlJ42PVS0Qr7Hp3FTPqpexeFNMGeYBJu41Ehnl1Hg/edit?usp=sharing'  }
   else {
     return 'No Match';
   }

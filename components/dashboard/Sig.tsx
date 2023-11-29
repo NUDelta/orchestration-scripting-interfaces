@@ -19,7 +19,7 @@ export const Sig = ({name, responses}) => {
     return (
         <div className="border-2 p-3 rounded-lg mt-3">
             <h3 className="text-xl">{name}</h3>
-            {sig_responses.length > 0 ? sig_responses.map((res, i) => <><Link key={i} href={"/response?response=" + res._id}><u>Diagnosis Page for {res.title}-OSADE-{getAbbreviation(res.sigName)}</u></Link><br /></>)
+            {sig_responses.length > 0 ? sig_responses.map((res, i) => <><Link key={i} href={"/response?response=" + res._id}><u>{res.title}-Accounting for Difference-{getAbbreviation(res.sigName)}</u></Link><br /></>)
             : <p>No active issues</p>}
         </div>
     )
