@@ -18,12 +18,14 @@ import HypothesisList from '../components/diagnosis/HypothesisList';
 import getComputedOrganizationalObjectsForProject from '../pages/api/test/get_OS_project_object.js';
 import { itemsEqual } from '@dnd-kit/sortable/dist/utilities';
 
-const Response: NextPage = ({sigName, projName, description, gen_context, detector, root_causes, id, context_lib, hypothesisList, canvasState}) => {
+const Response: NextPage = ({sigName, projName, description, gen_context, initial_hunch, game_plan, detector, root_causes, id, context_lib, hypothesisList, canvasState}) => {
     const [items, setItems] = useState(root_causes);
     const [problemContent, setProblemContent] = useState(
       description
     );
     const [context, setContext] = useState(gen_context);
+    const [hunch, setHunch] = useState(initial_hunch);
+    const [plan, setPlan] = useState(game_plan);
     const defaultHypothesis = { title: 'First Hunch', content: 'fill in your first hunch here!' };
     const [hypos, setHypos] = useState(hypothesisList || [defaultHypothesis]);
     const [canvas, setCanvas] = useState(canvasState || []);
@@ -40,6 +42,8 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
             gen_context: JSON.stringify(context),
             hypothesisList: JSON.stringify(hypos),
             description: desc,
+            initial_hunch: hunch,
+            game_plan: plan,
             p5Canvas: JSON.stringify(canvas),
             // rcs: JSON.stringify(rclist),
           }),
@@ -53,6 +57,7 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
         console.error('Error updating Database:', error);
       }
     };
+
     const getScriptByTitle = async () => {
       let title = 'Unbalanced Work Across Partners';
       const res = await fetch('/api/scripts', {
@@ -70,15 +75,9 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
       }
     };
 
-    // let rc_list = [];
-    // (async () => {
-    // rc_list = await getScriptByTitle();
-    // console.log('rc_list', rc_list)
-    // })();
-
     useEffect(() => {
       updateResponse(problemContent);
-    }, [context, hypos, problemContent, canvas]);
+    }, [context, hypos, hunch, plan, problemContent, canvas]);
   
     return (
       <div className={styles.container}>
@@ -87,8 +86,8 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
         <Context items={context} setItems={setContext} context_lib={context_lib} canvas={canvas} setCanvas={setCanvas}/>
         <div className={styles.container2}>
           <div className={styles.sideBySide}>
-            <InitialHunch />
-            <GamePlan />
+            <InitialHunch hunch={hunch} setHunch = {setHunch} />
+            <GamePlan plan={plan} setPlan={setPlan}/>
           </div>
         </div>
         <Guidelines />
@@ -123,6 +122,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     root_causes.push({
       id: i,
       rc: root_cause.rc,
+      question: root_cause.question,
       context: context,
       strategy: root_cause.strategy,
       disabled: false,
@@ -130,6 +130,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     });
   }
 
+  let initial_hunch = data.initial_hunch;
+  let game_plan = data.game_plan;
   let description = data.description;
   let gen_context = data.gen_context;
   if (!Array.isArray(gen_context)) {
@@ -179,6 +181,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       projName: projName,
       description: description,
       gen_context: gen_context,
+      initial_hunch: initial_hunch,
+      game_plan: game_plan,
       detector: data.title,
       root_causes: root_causes,
       id: data._id.toString(),

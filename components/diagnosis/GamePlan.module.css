@@ -8,6 +8,8 @@
     width: 100%;
     background-color: #e5e7eb;;
     height: 200px;
+    padding: 10px;
+    box-sizing: border-box;
   }
   
   .sideBySideItem2 p {

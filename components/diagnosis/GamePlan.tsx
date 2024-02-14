@@ -1,11 +1,15 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import styles from './GamePlan.module.css';
 
-const GamePlan: React.FC = () => {
-  const [gamePlan, setGamePlan] = useState<string>('');
+interface Props {
+  plan: string;
+  setPlan: (content: string) => void;
+}
 
+
+const GamePlan: React.FC<Props> = ({plan, setPlan}) => {
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setGamePlan(event.target.value);
+    setPlan(event.target.value);
   };
 
   return (
@@ -15,7 +19,7 @@ const GamePlan: React.FC = () => {
         We have some suggested questions in the root cause list to help you both ask broadly and ask about specific root causes.</p>
         <textarea 
         className={styles.textArea} 
-        value={gamePlan} 
+        value={plan} 
         onChange={handleInputChange} 
         placeholder="Enter your questions here...">
       </textarea>

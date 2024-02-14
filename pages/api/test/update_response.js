@@ -4,7 +4,7 @@ import { ObjectId } from 'mongodb';
 export default async function updateResponse(req, res) {
   if (req.method === 'PUT') {
     try {
-      const { _id, gen_context, hypothesisList, description, p5Canvas } =
+      const { _id, gen_context, hypothesisList, description, initial_hunch, game_plan, p5Canvas } =
         req.body;
       const genContextObject = JSON.parse(gen_context);
       const hypothesisListObject = JSON.parse(hypothesisList);
@@ -18,6 +18,8 @@ export default async function updateResponse(req, res) {
             gen_context: genContextObject,
             hypothesisList: hypothesisListObject,
             description: description,
+            initial_hunch: initial_hunch,
+            game_plan: game_plan,
             p5Canvas: canvasObject,
             // rcs: rcListObject,
           },
