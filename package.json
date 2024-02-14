@@ -1,6 +1,6 @@
 {
     "private": true,
-    "engine": {
+    "engines": {
       "node": "^20.x"
     },
     "scripts": {
