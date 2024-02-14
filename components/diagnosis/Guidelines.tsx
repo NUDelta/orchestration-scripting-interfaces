@@ -8,9 +8,9 @@ const Guidelines: React.FC = () => {
         <h2 className={styles.headerTitle}>Guidelines for Asking Questions During SIG</h2>
             <p>Here are some guidelines to help you formulate questions to ask during SIG: </p>
             <ul>
-                <li className={styles.list}>Try to scaffold as much as you can by keep asking 'why' to get to the bottom of the issue. 
-                For example, if a student said they didn't reach out for help, ask “why was that? Did you feel a lack of support, 
-                or you didn't know any help-seeking channels?”</li>
+                <li className={styles.list}>Try to scaffold as much as you can by keep asking &apos;why&apos; to get to the bottom of the issue. 
+                For example, if a student said they didn&apos;t reach out for help, ask “why was that? Did you feel a lack of support, 
+                or you didn&apos;t know any help-seeking channels?”</li>
                 <li className={styles.list}>Ask metacognitive questions! For the cognitive issues we see, there is usually a metacognitive 
                 cause. Try asking questions like:
                 <ul>
