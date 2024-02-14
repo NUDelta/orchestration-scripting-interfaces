@@ -11,7 +11,7 @@ import styles from './diagnosis.module.css';
 import Sidebar from '../components/DiagSidebar';
 import Context from '../components/DiagContext';
 import HypothesisList from '../components/HypothesisList';
-import getComputedOrganizationalObjectsForProject from '../pages/api/test/get_OS_project_object.js';
+import getComputedOrganizationalObjectsForProject from './api/test/get_OS_project_object.js';
 import { itemsEqual } from '@dnd-kit/sortable/dist/utilities';
 
 const Response: NextPage = ({sigName, projName, description, gen_context, detector, root_causes, id, context_lib, hypothesisList, canvasState}) => {
@@ -77,64 +77,39 @@ const Response: NextPage = ({sigName, projName, description, gen_context, detect
     }, [context, hypos, problemContent, canvas]);
   
     return (
-      <div className={styles.container}>
-      <div className={styles.column70}>
-        <div className={styles.header}>
-          <h2 className={styles.headerTitle}>Signal Debrief</h2>
-          <p>Your detector for Overcommitted has been triggered for Human-AI Tools for Accounting for Differences. Jiayi and Yiran committed 46 points out of 32 available</p>
+      <div className={`${styles.container} flex`}>
+        <div className={`${styles.column1} flex-none`}>
+          {/* <button onClick={updateResponse}>Save Page</button> */}
+          <Sidebar
+            content={problemContent}
+            setContent={setProblemContent}
+            title={detector}
+            project={projName}
+          />
         </div>
-        <div className={styles.header}>
-          <h2 className={styles.headerTitle}>Context</h2>
-          <p>Context</p>
-        </div>
-        <div className={styles.container2}>
-          <div className={styles.sideBySide}>
-            <div className={styles.sideBySideItem1}>
-              <h2 className={styles.headerTitle}>Initial Hunch</h2>
-              <p>Based on the signal and contexts, cognitively what is the student doing ineffectively? 
-                Metacognitively, what belief might the student have might be causing their ineffective practice?
-                Write down your initial hunch of the root cause of this issue. Reference the root cause list for ideas.</p>
-              <textarea className={styles.textArea}></textarea>
-            </div>
-            <div className={styles.sideBySideItem2}>
-              <h2 className={styles.headerTitle}>Game Plan</h2>
-              <p>Before going into your SIG meeting, write down some questions you plan to ask your students. 
-                We have some suggested questions in the root cause list to help you both ask broadly and ask about specific root causes.</p>
-              <textarea className={styles.textArea}></textarea>
+        <div className={`${styles.column2} flex-1 flex flex-col`}>
+          <Context items={context} setItems={setContext} context_lib={context_lib} canvas={canvas} setCanvas={setCanvas}/>
+          <div className={styles.RCcontainer}>
+            <div className={styles.RC_list}>
+              < div className={styles.RC_scrollable} style={{ whiteSpace: 'pre-line', overflowY: 'auto'}}>
+                <h3 className="text-lg font-semibold mb-2">Root Causes:</h3>
+                <ul>
+                  {items.map((item, index) => (
+                    <li key={index}>
+                      <p><strong>{item.rc}</strong></p>
+                      <p><strong>Strategy:</strong> {item.strategy}</p>
+                      <br></br>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles.header}>
-          <h2 className={styles.headerTitle}>Guidelines for Asking Questions During SIG</h2>
-              <p>Here are some guidelines to help you formulate questions to ask during SIG: </p>
-                <ul>
-                  <li className={styles.list}>Try to scaffold as much as you can by keep asking 'why' to get to the bottom of the issue. 
-                    For example, if a student said they didn't reach out for help, ask “why was that? Did you feel a lack of support, 
-                    or you didn't know any help-seeking channels?”</li>
-                  <li className={styles.list}>Ask metacognitive questions! For the cognitive issues we see, there is usually a metacognitive 
-                    cause. Try asking questions like:
-                    <ul>
-                      <li className={styles.list}>Why did you decide to [action]?</li>
-                      <li className={styles.list}>How did you feel when …?</li>
-                      <li className={styles.list}>Why did you do one thing over another?</li>
-                      <li className={styles.list}>Do you feel like your decision was a mature decision?</li>
-                      <li className={styles.list}>Why did you feel compelled to…?</li>
-                      <li className={styles.list}>Why is it hard for you to…?</li>
-                    </ul>
-                  </li>
-                </ul>
-        </div>
-        <div className={styles.header}>
-          <h2 className={styles.headerTitle}>Updated Hypothesis</h2>
-          <p>updated</p>
+        <div className={`${styles.column3} flex-none`}>
+          <HypothesisList items={items} hypos={hypos} setHypos={setHypos}/>
         </div>
       </div>
-      <div className={styles.column30}>
-        <div className={styles.columnContent}>
-          <h2 className={styles.headerTitle}>List of Potential Root Causes:</h2>
-        </div>
-      </div>
-    </div>
     );
   };
   
