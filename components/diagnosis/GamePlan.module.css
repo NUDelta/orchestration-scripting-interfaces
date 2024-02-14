@@ -1,0 +1,22 @@
+.sideBySideItem2 {
+    width: 60%;
+    background-color: white;
+    padding: 8px;
+  }
+  
+  .sideBySideItem2 textarea {
+    width: 100%;
+    background-color: #e5e7eb;;
+    height: 200px;
+  }
+  
+  .sideBySideItem2 p {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+  
+.headerTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }

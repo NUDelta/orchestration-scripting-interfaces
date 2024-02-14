@@ -9,8 +9,8 @@ import { getContextValue } from '../lib/populateContext';
 import { ObjectId } from 'mongodb';
 import styles from './diagnosis.module.css';
 import Sidebar from '../components/DiagSidebar';
-import Context from '../components/DiagContext';
-import HypothesisList from '../components/HypothesisList';
+import Context from '../components/diagnosis/DiagContext';
+import HypothesisList from '../components/diagnosis/HypothesisList';
 import getComputedOrganizationalObjectsForProject from './api/test/get_OS_project_object.js';
 import { itemsEqual } from '@dnd-kit/sortable/dist/utilities';
 

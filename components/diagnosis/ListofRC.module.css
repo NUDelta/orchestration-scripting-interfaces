@@ -1,0 +1,23 @@
+.columnContent {
+    padding: 15px;
+}
+
+.headerTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.RCcontainer{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.RC_list {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+}

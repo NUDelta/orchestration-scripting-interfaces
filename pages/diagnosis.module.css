@@ -19,25 +19,9 @@
   padding: 10px;
 }
 
-.columnContent {
-  padding: 1rem;
-}
-
-.header {
-  background-color: white;
-  padding: 15px; 
-  margin: 8px; 
-}
-
-.headerTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.contextDiv {
-  padding: 8px;
-  margin: 0 8px 16px 8px;
+.contextContainer {
+  max-height: 400px;
+  overflow: auto; 
 }
 
 .container2 {
@@ -47,45 +31,4 @@
 .sideBySide {
   display: flex;
   margin: 0;
-}
-
-.sideBySideItem1 {
-  width: 40%;
-  background-color: white;
-  margin-right: 8px;
-  padding: 8px;
-}
-
-.sideBySideItem2 {
-  width: 60%;
-  background-color: white;
-  padding: 8px;
-}
-
-.sideBySideItem1 textarea {
-  width: 100%;
-  background-color: #e5e7eb;
-  height: 165px;
-}
-
-.sideBySideItem2 textarea {
-  width: 100%;
-  background-color: #e5e7eb;;
-  height: 200px;
-}
-
-.sideBySideItem1 p {
-  font-size: 0.8rem;
-  margin-bottom: 10px;
-}
-
-.sideBySideItem2 p {
-  font-size: 0.8rem;
-  margin-bottom: 10px;
-}
-
-.list {
-  font-size: 14px;
-  margin-left: 30px;
-  list-style-type: disc;
 }
