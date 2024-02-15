@@ -18,6 +18,7 @@ import HypothesisList from '../components/diagnosis/HypothesisList';
 import getComputedOrganizationalObjectsForProject from '../pages/api/test/get_OS_project_object.js';
 import { itemsEqual } from '@dnd-kit/sortable/dist/utilities';
 
+// MAKES DATA MODEL FOR PROPS
 const Response: NextPage = ({sigName, projName, description, gen_context, initial_hunch, game_plan, detector, root_causes, id, context_lib, hypothesisList, canvasState}) => {
     const [items, setItems] = useState(root_causes);
     const [problemContent, setProblemContent] = useState(
@@ -154,9 +155,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     context.data = getContextValue(context.title, project_object);
   }
 
+  
+
   // creates a library that holds the values of all context options
   const context_lib: Record<string, any> = {};
   options.forEach((option) => {
+    // Changing context_lib[option] here will only apply when the context piece is removed and added back again.
     context_lib[option] = getContextValue(option, project_object);
   });
 
