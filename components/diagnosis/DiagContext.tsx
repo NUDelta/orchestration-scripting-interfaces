@@ -99,6 +99,7 @@ const Context: React.FC = ({ items, setItems, context_lib, canvas, setCanvas}) =
   return (
     <div className={styles.contextDiv}>
     <h2 className={styles.headerTitle}>Context</h2>
+      <p>What context pieces stood out to you? What insight do they provide you about why the issue is occuring?</p>
       <div className={styles.container}>
         <div className={styles.context_space} style={{ whiteSpace: 'pre-line'}}>
           < div className={styles.context_scrollable} style={{whiteSpace: 'pre-line', overflowY: 'auto'}}>
