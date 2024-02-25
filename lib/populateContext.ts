@@ -107,174 +107,6 @@ export function populate_sprint_log_summary_of_stories(OS_object) {
 // Takes the title of a context piece and returns the value for it
 
 // ----------------------------------------------------CONNECTED TO API VERSION-----------------------------------------------
-export function getContextValue(title, OS_object) {
-  const studentObjs = populate_sprint_log_points(OS_object).studentObjs;
-
-  if (title == 'Sprint log-Total Points Spent This Sprint') {
-    let sprintLogPointsContext = populate_sprint_log_points(OS_object);
-    let output =
-      sprintLogPointsContext.totalObj.pointsSpent +
-      '/' +
-      sprintLogPointsContext.totalObj.pointsAvailable;
-    return output;
-  } else if (title == 'Sprint log-Total Points Commited This Sprint') {
-    let sprintLogPointsContext = populate_sprint_log_points(OS_object);
-    
-    let output = //format as fraction of committed out of available points
-      sprintLogPointsContext.totalObj.pointsCommitted +
-      '/' +
-      sprintLogPointsContext.totalObj.pointsAvailable;
-
-    return output;
-  } else if (title == 'Sprint log-D T and R Points Breakdown') {
-    let sprintLogPointsContext = populate_sprint_log_points(OS_object);
-    // Extract the D, T, and R points breakdown
-    const DPointsCommitted = sprintLogPointsContext.totalObj.DCommitted;
-    const TPointsCommitted = sprintLogPointsContext.totalObj.TCommitted;
-    const RPointsCommitted = sprintLogPointsContext.totalObj.RCommitted;
-
-    // Format the breakdown as a string
-    const output = `
-        Design Points: ${DPointsCommitted},
-        Technology Points: ${TPointsCommitted},
-        Research Points: ${RPointsCommitted}
-        `;
-    return output;
-    // ------------------SUMMARY OF STORIES----------------------
-  } else if (title == 'Sprint log-Summary of Stories') {
-    let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
-    const output = storiesObjs.map( // for each story obj in storiesObjs, extract info and format them
-      (story) =>
-        `----${story.description} [${story.totalPointsRequired} hr]\nPurpose: ${
-          story.purpose || 'none'
-        }\n Deliverables: ${story.deliverables} \n`
-    );
-    const format_output = `\n${output.join('\n')}`;
-
-    if (storiesObjs.length == 0) {
-      return 'no stories planned';
-    } else {
-      return format_output;
-    }
-    // -----------------------SUMMARY OF TASKS-------------------------
-  } else if (title == 'Sprint log-Summary of Tasks') {
-    let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
-
-    const output = storiesObjs.map((story) => {
-      const tasksWithDescriptions = story.tasks.map(
-        (task) =>
-          `----${task.description}, [${task.pointsRequired} hr], [assigned to ${task.assignee}]`
-      );
-      return `\n${story.description}:\n${tasksWithDescriptions.join('\n')}\n`;
-    });
-    if (storiesObjs.length == 0) {
-      return 'no stories planned';
-    } else {
-      return output;
-    }
-  } else if (title == 'PRC-link to PRC') {
-    let link = OS_object.project.tools.researchCanvas.url;
-    // let link = 'https://docs.google.com/presentation/d/1cjlBycSraDkSG_Fb6oZXfc8Eg5Hwo7RdXg4jJ_rXgL8/edit?usp=sharing'
-    return link;
-  } else if (title == 'PRC-Time Last Edited') {
-    return 'Sep 21, by Yiran Mo';
-  } else if (title == 'PRC-Slides Updated in this sprint') {
-    return 'None';
-  } else if (title == 'Sprint log-Riskiest Risk Specified in Planning View') {
-    return `\nlack of plan about prototype`;
-  } else if (title == 'Sprint log-Canvases Planned to Update Last Week') {
-    return 'Interface Argument, System Argument';
-  } else if (title == 'Sprint log-Individual Points Commited This Sprint') {
-    const output = studentObjs.map(
-      (student) => `${student.name} [${student.totalPointsCommitted} hr]; `
-    );
-    return output;
-  } else if (title == 'Sprint log-Individual Points Spent This Sprint (MidSprint)'){
-    // How to detect midsprint?
-    const output = studentObjs.map(
-      (student) => `${student.name} [${student.totalHoursSpent} hr]; `
-    );
-    console.log(OS_object);
-    return output;
-  } else if (title == 'Link to Sprint Log') {
-    return 'https://docs.google.com/spreadsheets/d/1KJRlJ42PVS0Qr7Hp3FTPqpexeFNMGeYBJu41Ehnl1Hg/edit?usp=sharing'  }
-  else if (title == 'Git Commits Summary'){
-    return 'Jason and Arya have not made a Github repo yet'
-  } else {
-    return 'No Match';
-  }
-}
-
-// //--------------------------------------------------FAKE TEST DATA--------------------------------------------------
-// const TESTstoriesObjs = [
-  
-//   {
-//     description: "Create React DOM object for dynamic page",
-//     tasks: [
-//       {
-//         description: "learn how React DOM works",
-//         pointsRequired: '2',
-//         assignee: "Mentee"
-//       },
-//       {
-//         description: "create page structure",
-//         pointsRequired: '3',
-//         assignee: "Mentee"
-//       }
-//     ]
-//   },
-//   {
-//     description: "write API calls to XXX",
-//     tasks: [
-//       {
-//         description: "learn what API calls are",
-//         pointsRequired: '2',
-//         assignee: "Mentee"
-//       },
-//       {
-//         description: "write calls to pull data",
-//         pointsRequired: '4',
-//         assignee: "Mentee",
-//       }
-//     ]
-//   },
-//   {
-//     description: "Connect page to MongoDB",
-//     tasks: [
-//       {
-//         description: "Setup MongoDB account, learn how it works",
-//         pointsRequired: '2',
-//         assignee: "Mentee"
-//       },
-//       {
-//         description: "Write calls to pull and save data",
-//         pointsRequired: '3',
-//         assignee: "Mentee"
-//       },
-//       {
-//         description: "Learn and write controller functions",
-//         pointsRequired: '3',
-//         assignee: "Mentee"
-//       }
-//     ]
-//   }
-// ];
-
-// const gitSummaries = [
-//   "10/1 Weird bug with dynamic page layout",
-//   "10/2 Fixed layout bug",
-//   "10/3 Database response 404 error",
-//   "10/4 Database response 201 error",
-//   "10/5 Attempt to fix 201 error but failed",
-//   "10/6 Fixed database errors",
-//   "10/6 Save controller 50% - save not working",
-//   "10/7 Attempt to fix save controller but failed",
-//   "10/8 Second attempt to fix controller"
-// ]
-
-// ////////////////////////////////////////////////////////////////TEST FAKE DATA//////////////////////////////////////////
-
-// // /////////////////////////////TEST VERSION/UNCONNECTED TO API (MANUAL DATA FUDGING) /////////////////////////////////////
 // export function getContextValue(title, OS_object) {
 //   const studentObjs = populate_sprint_log_points(OS_object).studentObjs;
 
@@ -287,14 +119,13 @@ export function getContextValue(title, OS_object) {
 //     return output;
 //   } else if (title == 'Sprint log-Total Points Commited This Sprint') {
 //     let sprintLogPointsContext = populate_sprint_log_points(OS_object);
-//     // let output =
-//     //   sprintLogPointsContext.totalObj.pointsCommitted +
-//     //   '/' +
-//     //   sprintLogPointsContext.totalObj.pointsAvailable;
+    
+//     let output = //format as fraction of committed out of available points
+//       sprintLogPointsContext.totalObj.pointsCommitted +
+//       '/' +
+//       sprintLogPointsContext.totalObj.pointsAvailable;
 
-//     let testOutput = '25/16';
-
-//     return testOutput;
+//     return output;
 //   } else if (title == 'Sprint log-D T and R Points Breakdown') {
 //     let sprintLogPointsContext = populate_sprint_log_points(OS_object);
 //     // Extract the D, T, and R points breakdown
@@ -312,7 +143,7 @@ export function getContextValue(title, OS_object) {
 //     // ------------------SUMMARY OF STORIES----------------------
 //   } else if (title == 'Sprint log-Summary of Stories') {
 //     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
-//     const output = storiesObjs.map(
+//     const output = storiesObjs.map( // for each story obj in storiesObjs, extract info and format them
 //       (story) =>
 //         `----${story.description} [${story.totalPointsRequired} hr]\nPurpose: ${
 //           story.purpose || 'none'
@@ -327,8 +158,7 @@ export function getContextValue(title, OS_object) {
 //     }
 //     // -----------------------SUMMARY OF TASKS-------------------------
 //   } else if (title == 'Sprint log-Summary of Tasks') {
-//     // let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
-//     let storiesObjs = TESTstoriesObjs;
+//     let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
 
 //     const output = storiesObjs.map((story) => {
 //       const tasksWithDescriptions = story.tasks.map(
@@ -367,25 +197,194 @@ export function getContextValue(title, OS_object) {
 //     );
 //     console.log(OS_object);
 //     return output;
-//   } else if (title == 'Git Commits Summary'){
-//     const formattedSummaries = gitSummaries.map(summary => `\n- ${summary}`).join('');
-
-
-//     return formattedSummaries;
-//   // } else if (title == 'Sprint log-Individual Points Commited-All Sprints') {
-//   //   // Issue: OS_Object only return current sprint [temp sol: hardcode]
-//   //   return `\nGrace: [Sprint 0] 1/8, [Sprint 1] 15.9/16, [Sprint 2] 24.5/16, [Sprint 3] 22/16, [Sprint 4] 16/16, [Sprint 5] 15.5/16
-//   //   Linh: [Sprint 0] 7/8, [Sprint 1] 15.9/16, [Sprint 2] 11.5/16, [Sprint 3] 20/16, [Sprint 4] 15/16, [Sprint 5] 15.5/16`;
-//   // } else if (title == 'Sprint log-Individual Points Spent-All Sprint') {
-//   //   // Issue: OS_Object only return current sprint [temp sol: hardcode]
-//   //   let project = OS_object.project;
-//   //   const sprint = project.tools;
-//   //   return `\nGrace: [Sprint 0] 0/8, [Sprint 1] 13.7/16, [Sprint 2] 6/16, [Sprint 3] 21/16, [Sprint 4] 14/16, [Sprint 5] 0/16
-//   //   Linh: [Sprint 0] 0/8, [Sprint 1] 13.7/16, [Sprint 2] 5.5/16, [Sprint 3] 19/16, [Sprint 4] 15/16, [Sprint 5] 0/16`;
 //   } else if (title == 'Link to Sprint Log') {
 //     return 'https://docs.google.com/spreadsheets/d/1KJRlJ42PVS0Qr7Hp3FTPqpexeFNMGeYBJu41Ehnl1Hg/edit?usp=sharing'  }
 //   else {
 //     return 'No Match';
 //   }
 // }
+
+//--------------------------------------------------FAKE TEST DATA--------------------------------------------------
+const TESTstoriesObjs = [
+  
+  {
+    description: "Create React DOM object for dynamic page",
+    tasks: [
+      {
+        description: "learn how React DOM works",
+        pointsRequired: '2',
+        assignee: "Mentee"
+      },
+      {
+        description: "create page structure",
+        pointsRequired: '3',
+        assignee: "Mentee"
+      }
+    ]
+  },
+  {
+    description: "write API calls to XXX",
+    tasks: [
+      {
+        description: "learn what API calls are",
+        pointsRequired: '2',
+        assignee: "Mentee"
+      },
+      {
+        description: "write calls to pull data",
+        pointsRequired: '4',
+        assignee: "Mentee",
+      }
+    ]
+  },
+  {
+    description: "Connect page to MongoDB",
+    tasks: [
+      {
+        description: "Setup MongoDB account, learn how it works",
+        pointsRequired: '2',
+        assignee: "Mentee"
+      },
+      {
+        description: "Write calls to pull and save data",
+        pointsRequired: '3',
+        assignee: "Mentee"
+      },
+      {
+        description: "Learn and write controller functions",
+        pointsRequired: '3',
+        assignee: "Mentee"
+      }
+    ]
+  }
+];
+
+const gitSummaries = [
+  "10/1 Weird bug with dynamic page layout",
+  "10/2 Fixed layout bug",
+  "10/3 Database response 404 error",
+  "10/4 Database response 201 error",
+  "10/5 Attempt to fix 201 error but failed",
+  "10/6 Fixed database errors",
+  "10/6 Save controller 50% - save not working",
+  "10/7 Attempt to fix save controller but failed",
+  "10/8 Second attempt to fix controller"
+]
+
+////////////////////////////////////////////////////////////////TEST FAKE DATA//////////////////////////////////////////
+
+// /////////////////////////////TEST VERSION/UNCONNECTED TO API (MANUAL DATA FUDGING) /////////////////////////////////////
+export function getContextValue(title, OS_object) {
+  const studentObjs = populate_sprint_log_points(OS_object).studentObjs;
+
+  if (title == 'Sprint log-Total Points Spent This Sprint') {
+    let sprintLogPointsContext = populate_sprint_log_points(OS_object);
+    let output =
+      sprintLogPointsContext.totalObj.pointsSpent +
+      '/' +
+      sprintLogPointsContext.totalObj.pointsAvailable;
+    return output;
+  } else if (title == 'Sprint log-Total Points Commited This Sprint') {
+    let sprintLogPointsContext = populate_sprint_log_points(OS_object);
+    // let output =
+    //   sprintLogPointsContext.totalObj.pointsCommitted +
+    //   '/' +
+    //   sprintLogPointsContext.totalObj.pointsAvailable;
+
+    let testOutput = '25/16';
+
+    return testOutput;
+  } else if (title == 'Sprint log-D T and R Points Breakdown') {
+    let sprintLogPointsContext = populate_sprint_log_points(OS_object);
+    // Extract the D, T, and R points breakdown
+    const DPointsCommitted = sprintLogPointsContext.totalObj.DCommitted;
+    const TPointsCommitted = sprintLogPointsContext.totalObj.TCommitted;
+    const RPointsCommitted = sprintLogPointsContext.totalObj.RCommitted;
+
+    // Format the breakdown as a string
+    const output = `
+        Design Points: ${DPointsCommitted},
+        Technology Points: ${TPointsCommitted},
+        Research Points: ${RPointsCommitted}
+        `;
+    return output;
+    // ------------------SUMMARY OF STORIES----------------------
+  } else if (title == 'Sprint log-Summary of Stories') {
+    let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
+    const output = storiesObjs.map(
+      (story) =>
+        `----${story.description} [${story.totalPointsRequired} hr]\nPurpose: ${
+          story.purpose || 'none'
+        }\n Deliverables: ${story.deliverables} \n`
+    );
+    const format_output = `\n${output.join('\n')}`;
+
+    if (storiesObjs.length == 0) {
+      return 'no stories planned';
+    } else {
+      return format_output;
+    }
+    // -----------------------SUMMARY OF TASKS-------------------------
+  } else if (title == 'Sprint log-Summary of Tasks') {
+    // let storiesObjs = populate_sprint_log_summary_of_stories(OS_object);
+    let storiesObjs = TESTstoriesObjs;
+
+    const output = storiesObjs.map((story) => {
+      const tasksWithDescriptions = story.tasks.map(
+        (task) =>
+          `----${task.description}, [${task.pointsRequired} hr], [assigned to ${task.assignee}]`
+      );
+      return `\n${story.description}:\n${tasksWithDescriptions.join('\n')}\n`;
+    });
+    if (storiesObjs.length == 0) {
+      return 'no stories planned';
+    } else {
+      return output;
+    }
+  } else if (title == 'PRC-link to PRC') {
+    let link = OS_object.project.tools.researchCanvas.url;
+    // let link = 'https://docs.google.com/presentation/d/1cjlBycSraDkSG_Fb6oZXfc8Eg5Hwo7RdXg4jJ_rXgL8/edit?usp=sharing'
+    return link;
+  } else if (title == 'PRC-Time Last Edited') {
+    return 'Sep 21, by Yiran Mo';
+  } else if (title == 'PRC-Slides Updated in this sprint') {
+    return 'None';
+  } else if (title == 'Sprint log-Riskiest Risk Specified in Planning View') {
+    return `\nThe riskeist risk that we need to resolve is to tune paramaters (1)The top percentage of categories that related to FL -> Top 100%? 50%? 20%? (2) Top percentage of the categories that are more closely related to FL than PA -> Top 100%?, 50%? 20%?
+    And filter out the sparse data (categories with few reviews) and test the performance of the model.`;
+  } else if (title == 'Sprint log-Canvases Planned to Update Last Week') {
+    return 'Interface Argument, System Argument';
+  } else if (title == 'Sprint log-Individual Points Commited This Sprint') {
+    const output = studentObjs.map(
+      (student) => `${student.name} [${student.totalPointsCommitted} hr]; `
+    );
+    return output;
+  } else if (title == 'Sprint log-Individual Points Spent This Sprint (MidSprint)'){
+    // How to detect midsprint?
+    const output = studentObjs.map(
+      (student) => `${student.name} [${student.totalHoursSpent} hr]; `
+    );
+    console.log(OS_object);
+    return output;
+  } else if (title == 'Git Commits Summary'){
+    const formattedSummaries = gitSummaries.map(summary => `\n- ${summary}`).join('');
+
+
+    return formattedSummaries;
+  // } else if (title == 'Sprint log-Individual Points Commited-All Sprints') {
+  //   // Issue: OS_Object only return current sprint [temp sol: hardcode]
+  //   return `\nGrace: [Sprint 0] 1/8, [Sprint 1] 15.9/16, [Sprint 2] 24.5/16, [Sprint 3] 22/16, [Sprint 4] 16/16, [Sprint 5] 15.5/16
+  //   Linh: [Sprint 0] 7/8, [Sprint 1] 15.9/16, [Sprint 2] 11.5/16, [Sprint 3] 20/16, [Sprint 4] 15/16, [Sprint 5] 15.5/16`;
+  // } else if (title == 'Sprint log-Individual Points Spent-All Sprint') {
+  //   // Issue: OS_Object only return current sprint [temp sol: hardcode]
+  //   let project = OS_object.project;
+  //   const sprint = project.tools;
+  //   return `\nGrace: [Sprint 0] 0/8, [Sprint 1] 13.7/16, [Sprint 2] 6/16, [Sprint 3] 21/16, [Sprint 4] 14/16, [Sprint 5] 0/16
+  //   Linh: [Sprint 0] 0/8, [Sprint 1] 13.7/16, [Sprint 2] 5.5/16, [Sprint 3] 19/16, [Sprint 4] 15/16, [Sprint 5] 0/16`;
+  } else if (title == 'Link to Sprint Log') {
+    return 'https://docs.google.com/spreadsheets/d/1KJRlJ42PVS0Qr7Hp3FTPqpexeFNMGeYBJu41Ehnl1Hg/edit?usp=sharing'  }
+  else {
+    return 'No Match';
+  }
+}
 
