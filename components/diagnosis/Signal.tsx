@@ -14,7 +14,8 @@ const Signal: React.FC<SignalProps> = ({ content, title, project}) => {
   return (
     <div className={styles.header}>
         <h2 className={styles.headerTitle}>Signal Debrief</h2>
-        <p>Your detector for {title} has been triggered for {project}. {content}.</p>
+        <p>What issue would you like to talk about during SIG today?</p>
+        <textarea className="w-full"></textarea>
     </div>
   );
 };

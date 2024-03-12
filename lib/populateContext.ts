@@ -165,17 +165,19 @@ export function getContextValue(title, OS_object) {
     }
   } else if (title == 'PRC-link to PRC') {
     let link = OS_object.project.tools.researchCanvas.url;
-    // let link = 'https://docs.google.com/presentation/d/1cjlBycSraDkSG_Fb6oZXfc8Eg5Hwo7RdXg4jJ_rXgL8/edit?usp=sharing'
     return link;
   } else if (title == 'PRC-Time Last Edited') {
-    return 'Sep 21, by Yiran Mo';
+    return 'Today, by Grace Wang';
   } else if (title == 'PRC-Slides Updated in this sprint') {
-    return 'None';
+    return 'User Study Plan, User Study Takeaways';
   } else if (title == 'Sprint log-Riskiest Risk Specified in Planning View') {
-    return `\nThe riskeist risk that we need to resolve is to tune paramaters (1)The top percentage of categories that related to FL -> Top 100%? 50%? 20%? (2) Top percentage of the categories that are more closely related to FL than PA -> Top 100%?, 50%? 20%?
-    And filter out the sparse data (categories with few reviews) and test the performance of the model.`;
+    return `\nNeed to understand whether our framework + RC Library is helpful for manually detected signals. Specifically we need to know:
+    1. Whether RC model can provide general directions for Qs to ask about for a specific issue
+    2. Can the mentor choose the appropriate root cause model for pre-encoded generic issues from RC library given the signal they have in mind?
+    3. What signals do mentors have in mind? How specific is it compared to the root cause library and machine detected signals?
+    4. How do mentors choose what model to use?`;
   } else if (title == 'Sprint log-Canvases Planned to Update Last Week') {
-    return 'Interface Argument, System Argument';
+    return 'User Study Takeaways';
   } else if (title == 'Sprint log-Individual Points Commited This Sprint') {
     const output = studentObjs.map(
       (student) => `${student.name} [${student.totalPointsCommitted} hr]; `
