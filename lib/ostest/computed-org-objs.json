@@ -1,0 +1,497 @@
+{
+    "project": {
+        "targetType": "project",
+        "name": "Orchestration Scripting Environments",
+        "sig": "Networked Orchestration Technologies",
+        "sigHead": {
+            "name": "Kapil Garg",
+            "role": "PhdStudent",
+            "email": "kapil@northwestern.edu",
+            "slackId": "U033BDY8A1E"
+        },
+        "students": [
+            {
+                "name": "Grace Wang",
+                "role": "NonPhdStudent",
+                "email": "gracewang2025@u.northwestern.edu",
+                "slackId": "U04CQNKQ3TP",
+                "tools": {
+                    "individualProgressMap": {
+                        "url": ""
+                    },
+                    "midQuarterCheckIn": {
+                        "url": ""
+                    },
+                    "eoqSelfAssessment": {
+                        "url": ""
+                    }
+                }
+            },
+            {
+                "name": "Linh Ly",
+                "role": "NonPhdStudent",
+                "email": "temp@temp.com",
+                "slackId": "U05BEN0MH9N",
+                "tools": {
+                    "individualProgressMap": {
+                        "url": ""
+                    },
+                    "midQuarterCheckIn": {
+                        "url": ""
+                    },
+                    "eoqSelfAssessment": {
+                        "url": ""
+                    }
+                }
+            }
+        ],
+        "facultyMentor": {
+            "name": "Haoqi Zhang",
+            "role": "Faculty",
+            "email": "haoqi@northwestern.edu",
+            "slackId": "U03EA817FU3"
+        },
+        "slackChannel": "proj-os",
+        "statusUpdateDate": "2023-11-10T18:00:00.000Z",
+        "tools": {
+            "sprintLog": {
+                "name": "Sprint 3",
+                "points": [
+                    {
+                        "name": "Grace",
+                        "pointsAvailable": 16,
+                        "pointsCommitted": {
+                            "total": 12,
+                            "design": 0.3,
+                            "technology": 0.2,
+                            "research": 0.5
+                        },
+                        "hoursSpent": {
+                            "total": 0,
+                            "design": 0,
+                            "technology": 0,
+                            "research": 0
+                        }
+                    },
+                    {
+                        "name": "Linh",
+                        "pointsAvailable": 16,
+                        "pointsCommitted": {
+                            "total": 15,
+                            "design": 0.3,
+                            "technology": 0.2,
+                            "research": 0.5
+                        },
+                        "hoursSpent": {
+                            "total": 6,
+                            "design": 0,
+                            "technology": 0,
+                            "research": 0
+                        }
+                    }
+                ],
+                "stories": [
+                    {
+                        "description": "Document Process and Progress",
+                        "purpose": "Capture and reflect on project progress",
+                        "deliverables": "Sprint video; updated design log and GIT",
+                        "tasks": [
+                            {
+                                "description": "Update canvases",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 0.5,
+                                "taskCategory": "research",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": "https://www.youtube.com/channel/UCr7qE3kKzvhDon3h4v1Ttxw"
+                            },
+                            {
+                                "description": "Update design log",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 0.3,
+                                "taskCategory": "design",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": "https://drive.google.com/open?id=0Bwl9EDkZC3TKWFlyVVRVSzRIMlU"
+                            },
+                            {
+                                "description": "Commit to GIT and comment code",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 0.2,
+                                "taskCategory": "technology",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": "https://github.com/NUDelta"
+                            }
+                        ],
+                        "totalPointsRequired": 1,
+                        "totalPointsSpent": 0
+                    },
+                    {
+                        "description": "URG Proposal",
+                        "purpose": "Enter the purpose of this story here.",
+                        "deliverables": "Enter the deliverable for this story here.",
+                        "tasks": [
+                            {
+                                "description": "Urg Initial Draft",
+                                "expectedRoadblocks": "Urg Draft",
+                                "pointsAllocated": 3,
+                                "taskCategory": "",
+                                "assignee": "Linh",
+                                "taskStatus": null,
+                                "pointsSpent": 6,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "Meet with Advisors to review URG",
+                                "expectedRoadblocks": "Edited URG",
+                                "pointsAllocated": 1.5,
+                                "taskCategory": "",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "Final URG Draft",
+                                "expectedRoadblocks": "URG final",
+                                "pointsAllocated": 3,
+                                "taskCategory": "",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            }
+                        ],
+                        "totalPointsRequired": 7.5,
+                        "totalPointsSpent": 6
+                    },
+                    {
+                        "description": "User Study with built prototype",
+                        "purpose": "Enter the purpose of this story here.",
+                        "deliverables": "Enter the deliverable for this story here.",
+                        "tasks": [
+                            {
+                                "description": "Test prototype to see how built protoype performs and how it doesn't work",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 0,
+                                "taskCategory": "",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            }
+                        ],
+                        "totalPointsRequired": 0,
+                        "totalPointsSpent": 0
+                    },
+                    {
+                        "description": "Implement new interface (cont. from last week)",
+                        "purpose": "Enter the purpose of this story here.",
+                        "deliverables": "Enter the deliverable for this story here.",
+                        "tasks": [
+                            {
+                                "description": "integrate canvas into react",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 1.5,
+                                "taskCategory": "",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "connect to OS - get organizational object",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 2,
+                                "taskCategory": "",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "save script (detection) to OS",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 1,
+                                "taskCategory": "",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "get alert from OS when triggers",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 1,
+                                "taskCategory": "",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "send automatic message to mentor when triggers (low priority)",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 1,
+                                "taskCategory": "",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "GITHUB API setup",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 0,
+                                "taskCategory": "",
+                                "assignee": "Linh",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "Write OS object for context pieces",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 0,
+                                "taskCategory": "",
+                                "assignee": "grace",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "URG draft for Megan b4 Friday",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 0,
+                                "taskCategory": "",
+                                "assignee": "Linh",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "Code onboarding",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 0,
+                                "taskCategory": "",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "assuming we have data points, make context space",
+                                "expectedRoadblocks": "Saturday",
+                                "pointsAllocated": 0,
+                                "taskCategory": "",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "Studio API route meeting",
+                                "expectedRoadblocks": "Sunday",
+                                "pointsAllocated": 0,
+                                "taskCategory": "",
+                                "assignee": "everyone",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "comment code",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 0,
+                                "taskCategory": "",
+                                "assignee": "Linh",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            },
+                            {
+                                "description": "add save button that saves every edits, save desc/context etc to database, modify data model by adding hypothesis array (first hunch first, updated are appended), save hypothesis to db when clicked save",
+                                "expectedRoadblocks": "",
+                                "pointsAllocated": 0,
+                                "taskCategory": "",
+                                "assignee": "LInh",
+                                "taskStatus": null,
+                                "pointsSpent": 0,
+                                "helpfulLinks": null
+                            }
+                        ],
+                        "totalPointsRequired": 6.5,
+                        "totalPointsSpent": 0
+                    }
+                ],
+                "totalPoints": {
+                    "pointAvailable": 32,
+                    "pointsCommitted": {
+                        "total": 27,
+                        "design": 0.6,
+                        "technology": 0.4,
+                        "research": 1
+                    },
+                    "hoursSpent": {
+                        "total": 6,
+                        "design": 0,
+                        "technology": 0,
+                        "research": 0
+                    }
+                },
+                "url": "https://docs.google.com/spreadsheets/d/1c8UWlf4H7Wh2nO5XaP7KGhVfdE6wFvMpnta6LLaAyHU/edit#gid=151561810"
+            },
+            "compass": {
+                "url": ""
+            },
+            "practicalResearchCanvas": {
+                "url": "https://docs.google.com/presentation/d/1cjlBycSraDkSG_Fb6oZXfc8Eg5Hwo7RdXg4jJ_rXgL8/edit?usp=sharing"
+            },
+            "researchResearchCanvas": {},
+            "eoqChecklist": {
+                "url": ""
+            }
+        }
+    },
+    "processes": [
+        {
+            "targetType": "process",
+            "name": "Sprint 0",
+            "kind": "Sprint",
+            "startDay": "2023-09-18T05:00:00.000Z",
+            "endDay": "2023-09-25T04:59:59.000Z"
+        },
+        {
+            "targetType": "process",
+            "name": "Sprint 1",
+            "kind": "Sprint",
+            "startDay": "2023-09-25T05:00:00.000Z",
+            "endDay": "2023-10-09T04:59:59.000Z"
+        },
+        {
+            "targetType": "process",
+            "name": "Sprint 2",
+            "kind": "Sprint",
+            "startDay": "2023-10-09T05:00:00.000Z",
+            "endDay": "2023-10-23T04:59:59.000Z"
+        },
+        {
+            "targetType": "process",
+            "name": "Sprint 3",
+            "kind": "Sprint",
+            "startDay": "2023-10-23T05:00:00.000Z",
+            "endDay": "2023-11-06T05:59:59.000Z"
+        },
+        {
+            "targetType": "process",
+            "name": "Sprint 4",
+            "kind": "Sprint",
+            "startDay": "2023-11-06T06:00:00.000Z",
+            "endDay": "2023-11-20T05:59:59.000Z"
+        },
+        {
+            "targetType": "process",
+            "name": "Sprint 5",
+            "kind": "Sprint",
+            "startDay": "2023-11-20T06:00:00.000Z",
+            "endDay": "2023-12-04T05:59:59.000Z"
+        }
+    ],
+    "socialStructures": [
+        {
+            "targetType": "social structure",
+            "name": "Networked Orchestration Technologies",
+            "description": "The Networked Orchestration Technologies (NOT) SIG develops novel interactions and technologies that will help learners and workers develop effective strategies for orchestrating work in networked communities and organizations.",
+            "kind": "SigStructure",
+            "members": [
+                {
+                    "name": "Grace Wang",
+                    "role": "NonPhdStudent",
+                    "email": "gracewang2025@u.northwestern.edu",
+                    "slackId": "U04CQNKQ3TP"
+                },
+                {
+                    "name": "Linh Ly",
+                    "role": "NonPhdStudent",
+                    "email": "temp@temp.com",
+                    "slackId": "U05BEN0MH9N"
+                },
+                {
+                    "name": "Ella Jones",
+                    "role": "NonPhdStudent",
+                    "email": "temp@temp.com",
+                    "slackId": "U05BEN0UJCQ"
+                },
+                {
+                    "name": "Jonah Jodlowski",
+                    "role": "NonPhdStudent",
+                    "email": "temp@temp.com",
+                    "slackId": "U05B3L1985P"
+                }
+            ],
+            "abbreviation": "NOT",
+            "slackChannel": "sig-not",
+            "sigHead": {
+                "name": "Kapil Garg",
+                "role": "PhdStudent",
+                "email": "kapil@northwestern.edu",
+                "slackId": "U033BDY8A1E"
+            }
+        },
+        {
+            "targetType": "social structure",
+            "name": "Haoqi Zhang - Linh Ly onboarding pairing",
+            "description": "Mentor-Mentee pairing for Haoqi Zhang and Linh Ly",
+            "kind": "OnboardingPairing",
+            "members": [],
+            "mentor": {
+                "name": "Haoqi Zhang",
+                "role": "Faculty",
+                "email": "haoqi@northwestern.edu",
+                "slackId": "U03EA817FU3"
+            },
+            "mentee": {
+                "name": "Linh Ly",
+                "role": "NonPhdStudent",
+                "email": "temp@temp.com",
+                "slackId": "U05BEN0MH9N"
+            }
+        }
+    ],
+    "venues": [
+        {
+            "targetType": "venue",
+            "name": "Networked Orchestration Technologies SIG Meeting",
+            "description": "Weekly SIG meeting for NOT SIG",
+            "kind": "SigMeeting",
+            "dayOfWeek": "Tuesday",
+            "startTime": "16:30:00",
+            "endTime": "17:30:00",
+            "timezone": "America/Chicago"
+        },
+        {
+            "targetType": "venue",
+            "name": "Networked Orchestration Technologies Office Hours for Scripting Envs",
+            "description": "Weekly office hours for NOT SIG's Orch Scripting Env project",
+            "kind": "OfficeHours",
+            "dayOfWeek": "Thursday",
+            "startTime": "17:00:00",
+            "endTime": "17:30:00",
+            "timezone": "America/Chicago"
+        },
+        {
+            "targetType": "venue",
+            "name": "Studio Meeting",
+            "description": "Weekly studio meeting with all members of the community.",
+            "kind": "StudioMeeting",
+            "dayOfWeek": "Friday",
+            "startTime": "12:00:00",
+            "endTime": "15:00:00",
+            "timezone": "America/Chicago"
+        }
+    ]
+}
